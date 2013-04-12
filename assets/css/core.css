@@ -1,6 +1,6 @@
-body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body,ol,ul,li,h1,h2,h3,h4,h5,h6,p,th,td,dl,dt,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
 html{font-size:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
-body{font-family: "宋体", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:14px; line-height:20px; color:#333; background:#FFF;}
+body{font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti; font-size:14px; color:#333; background:#FFF;}
 a:focus{outline:thin dotted;}
 a:active,a:hover{outline:0;}
 h1{font-size:2em;margin:0.67em 0;}
@@ -44,7 +44,7 @@ table{border-collapse:collapse;border-spacing:0;}
 .description{color:#999;}
 .small{font-size:12px;}
 a{color:#454545;text-decoration:none;}
-.belong{color:#3FA7CB; font-size:12px;}
+.belong{color:#3fa7cb; font-size:12px;}
 .more a{color:#999;font-size:12px;}
 a:hover{color:#3FA7CC;text-decoration:underline;}
 ul,ol{list-style:none;}
@@ -54,17 +54,51 @@ ul,ol{list-style:none;}
 .main{width:720px;}
 .sidebar{width:260px;}
 
+.header-wrap{height:50px; background:#3fa7cb;margin-bottom:20px;}
+.header .logo{display:block; height:50px; line-height:50px;font-size:26px;color:#FFF; letter-spacing:3px; font-family:"微软雅黑","黑体"; text-decoration:none; margin-right:30px;_display:inline;}
+.header .main-menu{letter-spacing: -4px; font-size:0;}
+.header .main-menu li{display:inline-block; height:50px; line-height:50px;font-size:16px; letter-spacing: 0;vertical-align: middle;}
+.header .main-menu li a{padding:0 20px; color:#FFF;display:block;}
+.header .main-menu li a:hover{background:#4eb2d4; text-decoration:none;}
+.header .sub-menu{letter-spacing: -4px; font-size:0;}
+.header .sub-menu li{display:inline-block;height:50px; line-height:50px; font-size:12px; letter-spacing:0; vertical-align: middle;}
+.header .sub-menu li a{padding:0 15px; color:#c0eeff;}
+.header .sub-menu li a:hover{color:#e2f7ff;}
+.header .sub-menu li.sep span{display:block; height:12px; line-height:12px; font-size:0; width:0;overflow:hidden; margin-top:19px; border-right:1px solid #52b8da;}
+
 /*mod*/
-.mod-main{border:1px solid #E1E3E6; background:#FFF;-moz-box-shadow:#E1E3E6 0 1px 2px;-webkit-box-shadow:#E1E3E6 0 1px 2px;box-shadow:#E1E3E6 0 1px 2px;}
+.mod-main{border:1px solid #E1E3E6; background:#FFF;margin-bottom:10px;-moz-box-shadow:#E1E3E6 0 1px 2px;-webkit-box-shadow:#E1E3E6 0 1px 2px;box-shadow:#E1E3E6 0 1px 2px;}
 .mod-main .mod-hd{height:38px; line-height:38px; border-bottom:1px solid #E1E3E6; padding:0 20px; background:#fcfcfc; overflow:hidden; zoom:1;}
 .mod-main .mod-bd{padding:20px;}
 .mod-main .mod-hd .entrance{padding-left:26px; font-size:16px; color:#333; background:url(../img/icon-brand.png) no-repeat left center;}
 .mod-main .mod-hd a.entrance{text-decoration:none;}
 .mod-main .mod-hd a.entrance:hover{color:#3FA7CC;}
 
-.mod-side{border:1px solid #E1E3E6; padding:15px; background:#FFF;-moz-box-shadow:#E1E3E6 0 1px 2px;-webkit-box-shadow:#E1E3E6 0 1px 2px;box-shadow:#E1E3E6 0 1px 2px;}
+.mod-side{border:1px solid #E1E3E6; padding:15px; background:#FFF; margin-bottom:10px; -moz-box-shadow:#E1E3E6 0 1px 2px;-webkit-box-shadow:#E1E3E6 0 1px 2px;box-shadow:#E1E3E6 0 1px 2px;}
 .mod-side .mod-hd{height:28px;border-bottom:1px solid #E1E3E6;background:#fcfcfc; overflow:hidden; zoom:1;}
-.mod-side .mod-bd{}
+.mod-side .mod-bd{padding-top:10px;}
 .mod-side .mod-hd .entrance{font-size:16px; color:#333; height:22px; padding:0 5px 5px; border-bottom:1px solid #3ea7cb; position:relative; margin-bottom:-1px;}
 .mod-side .mod-hd a.entrance{text-decoration:none;}
 .mod-side .mod-hd a.entrance:hover{color:#3FA7CC;}
+
+.mod-main-list{letter-spacing:-4px; font-size:0; margin-right:-30px; overflow:hidden;}
+.mod-main-list li{display:inline-block; height:26px; line-height:26px; width:310px; padding-left:15px; margin-right:28px; font-size:14px; background:url(../img/arrow-left.png) no-repeat center left; letter-spacing:0; overflow:hidden; zoom:1;}
+.mod-main-list li .title{float:left;}
+.mod-main-list li .belong{float:right;}
+
+.mod-side-list li{height:26px; line-height:26px; border-bottom:1px dotted #ccc;}
+
+.slide-show{width:300px; height:300px; margin-bottom:10px; line-height:300px; text-align:center; color:#CCC; font-size:64px;}
+.commend{width:400px; height:300px;}
+.commend ul li{height:22px; line-height:22px; overflow:hidden; zoom:1;}
+.commend ul li .title{float:left;}
+.commend ul li .belong{float:right;}
+.user-info{height:126px; margin-bottom:10px;}
+.communication{height:100px;}
+.user-info .mod-bd,
+.communication .mod-bd{padding-top:0;}
+
+.sites ul li{display:inline; margin-right:10px;}
+
+.footer{padding:20px 0; text-align:center; line-height:1.6;}
+.footer .links span{color:#ccc;}
