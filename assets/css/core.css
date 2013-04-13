@@ -84,6 +84,8 @@ ul,ol{list-style:none;}
 .mod-main .mod-hd .entrance{padding-left:26px; font-size:16px; color:#333; background:url(../img/icon-brand.png) no-repeat left center;}
 .mod-main .mod-hd a.entrance{text-decoration:none;}
 .mod-main .mod-hd a.entrance:hover{color:#3FA7CC;}
+.mod-main .mod-hd .types{margin-right:10px;}
+.mod-main .mod-hd .types a{color:#999; margin-left:10px;}
 
 .mod-side{border:1px solid #E1E3E6; padding:15px; background:#FFF; margin-bottom:10px; -moz-box-shadow:#E1E3E6 0 1px 2px;-webkit-box-shadow:#E1E3E6 0 1px 2px;box-shadow:#E1E3E6 0 1px 2px;}
 .mod-side .mod-hd{height:28px;border-bottom:1px solid #E1E3E6; overflow:hidden; zoom:1;}
@@ -96,6 +98,7 @@ ul,ol{list-style:none;}
 .mod-main-list li{display:inline-block; height:26px; line-height:26px; width:310px; padding-left:15px; margin-right:28px; font-size:14px; background:url(../img/arrow-left.png) no-repeat left center ; letter-spacing:0; overflow:hidden; _display:inline; zoom:1;}
 .mod-main-list li .title{float:left;}
 .mod-main-list li .belong{float:right;}
+.mod-main-wide .mod-main-list li{width:280px;}
 
 .mod-side-list li{height:26px; line-height:26px; border-bottom:1px dotted #ccc;}
 
@@ -146,6 +149,20 @@ ul,ol{list-style:none;}
 .big-catlog .tutor .topic-list p{margin-bottom:5px;}
 .big-catlog .tutor .topic-list a img{display:inline-block;}
 .big-catlog .tutor ul li{height:26px; line-height:26px; border-bottom:1px dotted #CCC;}
+.big-catlog .types{margin-right:10px;}
+.big-catlog .types a{color:#999; margin-left:10px;}
+.big-catlog .hot-list{width:200px;padding:10px; border-right:1px solid #E1E3E6; height:300px;}
+.big-catlog .hot-list h4{border-bottom:1px solid #CCC; line-height:2.0; color:#3FA7CB; margin-bottom:5px;}
+.big-catlog .hot-list ul li{height:26px; line-height:26px; border-bottom:1px dotted #CCC;}
+.big-catlog .original-list{padding:10px; border-left:1px solid #E1E3E6; height:300px;}
+.big-catlog .original-list h4{border-bottom:1px solid #CCC; line-height:2.0; color:#3FA7CB; margin-bottom:10px;}
+.big-catlog .original-list ul li{height:26px; line-height:26px; border-bottom:1px dotted #CCC;}
+
+.hot-topic{padding:10px; height:250px;}
+.hot-topic dl{overflow:hidden; zoom:1; line-height:2.0; border-bottom:1px dotted #CCC;}
+.hot-topic dl dt{float:left; width:36px; color:#3FA7CC;}
+.hot-topic dl dd{margin-left:36px;}
+.hot-topic dl dd a{margin-right:5px;}
 
 .sites ul li{display:inline; margin-right:10px;}
 
