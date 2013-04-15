@@ -202,13 +202,28 @@ ul,ol{list-style:none;}
 .skill .mod-bd p{text-indent:2em;}
 
 .mod-article-content h1{margin-bottom:20px; text-align:center; color:#3FA7CC;}
-.mod-article-content .article-info{text-align:center; color:#CCC; padding-bottom:10px; margin-bottom:10px; border-bottom:1px dashed #CCC;}
-.mod-article-content .article-info a{margin-left:10px; color:#3FA7CC; text-decoration:underline;}
+.mod-article-content .article-info{text-align:center; color:#999; padding-bottom:10px; margin-bottom:10px; border-bottom:1px dashed #CCC;}
+.mod-article-content .article-info span{margin-right:5px;}
+.mod-article-content .article-tags a{color:#3FA7CC; margin-right:5px;}
 .mod-article-content .article-ads{text-align:center; margin-bottom:10px;}
 .mod-article-content .article-content{line-height:1.8;}
 .mod-article-content .article-content p{margin-bottom:10px;}
+.mod-article-content .article-actions{padding:40px 0; text-align:center;}
+.mod-article-content .article-actions .like,
+.mod-article-content .article-actions .collect{display:inline-block; vertical-align:middle; margin:0 5px; height:28px;line-height:28px; text-align:left;background:url(../img/widget_buttons_skyBlue.png) no-repeat; *display:inline; zoom:1;}
+.mod-article-content .article-actions .like{width:89px; background-position:0 0;}
+.mod-article-content .article-actions .like:hover{background-position:-89px 0;}
+.mod-article-content .article-actions .like span{display:inline-block;height:28px;margin:0 3px; width:40px; text-align:center;}
+.mod-article-content .article-actions .collect{width:60px; background-position:-267px 0px;}
+.mod-article-content .article-actions .collect:hover{background-position:-328px 0;}
+.mod-article-content .article-share{margin-bottom:10px; height:44px; padding:20px 0; border-bottom:1px dashed #EFEFEF;border-top:1px dashed #EFEFEF;}
+.mod-article-content .article-related{margin-bottom:10px;}
+.mod-article-content .article-related h4{margin-bottom:5px; color:#3FA7CC;}
+.mod-article-content .article-related li{width:320px; display:inline-block; *display:inlne; zoom:1; line-height:2.0;padding-left:8px; background:url(../img/dot-gray.gif) no-repeat left center;}
+.mod-article-content .article-comment{}
 
 .sites ul li{display:inline; margin-right:10px;}
 
 .footer{padding:20px 0; text-align:center; line-height:1.6; margin-top:30px;}
 .footer .links span{color:#ccc;}
+.footer .declare{font-size:12px; color:#999;}
