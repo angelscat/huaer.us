@@ -32,6 +32,7 @@ input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
 textarea{overflow:auto;vertical-align:top;}
 table{border-collapse:collapse;border-spacing:0;}
+label{cursor:pointer; outline:none;}
 
 .clearfix {*zoom: 1;}.clearfix:before,.clearfix:after {display: table;line-height: 0;content: "";}.clearfix:after {clear: both;}
 .pull-left{float:left;}
@@ -58,11 +59,19 @@ ul,ol{list-style:none;}
 .ipt-text{border:1px solid #CCC; border-bottom:1px solid #e2e2e2;border-right:1px solid #e2e2e2;background-color:white;height:20px; line-height:20px; padding:9px 0 7px 8px;padding:11px 0 5px 8px\9; vertical-align:middle;overflow:hidden;box-shadow:1px 2px 3px #F0F0F0 inset;-moz-box-shadow:1px 2px 3px #F0F0F0 inset;-webkit-box-shadow:1px 2px 3px #F0F0F0 inset;}
 .ipt-text:hover,
 .ipt-text:focus{border-color:#ACACAC;border-right-color:#CECECE;border-bottom-color:#CECECE;outline:none;}
+.ipt-text-disabled{background:#F8F8F8;}
 .ipt-text-small{padding:4px 0 2px 3px;padding:5px 0 1px 3px\9;}
+.checkbox label,.checkbox input{vertical-align:middle;}
+.checkbox input{_top:-1px; _position:relative;}
+.field{letter-spacing:-4px; font-size:0;}
 .field .label,
 .field .ipt,
-.field .tips{display:inline-block; vertical-align: top;}
+.field .tips{display:inline-block; vertical-align: top; *display:inline; zoom:1; font-size:14px; letter-spacing:0;}
 .field .label{padding-top:10px;}
+.field .label .required{color:#F00;}
+.field .ipt{margin:0 5px;}
+.field .ipt a{color:#3FA7CC; font-size:12px;}
+.field .ipt a.button{font-size:14px;}
 .field .tips{padding-top:12px;}
 .field-small .label{padding-top:5px;}
 .field-small .tips{padding-top:7px;}
@@ -77,188 +86,50 @@ ul,ol{list-style:none;}
 .search-box .search-btn:active{background-position: right -75px;}
 
 /*buttons*/
-a.button {
-    cursor: pointer;
-    display: inline-block;
-    white-space: nowrap;
-    vertical-align: middle
-}
-a.button .button-text {
-    background: transparent url(../img/buttons.png) top left repeat-x;
-    _background: transparent url(../img/buttons.gif) top left repeat-x;
-    display: inline-block;
-    white-space: nowrap;
-    padding-left: 24px;
-    padding-right: 24px;
-    float: left
-}
-a.button .button-left {
-    background: transparent url(../img/buttons.png) left top no-repeat;
-    _background: transparent url(../img/buttons.gif) left top no-repeat;
-    width: 6px;
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    float: left
-}
-a.button .button-right {
-    background: transparent url(../img/buttons.png) top right no-repeat;
-    _background: transparent url(../img/buttons.gif) top right no-repeat;
-    width: 6px;
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    float: left
-}
-a:hover {
-    _border: none
-}
-a.button-follow .button-text, a.button-follow .button-left, a.button-follow .button-right {
-    height: 28px;
-    line-height: 28px;
-    *line-height: 30px;
-    _line-height: 28px;
-    _overflow: hidden;
-    color: #666
-}
-a.button-follow .button-left {
-    width: 24px
-}
-a.button-follow .button-text {
-    background-position: 0 -156px;
-    padding-left: 5px;
-    padding-right: 10px
-}
-a.button-follow:hover .button-left {
-    background-position: 0 -29px
-}
-a.button-follow:hover .button-right {
-    background-position: 100% -29px
-}
-a.button-follow:hover .button-text {
-    background-position: 0 -185px;
-    color: #3FA7CC
-}
-a.button-save .button-text, a.button-save .button-left, a.button-save .button-right {
-    height: 40px;
-    line-height: 37px;
-    *line-height: 40px;
-    color: #FFF
-}
-a.button-save .button-left {
-    background-position: 0 -58px
-}
-a.button-save .button-right {
-    background-position: -7px -58px
-}
-a.button-save .button-text {
-    background-position: 0 -214px
-}
-a.button-save:hover .button-left {
-    background-position: 0 -99px
-}
-a.button-save:hover .button-right {
-    background-position: -7px -99px
-}
-a.button-save:hover .button-text {
-    background-position: 0 -296px
-}
-a.button-cancel .button-text, a.button-cancel .button-left, a.button-cancel .button-right {
-    height: 40px;
-    line-height: 38px;
-    *line-height: 40px;
-    color: #666
-}
-a.button-locked .button-left, a.button-locked:hover .button-left, a.button-cancel .button-left {
-    background-position: -14px -58px
-}
-a.button-locked .button-right, a.button-locked:hover .button-right, a.button-cancel .button-right {
-    background-position: -21px -58px
-}
-a.button-locked .button-text, a.button-locked:hover .button-text, a.button-cancel .button-text {
-    background-position: 0 -255px
-}
-a.button-locked .button-text {
-    color: #c8c7c7
-}
-a.button-cancel:hover .button-left {
-    background-position: -14px -99px
-}
-a.button-cancel:hover .button-right {
-    background-position: -21px -99px
-}
-a.button-cancel:hover .button-text {
-    background-position: 0 -337px;
-    color: #454545
-}
-a.button-save-little-big .button-text, a.button-save-little-big .button-left, a.button-save-little-big .button-right {
-    height: 43px;
-    line-height: 43px;
-    color: #FFF
-}
-a.button-save-little-big .button-left {
-    background-position: 0 -532px
-}
-a.button-save-little-big .button-right {
-    background-position: -28px -532px
-}
-a.button-save-little-big .button-text {
-    background-position: 0 -488px
-}
-a.button-save-little-big:hover .button-left {
-    background-position: 0 -624px
-}
-a.button-save-little-big:hover .button-right {
-    background-position: -28px -624px
-}
-a.button-save-little-big:hover .button-text {
-    background-position: 0 -578px
-}
-a.button-save-big .button-text, a.button-save-big .button-left, a.button-save-big .button-right {
-    height: 48px;
-    line-height: 48px;
-    color: #FFF
-}
-a.button-save-big .button-left {
-    background-position: -28px -58px
-}
-a.button-save-big .button-right {
-    background-position: -28px -107px
-}
-a.button-save-big .button-text {
-    background-position: 0 -378px
-}
-a.button-upload .button-text, a.button-upload .button-left, a.button-upload .button-right {
-    height: 28px;
-    line-height: 28px;
-    *line-height: 30px;
-    _line-height: 28px;
-    color: #999
-}
-a.button-upload .button-left {
-    width: 26px;
-    background-position: 0 -428px
-}
-a.button-upload .button-text {
-    background-position: 0 -156px;
-    padding-left: 5px;
-    padding-right: 10px
-}
-a.button-upload:hover .button-left {
-    background-position: 0 -457px
-}
-a.button-upload:hover .button-right {
-    background-position: 100% -29px
-}
-a.button-upload:hover .button-text {
-    background-position: 0 -185px;
-    color: #3FA7CC
-}
-a.button-cmt .button-text {
-    padding-left: 15px;
-    padding-right: 15px
-}
-
+a.button {cursor: pointer;display: inline-block;white-space: nowrap;vertical-align: middle}
+a.button .button-text {background: transparent url(../img/buttons.png) top left repeat-x;_background: transparent url(../img/buttons.gif) top left repeat-x;display: inline-block;white-space: nowrap;padding-left: 24px;padding-right: 24px;float: left}
+a.button .button-left {background: transparent url(../img/buttons.png) left top no-repeat;_background: transparent url(../img/buttons.gif) left top no-repeat;width: 6px;overflow: hidden;display: inline-block;white-space: nowrap;float: left}
+a.button .button-right {background: transparent url(../img/buttons.png) top right no-repeat;_background: transparent url(../img/buttons.gif) top right no-repeat;width: 6px;overflow: hidden;display: inline-block;white-space: nowrap;float: left}
+a:hover {_border: none}
+a.button-follow .button-text, a.button-follow .button-left, a.button-follow .button-right {height: 28px;line-height: 28px;*line-height: 30px;_line-height: 28px;_overflow: hidden;color: #666}
+a.button-follow .button-left {width: 24px}
+a.button-follow .button-text {background-position: 0 -156px;padding-left: 5px;padding-right: 10px}
+a.button-follow:hover .button-left {background-position: 0 -29px}
+a.button-follow:hover .button-right {background-position: 100% -29px}
+a.button-follow:hover .button-text {background-position: 0 -185px;color: #3FA7CC}
+a.button-save .button-text, a.button-save .button-left, a.button-save .button-right {height: 40px;line-height: 37px;*line-height: 40px;color: #FFF}
+a.button-save .button-left {background-position: 0 -58px}
+a.button-save .button-right {background-position: -7px -58px}
+a.button-save .button-text {background-position: 0 -214px}
+a.button-save:hover .button-left {background-position: 0 -99px}
+a.button-save:hover .button-right {background-position: -7px -99px}
+a.button-save:hover .button-text {background-position: 0 -296px}
+a.button-cancel .button-text, a.button-cancel .button-left, a.button-cancel .button-right {height: 40px;line-height: 38px;*line-height: 40px;color: #666}
+a.button-locked .button-left, a.button-locked:hover .button-left, a.button-cancel .button-left {background-position: -14px -58px}
+a.button-locked .button-right, a.button-locked:hover .button-right, a.button-cancel .button-right {background-position: -21px -58px}
+a.button-locked .button-text, a.button-locked:hover .button-text, a.button-cancel .button-text {background-position: 0 -255px}
+a.button-locked .button-text {color: #c8c7c7}
+a.button-cancel:hover .button-left {background-position: -14px -99px}
+a.button-cancel:hover .button-right {background-position: -21px -99px}
+a.button-cancel:hover .button-text {background-position: 0 -337px;color: #454545}
+a.button-save-little-big .button-text, a.button-save-little-big .button-left, a.button-save-little-big .button-right {height: 43px;line-height: 43px;color: #FFF}
+a.button-save-little-big .button-left {background-position: 0 -532px}
+a.button-save-little-big .button-right {background-position: -28px -532px}
+a.button-save-little-big .button-text {background-position: 0 -488px}
+a.button-save-little-big:hover .button-left {background-position: 0 -624px}
+a.button-save-little-big:hover .button-right {background-position: -28px -624px}
+a.button-save-little-big:hover .button-text {background-position: 0 -578px}
+a.button-save-big .button-text, a.button-save-big .button-left, a.button-save-big .button-right {height: 48px;line-height: 48px;color: #FFF}
+a.button-save-big .button-left {background-position: -28px -58px}
+a.button-save-big .button-right {background-position: -28px -107px}
+a.button-save-big .button-text {background-position: 0 -378px}
+a.button-upload .button-text, a.button-upload .button-left, a.button-upload .button-right {height: 28px;line-height: 28px;*line-height: 30px;_line-height: 28px;color: #999}
+a.button-upload .button-left {width: 26px;background-position: 0 -428px}
+a.button-upload .button-text {background-position: 0 -156px;padding-left: 5px;padding-right: 10px}
+a.button-upload:hover .button-left {background-position: 0 -457px}
+a.button-upload:hover .button-right {background-position: 100% -29px}
+a.button-upload:hover .button-text {background-position: 0 -185px;color: #3FA7CC}
+a.button-cmt .button-text {padding-left: 15px;padding-right: 15px}
 
 /*layout*/
 .layout{width:1000px; margin:0 auto;*zoom:1;}
@@ -277,6 +148,12 @@ a.button-cmt .button-text {
 .header .sub-menu li a{padding:0 15px; color:#c0eeff;}
 .header .sub-menu li a:hover{color:#e2f7ff;}
 .header .sub-menu li.sep span{display:block; height:12px; line-height:12px; font-size:0; width:0;overflow:hidden; margin-top:19px; border-right:1px solid #52b8da;}
+
+.sites ul li{display:inline; margin-right:10px;}
+
+.footer{padding:20px 0; text-align:center; line-height:1.6; margin-top:30px;}
+.footer .links span{color:#ccc;}
+.footer .declare{font-size:12px; color:#999;}
 
 /*mod*/
 .mod-main{border:1px solid #E1E3E6; background:#FFF;margin-bottom:10px;-moz-box-shadow:#E1E3E6 0 1px 2px;-webkit-box-shadow:#E1E3E6 0 1px 2px;box-shadow:#E1E3E6 0 1px 2px;}
@@ -401,6 +278,7 @@ a.button-cmt .button-text {
 .skill .mod-bd{line-height:1.8;}
 .skill .mod-bd p{text-indent:2em;}
 
+/*article content*/
 .mod-article-content h1{margin-bottom:20px; text-align:center; color:#3FA7CC;}
 .mod-article-content .article-info{text-align:center; color:#999; padding-bottom:10px; margin-bottom:10px; border-bottom:1px dashed #CCC; font-size:12px;}
 .mod-article-content .article-info span{margin-right:5px;}
@@ -443,8 +321,19 @@ a.button-cmt .button-text {
 .article-comment .comment-item .comment-content blockquote h6{font-size:12px; color:#999; margin-bottom:5px;}
 .article-comment .comment-page{text-align:right; margin-top:10px;}
 
-.sites ul li{display:inline; margin-right:10px;}
 
-.footer{padding:20px 0; text-align:center; line-height:1.6; margin-top:30px;}
-.footer .links span{color:#ccc;}
-.footer .declare{font-size:12px; color:#999;}
+/*account pages*/
+.account-mod{border:1px solid #E1E3E6;}
+.account-mod .account-form{width:700px;}/*border-right:1px solid #E1E3E6;*/
+.account-mod .connect-web{width:290px;}
+.account-mod .mod-hd{padding:20px; border-bottom:1px solid #E1E3E6; background:#fcfcfc;}
+.account-mod .mod-hd h2{font-size:30px; font-weight:normal;}
+.account-mod .mod-hd h2 .subtext{font-size:14px;}
+.account-mod .mod-hd h2 a{color:#3FA7CC;}
+.account-mod .account-form{padding:30px 0;}
+.account-form .field{margin-bottom:20px;}
+.account-form .field .label{width:120px; text-align:right;}
+.account-form .field .ipt-text{width:200px;}
+.account-form .verify-code .ipt-text{width:100px;}
+.account-form .verify-code img{vertical-align:middle;}
+.account-form .agreement{margin:-10px 0 0 0;}
