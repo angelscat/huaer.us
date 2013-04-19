@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="field field-vertical">
                                     <div class="label">
-                                        <span class="required">*</span><label>正文</label>
+                                        <span class="required">*</span><label>正文</label><span class="sub-text">(增强个人写作能力，请勿抄袭)</span>
                                     </div>
                                     <div class="ipt">
                                         <textarea class="ipt-text"></textarea>
@@ -94,14 +94,37 @@
                             </div>
                             <div class="field field-vertical">
                                 <div class="label">
-                                    <span class="required">*</span><label>文章分类</label>
+                                    <span class="required">*</span><label>文章分类</label><span class="sub-text">(不能选带颜色的分类)</span>
                                 </div>
                                 <div class="ipt">
-                                    <select class="ipt-text ipt-select">
+                                    <select class="ipt-text ipt-select hide">
                                         <option>小学一年级etc</option>
                                         <option>小学一年级etc</option>
                                         <option>小学一年级etc</option>
                                     </select>
+                                    <div class="selector">
+                                        <a href="javascript:;" hidefocus="true"><span class="value">小学1年级</span><span class="handle"></span></a>
+                                        <ul class="values custom-scroll-bar">
+                                            <li data-value="1">小学1年级</li>
+                                            <li data-value="2">小学1年级</li>
+                                            <li data-value="3">小学1年级</li>
+                                            <li data-value="4">小学1年级</li>
+                                            <li data-value="5">小学1年级</li>
+                                            <li data-value="6">小学1年级</li>
+                                            <li data-value="3">小学1年级</li>
+                                            <li data-value="4">小学1年级</li>
+                                            <li data-value="5">小学1年级</li>
+                                            <li data-value="6">小学1年级</li>
+                                            <li data-value="3">小学1年级</li>
+                                            <li data-value="4">小学1年级</li>
+                                            <li data-value="5">小学1年级</li>
+                                            <li data-value="6">小学1年级</li>
+                                            <li data-value="3">小学1年级</li>
+                                            <li data-value="4">小学1年级</li>
+                                            <li data-value="5">小学1年级</li>
+                                            <li data-value="6">小学1年级</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                             <div class="field field-vertical">
@@ -109,12 +132,20 @@
                                     <label>缩略图</label>
                                 </div>
                                 <div class="ipt">
-                                    <input type="file" class="ipt-text"/>
+                                    <input type="file" class="ipt-text hide"/>
+                                    <div class="ipt-file">
+                                        <input type="text" class="ipt-text" readonly="readonly" />
+                                        <a class="button button-cancel clearfix" href="###">
+                                            <span class="button-left hide">&nbsp;</span>
+                                            <span class="button-text">浏览文件</span>
+                                            <span class="button-right hide">&nbsp;</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="field field-vertical">
                                 <div class="label">
-                                    <label>标签</label>
+                                    <label>标签</label><span class="sub-text">(多个标签用;分隔)</span>
                                 </div>
                                 <div class="ipt">
                                     <textarea class="ipt-text"></textarea>
