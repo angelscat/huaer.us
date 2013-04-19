@@ -194,6 +194,12 @@ a.button-cmt .button-text {padding-left: 15px;padding-right: 15px}
 .pager a.cur{background:#3FA7CC; color:#FFF; font-weight:bold;}
 .pager a span{font-family:'宋体';font-size:80%;}
 
+/*hint-mod*/
+.hint-mod{border:1px solid #E1E3E6; background:#FFF; width:450px; height:160px;margin:30px auto 0; -moz-box-shadow:#E1E3E6 0 1px 2px;-webkit-box-shadow:#E1E3E6 0 1px 2px;box-shadow:#E1E3E6 0 1px 2px;}
+.hint-mod .mod-hd{height:38px; line-height:38px; text-align:center; border-bottom:1px solid #E1E3E6; padding:0 20px; background:#fcfcfc; overflow:hidden; zoom:1;}
+.hint-mod .mod-bd{padding:20px; text-align:center; line-height:2.0;}
+.hint-mod .mod-bd a{color:#3FA7CC;}
+
 .slide-show{width:300px; height:250px; margin-bottom:10px; overflow:hidden; position:relative;}
 .slide-show .slide-main{height:250px; overflow:hidden;position:absolute; top:0; left:0;}
 .slide-show .slide-main .pic{height:220px; overflow:hidden;}
@@ -337,3 +343,4 @@ a.button-cmt .button-text {padding-left: 15px;padding-right: 15px}
 .account-form .verify-code .ipt-text{width:100px;}
 .account-form .verify-code img{vertical-align:middle;}
 .account-form .agreement{margin:-10px 0 0 0;}
+
