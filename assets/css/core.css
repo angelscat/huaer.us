@@ -61,22 +61,23 @@ ul,ol{list-style:none;}
 .ipt-text:focus{border-color:#ACACAC;border-right-color:#CECECE;border-bottom-color:#CECECE;outline:none;}
 .ipt-text-disabled{background:#F8F8F8;}
 .ipt-text-small{padding:4px 0 2px 3px;padding:5px 0 1px 3px\9;}
+.ipt-select{height:40px; line-height:40px; padding-right:10px;}
 .checkbox label,.checkbox input{vertical-align:middle;}
 .checkbox input{_top:-1px; _position:relative;}
 .field{letter-spacing:-4px; font-size:0;}
 .field .label,
 .field .ipt,
 .field .tips{display:inline-block; vertical-align: top; *display:inline; zoom:1; font-size:14px; letter-spacing:0;}
-.field .label{padding-top:10px;}
+.field .label{padding-top:10px; margin-right:5px;}
 .field .label .required{color:#F00;}
-.field .ipt{margin:0 5px;}
 .field .ipt a{color:#3FA7CC; font-size:12px;}
 .field .ipt a.button{font-size:14px;}
-.field .tips{padding-top:12px;}
+.field .tips{padding-top:12px; margin-left:5px;}
 .field-small .label{padding-top:5px;}
 .field-small .tips{padding-top:7px;}
 .field .label label{cursor:pointer;}
 .field .tips{color:#999;font-size:12px;}
+.field-vertical .label{display:block; margin-bottom:10px;}
 
 /*search box*/
 .search-box{height:30px; overflow:hidden;zoom:1;}
@@ -344,3 +345,16 @@ a.button-cmt .button-text {padding-left: 15px;padding-right: 15px}
 .account-form .verify-code img{vertical-align:middle;}
 .account-form .agreement{margin:-10px 0 0 0;}
 
+/*add-article*/
+.add-article{border:1px solid #E1E3E6; background:#F6F6F6;}
+.add-article .add-article-main{width:720px; background:#FFF; border-right:1px solid #E1E3E6;}
+.add-article .add-article-sub{width:240px;padding:30px 20px 20px 0;}
+.add-article .field{margin-bottom:10px;}
+.add-article .add-article-main h2{border-bottom:1px solid #E1E3E6;padding:20px; font-size:24px; background:#fcfcfc;}
+.add-article .add-article-main .add-article-body{padding:20px 18px;}
+.add-article .add-article-main .ipt-text{width:670px;}
+.add-article .add-article-main textarea{height:400px;}
+.add-article .add-article-actions a.button-save{margin-right:10px;_display:inline; zoom:1;}
+.add-article .add-article-sub .ipt-text{width:210px;}
+.add-article .add-article-sub .ipt-select{width:220px;}
+.add-article .add-article-sub textarea{height:60px;}
