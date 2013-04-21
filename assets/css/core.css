@@ -153,6 +153,12 @@ a.button-upload:hover .button-left {background-position: 0 -457px}
 a.button-upload:hover .button-right {background-position: 100% -29px}
 a.button-upload:hover .button-text {background-position: 0 -185px;color: #3FA7CC}
 a.button-cmt .button-text {padding-left: 15px;padding-right: 15px}
+a.button-small{display:inline-block; height:26px; width:66px; vertical-align:middle;*display:inline; zoom:1;background:url(../img/button-save-cancle.png) no-repeat}
+a.button-small span{display:none;}
+a.button-save-small{background-position:-83px 0; }
+a.button-save-small:hover{background-position: -273px 0;}
+a.button-cancel-small{background-position:0 0; }
+a.button-cancel-small:hover{background-position: -200px 0;}
 
 /*.custom-scroll-bar*/
 .custom-scroll-bar{overflow-y:auto;overflow-x:hidden}
@@ -397,9 +403,12 @@ a.button-cmt .button-text {padding-left: 15px;padding-right: 15px}
 .user-info .u-name a{color:#3FA7CC; font-size:16px;}
 .user-info .u-stat strong{color:#3FA7CC;}
 .user-info .u-intro{padding:10px 0; margin:10px 0; border-top:1px dashed #CCC;border-bottom:1px dashed #CCC;}
+.user-info .u-intro .u-intro-edit .e-ipt{margin-bottom:5px;}
+.user-info .u-intro .u-intro-edit .e-ipt textarea{width:210px; height: 60px; resize:vertical;}
+.user-info .u-intro a{color:#3FA7CC;}
 .user-info .u-actions a{color:#3FA7CC; margin-right:10px;}
 .profile .profile-mod{border-top:1px dotted #ccc; margin-top:10px; padding:10px 20px;}
-.profile .profile-mod .mod-hd{height:30px; line-height:30px;}
+.profile .profile-mod .mod-hd{height:20px; line-height:20px; margin-bottom:10px;}
 .recent-visitors li{padding:5px 0; overflow:hidden; zoom:1; border-bottom:1px dashed #CCC;}
 .recent-visitors li .u-avatar{float:left; width:60px; *margin-right:-3px;}
 .recent-visitors li .u-detail{margin-left:60px; zoom:1;}
@@ -438,3 +447,17 @@ a.button-cmt .button-text {padding-left: 15px;padding-right: 15px}
 .guestbook .g-list .g-item .g-detail .g-content{line-height:1.6;}
 .guestbook .g-list .pager{margin-top:20px; text-align:right;}
 .guestbook .g-list .no-words{padding:30px; text-align:center;}
+
+/*ulist-mod*/
+.ulist-mod .mod-bd ul{letter-spacing:-4px; font-size:0; margin-right:-10px;}
+.ulist-mod .mod-bd ul li{display:inline-block; width:70px; text-align:center; margin-right:5px; margin-bottom:10px; *display:inline; zoom:1; letter-spacing:0; font-size:12px;}
+.ulist-mod .mod-bd ul li .u-avatar{height:50px; overflow:hidden;}
+.ulist-mod .mod-bd ul li .u-name{height:20px; line-height:20px; overflow:hidden;}
+.ulist-mod .mod-bd ul li .u-name a{color:#3FA7CC;}
+
+/*stat-info*/
+.stat-info dl{line-height:1.8; overflow:hidden; zoom:1;}
+.stat-info dl dt,
+.stat-info dl dd{float:left;}
+.stat-info dl dd,
+.stat-info dl dd a{color:#3FA7CC;}
