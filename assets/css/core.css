@@ -185,6 +185,17 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .header .sub-menu li a:hover{color:#e2f7ff;}
 .header .sub-menu li.sep span{display:block; height:12px; line-height:12px; font-size:0; width:0;overflow:hidden; margin-top:19px; border-right:1px solid #52b8da;}
 
+.header-mini{height:40px; background:url(../img/header-mini-bg.png) repeat-x;}
+.header-mini .header{height:40px;}
+.header-mini .header .logo{font-size:18px; color:#3FA7CC; height:40px; line-height:40px; font-weight:bold;}
+.header-mini .header li{height:40px; line-height:40px;}
+.header-mini .header li a{color:#454545; font-size:14px;}
+.header-mini .header li a:hover{background:none; color:#000;}
+.header-mini .header .main-menu a{height:36px; line-height:36px; padding-bottom:2px;}
+.header-mini .header .main-menu a:hover{padding-bottom:0; border-bottom:2px solid #3FA7CC;}
+.header-mini .header .sub-menu li.sep{display:none;}
+.header-mini .header .sub-menu a{font-size:12px;}
+
 .sites ul li{display:inline; margin-right:10px;}
 
 .footer{padding:20px 0; text-align:center; line-height:1.6; margin-top:30px;}
@@ -398,6 +409,10 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .add-article .add-article-sub textarea{height:60px; resize:none;}
 
 /*profile*/
+.profile h1{margin-bottom:10px;}
+.profile h1 a{font-size:50px; font-weight:normal; text-shadow:-2px 1px #fff; color:#3FA7CC;}
+.profile h1 a{color:#3cbce7; text-decoration:none;}
+.profile .space-desc{margin-bottom:40px; color:#979797;}
 .profile .sidebar{border:1px solid #e7e5e6; border-top:2px solid #3FA7CC; background:#FFF; -webkit-box-shadow:2px 2px 10px #e7e5e6; -moz-box-shadow:2px 2px 10px #e7e5e6;box-shadow:2px 2px 10px #e7e5e6;}
 .user-info{padding:20px; line-height:1.8; font-size:13px; color:#666;}
 .user-info .u-name a{color:#3FA7CC; font-size:16px;}
