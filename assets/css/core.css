@@ -489,6 +489,7 @@ a.button-cancel-small:hover{background-position: -200px 0;}
        -moz-border-radius: 6px;
             border-radius: 6px;
 }
+.manage h2{height:30px; line-height:28px; padding-left:30px; background:url(../img/manage-icons-24.png) no-repeat; font-weight:normal; font-size:18px; margin-bottom:20px;}
 .manage .manage-tab{border-bottom:2px solid #e7e7e7; margin-bottom:30px;}
 .manage .manage-tab ul{padding:0 70px;}
 .manage .manage-tab ul li{float:left; height:44px; line-height:44px; margin-right:20px; *display:inline;}
@@ -515,7 +516,7 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .manage-user-info .user-detail .u-intro{margin-bottom:5px; height:30px; line-height:30px; font-size:12px; color:#999;}
 .manage-user-info .user-detail .u-intro a{color:#3FA7CC;}
 .manage-user-info .user-detail .u-intro .ipt-text{width:450px;}
-.manage-user-info .user-detail .u-stat{margin-bottom:10px;}
+.manage-user-info .user-detail .u-stat{margin-bottom:15px;}
 .manage-user-info .user-detail .u-stat ul{overflow:hidden; zoom:1;}
 .manage-user-info .user-detail .u-stat li{float:left;width:60px; height:36px; line-height:18px; font-size:12px; text-align:center; padding-right:10px; margin-right:10px; border-right:1px solid #E5E5E5; *display:inline;zoom:1;}
 .manage-user-info .user-detail .u-stat li em{font-style:normal;}
@@ -523,7 +524,14 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .manage-user-info .user-detail .u-stat li a:hover{text-decoration:none;}
 .manage-user-info .user-detail .manage-entrance ul{overflow:hidden; zoom:1; }
 .manage-user-info .user-detail .manage-entrance li{float:left; margin-right:20px;*display:inline; zoom:1}
-.manage-user-info .user-detail .manage-entrance li a{color:#3FA7CC;}
+.manage-user-info .user-detail .manage-entrance li a{display:inline-block;height:16px; padding-left:20px; background:url(../img/manage-icons-16.png) no-repeat left 0;}
+.manage-user-info .user-detail .manage-entrance li a.m-home{background-position:0 0;}
+.manage-user-info .user-detail .manage-entrance li a.m-article{background-position:0 -20px;}
+.manage-user-info .user-detail .manage-entrance li a.m-gossip{background-position:0 -40px;}
+.manage-user-info .user-detail .manage-entrance li a.m-collection{background-position:0 -60px;}
+.manage-user-info .user-detail .manage-entrance li a.m-message{background-position:0 -80px;}
+.manage-user-info .user-detail .manage-entrance li a.m-friend{background-position:0 -100px;}
+.manage-user-info .user-detail .manage-entrance li a.m-setting{background-position:0 -120px;}
 .manage-user-info .user-detail .u-actions{position:absolute; top:30px; right:30px; width:120px; text-align:right;}
 
 .manage-home .manage-overview{background:#FFF; padding:20px; border:1px solid #E1E3E6;-moz-box-shadow:2px 2px 10px #e7e5e6;-webkit-box-shadow:2px 2px 10px #e7e5e6;box-shadow:2px 2px 10px #e7e5e6;}
@@ -542,7 +550,7 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .manage-home .new-users .mod-bd ul li .u-name{display:block; height:20px; overflow:hidden; line-height:20px;}
 
 /*settings*/
-.settings h2{height:30px; line-height:28px; padding-left:30px; background:url(../img/setting.png) no-repeat left center; font-weight:normal; font-size:18px; margin-bottom:20px;}
+.settings h2{background-position:  left -238px;}
 .settings .manage-content .field{margin-bottom:20px;}
 .settings .manage-content .field .label{width:100px; text-align:right;}
 .settings .manage-content .field .ipt .ipt-text{width:360px;}
@@ -554,3 +562,14 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .settings .manage-content .bir .ipt .ipt-text{width:120px;}
 .settings .manage-content .place .ipt .selector{width:120px;}
 .settings .manage-content .desc .tips{vertical-align:bottom; padding-bottom:5px;}
+
+/*article manage*/
+.manage-article h2{background-position:  left -38px;}
+/*gossip manage*/
+.manage-gossip h2{background-position:  left -78px;}
+/*collection manage*/
+.manage-collection h2{background-position:  left -118px;}
+/*message manage*/
+.manage-message h2{background-position:  left -158px;}
+/*friend manage*/
+.manage-friend h2{background-position:  left -198px;}
