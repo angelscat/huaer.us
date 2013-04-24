@@ -522,8 +522,24 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .manage-user-info .user-detail .u-stat li a{display:block;}
 .manage-user-info .user-detail .u-stat li a:hover{text-decoration:none;}
 .manage-user-info .user-detail .manage-entrance ul{overflow:hidden; zoom:1; }
-.manage-user-info .user-detail .manage-entrance li{float:left; margin-right:10px;*display:inline; zoom:1}
+.manage-user-info .user-detail .manage-entrance li{float:left; margin-right:20px;*display:inline; zoom:1}
+.manage-user-info .user-detail .manage-entrance li a{color:#3FA7CC;}
 .manage-user-info .user-detail .u-actions{position:absolute; top:30px; right:30px; width:120px; text-align:right;}
+
+.manage-home .manage-overview{background:#FFF; padding:20px; border:1px solid #E1E3E6;-moz-box-shadow:2px 2px 10px #e7e5e6;-webkit-box-shadow:2px 2px 10px #e7e5e6;box-shadow:2px 2px 10px #e7e5e6;}
+.manage-overview-mod{margin-bottom:40px;}
+.manage-overview-mod .mod-hd{height:30px; line-height:30px; border-bottom:1px solid #CCC; margin-bottom:10px;}
+.manage-overview-mod .mod-hd .entrance{display:inline-block; height:30px; padding:0 10px; color:#3FA7CC; position:relative; border-bottom:1px solid #3FA7CC; text-decoration:none;}
+.manage-overview-mod .mod-hd .more{margin-right:10px;}
+.manage-overview-mod .mod-bd .no-content{margin:20px; padding:20px; text-align:center; background:#F9F9F9;}
+.manage-overview-mod .mod-bd .no-content a{color:#3FA7CC;}
+.manage-overview-mod .mod-bd ul li{height:32px; line-height:32px; overflow:hidden; zoom:1; border-bottom:1px dashed #CCC;}
+.manage-overview-mod .mod-bd ul li .title{float:left; text-decoration:none;}
+.manage-overview-mod .mod-bd ul li .time{float:right; color:#999; font-size:12px;}
+.manage-home .new-users .mod-bd ul{overflow:hidden; zoom:1; margin-right:-45px;}
+.manage-home .new-users .mod-bd ul li{height:70px; line-height:1; width:80px; text-align:center; border:0; padding:10px; float:left; margin-right:44px; *display:inline; zoom:1;}
+.manage-home .new-users .mod-bd ul li .u-avatar{display:block; height:50px; overflow:hidden;}
+.manage-home .new-users .mod-bd ul li .u-name{display:block; height:20px; overflow:hidden; line-height:20px;}
 
 /*settings*/
 .settings h2{height:30px; line-height:28px; padding-left:30px; background:url(../img/setting.png) no-repeat left center; font-weight:normal; font-size:18px; margin-bottom:20px;}
