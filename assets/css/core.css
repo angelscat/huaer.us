@@ -445,6 +445,7 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .profile-article-list .article-item .a-actions a{color:#3FA7CC; margin-left:10px;}
 .profile-article-list .pager{padding:20px 10px; text-align: center; border:1px solid #E1E3E6;-moz-box-shadow:2px 2px 10px #e7e5e6;-webkit-box-shadow:2px 2px 10px #e7e5e6;box-shadow:2px 2px 10px #e7e5e6;}
 
+
 /*guestbook*/
 .guestbook .g-form{margin-bottom:30px;}
 .guestbook .g-form .f-body{margin-bottom:10px;}
@@ -497,6 +498,32 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .manage .manage-tab ul li a:hover span{display:block;}
 .manage .manage-tab ul li a.cur{color:#3FA7CC;}
 .manage .manage-tab ul li a.cur span{display:block; background:url(../img/tag_selector.gif) no-repeat center center;}
+
+/*manage home*/
+.manage-user-info{padding:15px 150px 15px 15px; position:relative; margin-bottom:20px;border-left:1px solid #efeeee;border-right:1px solid #efeeee;border-bottom:1px solid #e3e3e3;background:#fff;
+    -webkit-box-shadow:0 1px #efeeee;
+       -moz-box-shadow:0 1px #efeeee;
+         -o-box-shadow:0 1px #efeeee;
+            box-shadow:0 1px #efeeee;
+}
+.manage-user-info .user-avatar{float:left;width:120px; height:120px; overflow:hidden; padding:4px; border:1px solid #D3D3D3; margin-right:-3px; position:relative;}
+.manage-user-info .user-avatar .edit-avatar{position:absolute; width:120px; height:16px; line-height:16px; text-align:center; bottom:4px; left:4px; background:#3FA7CC; color:#FFF; text-decoration:none;}
+.manage-user-info .user-detail{margin-left:150px;zoom:1;}
+.manage-user-info .user-detail .u-info{margin-bottom:5px; font-size:12px; color:#999;}
+.manage-user-info .user-detail .u-name{font-size:16px; font-weight:bold; color:#333; margin-right:20px;}
+.manage-user-info .user-detail .u-meta span{margin-right:20px;}
+.manage-user-info .user-detail .u-intro{margin-bottom:5px; height:30px; line-height:30px; font-size:12px; color:#999;}
+.manage-user-info .user-detail .u-intro a{color:#3FA7CC;}
+.manage-user-info .user-detail .u-intro .ipt-text{width:450px;}
+.manage-user-info .user-detail .u-stat{margin-bottom:10px;}
+.manage-user-info .user-detail .u-stat ul{overflow:hidden; zoom:1;}
+.manage-user-info .user-detail .u-stat li{float:left;width:60px; height:36px; line-height:18px; font-size:12px; text-align:center; padding-right:10px; margin-right:10px; border-right:1px solid #E5E5E5; *display:inline;zoom:1;}
+.manage-user-info .user-detail .u-stat li em{font-style:normal;}
+.manage-user-info .user-detail .u-stat li a{display:block;}
+.manage-user-info .user-detail .u-stat li a:hover{text-decoration:none;}
+.manage-user-info .user-detail .manage-entrance ul{overflow:hidden; zoom:1; }
+.manage-user-info .user-detail .manage-entrance li{float:left; margin-right:10px;*display:inline; zoom:1}
+.manage-user-info .user-detail .u-actions{position:absolute; top:30px; right:30px; width:120px; text-align:right;}
 
 /*settings*/
 .settings h2{height:30px; line-height:28px; padding-left:30px; background:url(../img/setting.png) no-repeat left center; font-weight:normal; font-size:18px; margin-bottom:20px;}
