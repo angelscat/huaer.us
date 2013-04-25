@@ -208,6 +208,7 @@ a.button-search-small{height:26px; width:26px;}
 .header .sub-menu li a{padding:0 15px; color:#c0eeff;}
 .header .sub-menu li a:hover{color:#e2f7ff;}
 .header .sub-menu li.sep span{display:block; height:12px; line-height:12px; font-size:0; width:0;overflow:hidden; margin-top:19px; border-right:1px solid #52b8da;}
+.header .sub-menu li a .unread-message-num{font-size:12px; color:#F66F6F;}
 
 .header-mini{height:40px; background:url(../img/header-mini-bg.png) repeat-x;}
 .header-mini .header{height:40px;}
