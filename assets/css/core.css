@@ -163,8 +163,8 @@ a.button-save-small{background-position:-83px 0; }
 a.button-save-small:hover{background-position: -273px 0;}
 a.button-cancel-small{background-position:0 0; }
 a.button-cancel-small:hover{background-position: -200px 0;}
-a.button-search{display:inline-block; height:36px; width:36px; border:1px solid #E2E2E2; background:#F1F1F1 url(../img/search-btn.png) no-repeat center center;}
-a.button-search:hover{border:1px solid CECECE; background-color:#F8F8F8;}
+a.button-search{display:inline-block; height:36px; width:36px; border:1px solid #E2E2E2; background:#F8F8F8 url(../img/search-btn.png) no-repeat center center;}
+a.button-search:hover{border:1px solid #CECECE; background-color:#F1F1F1;}
 a.button-search-small{height:26px; width:26px;}
 
 /*.custom-scroll-bar*/
@@ -601,11 +601,12 @@ a.button-search-small{height:26px; width:26px;}
 .manage-friend .friend-list li .u-avatar{float:left; width:50px; margin-right:-3px;}
 .manage-friend .friend-list li .u-detail{margin-left:60px; zoom:1;color:#999; font-size:12px;}
 .manage-friend .friend-list li .u-actions{position:absolute; top:20px; right:20px;font-size:12px;}
-.manage-friend .friend-list li .u-detail .u-name{font-size:14px; margin-bottom:10px;}
+.manage-friend .friend-list li .u-detail .u-name{font-size:14px; margin-bottom:5px;}
 .manage-friend .friend-list li .u-detail .u-name a{color:#3FA7CC;}
 .manage-friend .friend-list li .u-detail .u-info{margin-bottom:5px;}
+.manage-friend .friend-list li .u-history strong{color:#3FA7CC;}
 .manage-friend .friend-list li .u-actions p{margin-bottom:10px;}
 .manage-friend .friend-list li .u-actions a{color:#999;}
 .manage-friend .pager{margin-top:20px; text-align:center;}
-.manage-friend .friend-search{padding-bottom:20px; border-bottom:1px solid #EFEFEF;}
-.manage-friend .friend-search .ipt-text{width:360px;}
+.manage-friend .friend-search{padding-bottom:20px; border-bottom:1px solid #EFEFEF; text-align:center;}
+.manage-friend .friend-search .ipt-text{width:450px;}
