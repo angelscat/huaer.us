@@ -100,6 +100,10 @@ ul,ol{list-style:none;}
 .ipt-file .button .button-right{display:none;}
 .ipt-file .button .button-text{border-left:1px solid #E1E3E6; height:38px; padding-left:10px; padding-right:10px; *height:36px;}
 
+/*ipt search*/
+.ipt-search{font-size:0; letter-spacing:-4px;}
+.ipt-search .ipt-text{margin-right:-1px; font-size:14px;}
+
 /*search box*/
 .search-box{height:30px; overflow:hidden;zoom:1;}
 .search-box .search-input{height:20px; line-height:20px; width:190px;padding:6px 5px 4px 5px;padding:7px 5px 3px 5px\9; border:0; background:url(../img/search-bg.png) no-repeat 0 0;outline:none; float:left;}
@@ -159,6 +163,9 @@ a.button-save-small{background-position:-83px 0; }
 a.button-save-small:hover{background-position: -273px 0;}
 a.button-cancel-small{background-position:0 0; }
 a.button-cancel-small:hover{background-position: -200px 0;}
+a.button-search{display:inline-block; height:36px; width:36px; border:1px solid #E2E2E2; background:#F1F1F1 url(../img/search-btn.png) no-repeat center center;}
+a.button-search:hover{border:1px solid CECECE; background-color:#F8F8F8;}
+a.button-search-small{height:26px; width:26px;}
 
 /*.custom-scroll-bar*/
 .custom-scroll-bar{overflow-y:auto;overflow-x:hidden}
@@ -171,7 +178,7 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .common-table{width:100%;}
 .common-table,
 .common-table tr,
-.common-table td{border-collapse:collapse; background:#FFF;}
+.common-table td{border-collapse:collapse;}
 .common-table tr{border:1px solid #EFEFEF;}
 .common-table tr th{background:#F8F8F8; border:1px solid #EFEFEF;border-bottom:2px solid #3FA7CC;}
 .common-table tr th{padding:10px;}
@@ -585,7 +592,20 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .manage-gossip h2{background-position:  left -78px;}
 /*collection manage*/
 .manage-collection h2{background-position:  left -118px;}
+.manage-collection .pager{margin-top:20px; text-align:center;}
 /*message manage*/
 .manage-message h2{background-position:  left -158px;}
 /*friend manage*/
 .manage-friend h2{background-position:  left -198px;}
+.manage-friend .friend-list li{padding:20px 120px 20px 20px; border-bottom:1px solid #EFEFEF; position:relative;}
+.manage-friend .friend-list li .u-avatar{float:left; width:50px; margin-right:-3px;}
+.manage-friend .friend-list li .u-detail{margin-left:60px; zoom:1;color:#999; font-size:12px;}
+.manage-friend .friend-list li .u-actions{position:absolute; top:20px; right:20px;font-size:12px;}
+.manage-friend .friend-list li .u-detail .u-name{font-size:14px; margin-bottom:10px;}
+.manage-friend .friend-list li .u-detail .u-name a{color:#3FA7CC;}
+.manage-friend .friend-list li .u-detail .u-info{margin-bottom:5px;}
+.manage-friend .friend-list li .u-actions p{margin-bottom:10px;}
+.manage-friend .friend-list li .u-actions a{color:#999;}
+.manage-friend .pager{margin-top:20px; text-align:center;}
+.manage-friend .friend-search{padding-bottom:20px; border-bottom:1px solid #EFEFEF;}
+.manage-friend .friend-search .ipt-text{width:360px;}
