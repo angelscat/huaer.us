@@ -79,6 +79,7 @@ ul,ol{list-style:none;}
 .field .label label{cursor:pointer;}
 .field .tips{color:#999;font-size:12px;}
 .field-vertical .label{display:block; margin-bottom:10px;}
+.field-textarea .tips{vertical-align: bottom; padding-top:0; padding-bottom:5px;}
 
 /*selector*/
 .selector{display:inline-block; position:relative; height:38px; width:120px; vertical-align: middle; *display:inline; zoom:1}
@@ -523,6 +524,12 @@ a.button-search-small{height:26px; width:26px;}
 .manage .manage-tab ul li a.cur{color:#3FA7CC;}
 .manage .manage-tab ul li a.cur span{display:block; background:url(../img/tag_selector.gif) no-repeat center center;}
 
+.manage-sub-tab{overflow:hidden; zoom:1; margin-top:-10px; margin-bottom:10px;}
+.manage-sub-tab a{float:left; margin-right:15px; font-size:12px; padding:5px 10px; *display:inline; zoom:1;}
+.manage-sub-tab a.cur,
+.manage-sub-tab a:hover{background:#3fa7cb; color:#FFF; text-decoration:none; -webkit-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;border-radius:4px;}
+.manage-sub-tab a.cur{font-weight:bold;}
+
 /*manage home*/
 .manage-user-info{padding:15px 150px 15px 15px; position:relative; margin-bottom:20px;border-left:1px solid #efeeee;border-right:1px solid #efeeee;border-bottom:1px solid #e3e3e3;background:#fff;
     -webkit-box-shadow:0 1px #efeeee;
@@ -582,7 +589,6 @@ a.button-search-small{height:26px; width:26px;}
 .settings .manage-content .code img{vertical-align:middle;}
 .settings .manage-content .bir .ipt .ipt-text{width:120px;}
 .settings .manage-content .place .ipt .selector{width:120px;}
-.settings .manage-content .desc .tips{vertical-align:bottom; padding-bottom:5px;}
 
 /*article manage*/
 .manage-article h2{background-position:  left -38px;}
@@ -595,6 +601,17 @@ a.button-search-small{height:26px; width:26px;}
 .manage-collection .pager{margin-top:20px; text-align:center;}
 /*message manage*/
 .manage-message h2{background-position:  left -158px;}
+.manage-message .manage-tab .post-btn{padding:8px 10px;}
+.manage-message .actions{margin-top:10px;}
+.manage-message .pager{margin-top:18px; text-align:right;}
+.manage-message .post-message{}
+.post-message .field{margin-bottom:10px;}
+.post-message .field .label{width:80px; text-align: right;}
+.post-message .field .ipt-text{width:360px;}
+.post-message .field textarea{height:100px;}
+.post-message .code .ipt-text{width:60px;}
+.post-message .code img{vertical-align:middle;}
+
 /*friend manage*/
 .manage-friend h2{background-position:  left -198px;}
 .manage-friend .friend-list li{padding:20px 120px 20px 20px; border-bottom:1px solid #EFEFEF; position:relative;}
