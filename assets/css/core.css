@@ -605,7 +605,7 @@ a.button-search-small{height:26px; width:26px;}
 .manage-message .actions{margin-top:10px;}
 .manage-message .pager{margin-top:18px; text-align:right;}
 .manage-message .post-message{}
-.post-message .field{margin-bottom:10px;}
+.post-message .field{margin-bottom:20px;}
 .post-message .field .label{width:80px; text-align: right;}
 .post-message .field .ipt-text{width:360px;}
 .post-message .field textarea{height:100px;}
