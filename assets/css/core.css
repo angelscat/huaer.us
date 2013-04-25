@@ -167,6 +167,22 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .custom-scroll-bar::-webkit-scrollbar,.custom-scroll-bar::-webkit-scrollbar-thumb {overflow:visible;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;border:solid 1px #A6A6A6}
 .custom-scroll-bar::-webkit-scrollbar-button {height:0;display:block;background-color:transparent}
 
+/*common-table*/
+.common-table{width:100%;}
+.common-table,
+.common-table tr,
+.common-table td{border-collapse:collapse; background:#FFF;}
+.common-table tr{border:1px solid #EFEFEF;}
+.common-table tr th{background:#F8F8F8; border:1px solid #EFEFEF;border-bottom:2px solid #3FA7CC;}
+.common-table tr th{padding:10px;}
+.common-table tr td{padding:15px 10px;}
+.common-table tr td a{color:#3FA7CC;}
+.common-table tr.even{background:#FAFAFA;}
+
+/*empty content*/
+.empty-content{margin:20px; padding:20px; text-align:center; background:#F9F9F9;}
+.empty-content a{color:#3FA7CC;}
+
 /*layout*/
 .layout{width:1000px; margin:0 auto;*zoom:1;}
 .main{width:720px;}
@@ -539,8 +555,6 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 .manage-overview-mod .mod-hd{height:30px; line-height:30px; border-bottom:1px solid #CCC; margin-bottom:10px;}
 .manage-overview-mod .mod-hd .entrance{display:inline-block; height:30px; padding:0 10px; color:#3FA7CC; position:relative; border-bottom:1px solid #3FA7CC; text-decoration:none;}
 .manage-overview-mod .mod-hd .more{margin-right:10px;}
-.manage-overview-mod .mod-bd .no-content{margin:20px; padding:20px; text-align:center; background:#F9F9F9;}
-.manage-overview-mod .mod-bd .no-content a{color:#3FA7CC;}
 .manage-overview-mod .mod-bd ul li{height:32px; line-height:32px; overflow:hidden; zoom:1; border-bottom:1px dashed #CCC;}
 .manage-overview-mod .mod-bd ul li .title{float:left; text-decoration:none;}
 .manage-overview-mod .mod-bd ul li .time{float:right; color:#999; font-size:12px;}
@@ -565,6 +579,8 @@ a.button-cancel-small:hover{background-position: -200px 0;}
 
 /*article manage*/
 .manage-article h2{background-position:  left -38px;}
+.manage-article .manage-tab .post-btn{padding:8px 10px;}
+.manage-article .pager{margin-top:20px; text-align:center;}
 /*gossip manage*/
 .manage-gossip h2{background-position:  left -78px;}
 /*collection manage*/
