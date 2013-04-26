@@ -488,7 +488,7 @@ a.button-search-small{height:26px; width:26px;}
 .guestbook .g-form .not-login{padding:15px; background:#F9F9F9; text-align:center;}
 .guestbook .g-form .not-login a{color:#3FA7CC;}
 .guestbook .g-list{border-top:1px solid #EFEFEF;}
-.guestbook .g-list .g-item{padding:20px 0; border-bottom:1px dashed #CCC;}
+.guestbook .g-list .g-item{padding:20px 0; border-bottom:1px dotted #CCC; overflow:hidden; zoom:1}
 .guestbook .g-list .g-item .g-avatar{float:left; width:60px; *margin-right:-3px;}
 .guestbook .g-list .g-item .g-detail{margin-left:60px; zoom:1;}
 .guestbook .g-list .g-item .g-detail .g-meta{margin-bottom:10px; color:#999;}
@@ -605,6 +605,16 @@ a.button-search-small{height:26px; width:26px;}
 .manage-article .pager{margin-top:20px; text-align:center;}
 /*gossip manage*/
 .manage-gossip h2{background-position:  left -78px;}
+.manage-gossip .pager{margin-top:20px; text-align:center;}
+.manage-gossip .gossip-list{border-top:1px solid #CCC;}
+.manage-gossip .gossip-list li{padding:20px; border-bottom:1px dotted #CCC; overflow:hidden; zoom:1;}
+.manage-gossip .gossip-list li .g-avatar{float:left; width:60px; *margin-right:-3px;}
+.manage-gossip .gossip-list li .g-detail{margin-left:60px; zoom:1;}
+.manage-gossip .gossip-list li .g-detail .g-meta{margin-bottom:10px; color:#999;}
+.manage-gossip .gossip-list li .g-detail .g-meta a{color:#3FA7CC;}
+.manage-gossip .gossip-list li .g-detail .g-content{line-height:1.6;}
+.manage-gossip .gossip-list li .g-actions{text-align:right;}
+.manage-gossip .gossip-list li .g-actions a{margin-left:10px; color:#3FA7CC; font-size:12px;}
 /*collection manage*/
 .manage-collection h2{background-position:  left -118px;}
 .manage-collection .pager{margin-top:20px; text-align:center;}
@@ -620,7 +630,6 @@ a.button-search-small{height:26px; width:26px;}
 .post-message .field textarea{height:100px;}
 .post-message .code .ipt-text{width:60px;}
 .post-message .code img{vertical-align:middle;}
-
 /*friend manage*/
 .manage-friend h2{background-position:  left -198px;}
 .manage-friend .friend-list li{padding:20px 120px 20px 20px; border-bottom:1px solid #EFEFEF; position:relative;}
