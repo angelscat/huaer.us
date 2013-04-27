@@ -657,3 +657,9 @@ a.button-search-small{height:26px; width:26px;}
 
 /*sitemap*/
 .sitemap li{padding-left:2em; list-style:circle inside; line-height:1.6;}
+
+/*tags*/
+.tag-page .search{height:auto;}
+.tag-page .mod-side .mod-bd{margin-bottom:20px;}
+.tags-list .mod-bd{line-height:1.8;}
+.tags-list .mod-bd a{display:inline-block; margin-right:10px;}
