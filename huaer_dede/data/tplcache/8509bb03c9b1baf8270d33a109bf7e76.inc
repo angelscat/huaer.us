@@ -1,0 +1,1 @@
+{dede:global.cfg_templets_skin/}
