@@ -303,7 +303,7 @@ a.button-search-small{height:26px; width:26px;}
 .search{padding:10px; margin-bottom:10px; height:250px; overflow:hidden;}
 .search .search-box{margin-bottom:15px;}
 .tags .mod-bd{padding-top:5px;line-height:1.7;}
-.tags a{display:inline-block;}
+.tags a{display:inline-block; margin-right:5px;}
 
 .hot-topic{padding:10px; height:250px;}
 .hot-topic .mod-bd{padding-top:5px;}
@@ -654,3 +654,6 @@ a.button-search-small{height:26px; width:26px;}
 .search-result .mod-bd li .a-desc{margin-bottom:10px; color:#999;}
 .search-result .mod-bd li .a-meta span{margin-right:10px; color:#999; font-size:12px;}
 .search-result .mod-bd li .a-meta span em{color:#3FA7CC; font-style:normal;}
+
+/*sitemap*/
+.sitemap li{padding-left:2em; list-style:circle inside; line-height:1.6;}
