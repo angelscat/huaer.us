@@ -1,6 +1,6 @@
 body,ol,ul,li,h1,h2,h3,h4,h5,h6,p,th,td,dl,dt,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
 html{font-size:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
-body{font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti; font-size:14px; color:#333; background:#F5F5F5;}
+body{font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti; font-size:14px; color:#333; background:#F5F5F5 url(../img/bg.gif) repeat;}
 a:focus{outline:thin dotted;}
 a:active,a:hover{outline:0;}
 h1{font-size:20px;}
@@ -198,11 +198,11 @@ a.button-search-small{height:26px; width:26px;}
 .sidebar{width:260px;}
 
 .header-wrap{height:50px; background:#3FA7CC;margin-bottom:20px;}
-.header .logo{display:block; height:50px; line-height:50px;font-size:26px;color:#FFF; letter-spacing:3px; font-family:"微软雅黑","黑体"; text-decoration:none; margin-right:30px;_display:inline;}
+.header .logo{display:block; height:50px; line-height:50px;font-size:26px;color:#FFF; letter-spacing:3px; font-family:"微软雅黑"; text-decoration:none; margin-right:30px;_display:inline;}
 .header .logo:hover{color:#FFF; text-decoration:none;}
 .header .main-menu{letter-spacing: -4px; font-size:0;}
 .header .main-menu li{display:inline-block; height:50px; line-height:50px;font-size:16px; letter-spacing: 0;vertical-align: middle;_display:inline;zoom:1;}
-.header .main-menu li a{padding:0 20px; color:#FFF;display:block;}
+.header .main-menu li a{padding:0 20px; color:#FFF;display:inline-block;height:50px;}
 .header .main-menu li a:hover{background:#4eb2d4; text-decoration:none;}
 .header .sub-menu{letter-spacing: -4px; font-size:0;}
 .header .sub-menu li{display:inline-block;height:50px; line-height:50px; font-size:12px; letter-spacing:0; vertical-align: middle;_display:inline;zoom:1; position:relative;}
@@ -219,11 +219,12 @@ a.button-search-small{height:26px; width:26px;}
 
 .header-mini{height:40px; background:url(../img/header-mini-bg.png) repeat-x;}
 .header-mini .header{height:40px;}
-.header-mini .header .logo{font-size:18px; color:#3FA7CC; height:40px; line-height:40px; font-weight:bold;}
-.header-mini .header li{height:40px; line-height:40px;}
+.header-mini .header .logo{font-size:18px; color:#3FA7CC; height:36px; line-height:36px; font-weight:bold;}
+.header-mini .header .logo:hover{color:#3FA7CC;}
+.header-mini .header li{height:36px; line-height:36px;}
 .header-mini .header li a{color:#454545; font-size:14px;}
 .header-mini .header li a:hover{background:none; color:#000;}
-.header-mini .header .main-menu a{height:36px; line-height:36px; padding-bottom:2px;}
+.header-mini .header .main-menu a{height:36px; line-height:36px; padding-bottom:2px; margin-bottom:-2px; position:relative;}
 .header-mini .header .main-menu a:hover{padding-bottom:0; border-bottom:2px solid #3FA7CC;}
 .header-mini .header .sub-menu li.sep{display:none;}
 .header-mini .header .sub-menu a{font-size:12px;}
@@ -444,7 +445,7 @@ a.button-search-small{height:26px; width:26px;}
 /*profile*/
 .profile h1{margin-bottom:10px;}
 .profile h1 a{font-size:50px; font-weight:normal; text-shadow:-2px 1px #fff; color:#3FA7CC;}
-.profile h1 a{color:#3cbce7; text-decoration:none;}
+.profile h1 a:hover{color:#3cbce7; text-decoration:none;}
 .profile .space-desc{margin-bottom:40px; color:#979797;}
 .profile .sidebar{border:1px solid #e7e5e6; border-top:2px solid #3FA7CC; background:#FFF; -webkit-box-shadow:2px 2px 10px #e7e5e6; -moz-box-shadow:2px 2px 10px #e7e5e6;box-shadow:2px 2px 10px #e7e5e6;}
 .user-info{padding:20px; line-height:1.8; font-size:13px; color:#666;}
@@ -476,7 +477,7 @@ a.button-search-small{height:26px; width:26px;}
 .profile-article-list .article-item .a-content p{margin-bottom:10px; text-indent:2em;}
 .profile-article-list .article-item .a-actions{text-align:right; border-top:1px solid #EFEFEF; padding-top:10px;}
 .profile-article-list .article-item .a-actions a{color:#3FA7CC; margin-left:10px;}
-.profile-article-list .pager{padding:20px 10px; text-align: center; border:1px solid #E1E3E6;-moz-box-shadow:2px 2px 10px #e7e5e6;-webkit-box-shadow:2px 2px 10px #e7e5e6;box-shadow:2px 2px 10px #e7e5e6;}
+.profile-article-list .pager{padding:20px 10px; background:#FFF; text-align: center; border:1px solid #E1E3E6;-moz-box-shadow:2px 2px 10px #e7e5e6;-webkit-box-shadow:2px 2px 10px #e7e5e6;box-shadow:2px 2px 10px #e7e5e6;}
 
 
 /*guestbook*/
@@ -527,11 +528,9 @@ a.button-search-small{height:26px; width:26px;}
 .manage .manage-tab ul{padding:0 70px;}
 .manage .manage-tab ul li{float:left; height:44px; line-height:44px; margin-right:20px;}
 .manage .manage-tab ul li a{display:inline-block;padding:0 20px; font-size:16px; height:44px; line-height:44px; position: relative;}
-.manage .manage-tab ul li a span{display:none;height:4px;width:100%; font-size:0; overflow:hidden; border-bottom:2px solid #3aa9ce; position:absolute; top:40px; left:0;}
-.manage .manage-tab ul li a:hover{text-decoration:none;}
-.manage .manage-tab ul li a:hover span{display:inline-block;}
-.manage .manage-tab ul li a.cur{color:#3FA7CC;}
-.manage .manage-tab ul li a.cur span{display:inline-block; background:url(../img/tag_selector.gif) no-repeat center center;}
+.manage .manage-tab ul li a.cur,
+.manage .manage-tab ul li a:hover{text-decoration:none; border-bottom:2px solid #3AA9CE;margin-bottom:-2px;}
+.manage .manage-tab ul li a.cur{background:url(../img/tag_selector.gif) no-repeat center 40px;}
 
 .manage-sub-tab{overflow:hidden; zoom:1; margin-top:-10px; margin-bottom:10px;}
 .manage-sub-tab a{float:left; margin-right:15px; font-size:12px; padding:5px 10px; *display:inline; zoom:1;}
@@ -631,8 +630,8 @@ a.button-search-small{height:26px; width:26px;}
 .post-message .code .ipt-text{width:60px;}
 .post-message .code img{vertical-align:middle;}
 /*friend manage*/
-.manage-friend h2{background-position:  left -198px;}
-.manage-friend .friend-list li{padding:20px 120px 20px 20px; border-bottom:1px solid #EFEFEF; position:relative;}
+.manage-friend h2{background-position:left -198px;}
+.manage-friend .friend-list li{padding:20px 120px 20px 20px; border-bottom:1px solid #EFEFEF; position:relative; overflow:hidden;zoom:1;}
 .manage-friend .friend-list li .u-avatar{float:left; width:50px; margin-right:-3px;}
 .manage-friend .friend-list li .u-detail{margin-left:60px; zoom:1;color:#999; font-size:12px;}
 .manage-friend .friend-list li .u-actions{position:absolute; top:20px; right:20px;font-size:12px;}
