@@ -1,7 +1,7 @@
 <?php
 $cfg_basehost = 'http://huaer.us';
 $cfg_cmspath = '';
-$cfg_cookie_encode = 'ZeOWg3177P';
+$cfg_cookie_encode = 'EoQXe7706P';
 $cfg_indexurl = '/';
 $cfg_backup_dir = 'backupdata';
 $cfg_indexname = '主页';
