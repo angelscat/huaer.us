@@ -25,23 +25,19 @@
 			    <div class="main clearfix pull-left">
 			        <div class="mod-main mod-article-content">
 			            <div class="mod-bd">
-                            <h1>作文题目就是这个啦</h1>
+                            <h1>{dede:field.title/}</h1>
                             <div class="article-info">
                                 <span class="article-tags">标签: <a href="#">春天</a> <a href="#">春天</a> <a href="#">春天</a></span>
-                                <span class="article-from">来源:花儿作文网</span>
-                                <span class="article-author">作者:花儿</span>
-                                <span class="article-date">2013-04-14 17:20 </span>
+                                <span class="article-from">来源:{dede:field.source/}</span>
+                                <span class="article-author">作者:{dede:field.writer/}</span>
+                                <span class="article-date">{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/} </span>
                                 <span class="article-view-tile">124次阅读</span>
                             </div>
                             <div class="article-ads">
                                 <img src="assets/img/temp_580x90.gif" />
                             </div>
                             <div class="article-content">
-                                <p>我的家乡在湖北赤壁一个乡村小镇上，虽然并不大，但同样迷人，尤其是在春天。</p>
-                                <p>清晨，我沐浴着温暖的阳光，来到小镇郊外，体验春天的美丽。</p>
-                                <p>今天，风和日丽，空气是那样清新，天空是那样明朗，小燕子在天空中自由自在的飞翔。我漫步在青青的草地上，一阵春风吹过，小草跳起欢快的舞蹈，有时舒展双臂，有时弯腰触地，有时左右摇摆，真是婀娜多姿；牛儿在草地上角对着角，好像一群天真活泼的孩子在玩耍。在地里，长满了一垄垄黄灿灿的油菜花，油菜花的花香清香迷人，一群群蜜蜂在花中采蜜，他们也在尽情的享受春天的快乐。在田里，农伯伯正忙着播种，一年之计在于春，看着他们忙碌的身影，我好像看到了秋天农伯伯丰收的喜悦。</p>
-                                <p>在这黄色和绿色的背后，衔接着无边无际的蓝色的湖水。它蓝似海洋，可比海洋要蓝得纯正、它蓝似天空，可比天空要蓝得温柔恬雅。突然鱼儿从水中跳起，好像在说：你看我跳得多高。蜻蜓停在荷花的尖上，瞪着眼睛看着我，仿佛要和我说话。我不由得想起两句诗：“小荷才露尖尖角，早有蜻蜓立上头。”两边的垂柳到映在清凌凌的湖水里显得更绿了，柳枝倒映在清凌凌的湖水里显得更美了，树杆倒映在清凌凌的湖水里显得更粗壮了，你在看，大多树木久睡未醒，而垂柳已粒粒柳芽抽成万条柳丝。它那轻盈婆娑的树姿，那迎风摇摆的枝条，那青翠欲滴的绿叶，不但在为春天添色彩，而且给人们送来青春的气息。所以，才有诗人写道：“春色先以柳荫归，春风杨柳万千条！”……</p>
-                                <p>啊！这就是我们春天的家乡！我非常热爱我的家乡！</p>
+                                {dede:field.body/}
                             </div>
                             <div class="article-actions">
                                 <a href="#" class="like"><span>12</span></a>
