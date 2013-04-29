@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{dede:include filename="head.htm" /}
+		<meta name="description" content="{dede:global.cfg_description/}" />
+		<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+		<title>标签 - {dede:global.cfg_webname/}</title>
+	</head>
+	<body>
+		{dede:include filename="header.htm" /}
+		<div class="content">
+			<div class="layout tag-page clearfix">
+			    <div class="main pull-left">
+			        <div class="mod-main tags-list">
+			            <div class="mod-hd">
+			                <strong>最新标签</strong>
+			            </div>
+			            <div class="mod-bd">
+			            	{dede:tag row='200' sort='new'}
+				            <a href='[field:link/]' class='tagc[field:highlight /]'>[field:tag /]</a>
+				            {/dede:tag}
+			            </div>
+			        </div>
+			    </div>
+			    <div class="sidebar pull-right">
+                    <div class="mod-side search tags">
+                        <div class="mod-bd">
+                            <div class="search-box">
+                                <input type="text" class="search-input" placeholder="输入关键词：如春天、清明" />
+                                <input type="submit" class="search-btn" value="" />
+                            </div>
+                        </div>
+                        <div class="mod-hd">
+                            <a href="#" class="entrance pull-left">热门搜索</a>
+                        </div>
+                        <div class="mod-bd">
+                            <a href="#" title="关于安全的作文" class="bold">安全</a>
+                            <a href="#" title="中考满分作文">中考满分作文</a>
+                            <a href="#" title="好词好句">好词好句</a>
+                            <a href="#" title="清明节作文" class="col614 ft14">清明节作文</a>
+                            <a href="#" title="关于运动会的作文">运动会</a>
+                            <a href="#" title="高考满分作文" class="ft14">高考满分作文</a>
+                            <a href="#" title="日记大全" class="col614 ft14">日记大全</a>
+                            <a href="#" title="日记大全" class="col614 ft14">日记大全</a>
+                            <a href="#" title="日记大全" class="col614 ft14">日记大全</a>
+                        </div>
+                        <div class="mod-hd">
+                            <a href="#" class="entrance pull-left">热门标签</a>
+                        </div>
+                        <div class="mod-bd">
+                        	{dede:tag row='20' sort='month'}
+				            <a href='[field:link/]' class='tagc[field:highlight /]'>[field:tag /]</a>
+				            {/dede:tag}
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		{dede:include filename="footer.htm" /}
+	</body>
+</html>
