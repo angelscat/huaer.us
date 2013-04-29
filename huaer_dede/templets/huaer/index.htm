@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		{dede:include filename="head.html" /}
-	    <meta name="keywords" content="">
-		<meta name="description" content="">
-		<title>花儿</title>
+		{dede:include filename="head.htm" /}
+		<meta name="description" content="{dede:global.cfg_description/}" />
+		<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+		<title>{dede:global.cfg_webname/}</title>
 	</head>
 	<body>
-		{dede:include filename="header.html" /}
+		{dede:include filename="header.htm" /}
 		<div class="content">
 			<div class="layout clearfix">
 				<div class="main pull-left">
@@ -903,6 +903,6 @@
 				</div>
 			</div>
 		</div>
-		{dede:include filename="footer.html" /}
+		{dede:include filename="footer.htm" /}
 	</body>
 </html>
