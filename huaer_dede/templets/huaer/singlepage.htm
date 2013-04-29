@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		{dede:include filename="head.htm" /}
+		<meta name="description" content="{dede:global.cfg_description/}" />
+		<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+		<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+	</head>
+	<body>
+		{dede:include filename="header.htm" /}
+		<div class="content">
+			<div class="layout clearfix">
+			    <div class="manage single-page">
+                    <h2>{dede:field.title/}</h2>
+                    <div class="manage-content space-info">
+                        <div class="page-content">
+                            {dede:field.body/}
+                        </div>
+                    </div>
+                    <div class="manage-side">
+                        <ul>
+							{dede:likesgpage}
+							<li><a href="[field:url /]">[field:title /]</a></li>
+							{/dede:likesgpage}
+                            <!-- <li><a href="#">关于我们</a></li>
+                            <li><a href="#">用户协议</a></li>
+                            <li><a href="#">帮助中心</a></li>
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="#">用户协议</a></li>
+                            <li><a href="#">帮助中心</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+			</div>
+		</div>
+		{dede:include filename="footer.htm" /}
+	</body>
+</html>
