@@ -393,6 +393,8 @@ a.button-search-small{height:26px; width:26px;}
 .article-comment .comment-form{padding:10px 0 30px; }
 .article-comment .comment-form .comment-body{margin-bottom:10px;}
 .article-comment .comment-form .comment-body textarea{height:80px; width:668px; resize:vertical; overflow:auto;}
+.article-comment .comment-form .comment-code .ipt-text{width:60px;}
+.article-comment .comment-form .comment-code img{vertical-align: middle;}
 .article-comment .comment-form .comment-smt{text-align:right;}
 .article-comment .comment-form .not-login{padding:15px; background:#F9F9F9; text-align:center;}
 .article-comment .comment-form .not-login a{color:#3FA7CC;}
