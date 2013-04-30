@@ -84,7 +84,7 @@
 		loadComments(1);
 	})
 </script>
-<div class="article-comment">
+<div class="article-comment" id="comment">
     <div class="comment-hd clearfix">
     	<h4 class="pull-left">评论 <span style="display:none;">(请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。)</span></h4>
     	<span class="more pull-right"><a href="#">查看全部评论(122)</a></span>
@@ -104,7 +104,7 @@
 				<input type="hidden" name="feedbacktype" value="feedback" /><!--默认中立-->
 				
 				<div id="commentMain" style="display:none;">
-					<div class="not-login">你好，请 <a href="{dede:global.cfg_memberurl/}/login.php?gourl={dede:field.arcurl function='urlencode("@me")' /}">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div>
+					<div class="not-login">你好，请 <a href="{dede:global.cfg_memberurl/}/login.php?gourl={dede:field.arcurl function='urlencode("@me#comment")' /}">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div>
 				</div>
 				{dede:php}
 				if($cfg_mb_open=='Y'){
