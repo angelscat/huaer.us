@@ -399,7 +399,13 @@ a.button-search-small{height:26px; width:26px;}
 .article-comment .comment-form .comment-smt{text-align:right;}
 .article-comment .comment-form .not-login{padding:15px; background:#F9F9F9; text-align:center;}
 .article-comment .comment-form .not-login a{color:#3FA7CC;}
-.article-comment .comment-item{padding:20px 0; border-bottom:1px solid #EFEFEF;}
+.article-comment .comment-item{padding:20px; border-bottom:1px solid #EFEFEF;
+    -webkit-transition:background-color 1s linear;
+       -moz-transition:background-color 1s linear;
+        -ms-transition:background-color 1s linear;
+         -o-transition:background-color 1s linear;
+            transition:background-color 1s linear;}
+.article-comment .comment-list .new-comment{background:#EEEEEE;}
 .article-comment .comment-item .comment-avatar{width:60px; *margin-right:-3px; float:left;}
 .article-comment .comment-item .comment-detail{margin-left:60px; zoom:1;}
 .article-comment .comment-item .comment-info{overflow:hidden; zoom:1; margin-bottom:10px;}
@@ -410,6 +416,7 @@ a.button-search-small{height:26px; width:26px;}
 .article-comment .comment-item .comment-content{line-height:1.8;}
 .article-comment .comment-item .comment-content blockquote{margin:0 0 10px 0; padding:10px; border:1px solid #EEE;}
 .article-comment .comment-item .comment-content blockquote h6{font-size:12px; color:#999; margin-bottom:5px;}
+.article-comment .comment-list .pager{margin-top:20px; text-align:center;}
 .article-comment .comment-page{text-align:right; margin-top:10px;}
 
 

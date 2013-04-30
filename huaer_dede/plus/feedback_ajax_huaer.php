@@ -233,7 +233,7 @@ else if($dopost=='send')
         }
 ?>
 200|
-<div class="comment-item clearfix">
+<div class="comment-item new-comment clearfix">
     <div class="comment-avatar">
         <a href="<?php echo $spaceurl; ?>"><img width="50" height="50" src="<?php echo $mface;?>" /></a>
     </div>
@@ -348,37 +348,31 @@ function GetPageList($pagesize, $totalcount)
         echo '';
         return ;
     }
-    echo "<div id='commetpages'>";
-    echo "<span>总: {$allpage} 页/{$totalcount} 条评论</span> ";
+    echo '<div class="pager">';
     $listsize = 5;
     $total_list = $listsize * 2 + 1;
     $totalpage = $allpage;
     $listdd = '';
-    if($curpage-1 > 0 )
-    {
-    echo "<a href='#commettop' onclick='loadComments(".($curpage-1).");'>上一页</a> ";
+    if($curpage - 1 > 0){
+        echo '<a href="#commentList" onclick="loadComments(1)"><span>&lt;&lt;</span> 第一页</a>';
+        echo '<a href="#commentList" onclick="loadComments('. ($curpage - 1) .')"><span>&lt;</span> 上一页</a>';
     }
-    if($curpage >= $total_list)
-    {
-    $j = $curpage - $listsize;
-    $total_list = $curpage + $listsize;
-    if($total_list > $totalpage)
-    {
-    $total_list = $totalpage;
+    if($curpage >= $total_list){
+        $j = $curpage - $listsize;
+        $total_list = $curpage + $listsize;
+        if($total_list > $totalpage){
+            $total_list = $totalpage;
+        }
+    }else{
+        $j = 1;
+        if($total_list > $totalpage) $total_list = $totalpage;
     }
+    for ($j; $j <= $total_list; $j++) { 
+        echo ($j == $curpage ? '<a href="javascript:;" class="cur" onclick="return false;">'. $j .'</a>' : '<a href="#commentList" onclick="loadComments('. $j .')">'. $j .'</a>');
     }
-    else
-    {
-    $j = 1;
-    if($total_list > $totalpage) $total_list = $totalpage;
+    if($curpage + 1 <= $totalpage){
+        echo '<a href="#commentList" onclick="loadComments('. ($curpage + 1) .')">下一页 <span>&gt;</span></a>';
+        echo '<a href="#commentList" onclick="loadComments('. $totalpage .')">最后一页 <span>&gt;</span></a>';
     }
-    for($j; $j <= $total_list; $j++)
-    {
-    echo ($j==$curpage ? "<strong>$j</strong> " : "<a href='#commettop' onclick='loadComments($j);'>{$j}</a> ");
-    }
-    if($curpage+1 <= $totalpage )
-    {
-    echo "<a href='#commettop' onclick='loadComments(".($curpage+1).");'>下一页</a> ";
-    }
-    echo "</div>";
+    echo '</div>';
 }

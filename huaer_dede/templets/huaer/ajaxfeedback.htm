@@ -62,11 +62,17 @@
 					alert(r.join(''));
 				}else{ 
 					commentList.prepend(r.join(''));
+					commentMsg.val('');
+					validate.val('');
+					validateImg.trigger('click');
+					setTimeout(function(){
+						commentList.find('.new-comment').removeClass('new-comment');
+					},1 * 1000)
 				}
 				
 				if(code === '1'){ //验证码错误
 					validateImg.trigger('click');
-					validate.focus();
+					validate.val('').focus();
 				}
 			})
 			
