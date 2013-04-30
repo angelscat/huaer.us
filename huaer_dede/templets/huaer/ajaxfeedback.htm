@@ -103,13 +103,14 @@
 				<input type="hidden" name="fid" value="0" id="feedbackfid" />
 				<input type="hidden" name="feedbacktype" value="feedback" /><!--默认中立-->
 				
+				<div id="commentMain" style="display:none;">
+					<div class="not-login">你好，请 <a href="{dede:global.cfg_memberurl/}/login.php?gourl={dede:field.arcurl function='urlencode("@me")' /}">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div>
+				</div>
 				{dede:php}
-				if($cfg_mb_open!='Y'){
-					echo '<div class="not-login">你好，请 <a href="#">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div>';
-				}else{
-					
-					echo '<div id="commentMain" style="display:none;"><div class="not-login">你好，请 <a href="#">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div></div>';			
+				if($cfg_mb_open=='Y'){
 					echo '<script type="text/javascript">checkLogin();</script>';
+				}else{
+					echo '<script type="text/javascript">$("#commentMain").show();</script>';
 				}
 				{/dede:php}
 			</form>
