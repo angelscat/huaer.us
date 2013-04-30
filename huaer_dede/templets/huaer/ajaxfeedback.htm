@@ -1,40 +1,117 @@
-<div class="comment-form clearfix">
-	<script type="text/javascript">
-		function checkLogin(){
-			var commentMain = $('#commentMain');
-			$.get('{dede:global.cfg_cmsurl/}/member/ajax_feedback_huaer.php?_r='+Math.random(),function(r){
-				if(r !== ''){
-					commentMain.html(r);
+<script type="text/javascript">
+	function checkLogin(){
+		var commentMain = $('#commentMain');
+		$.get('{dede:global.cfg_cmsurl/}/member/ajax_feedback_huaer.php?_r='+Math.random(),function(r){
+			if(r !== ''){
+				commentMain.html(r);
+				
+				var feedbackFm = $('#feedbackFm'),
+					smtBtn = $('#smtBtn');
 					
-					if(!document.getElementById('smtBtn')) return;
-					var feedbackFm = $('#feedbackFm'),
-						smtBtn = $('#smtBtn');
-						
-					smtBtn.on('click',function(){
-						feedbackFm.submit();
-						return false;
-					})
-				}
-				commentMain.show();
-			})
-		}
-	</script>
-	<form action="{dede:global.cfg_phpurl/}/feedback_ajax.php" method="post" name="feedback" id="feedbackFm">
-		<input type="hidden" name="dopost" value="send" />
-		<input type="hidden" name="comtype" value="comments" />
-		<input type="hidden" name="aid" value="{dede:field name="id"/}" />
-		<input type="hidden" name="fid" value="0" id="feedbackfid" />
-		<input type="hidden" name="feedbacktype" value="feedback" /><!--默认中立-->
-		<input type="hidden" name="" value="" />
+				smtBtn.on('click',function(){
+					feedbackFm.submit();
+					return false;
+				})
+			}
+			commentMain.show();
+		})
+	}
+	
+	function loadComments(page){
+		var commentList = $('#commentList'),
+			loadingHtml = '<div style="text-align:center; padding:20px;"><span class="loading"></span> 正在加载评论...</div>';
 		
-		{dede:php}
-		if($cfg_mb_open!='Y'){
-			echo '<div class="not-login">你好，请 <a href="#">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div>';
-		}else{
+		commentList.html(loadingHtml);
+		$.get('{dede:global.cfg_phpurl /}/feedback_ajax.php?dopost=getlist&aid={dede:field.id/}&page=' + page,function(r){
+			console.log(r);
+		})
+	}
+	
+	jQuery(function(){
+		var feedbackFm = $('#feedbackFm');
+		feedbackFm.on('submit',function(){
+			var commentMsg = feedbackFm.find('#commentMsg'),
+				validate = feedbackFm.find('#validate'),
+				validateImg = feedbackFm.find('#validateImg'),
+				msg = $.trim(commentMsg.val()); 
+				
+			if(msg === ''){
+				alert('评论不能为空！');
+				commentMsg.focus();
+				return false;
+			}
 			
-			echo '<div id="commentMain" style="display:none;"><div class="not-login">你好，请 <a href="#">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div></div>';			
-			echo '<script type="text/javascript">checkLogin();</script>';
-		}
-		{/dede:php}
-	</form>
+			if(validate[0] && $.trim(validate.val()) === ''){
+				alert('请填写验证码！');
+				validate.focus();
+				return false;
+			}
+			
+			if(msg.length > 500){
+				alert('评论太长了，请填写500字以内的评论！');
+				return false;
+			}
+				
+			$.post('{dede:global.cfg_phpurl/}/feedback_ajax_huaer.php',feedbackFm.serialize(),function(r){
+				var r = r.split('|');
+				var code = $.trim(r[0]);
+				r.shift();
+				
+				if(code !== '200'){ //各种异常，弹出提示
+					alert(r.join(''));
+				}else{ 
+					console.log(r.join(''));
+				}
+				
+				if(code === '1'){ //验证码错误
+					validateImg.trigger('click');
+					validate.focus();
+				}
+			})
+			
+			return false;
+		})
+	})
+	
+	jQuery(function(){ //获取评论列表
+		loadComments(1);
+	})
+</script>
+<div class="article-comment">
+    <div class="comment-hd clearfix">
+    	<h4 class="pull-left">评论 <span style="display:none;">(请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。)</span></h4>
+    	<span class="more pull-right"><a href="#">查看全部评论(122)</a></span>
+    </div>
+    <div class="comment-bd">
+		<div class="comment-form clearfix">
+			<form action="{dede:global.cfg_phpurl/}/feedback_ajax.php" method="post" name="feedback" id="feedbackFm">
+				<input type="hidden" name="dopost" value="send" />
+				<input type="hidden" name="comtype" value="comments" />
+				<input type="hidden" name="notuser" value="" />
+				<input type="hidden" name="username" value="" />
+				<input type="hidden" name="pwd" value="" />
+				<input type="hidden" name="face" value="6" />
+				<input type="hidden" name="notuser" value="" />
+				<input type="hidden" name="aid" value="{dede:field name="id"/}" />
+				<input type="hidden" name="fid" value="0" id="feedbackfid" />
+				<input type="hidden" name="feedbacktype" value="feedback" /><!--默认中立-->
+				
+				{dede:php}
+				if($cfg_mb_open!='Y'){
+					echo '<div class="not-login">你好，请 <a href="#">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div>';
+				}else{
+					
+					echo '<div id="commentMain" style="display:none;"><div class="not-login">你好，请 <a href="#">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div></div>';			
+					echo '<script type="text/javascript">checkLogin();</script>';
+				}
+				{/dede:php}
+			</form>
+		</div>
+		<div class="comment-list" id="commentList">
+			
+		</div>
+		<div class="comment-page">
+		    <span class="more"><a href="#">查看全部评论(122)</a></span>
+		</div>
+	</div>
 </div>

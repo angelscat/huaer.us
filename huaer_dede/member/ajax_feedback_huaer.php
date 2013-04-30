@@ -16,14 +16,14 @@ else
     $face = $cfg_ml->fields['face'] == '' ? $GLOBALS['cfg_memberurl'].'/images/nopic.gif' : $cfg_ml->fields['face'];
 	
 	echo '<div class="comment-body">
-			<textarea class="ipt-text" name="msg"></textarea>
+			<textarea class="ipt-text" name="msg" id="commentMsg"></textarea>
 		</div>';
 		
 	if($cfg_feedback_ck == 'Y'){
 		echo '<div class="comment-code pull-left">
 			<label for="validate">验证码：</label>
 			<input type="text" class="ipt-text" name="validate" id="validate" />
-			<img src="'.$cfg_cmspath.'/include/vdimgck.php" onclick="this.src=\''.$cfg_cmspath.'/include/vdimgck.php\'+\'?_r=\'+Math.random()" />
+			<img id="validateImg" src="'.$cfg_cmspath.'/include/vdimgck.php" onclick="this.src=\''.$cfg_cmspath.'/include/vdimgck.php\'+\'?_r=\'+Math.random()" />
 		</div>';
 	}
 	
