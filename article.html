@@ -122,11 +122,16 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                                 	<span class="more pull-right"><a href="#">查看全部评论(122)</a></span>
                                 </div>
                                 <div class="comment-bd">
-                            		<div class="comment-form">
+                            		<div class="comment-form clearfix">
                             			<div class="comment-body">
 	                            			<textarea class="ipt-text"></textarea>
 	                            		</div>
-	                            		<div class="comment-smt">
+	                            		<div class="comment-code pull-left">
+											<label>验证码：</label>
+											<input type="text" class="ipt-text" />
+											<img src="'.$cfg_cmspath.'/include/vdimgck.php" />
+										</div>
+	                            		<div class="comment-smt pull-right">
 	                            			<a class="button button-save button-cmt clearfix" href="###">
 												<span class="button-left">&nbsp;</span>
 												<span class="button-text">提交</span>
