@@ -1,0 +1,2 @@
+/member/ajax_loginsta_huaer.php
+/member/ajax_feedback_huaer.php

@@ -1,5 +1,25 @@
 <div class="comment-form clearfix">
-	<form action="{dede:global.cfg_phpurl/}/feedback_ajax.php" method="post" name="feedback">
+	<script type="text/javascript">
+		function checkLogin(){
+			var commentMain = $('#commentMain');
+			$.get('{dede:global.cfg_cmsurl/}/member/ajax_feedback_huaer.php?_r='+Math.random(),function(r){
+				if(r !== ''){
+					commentMain.html(r);
+					
+					if(!document.getElementById('smtBtn')) return;
+					var feedbackFm = $('#feedbackFm'),
+						smtBtn = $('#smtBtn');
+						
+					smtBtn.on('click',function(){
+						feedbackFm.submit();
+						return false;
+					})
+				}
+				commentMain.show();
+			})
+		}
+	</script>
+	<form action="{dede:global.cfg_phpurl/}/feedback_ajax.php" method="post" name="feedback" id="feedbackFm">
 		<input type="hidden" name="dopost" value="send" />
 		<input type="hidden" name="comtype" value="comments" />
 		<input type="hidden" name="aid" value="{dede:field name="id"/}" />
@@ -8,28 +28,13 @@
 		<input type="hidden" name="" value="" />
 		
 		{dede:php}
-		if($cfg_mb_open=='Y'){
+		if($cfg_mb_open!='Y'){
 			echo '<div class="not-login">你好，请 <a href="#">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div>';
 		}else{
-			echo '<div class="comment-body">
-					<textarea class="ipt-text"></textarea>
-				</div>';
-			if(preg_match("/4/",$safe_gdopen)){
-				echo '<div class="comment-code pull-left">
-						<label>验证码：</label>
-						<input type="text" class="ipt-text" />
-						<img src="'.$cfg_cmspath.'/include/vdimgck.php" onclick="this.src=\''.$cfg_cmspath.'/include/vdimgck.php\'+\'?_r=\'+Math.random()" />
-					</div>';
-			}
-			echo '<div class="comment-smt pull-right">
-					<a class="button button-save button-cmt clearfix" href="###">
-						<span class="button-left">&nbsp;</span>
-						<span class="button-text">提交</span>
-						<span class="button-right">&nbsp;</span>
-					</a>
-				</div>';
+			
+			echo '<div id="commentMain" style="display:none;"><div class="not-login">你好，请 <a href="#">登录</a> 或者 <a href="#">注册</a> 后再进行评论。</div></div>';			
+			echo '<script type="text/javascript">checkLogin();</script>';
 		}
 		{/dede:php}
-
 	</form>
 </div>
