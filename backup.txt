@@ -1,2 +1,3 @@
 /member/ajax_loginsta_huaer.php
 /member/ajax_feedback_huaer.php
+/plus/feedback_ajax_huaer.php

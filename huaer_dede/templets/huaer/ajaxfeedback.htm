@@ -19,11 +19,11 @@
 	
 	function loadComments(page){
 		var commentList = $('#commentList'),
-			loadingHtml = '<div style="text-align:center; padding:20px;"><span class="loading"></span> 正在加载评论...</div>';
+			loadingHtml = '<div style="color:#999;text-align:center; padding:20px;"><span class="loading"></span> 正在加载评论...</div>';
 		
 		commentList.html(loadingHtml);
-		$.get('{dede:global.cfg_phpurl /}/feedback_ajax.php?dopost=getlist&aid={dede:field.id/}&page=' + page,function(r){
-			console.log(r);
+		$.get('{dede:global.cfg_phpurl /}/feedback_ajax_huaer.php?dopost=getlist&aid={dede:field.id/}&page=' + page,function(r){
+			commentList.html(r);
 		})
 	}
 	
