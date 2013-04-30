@@ -23,7 +23,7 @@ $cfg_ml = new MemberLogin();
 
 if(empty($dopost)) $dopost = '';
 $page = empty($page) || $page<1 ? 1 : intval($page);
-$pagesize = 10;
+$pagesize = 20;
 
 /*----------------------
 获得指定页的评论内容
