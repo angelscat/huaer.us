@@ -33,6 +33,7 @@
 			var commentMsg = feedbackFm.find('#commentMsg'),
 				validate = feedbackFm.find('#validate'),
 				validateImg = feedbackFm.find('#validateImg'),
+				commentList = $('#commentList'),
 				msg = $.trim(commentMsg.val()); 
 				
 			if(msg === ''){
@@ -60,7 +61,7 @@
 				if(code !== '200'){ //各种异常，弹出提示
 					alert(r.join(''));
 				}else{ 
-					console.log(r.join(''));
+					commentList.prepend(r.join(''));
 				}
 				
 				if(code === '1'){ //验证码错误

@@ -227,23 +227,31 @@ else if($dopost=='send')
             {
               if($row['sex']=="女") $mface=$cfg_cmspath."/member/templets/images/dfgirl.png";
               else $mface=$cfg_cmspath."/member/templets/images/dfboy.png";
+            }else{
+                $mface=$row['face'];
             }
         }
 ?>
 200|
-<div class='decmt-box2'>
-  <ul>
-    <li> <a href='<?php echo $spaceurl; ?>' class='plpic'><img src='<?php echo $mface;?>'  height='40' width='40'/></a> <span class="title"><a href="<?php echo $spaceurl; ?>"><?php echo $username; ?></a></span>
-    <div class="comment_act"><span class="fl"><?php echo GetDateMk($dtime); ?>发表</span></div>
-      <div style="clear:both"><?php echo ubb($msg); ?></div>
-      <div class="newcomment_act"><span class="fr"><span id='goodfb<?php echo $id; ?>'> <a href='#goodfb<?php echo $id; ?>' onclick="postBadGood('goodfb',<?php echo $id; ?>);">支持</a>[0] </span> <span id='badfb<?php echo $id; ?>'> <a href='#badfb<?php echo $id; ?>' onclick="postBadGood('badfb',<?php echo $id; ?>);">反对</a>[0] </span> <span class='quote'>
-        <!--<a href='/plus/feedback.php?aid=<?php echo $id; ?>&fid=<?php echo $id; ?>&action=quote'>[引用]</a>-->
-        <a href='javascript:ajaxFeedback(<?php echo $id; ?>,<?php echo $id; ?>,"quote");'>[引用]</a> </span></span></div>
-    </li>
-    <div id="ajaxfeedback_<?php echo $id; ?>"></div>
-  </ul>
+<div class="comment-item clearfix">
+    <div class="comment-avatar">
+        <a href="<?php echo $spaceurl; ?>"><img width="50" height="50" src="<?php echo $mface;?>" /></a>
+    </div>
+    <div class="comment-detail">
+        <div class="comment-info">
+            <span class="comment-author pull-left"><a href="<?php echo $spaceurl; ?>">汪祖方</a></span>
+            <span class="comment-date pull-left"><?php echo GetDateMk($dtime); ?></span>
+            <span class="comment-actions pull-right">
+                <a href="#">支持</a><span>[0]</span>
+                <a href="#">反对</a><span>[0]</span>
+                <a href="#">回复</a>
+            </span>
+        </div>
+        <div class="comment-content">
+            <?php echo ubb($msg); ?>
+        </div>
+    </div>
 </div>
-<br style='clear:both' />
 <?php
     }
     exit();
@@ -340,39 +348,37 @@ function GetPageList($pagesize, $totalcount)
         echo '';
         return ;
     }
-    echo "
-<div id='commetpages'>";
-  echo "<span>总: {$allpage} 页/{$totalcount} 条评论</span> ";
-  $listsize = 5;
-  $total_list = $listsize * 2 + 1;
-  $totalpage = $allpage;
-  $listdd = '';
-  if($curpage-1 > 0 )
-  {
-  echo "<a href='#commettop' onclick='LoadCommets(".($curpage-1).");'>上一页</a> ";
-  }
-  if($curpage >= $total_list)
-  {
-  $j = $curpage - $listsize;
-  $total_list = $curpage + $listsize;
-  if($total_list > $totalpage)
-  {
-  $total_list = $totalpage;
-  }
-  }
-  else
-  {
-  $j = 1;
-  if($total_list > $totalpage) $total_list = $totalpage;
-  }
-  for($j; $j <= $total_list; $j++)
-  {
-  echo ($j==$curpage ? "<strong>$j</strong> " : "<a href='#commettop' onclick='LoadCommets($j);'>{$j}</a> ");
-  }
-  if($curpage+1 <= $totalpage )
-  {
-  echo "<a href='#commettop' onclick='LoadCommets(".($curpage+1).");'>下一页</a> ";
-  }
-  echo "</div>
-";
+    echo "<div id='commetpages'>";
+    echo "<span>总: {$allpage} 页/{$totalcount} 条评论</span> ";
+    $listsize = 5;
+    $total_list = $listsize * 2 + 1;
+    $totalpage = $allpage;
+    $listdd = '';
+    if($curpage-1 > 0 )
+    {
+    echo "<a href='#commettop' onclick='LoadCommets(".($curpage-1).");'>上一页</a> ";
+    }
+    if($curpage >= $total_list)
+    {
+    $j = $curpage - $listsize;
+    $total_list = $curpage + $listsize;
+    if($total_list > $totalpage)
+    {
+    $total_list = $totalpage;
+    }
+    }
+    else
+    {
+    $j = 1;
+    if($total_list > $totalpage) $total_list = $totalpage;
+    }
+    for($j; $j <= $total_list; $j++)
+    {
+    echo ($j==$curpage ? "<strong>$j</strong> " : "<a href='#commettop' onclick='LoadCommets($j);'>{$j}</a> ");
+    }
+    if($curpage+1 <= $totalpage )
+    {
+    echo "<a href='#commettop' onclick='LoadCommets(".($curpage+1).");'>下一页</a> ";
+    }
+    echo "</div>";
 }
