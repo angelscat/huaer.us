@@ -356,7 +356,7 @@ function GetPageList($pagesize, $totalcount)
     $listdd = '';
     if($curpage-1 > 0 )
     {
-    echo "<a href='#commettop' onclick='LoadCommets(".($curpage-1).");'>上一页</a> ";
+    echo "<a href='#commettop' onclick='loadComments(".($curpage-1).");'>上一页</a> ";
     }
     if($curpage >= $total_list)
     {
@@ -374,11 +374,11 @@ function GetPageList($pagesize, $totalcount)
     }
     for($j; $j <= $total_list; $j++)
     {
-    echo ($j==$curpage ? "<strong>$j</strong> " : "<a href='#commettop' onclick='LoadCommets($j);'>{$j}</a> ");
+    echo ($j==$curpage ? "<strong>$j</strong> " : "<a href='#commettop' onclick='loadComments($j);'>{$j}</a> ");
     }
     if($curpage+1 <= $totalpage )
     {
-    echo "<a href='#commettop' onclick='LoadCommets(".($curpage+1).");'>下一页</a> ";
+    echo "<a href='#commettop' onclick='loadComments(".($curpage+1).");'>下一页</a> ";
     }
     echo "</div>";
 }
