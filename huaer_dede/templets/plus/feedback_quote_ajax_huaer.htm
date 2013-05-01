@@ -26,7 +26,7 @@
             <textarea class="ipt-text" name="msg"></textarea>
         </div>
 
-        <?php if(preg_match("/4/",$safe_gdopen)){ ?>
+        <?php if($cfg_feedback_ck == 'Y'){ ?>
         <div class="comment-code pull-left">
             <label>验证码：</label>
             <input type="text" class="ipt-text" name="validate" />
