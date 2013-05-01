@@ -16,40 +16,6 @@
 			commentMain.show();
 		})
 	}
-
-	function postCommentAttitude(ftype,fid){
-		var con = $('#' + ftype + fid),
-			saveid = $.cookie('badgoodid');
-		if(saveid !== null){
-			var saveids = saveid.split(','),
-				hasid = false,
-				j = 1;
-			saveid = '';
-			for(var i = saveids.length - 1; i >= 0; i--){
-				if(saveids[i] == fid && hasid) continue;
-				else{
-					if(saveids[i] == fid && !hasid) hasid = true;
-					saveid += (saveid === '' ? saveids[i] : ',' + saveids[i]);
-					j++;
-					if(j === 10 && hasid) break;
-					if(j === 9 && !hasid) break;
-				}					
-			}
-			if(hasid){
-				alert('您刚才已表决过了喔！');
-				return false;
-			}else{
-				saveid += ','+fid;	
-			}
-			$.cookie('badgoodid',saveid);
-		}else{
-			$.cookie('badgoodid',fid);
-		}
-
-		$.get('/plus/feedback_huaer.php?aid='+ fid +'&action='+ ftype +'&fid='+ fid +'&_r=' + Math.random(),function(r){
-			con.html(r);
-		});
-	}
 	
 	function loadComments(page){
 		var commentList = $('#commentList'),
@@ -59,6 +25,120 @@
 		$.get('{dede:global.cfg_phpurl /}/feedback_ajax_huaer.php?dopost=getlist&aid={dede:field.id/}&page=' + page,function(r){
 			commentList.html(r);
 		})
+	}
+
+	function postCommentAttitude(ftype,fid){
+		var con = $('#' + ftype + fid),
+			saveid = $.cookie('badgoodid');
+		if(saveid !== null){
+			var saveids = saveid.split(','),
+				hasid = false;
+			saveid = [];
+			for(var i = saveids.length - 1; i >= 0; i--){
+				if(saveids[i] == fid && hasid) continue;
+				else{
+					if(saveids[i] == fid && !hasid) hasid = true;
+					saveid.unshift(saveids[i]);
+				}					
+			}
+			if(hasid){
+				alert('您刚才已表决过了喔！');
+				return false;
+			}else{
+				saveid.unshift(fid);
+			}
+			$.cookie('badgoodid',saveid.slice(0,50).join(','));
+		}else{
+			$.cookie('badgoodid',fid);
+		}
+
+		$.get('/plus/feedback_huaer.php?aid='+ fid +'&action='+ ftype +'&fid='+ fid +'&_r=' + Math.random(),function(r){
+			con.html(r);
+		});
+	}
+
+	function replyComment(aid,fid,type){
+		var commentItem = $('#comment' + fid);
+
+		if(!commentItem.find('.reply-form')[0]){
+			$.get('{dede:global.cfg_phpurl /}/feedback_huaer.php?aid='+ aid +'&fid='+ fid +'&action=quote&type=ajax&_r=' + Math.random(),function(r){
+				var code = r.split('|')[0];
+				if(code == '504'){
+					alert('请登录后再回复！');
+				}else{
+					commentItem.append(r);
+
+					bindReplyEvent();
+				}
+			});
+		}
+
+		function bindReplyEvent(){
+			var replyBody = $('#replyForm' + fid),
+				replyForm = replyBody.find('form'),
+				cancelReply = replyForm.find('.cancel-reply'),
+				smtBtn = replyForm.find('.button');
+
+			smtBtn.on('click',function(){
+				replyForm.submit();
+				return false;
+			})
+
+			cancelReply.on('click',function(){
+				replyBody.remove();
+				return false;
+			})
+
+			replyForm.prepend('<input type="hidden" name="aid" value="'+ aid +'" />');
+			replyForm.find('textarea').focus();
+
+			replyForm.on('submit',function(){
+				var replyMsg = replyForm.find('textarea'),
+					validate = replyForm.find('input[name="validate"]'),
+					validateImg = replyForm.find('img'),
+					commentList = $('#commentList'),
+					msg = $.trim(replyMsg.val());
+				if(msg === ''){
+					alert('回复不能为空！');
+					replyMsg.focus();
+					return false;
+				}
+				
+				if(validate[0] && $.trim(validate.val()) === ''){
+					alert('请填写验证码！');
+					validate.focus();
+					return false;
+				}
+				
+				if(msg.length > 500){
+					alert('评论太长了，请填写500字以内的评论！');
+					return false;
+				}
+
+				$.post('{dede:global.cfg_phpurl/}/feedback_ajax_huaer.php',replyForm.serialize(),function(r){
+					var r = r.split('|');
+					var code = $.trim(r[0]);
+					r.shift();
+					
+					if(code !== '200'){ //各种异常，弹出提示
+						alert(r.join(''));
+					}else{
+						commentList.prepend(r.join(''));
+						location.hash = 'commentList';
+						replyBody.remove();
+						setTimeout(function(){
+							commentList.find('.new-comment').removeClass('new-comment');
+						},2 * 1000)
+					}
+					if(code === '1'){ //验证码错误
+						validateImg.trigger('click');
+						validate.val('').focus();
+					}
+				})
+
+				return false;
+			})
+		}
 	}
 	
 	jQuery(function(){
@@ -101,7 +181,7 @@
 					validateImg.trigger('click');
 					setTimeout(function(){
 						commentList.find('.new-comment').removeClass('new-comment');
-					},1 * 1000)
+					},2 * 1000)
 				}
 				
 				if(code === '1'){ //验证码错误

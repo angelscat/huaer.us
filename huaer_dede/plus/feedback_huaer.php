@@ -100,6 +100,9 @@ function __Quote(){ }
 */
 else if($action=='quote')
 {
+    if($cfg_ml->M_ID < 1){
+        exit('504|请登录后再回复！');
+    }
 	$type = empty($type)? '' : 'ajax';
 	if($type == 'ajax')
 	{
@@ -108,7 +111,7 @@ else if($action=='quote')
     $row = $dsql->GetOne("SELECT * FROM `#@__feedback` WHERE id ='$fid'");
     require_once(DEDEINC.'/dedetemplate.class.php');
     $dtp = new DedeTemplate();
-	$tplfile = $type == ''? DEDETEMPLATE.'/plus/feedback_quote.htm' : DEDETEMPLATE.'/plus/feedback_quote_ajax.htm';
+	$tplfile = $type == ''? DEDETEMPLATE.'/plus/feedback_quote.htm' : DEDETEMPLATE.'/plus/feedback_quote_ajax_huaer.htm';
 	
     $dtp->LoadTemplate($tplfile);
     $dtp->Display();

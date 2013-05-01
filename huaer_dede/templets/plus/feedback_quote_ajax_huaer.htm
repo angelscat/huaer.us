@@ -1,0 +1,45 @@
+<div class="comment-form reply-form clearfix" id="replyForm<?php echo $row['id']; ?>">
+    <form action="feedback.php" method="post" name="replyForm<?php echo $row['id']; ?>">
+        <input type="hidden" name="dopost" value="send" />
+        <input type="hidden" name="comtype" value="reply" />
+        <input type="hidden" name="fid" value="<?php echo $row['id']; ?>" />
+        <input type="hidden" name="isconfirm" value="yes" />
+        <input type="hidden" name="typeid" value="<?php echo $row['typeid'];?>" />
+        <input type="hidden" name="feedbacktype" value="feedback" />
+        <input type="hidden" name="notuser" value="" />
+        <input type="hidden" name="username" value="" />
+        <input type="hidden" name="pwd" value="" />
+        <div class="comment-title clearfix">
+            <strong class="pull-left">回复</strong>
+            <a href="javascript:;" class="cancel-reply pull-right">取消回复</a>
+        </div>
+
+        <div class="comment-body">
+            <textarea class="hide" name="quotemsg">
+                <blockquote>
+                    <h6><?php echo $row['username'] ?>的原贴:</h6>
+                    <div class="q-content">
+                        <?php echo $row['msg'] ?>
+                    </div>
+                </blockquote>
+            </textarea>
+            <textarea class="ipt-text" name="msg"></textarea>
+        </div>
+
+        <?php if(preg_match("/4/",$safe_gdopen)){ ?>
+        <div class="comment-code pull-left">
+            <label>验证码：</label>
+            <input type="text" class="ipt-text" name="validate" />
+            <img src="{dede:global.cfg_cmsurl/}/include/vdimgck.php" onclick="this.src=this.src.split('?')[0]+'?_r='+Math.random();" />
+        </div>
+        <?php } ?>
+        
+        <div class="comment-smt pull-right">
+            <a class="button button-save button-cmt clearfix" href="###">
+                <span class="button-left">&nbsp;</span>
+                <span class="button-text">提交</span>
+                <span class="button-right">&nbsp;</span>
+            </a>
+        </div>
+    </form>
+</div>

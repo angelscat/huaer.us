@@ -2,3 +2,4 @@
 /member/ajax_feedback_huaer.php
 /plus/feedback_ajax_huaer.php
 /plus/feedback_huaer.php
+/teplates/plus/feedback_quote_ajax_huaer.htm

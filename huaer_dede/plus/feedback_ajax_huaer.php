@@ -143,7 +143,8 @@ else if($dopost=='send')
     if(!empty($fid))
     {
         $row = $dsql->GetOne("SELECT username,msg from `#@__feedback` WHERE id ='$fid' ");
-        $qmsg = '{quote}{content}'.$row['msg'].'{/content}{title}'.$row['username'].' 的原帖：{/title}{/quote}';
+        $qmsg = '<blockquote><h6>'. $row['username'] .'的原贴:</h6><div class="q-content">'. $row['msg'] .'</div></blockquote>';
+        //$qmsg = '{quote}{content}'.$row['msg'].'{/content}{title}'.$row['username'].' 的原帖：{/title}{/quote}';
         $msg = addslashes($qmsg).$msg;
     }
     $ischeck = ($cfg_feedbackcheck=='Y' ? 0 : 1);
@@ -244,7 +245,7 @@ else if($dopost=='send')
             <span class="comment-actions pull-right">
                 <span id="fbGood<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbGood',<?php echo $id; ?>)">支持</a><em>[0]</em></span>
                 <span id="fbBad<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbBad',<?php echo $id; ?>)">反对</a><em>[0]</em></span>
-                <a href="#">回复</a>
+                <a href="#comment<?php echo $id; ?>" onclick="replyComment(<?php echo $aid; ?>,<?php echo $id; ?>,'quote')">回复</a>
             </span>
         </div>
         <div class="comment-content">
@@ -318,7 +319,7 @@ function GetList($page=1)
             <span class="comment-actions pull-right">
                 <span id="fbGood<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbGood',<?php echo $id; ?>)">支持</a><em>[<?php echo $good; ?>]</em></span>
                 <span id="fbBad<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbBad',<?php echo $id; ?>)">反对</a><em>[<?php echo $bad; ?>]</em></span>
-                <a href="#">回复</a>
+                <a href="#comment<?php echo $id; ?>" onclick="replyComment(<?php echo $aid; ?>,<?php echo $id; ?>,'quote')">回复</a>
             </span>
         </div>
         <div class="comment-content">
