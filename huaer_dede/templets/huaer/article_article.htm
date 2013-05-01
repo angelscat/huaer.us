@@ -64,7 +64,12 @@
 			            <div class="mod-bd">
                             <h1>{dede:field.title/}</h1>
                             <div class="article-info">
-                                <span class="article-tags">标签: <a href="#">春天</a> <a href="#">春天</a> <a href="#">春天</a></span>
+                                <span class="article-tags">
+                                    标签: 
+                                    {dede:tag sort='new' getall='0'}
+                                    <a href='[field:link/]'>[field:tag /]</a>
+                                    {/dede:tag}
+                                </span>
                                 <span class="article-from">来源:{dede:field.source/}</span>
                                 <span class="article-author">作者:{dede:field.writer/}</span>
                                 <span class="article-date">{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/} </span>
