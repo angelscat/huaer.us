@@ -240,7 +240,7 @@ else if($dopost=='send')
     </div>
     <div class="comment-detail">
         <div class="comment-info">
-            <span class="comment-author pull-left"><a href="<?php echo $spaceurl; ?>">汪祖方</a></span>
+            <span class="comment-author pull-left"><a href="<?php echo $spaceurl; ?>"><?php echo $username; ?></a></span>
             <span class="comment-date pull-left"><?php echo GetDateTimeMK($dtime); ?></span>
             <span class="comment-actions pull-right">
                 <span id="fbGood<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbGood',<?php echo $id; ?>)">支持</a><em>[0]</em></span>
