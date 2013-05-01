@@ -46,6 +46,11 @@
                 $.get("{dede:global.cfg_phpurl/}/digg_ajax_huaer.php?id="+ aid + '&_r=' + Math.random(),function(r){
                     likeNum.html(r)
                 })
+
+                //获取点击次数
+                $.get('{dede:global.cfg_phpurl/}/count_huaer.php?view=yes&aid='+ aid +'&mid={dede:field.mid/}&_r=' + Math.random(),function(r){
+                    $('#viewTimes').html(r);
+                })
             })
         </script>
 	</head>
@@ -73,7 +78,7 @@
                                 <span class="article-from">来源:{dede:field.source/}</span>
                                 <span class="article-author">作者:{dede:field.writer/}</span>
                                 <span class="article-date">{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/} </span>
-                                <span class="article-view-tile">124次阅读</span>
+                                <span class="article-view-time"><em id="viewTimes"><i class="loading"></i></em>次阅读</span>
                             </div>
                             <div class="article-ads">
                                 <img src="assets/img/temp_580x90.gif" />
