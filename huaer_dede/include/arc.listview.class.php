@@ -81,7 +81,7 @@ class ListView
             $this->Fields = $this->TypeLink->TypeInfos;
             $this->Fields['id'] = $typeid;
             $this->Fields['position'] = $this->TypeLink->GetPositionLink(true);
-            $this->Fields['title'] = preg_replace("/[<>]/", " / ", $this->TypeLink->GetPositionLink(false));
+            $this->Fields['title'] = preg_replace("/[<>]/", " - ", $this->TypeLink->GetPositionLink(false));
 
             //设置一些全局参数的值
             foreach($GLOBALS['PubFields'] as $k=>$v) $this->Fields[$k] = $v;

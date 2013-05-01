@@ -17,7 +17,7 @@ $cfg_imgtype = 'jpg|gif|png';
 $cfg_softtype = 'zip|gz|rar|iso|doc|xsl|ppt|wps';
 $cfg_mediatype = 'swf|mpg|mp3|rm|rmvb|wmv|wma|wav|mid|mov';
 $cfg_specnote = 6;
-$cfg_list_symbol = '<span class="sep"> > </span>';
+$cfg_list_symbol = ' > ';
 $cfg_notallowstr = '非典|艾滋病|阳痿';
 $cfg_replacestr = '她妈|它妈|他妈|你妈|去死|贱人';
 $cfg_feedbackcheck = 'N';

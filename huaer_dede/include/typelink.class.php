@@ -173,7 +173,7 @@ class TypeLink
         }
         else
         {
-            $this->valuePositionName = $tinfos['typename'].$this->SplitSymbol.$this->valuePositionName;
+            $this->valuePositionName = $this->valuePositionName.$this->SplitSymbol.$tinfos['typename'];
         }
         if($tinfos['reid']>0)
         {

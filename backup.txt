@@ -3,3 +3,7 @@
 /plus/feedback_ajax_huaer.php
 /plus/feedback_huaer.php
 /teplates/plus/feedback_quote_ajax_huaer.htm
+
+huaer_dede\include\arc.listview.class.php
+huaer_dede\include\typelink.class.php
+
