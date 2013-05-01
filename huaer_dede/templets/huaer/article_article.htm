@@ -5,6 +5,49 @@
 		<meta name="keywords" content="{dede:field.keywords/}" />
 		<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
         <title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+
+        <script type="text/javascript">
+            jQuery(function(){
+                var likeBtn = $('#likeBtn'),
+                    likeNum = likeBtn.find('span'),
+                    aid = {dede:field.id/};
+
+                likeBtn.on('click',function(){
+                    var saveid = $.cookie('digid');
+                    if(saveid !== null){
+                        var saveids = saveid.split(','),
+                            hasid = false;
+                        saveid = [];
+                        for(var i = saveids.length - 1; i >= 0; i--){
+                            if(saveids[i] == aid && hasid) continue;
+                            else{
+                                if(saveids[i] == aid && !hasid) hasid = true;
+                                saveid.unshift(saveids[i]);
+                            }
+                        }
+                        if(hasid){
+                            alert('您刚才已经顶过这篇文章，请不要重复顶贴！');
+                            return;
+                        }else{
+                            saveids.unshift(aid);
+                        }
+                        $.cookie('digid',saveids.join(','));
+                    }else{
+                        $.cookie('digid',aid)
+                    }
+
+                    $.post('{dede:global.cfg_phpurl/}/digg_ajax_huaer.php?action=good&id='+ aid +'&_r=' + Math.random(),function(r){
+                        likeNum.html(r)
+                    })
+                })
+
+
+                //获取喜欢数
+                $.get("{dede:global.cfg_phpurl/}/digg_ajax_huaer.php?id="+ aid + '&_r=' + Math.random(),function(r){
+                    likeNum.html(r)
+                })
+            })
+        </script>
 	</head>
 	<body>
 		{dede:include filename="header.htm" /}
@@ -34,8 +77,8 @@
                                 {dede:field.body/}
                             </div>
                             <div class="article-actions">
-                                <a href="#" class="like"><span>12</span></a>
-                                <a href="#" class="collect"></a>
+                                <a href="javascript:;" class="like" id="likeBtn"><span><i class="loading"></i></span></a>
+                                <a href="{dede:field name='phpurl'/}/stow.php?aid={dede:field.id/}" target="_blank" class="collect"></a>
                             </div>
                             <div class="article-share">
 <!-- Baidu Button BEGIN -->

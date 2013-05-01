@@ -4,6 +4,9 @@
 /plus/feedback_huaer.php
 /teplates/plus/feedback_quote_ajax_huaer.htm
 
-huaer_dede\include\arc.listview.class.php
-huaer_dede\include\typelink.class.php
+huaer_dede\include\arc.listview.class.php	2013-05-01
+huaer_dede\include\typelink.class.php		2013-05-01
+
+huaer_dede\plus\digg_ajax_huaer.php			2013-05-01
+
 
