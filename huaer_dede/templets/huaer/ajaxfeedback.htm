@@ -16,6 +16,40 @@
 			commentMain.show();
 		})
 	}
+
+	function postCommentAttitude(ftype,fid){
+		var con = $('#' + ftype + fid),
+			saveid = $.cookie('badgoodid');
+		if(saveid !== null){
+			var saveids = saveid.split(','),
+				hasid = false,
+				j = 1;
+			saveid = '';
+			for(var i = saveids.length - 1; i >= 0; i--){
+				if(saveids[i] == fid && hasid) continue;
+				else{
+					if(saveids[i] == fid && !hasid) hasid = true;
+					saveid += (saveid === '' ? saveids[i] : ',' + saveids[i]);
+					j++;
+					if(j === 10 && hasid) break;
+					if(j === 9 && !hasid) break;
+				}					
+			}
+			if(hasid){
+				alert('您刚才已表决过了喔！');
+				return false;
+			}else{
+				saveid += ','+fid;	
+			}
+			$.cookie('badgoodid',saveid);
+		}else{
+			$.cookie('badgoodid',fid);
+		}
+
+		$.get('/plus/feedback_huaer.php?aid='+ fid +'&action='+ ftype +'&fid='+ fid +'&_r=' + Math.random(),function(r){
+			con.html(r);
+		});
+	}
 	
 	function loadComments(page){
 		var commentList = $('#commentList'),

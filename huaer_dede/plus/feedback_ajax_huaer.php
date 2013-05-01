@@ -242,8 +242,8 @@ else if($dopost=='send')
             <span class="comment-author pull-left"><a href="<?php echo $spaceurl; ?>">汪祖方</a></span>
             <span class="comment-date pull-left"><?php echo GetDateMk($dtime); ?></span>
             <span class="comment-actions pull-right">
-                <a href="#">支持</a><span>[0]</span>
-                <a href="#">反对</a><span>[0]</span>
+                <span id="fbGood<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbGood',<?php echo $id; ?>)">支持</a><em>[0]</em></span>
+                <span id="fbBad<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbBad',<?php echo $id; ?>)">反对</a><em>[0]</em></span>
                 <a href="#">回复</a>
             </span>
         </div>
@@ -316,8 +316,8 @@ function GetList($page=1)
             <span class="comment-author pull-left"><a href="<?php echo $spaceurl; ?>"><?php echo $username; ?></a></span>
             <span class="comment-date pull-left"><?php echo GetDateMk($dtime); ?></span>
             <span class="comment-actions pull-right">
-                <a href="#">支持</a><span>[<?php echo $good; ?>]</span>
-                <a href="#">反对</a><span>[<?php echo $bad; ?>]</span>
+                <span id="fbGood<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbGood',<?php echo $id; ?>)">支持</a><em>[<?php echo $good; ?>]</em></span>
+                <span id="fbBad<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbBad',<?php echo $id; ?>)">反对</a><em>[<?php echo $bad; ?>]</em></span>
                 <a href="#">回复</a>
             </span>
         </div>

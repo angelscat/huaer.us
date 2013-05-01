@@ -413,6 +413,7 @@ a.button-search-small{height:26px; width:26px;}
 .article-comment .comment-item .comment-info .comment-date{margin-left:10px; color:#999;}
 .article-comment .comment-item .comment-info .comment-actions span{color:#999;font-size:12px; margin-left:3px;}
 .article-comment .comment-item .comment-info .comment-actions a{color:#3FA7CC; margin-left:5px;}
+.article-comment .comment-item .comment-info .comment-actions em{font-style:normal;}
 .article-comment .comment-item .comment-content{line-height:1.8;}
 .article-comment .comment-item .comment-content blockquote{margin:0 0 10px 0; padding:10px; border:1px solid #EEE;}
 .article-comment .comment-item .comment-content blockquote h6{font-size:12px; color:#999; margin-bottom:5px;}
