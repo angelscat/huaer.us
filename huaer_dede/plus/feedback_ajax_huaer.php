@@ -233,7 +233,7 @@ else if($dopost=='send')
         }
 ?>
 200|
-<div class="comment-item new-comment clearfix">
+<div class="comment-item new-comment clearfix" id="comment<?php echo $id; ?>">
     <div class="comment-avatar">
         <a href="<?php echo $spaceurl; ?>"><img width="50" height="50" src="<?php echo $mface;?>" /></a>
     </div>
@@ -307,7 +307,7 @@ function GetList($page=1)
         extract($fields, EXTR_OVERWRITE);
 ?>
 
-<div class="comment-item clearfix">
+<div class="comment-item clearfix" id="comment<?php echo $id; ?>">
     <div class="comment-avatar">
         <a href="<?php echo $spaceurl; ?>"><img width="50" height="50" src="<?php echo $mface;?>" /></a>
     </div>
