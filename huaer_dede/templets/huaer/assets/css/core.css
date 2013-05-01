@@ -265,9 +265,8 @@ a.button-search-small{height:26px; width:26px;}
 
 /*nav*/
 .nav{margin-bottom:20px;}
-.nav ul li{display:inline;}
-.nav ul li.cur a{color:#3FA7CC; text-decoration:none;}
-.nav ul li .sep{font-family:'宋体'; font-size:12px;}
+.nav a.cur{color:#3FA7CC; text-decoration:none;}
+.nav span{font-family:'宋体'; font-size:12px;}
 
 /*page*/
 .pager {letter-spacing:-4px; font-size:0;}
