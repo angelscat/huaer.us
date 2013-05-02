@@ -92,7 +92,7 @@
                                         <label for="">用户名：</label>
                                     </div>
                                     <div class="ipt">
-                                        <input type="text" class="ipt-text" name="userid" id="username" />
+                                        <input type="text" class="ipt-text" name="userid" id="username" tabindex="1" />
                                     </div>
                                     <div class="tips"> </div>
                                 </div>
@@ -101,7 +101,7 @@
                                         <label for="">密码：</label>
                                     </div>
                                     <div class="ipt">
-                                        <input type="password" class="ipt-text" name="pwd" id="password" /> <a href="#">忘记密码？</a>
+                                        <input type="password" class="ipt-text" name="pwd" id="password" tabindex="2" /> <a href="#">忘记密码？</a>
                                     </div>
                                     <div class="tips"> </div>
                                 </div>
@@ -110,7 +110,7 @@
                                         <label for="">验证码：</label>
                                     </div>
                                     <div class="ipt">
-                                        <input type="text" class="ipt-text" name="vdcode" id="verifyCode" /> <img src="http://huaer.us/include/vdimgck.php" id="verifyCodeImg" /> <a id="changeVerifyCode" href="javascript:;">看不清楚？换一张</a>
+                                        <input type="text" class="ipt-text" name="vdcode" id="verifyCode" tabindex="3" /> <img src="http://huaer.us/include/vdimgck.php" id="verifyCodeImg" /> <a id="changeVerifyCode" href="javascript:;">看不清楚？换一张</a>
                                     </div>
                                     <div class="tips"> </div>
                                 </div>
@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="ipt">
                                         <span class="checkbox">
-                                            <input type="checkbox" class="ipt-checkbox" name="keeptime" value="2592000" id="autoLogin" /> <label hidefocus="true" for="autoLogin">下次自动登录</label>
+                                            <input type="checkbox" class="ipt-checkbox" name="keeptime" value="2592000" id="autoLogin" tabindex="4" /> <label hidefocus="true" for="autoLogin">下次自动登录</label>
                                         </span>
                                     </div>
                                     <div class="tips"> </div>
@@ -130,7 +130,7 @@
                                         <label for="">&nbsp;</label>
                                     </div>
                                     <div class="ipt">
-                                        <a class="button button-save clearfix" href="javascript:;">
+                                        <a class="button button-save clearfix" href="javascript:;" tabindex="5">
                                         	<input type="submit" />
                                             <span class="button-left">&nbsp;</span>
                                             <span class="button-text">登录</span>
@@ -153,25 +153,6 @@
                 </div>
 			</div>
 		</div>
-		<div class="footer">
-			<p class="links">
-				<a href="#">关于我们</a>
-				<span>|</span>
-				<a href="#">友情链接</a>
-				<span>|</span>
-				<a href="#">联系我们</a>
-				<span>|</span>
-				<a href="#">网站地图</a>
-				<span>|</span>
-				<a href="#">关于我们</a>
-			</p>
-			<p class="copyright">
-				&copy; 2013 huaer.us Some rights reserved. 
-			</p>
-			<p class="declare">
-				本站文章如未注明作者均为转载，免费转载出于非商业性学习目的，版权归原作者所有。<br />
-				如有版权等问题请及时联系我们，联系方式：angelscat@vip.qq.com
-			</p>
-		</div>
+		<?php include(DEDEMEMBER."/templets/footer.htm"); ?>
 	</body>
 </html>
