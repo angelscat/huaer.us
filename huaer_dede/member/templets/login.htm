@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<?php include(DEDEMEMBER."/templets/head.htm"); ?>
-		<meta name="description" content="{dede:global.cfg_description/}" />
-		<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+		<meta name="description" content="<?php echo $cfg_description; ?>" />
+		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>登录 - <?php echo $cfg_webname; ?></title>
 		
 		<script type="text/javascript">
@@ -73,7 +73,7 @@
 			<div class="layout clearfix">
 			    <div class="account-mod">
                     <div class="mod-hd">
-                        <h2>登录 <span class="subtext">还没有帐号？ <a href="/member/index_do.php?fmdo=user&dopost=regnew">免费注册</a></span></h2>
+                        <h2>登录 <span class="subtext">还没有帐号？ <a href="<?php echo $cfg_cmsurl ?>/member/index_do.php?fmdo=user&dopost=regnew">免费注册</a></span></h2>
                     </div>
                     <div class="mod-bd clearfix">
                         <div class="account-form pull-left">
@@ -110,7 +110,7 @@
                                         <label for="">验证码：</label>
                                     </div>
                                     <div class="ipt">
-                                        <input type="text" class="ipt-text" name="vdcode" id="verifyCode" tabindex="3" /> <img src="http://huaer.us/include/vdimgck.php" id="verifyCodeImg" /> <a id="changeVerifyCode" href="javascript:;">看不清楚？换一张</a>
+                                        <input type="text" class="ipt-text" name="vdcode" id="verifyCode" tabindex="3" /> <img src="<?php echo $cfg_cmsurl ?>/include/vdimgck.php" id="verifyCodeImg" /> <a id="changeVerifyCode" href="javascript:;">看不清楚？换一张</a>
                                     </div>
                                     <div class="tips"> </div>
                                 </div>
