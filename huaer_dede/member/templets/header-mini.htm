@@ -1,0 +1,37 @@
+<div class="header-wrap header-mini">
+	<div class="layout">
+		<div class="header clearfix">
+			<a href="#" class="logo pull-left">
+				花儿作文网
+			</a>
+			<ul class="main-menu pull-left">
+				<li><a href="#">小学作文</a></li>
+				<li><a href="#">初中作文</a></li>
+				<li><a href="#">高中作文</a></li>
+			</ul>
+			<ul class="sub-menu pull-left">
+				<li><a href="#">读后感</a></li>
+				<li class="sep"><span> </span></li>
+				<li><a href="#">日记</a></li>
+				<li class="sep"><span> </span></li>
+				<li><a href="#">游记</a></li>
+				<li class="sep"><span> </span></li>
+				<li><a href="#">写作素材</a></li>
+			</ul>
+			<ul class="sub-menu pull-right" id="userInfo" style="display:none;">
+				<li><a href="{dede:global.cfg_memberurl/}/login.php">登录</a></li>
+				<li class="sep"><span></span></li>
+				<li><a href="{dede:global.cfg_memberurl/}/index_do.php?fmdo=user&dopost=regnew">注册</a></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var userInfo = $('#userInfo');
+		$.get('/member/ajax_loginsta_huaer.php?_t=' + Math.random(),function(r){
+			if(r !== ''){
+				userInfo.html(r);
+			}
+			userInfo.show();
+		});
+	</script>
+</div><!-- header -->
