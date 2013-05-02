@@ -11,7 +11,6 @@ huaer_dede\plus\digg_ajax_huaer.php			2013-05-01
 huaer_dede\plus\count_huaer.php				2013-05-02 00:26
 
 
-
 huaer_dede\member\templets\footer.htm
 huaer_dede\member\templets\head.bak.htm
 huaer_dede\member\templets\header-mini.htm
@@ -19,5 +18,8 @@ huaer_dede\member\templets\header.htm
 huaer_dede\member\templets\login.bak.htm
 huaer_dede\member\templets\head.htm
 huaer_dede\member\templets\login.htm
+huaer_dede\member\templets\reg-new.htm
+
 
 huaer_dede\member\index.php					2013-05-02 14:27
+huaer_dede\member\index_do_huaer.php		2013-05-02 17:16
