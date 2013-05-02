@@ -23,3 +23,7 @@ huaer_dede\member\templets\reg-new.htm
 
 huaer_dede\member\index.php					2013-05-02 14:27
 huaer_dede\member\index_do_huaer.php		2013-05-02 17:16
+
+
+huaer_dede\member\index.php					2013-05-03 00:06
+huaer_dede\member\templets\index.htm		2013-05-03 00:06

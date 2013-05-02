@@ -36,13 +36,13 @@ if($uid=='')
 
         require_once(DEDEINC.'/channelunit.func.php');
 
-        /* 最新文档8条 */
+        /* 我的最新文档 */
         $archives = array();
         $sql = "SELECT arc.*, category.namerule, category.typedir, category.moresite, category.siteurl, category.sitepath, mem.userid
         FROM #@__archives arc
         LEFT JOIN #@__arctype category ON category.id=arc.typeid
         LEFT JOIN #@__member mem ON mem.mid=arc.mid
-        WHERE arc.arcrank > -1
+        WHERE arc.arcrank > -1 and arc.mid='".$cfg_ml->M_ID."'
         ORDER BY arc.sortrank DESC LIMIT 8";
         $dsql->SetQuery($sql);
         $dsql->Execute();
@@ -62,14 +62,23 @@ if($uid=='')
 
         /** 我的收藏 **/
         $favorites = array();
-        $dsql->Execute('fl',"SELECT * FROM `#@__member_stow` WHERE mid='{$cfg_ml->M_ID}'  LIMIT 5");
-        while($arr = $dsql->GetArray('fl'))
+        $sql = "SELECT stow.*,arc.*,category.namerule, category.typedir, category.moresite, category.siteurl, category.sitepath, mem.userid
+        FROM #@__member_stow stow
+        LEFT JOIN #@__archives arc ON arc.id=stow.aid
+        LEFT JOIN #@__arctype category ON category.id=arc.typeid
+        LEFT JOIN #@__member mem ON mem.mid=arc.mid
+        WHERE stow.mid='".$cfg_ml->M_ID."' and arc.arcrank > -1
+        ORDER BY stow.addtime DESC LIMIT 5";
+        $dsql->SetQuery($sql);
+        $dsql->Execute();
+        while($row = $dsql->GetArray())
         {
-            $favorites[] = $arr;
+            $row['htmlurl'] = GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']);
+            $favorites[] = $row;
         }
         
         /** 欢迎新朋友 **/
-        $sql = "SELECT * FROM `#@__member` ORDER BY mid DESC LIMIT 3";
+        $sql = "SELECT * FROM `#@__member` ORDER BY mid DESC LIMIT 10";
         $newfriends = array();
         $dsql->SetQuery($sql);
         $dsql->Execute();
@@ -100,6 +109,12 @@ if($uid=='')
         while ($row = $dsql->GetArray()) {
             $feeds[] = $row;
         }
+        /** 会员详细信息 **/
+        $uinfos = $dsql->GetOne("SELECT * FROM `#@__member_person` WHERE mid='".$cfg_ml->M_ID."'; ");
+
+        /** 所在地 **/
+        require_once(DEDEINC.'/enums.func.php');
+        require_once(DEDEDATA.'/enums/nativeplace.php');
 
         $dpl = new DedeTemplate();
         $tpl = dirname(__FILE__)."/templets/index.htm";
