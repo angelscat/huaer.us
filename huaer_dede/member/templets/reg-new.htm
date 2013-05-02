@@ -8,7 +8,189 @@
 
 		<script type="text/javascript">
 			jQuery(function(){
-				
+				var regForm = $('#regForm'),
+					userid = $('#userid'),
+					username = $('#username'),
+					password = $('#password'),
+					pwdConfirm = $('#pwdConfirm'),
+					email = $('#email'),
+					verifyCode = $("#verifyCode"),
+					verifyCodeImg = $('#verifyCodeImg'),
+					smtBtn = regForm.find('.button'),
+					flag = true;
+				var zhReg = /[^\x00-\xff]/g,
+					mailReg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})$/,
+					nameReg = /^[\u4E00-\u9FA5a-zA-Z0-9_]+$/;
+
+				regForm.on('submit',function(){
+					flag = true;
+					$('#userid,#username,#password,#pwdConfirm,#email,#verifyCode').trigger('blur');
+					return flag;
+				})
+
+				smtBtn.on('click',function(){
+					regForm.submit();
+					return false;
+				})
+
+				$('#userid,#username,#email').on('change',function(){
+					$(this).attr('hasChecked',0);
+				})
+
+				$('#userid,#username,#password,#pwdConfirm,#email,#verifyCode').each(function(){
+					var _this = $(this);
+
+					_this.on('blur',function(){
+						var type = _this.attr('id'),
+							val = $.trim(_this.val());
+						switch(type){
+							case 'userid':
+								if(val === ''){
+									showError(_this,'请输入用户名');
+								}else if(val.replace(zhReg,'**').length < 4 || val.replace(zhReg,'**').length > 20){
+									showError(_this,'长度不符合要求');
+								}else if(!nameReg.test(val)){
+									showError(_this,'只能是中文、英文、数字和"_"')
+								}else{
+									if(_this.attr('hasChecked') === '0'){
+										flag = false;
+										$.post('index_do_huaer.php',{
+											dopost:'checkuser',
+											fmdo:'user',
+											cktype:1,
+											uid:val
+										},function(r){
+											r = r.split('|');
+											var code = r[0],
+												msg = r[1];
+											if(code === '200'){
+												showSucc(_this);
+												_this.attr('hasChecked',1);
+											}else{
+												showError(_this,msg);
+											}
+										})
+									}else{
+										showSucc(_this);
+									}
+								}
+								break;
+							case 'username':
+								if(val === ''){
+									showError(_this,'请输入笔名');
+								}else if(val.replace(zhReg,'**').length < 4 || val.replace(zhReg,'**').length > 20){
+									showError(_this,'长度不符合要求');
+								}else{
+									if(_this.attr('hasChecked') === '0'){
+										flag = false;
+										$.post('index_do_huaer.php',{
+											dopost:'checkuser',
+											fmdo:'user',
+											cktype:0,
+											uid:val
+										},function(r){
+											r = r.split('|');
+											var code = r[0],
+												msg = r[1];
+											if(code === '200'){
+												showSucc(_this);
+												_this.attr('hasChecked',1);
+											}else{
+												showError(_this,msg);
+											}
+										})
+									}else{
+										showSucc(_this);
+									}
+								}
+								break;
+							case 'password':
+								if(val === ''){
+									showError(_this,'请输入密码');
+								}else if(val.length < 6 || val.length > 16){
+									showError(_this,'请输入6-16位密码');
+								}else{
+									showSucc(_this);
+
+									var pwdConfirmVal = $.trim(pwdConfirm.val());
+									if(pwdConfirmVal !== ''){
+										if(pwdConfirmVal !== val){
+											showError(pwdConfirm,'两次密码不一致');
+										}else{
+											showSucc(pwdConfirm);
+										}
+									}
+								}
+								break;
+							case 'pwdConfirm':
+								if(val === ''){
+									showError(_this,'请确认密码');
+								}else if(val !== $('#password').val()){
+									showError(_this,'两次密码不一致');
+								}else{
+									showSucc(_this);
+								}
+								break;
+							case 'email':
+								if(val === ''){
+									showError(_this,'请输入邮箱');
+								}else if(!mailReg.test(val)){
+									showError(_this,'请输入正确的邮箱地址');
+								}else{
+									if(_this.attr('hasChecked') === '0'){
+										flag = false;
+										$.post('index_do_huaer.php',{
+											dopost:'checkmail',
+											fmdo:'user',
+											email:val
+										},function(r){
+											r = r.split('|');
+											var code = r[0],
+												msg = r[1];
+											if(code === '200'){
+												showSucc(_this);
+												_this.attr('hasChecked',1);
+											}else{
+												showError(_this,msg);
+											}
+										})
+									}else{
+										showSucc(_this);
+									}
+								}
+								break;
+							case 'verifyCode':
+								if(val === ''){
+									showError(_this,'请输入验证码');
+								}else{
+									showSucc(_this);
+								}
+						}
+					}).on('focus',function(){
+						showTip(_this);
+					});
+				})
+
+				function showTip(o){
+					var tips = o.parent().next();
+					tips.find('.error,.succ').remove();
+					tips.find('.tip').show();
+				}
+
+				function showError(o,msg){
+					flag = false;
+					var tips = o.parent().next();
+					tips.find('.tip').hide();
+					tips.find('.error,.succ').remove();
+					tips.append('<span class="error">'+ msg +'</span>');
+				}
+
+				function showSucc(o){
+					var tips = o.parent().next();
+					tips.find('.tip').hide();
+					tips.find('.error,.succ').remove();
+					tips.append('<i class="succ"></i>');
+				}
 			})
 		</script>
 	</head>
@@ -35,45 +217,45 @@
 			                            <label for="">用户名：</label>
 			                        </div>
 			                        <div class="ipt">
-			                            <input type="text" class="ipt-text" name="userid" />
+			                            <input type="text" class="ipt-text" name="userid" id="userid" hasChecked="0" tabindex="1" />
 			                        </div>
-			                        <div class="tips">4-20个字符，可使用中文、英文、数字和"_"</div>
+			                        <div class="tips"><span class="tip">4-20个字符，可使用中文、英文、数字和"_"</span></div>
 			                    </div>
                                 <div class="field">
                                     <div class="label">
                                         <label for="">笔名：</label>
                                     </div>
                                     <div class="ipt">
-                                        <input type="text" class="ipt-text" name="uname" />
+                                        <input type="text" class="ipt-text" name="uname" id="username" hasChecked="0" tabindex="2" />
                                     </div>
-                                    <div class="tips">4-20个字符，可以是真实姓名或个性昵称等</div>
+                                    <div class="tips"><span class="tip">4-20个字符，可以是真实姓名或个性昵称等</span></div>
                                 </div>
                                 <div class="field">
                                     <div class="label">
                                         <label for="">密码：</label>
                                     </div>
                                     <div class="ipt">
-                                        <input type="password" class="ipt-text" name="userpwd" />
+                                        <input type="password" class="ipt-text" name="userpwd" id="password" tabindex="3" />
                                     </div>
-                                    <div class="tips">6-16个字符组成，区分大小写</div>
+                                    <div class="tips"><span class="tip">6-16个字符组成，区分大小写</span></div>
                                 </div>
                                 <div class="field">
                                     <div class="label">
                                         <label for="">确认密码：</label>
                                     </div>
                                     <div class="ipt">
-                                        <input type="password" class="ipt-text" name="userpwdok" />
+                                        <input type="password" class="ipt-text" name="userpwdok" id="pwdConfirm" tabindex="4" />
                                     </div>
-                                    <div class="tips">请再次输入您的密码</div>
+                                    <div class="tips"><span class="tip">请再次输入您的密码</span></div>
                                 </div>
                                 <div class="field">
                                     <div class="label">
                                         <label for="">邮箱：</label>
                                     </div>
                                     <div class="ipt">
-                                        <input type="text" class="ipt-text" name="email" />
+                                        <input type="text" class="ipt-text" name="email" id="email" hasChecked="0" tabindex="5" />
                                     </div>
-                                    <div class="tips">请使用有效的电子邮箱</div>
+                                    <div class="tips"><span class="tip">请使用有效的电子邮箱</span></div>
                                 </div>
 								<?php if(preg_match("/1/",$safe_gdopen)){?>
 								<div class="field verify-code">
@@ -81,7 +263,7 @@
 								        <label for="">验证码：</label>
 								    </div>
 								    <div class="ipt">
-								        <input type="text" class="ipt-text" name="vdcode" /> <img src="<?php echo $cfg_cmsurl ?>/include/vdimgck.php" /> <a href="#">看不清楚？换一张</a>
+								        <input type="text" class="ipt-text" name="vdcode" id="verifyCode" tabindex="6" /> <img src="<?php echo $cfg_cmsurl ?>/include/vdimgck.php" id="verifyCodeImg" /> <a href="#" id="changeVerifyCode">看不清楚？换一张</a>
 								    </div>
 								    <div class="tips"> </div>
 								</div>
@@ -91,7 +273,7 @@
                                         <label for="">&nbsp;</label>
                                     </div>
                                     <div class="ipt">
-                                        <a class="button button-save clearfix" href="javascript:;">
+                                        <a class="button button-save clearfix" href="javascript:;" tabindex="7">
                                         	<input type="submit" />
                                             <span class="button-left">&nbsp;</span>
                                             <span class="button-text">同意以下协议并注册</span>

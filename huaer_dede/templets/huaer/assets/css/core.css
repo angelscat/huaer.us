@@ -56,6 +56,7 @@ ul,ol{list-style:none;}
 .warning{color:#c09853;}
 .success{color:#468847;}
 .loading{display:inline-block; height:16px; width:16px; background:url(../img/loading.gif) no-repeat; vertical-align:middle; *display:inline; zoom:1;}
+.succ{display:inline-block; height:16px; width:16px; background:url(../img/success.gif) no-repeat center center; vertical-align:middle; *display:inline; zoom:1;}
 
 /*form*/
 .ipt-text{border:1px solid #CCC; color:#454545; vertical-align:middle; border-bottom:1px solid #e2e2e2;border-right:1px solid #e2e2e2;background-color:white;height:20px; padding:9px 0 7px 8px;padding:11px 0 5px 8px\9; vertical-align:middle;overflow:hidden;box-shadow:1px 2px 3px #F0F0F0 inset;-moz-box-shadow:1px 2px 3px #F0F0F0 inset;-webkit-box-shadow:1px 2px 3px #F0F0F0 inset;}
