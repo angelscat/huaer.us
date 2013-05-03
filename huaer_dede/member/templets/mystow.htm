@@ -1,68 +1,77 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
-<title>收藏夹 - 会员中心 - <?php echo $cfg_webname; ?></title>
-<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="templets/js/j.js"></script>
-<script type="text/javascript" src="templets/js/load.js"></script>
-<script type="text/javascript" src="templets/js/leftmenu.js"></script>
-</head>
-<body>
-<div id="main">
-  <?php include(DEDEMEMBER."/templets/head.htm"); ?>
-  <div id="content" class="w960 clearfix">
-    <?php include(DEDEMEMBER."/templets/menu.php"); ?>
-    <div id="mcpmain">
-      <div id="appTab">
-        <ul>
-          <li class="thisTab"><a href="mystow.php">我的收藏</a></li>
-          <li><a href="mystow.php?rank=top">收藏排行</a></li>
-        </ul>
-        <div class="tabOther"> </div>
-      </div>
-       <ul class="tabSub">
-       <?php
-         foreach($rows as $row)
-         {
-        ?>
-        <li <?php if($type==$row['stowname']) echo 'class="thisTab"';?> ><a href="mystow.php?type=<?php echo $row['stowname'];?>"><span><?php echo $row['indexname'];?></span></a></li>
-        <?php }?>
-      </ul>
-      <div id="mainCp">
-        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="listStyle2">
-          <thead>
-          </thead>
-          <tbody>
-          {dede:datalist}
-          <tr>
-            <td colspan="5" class="tabTitle"><?php if($fields["stowname"]!='sys') {?>
-              <a href='{dede:field.indexurl/}={dede:field.aid/}' target='_blank'>{dede:field.title/}</a>
-              <?php }else{ ?>
-              <a href='archives_do.php?dopost=viewArchives&aid={dede:field.aid/}' target='_blank'>{dede:field.title/}</a>
-              <?php }?></td>
-            <td width="25%" align="center" class="doPost"><span class="itemDigg"> 
-            <a class="text_button" href="../plus/recommend.php?type={dede:field.type/}&aid={dede:field.aid/}" target="_blank">[推荐]</a> 
-            </span> <span class="itemManage">
-             <a href='archives_do.php?dopost=delStow&type={dede:field.type/}&aid={dede:field.aid/}'>[删除]</a> 
-             </span></td>
-          </tr>
-          <tr>
-            <td colspan="6" class="tabTitle tbBtm">收藏时间:<?php echo MyDate('m-d H:i', $fields['addtime']); ?></td>
-          </tr>
-          {/dede:datalist}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="6"><div class="pageList"> {dede:pagelist listsize=5 /}</div></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-      <!--主操作区域 -->
-    </div>
-  </div>
-<?php include(DEDEMEMBER."/templets/foot.htm"); ?>
-</div>
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php include(DEDEMEMBER."/templets/head.htm"); ?>
+		<meta name="description" content="<?php echo $cfg_description; ?>" />
+		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
+		<title>我的收藏 - 会员中心 - <?php echo $cfg_webname; ?></title>
+	</head>
+	<body>
+		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
+		<div class="content">
+			<div class="layout clearfix">
+			    <div class="manage manage-collection">
+                    <h2>收藏管理</h2>
+                    <div class="manage-content">
+                        <table class="common-table">
+                        	<colgroup>
+                        		<col width="40%" />
+                        		<col width="20%" />
+                        		<col width="10%" />
+                        		<col width="20%" />
+                        		<col width="10%" />
+                        	</colgroup>
+                            <tr>
+                                <th>标题</th>
+                                <th>类目</th>
+                                <th>点击</th>
+                                <th>收藏时间</th>
+                                <th>操作</th>
+                            </tr>
+                            <?php if($count['num'] == 0){ ?>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="empty-content">
+                                        你还没有添加收藏，去<a href="/">看看别人的精彩作文</a>吧！
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+							{dede:datalist}
+							<tr>
+							    <td>
+							        <a href="archives_do.php?dopost=viewArchives&aid={dede:field.aid/}">{dede:field.title/}</a>
+							    </td>
+							    <td>
+							        <a href="{dede:field.typedir function="MfTypedir(@me)" /}">{dede:field.typename /}</a>
+							    </td>
+							    <td class="text-center">{dede:field.click /}</td>
+							    <td class="text-center">{dede:field.addtime function="getDateTimeMK(@me)" /}</td>
+							    <td class="text-center"><a href="archives_do.php?dopost=delStow&type={dede:field.type/}&aid={dede:field.aid/}">删除</a></td>
+							</tr>
+							{/dede:datalist}
+                            </tr>
+                        </table>
+                        <div class="pager">
+                            <a href="#"><span>&lt;&lt;</span> 第一页</a>
+                            <a href="#"><span>&lt;</span> 上一页</a>
+                            <a href="#" class="cur">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">7</a>
+                            <a href="#">8</a>
+                            <a href="#">9</a>
+                            <a href="#">10</a>
+                            <a href="#">下一页 <span>&gt;</span></a>
+                            <a href="#">最后一页 <span>&gt;&gt;</span></a>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<?php include(DEDEMEMBER."/templets/footer.htm"); ?>
+	</body>
 </html>

@@ -45,7 +45,7 @@ if($type=='')
     $row = $dsql->GetOne("SELECT * FROM `#@__member_stow` WHERE aid='$aid' AND mid='{$ml->M_ID}'");
     if(!is_array($row))
     {
-        $dsql->ExecuteNoneQuery("INSERT INTO `#@__member_stow`(mid,aid,title,addtime) VALUES ('".$ml->M_ID."','$aid','".addslashes($arctitle)."','$addtime'); ");
+        $dsql->ExecuteNoneQuery("INSERT INTO `#@__member_stow`(mid,aid,title,addtime,type) VALUES ('".$ml->M_ID."','$aid','".addslashes($arctitle)."','$addtime','sys'); ");
     } else {
 		ShowMsg('您已经成功收藏该内容，无需重复收藏！','javascript:window.close();');
 		exit();
