@@ -216,6 +216,9 @@ else
         $tname = "已发信息";
     }
     $query = "SELECT * FROM `#@__member_pms` WHERE $wsql ORDER BY sendtime DESC";
+
+    $count = $dsql->GetOne("SELECT COUNT(pm.id) AS num FROM #@__member_pms AS pm WHERE $wsql");
+
     $dlist = new DataListCP();
     $dlist->pageSize = 20;
     $dlist->SetParameter("dopost",$dopost);

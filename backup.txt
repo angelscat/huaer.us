@@ -34,3 +34,5 @@ huaer_dede\member\content_list.php			2013-05-04 00:49	#文章管理
 huaer_dede\member\index.php
 huaer_dede\member\templets\content_list.htm
 
+huaer_dede\member\pm.php					2013-05-04 02:16	#消息管理
+huaer_dede\member\templets\pm-main.htm
