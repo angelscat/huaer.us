@@ -1,8 +1,8 @@
-/member/ajax_loginsta_huaer.php
-/member/ajax_feedback_huaer.php
-/plus/feedback_ajax_huaer.php
-/plus/feedback_huaer.php
-/teplates/plus/feedback_quote_ajax_huaer.htm
+/member/ajax_loginsta_huaer.php									#登录状态 ajax
+/member/ajax_feedback_huaer.php									#登录才能评论 ajax
+/plus/feedback_ajax_huaer.php 									#评论 ajax
+/plus/feedback_huaer.php 										#回复评论 etc.
+/teplates/plus/feedback_quote_ajax_huaer.htm 					#回复评论模板
 
 huaer_dede\include\arc.listview.class.php	2013-05-01
 huaer_dede\include\typelink.class.php		2013-05-01
@@ -11,7 +11,7 @@ huaer_dede\plus\digg_ajax_huaer.php			2013-05-01
 huaer_dede\plus\count_huaer.php				2013-05-02 00:26
 
 
-huaer_dede\member\templets\footer.htm
+huaer_dede\member\templets\footer.htm 							#登录注册
 huaer_dede\member\templets\head.bak.htm
 huaer_dede\member\templets\header-mini.htm
 huaer_dede\member\templets\header.htm
@@ -21,13 +21,17 @@ huaer_dede\member\templets\login.htm
 huaer_dede\member\templets\reg-new.htm
 
 
-huaer_dede\member\index.php					2013-05-02 14:27
+huaer_dede\member\index.php					2013-05-02 14:27 	#首页
 huaer_dede\member\index_do_huaer.php		2013-05-02 17:16
 
 
-huaer_dede\member\index.php					2013-05-03 00:06
+huaer_dede\member\index.php					2013-05-03 00:06 	#首页
 huaer_dede\member\templets\index.htm		2013-05-03 00:06
 
-huaer_dede\member\mystow.php				2013-05-03 23:24
+huaer_dede\member\mystow.php				2013-05-03 23:20 	#收藏管理
 huaer_dede\member\templets\mystow.htm		
 huaer_dede\plus\stow.php
+
+huaer_dede\member\content_list.php			2013-05-04 00:49	#文章管理
+huaer_dede\member\index.php
+huaer_dede\member\templets\content_list.htm

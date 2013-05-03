@@ -42,7 +42,7 @@ if($uid=='')
         FROM #@__archives arc
         LEFT JOIN #@__arctype category ON category.id=arc.typeid
         LEFT JOIN #@__member mem ON mem.mid=arc.mid
-        WHERE arc.arcrank > -1 and arc.mid='".$cfg_ml->M_ID."'
+        WHERE arc.mid='".$cfg_ml->M_ID."'
         ORDER BY arc.sortrank DESC LIMIT 8";
         $dsql->SetQuery($sql);
         $dsql->Execute();

@@ -84,11 +84,14 @@ if($mtypesid != 0 )
     $whereSql .= " And arc.mtype = '$mtypesid'";
 }
 $query = "select arc.id,arc.typeid,arc.senddate,arc.flag,arc.ismake,arc.channel,arc.arcrank,
-        arc.click,arc.title,arc.color,arc.litpic,arc.pubdate,arc.mid,tp.typename,ch.typename as channelname
+        arc.click,arc.title,arc.color,arc.litpic,arc.pubdate,arc.mid,tp.typedir,tp.typename,ch.typename as channelname
         from `#@__archives` arc
         left join `#@__arctype` tp on tp.id=arc.typeid
         left join `#@__channeltype` ch on ch.id=arc.channel
        $whereSql order by arc.senddate desc ";
+
+$count = $dsql->GetOne("SELECT COUNT(arc.id) AS num FROM #@__archives AS arc $whereSql");
+
 $dlist = new DataListCP();
 $dlist->pageSize = 20;
 $dlist->SetParameter("dopost","listArchives");

@@ -1,93 +1,108 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
-<title>文档管理 - 会员中心 - <?php echo $cfg_webname; ?></title>
-<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="templets/js/j.js"></script>
-<script type="text/javascript" src="templets/js/load.js"></script>
-<script type="text/javascript" src="templets/js/leftmenu.js"></script>
-<script type="text/javascript">
-  function viewArc(aid){
-	  window.open("{dede:global.cfg_phpurl /}/view.php?aid="+aid);
-  }
-  function editArc(aid,channelid){
-	  location = "archives_do.php?dopost=edit&channelid="+channelid+"&aid="+aid;
-  }
-  function delArc(aid){
-	  if(window.confirm('你确定要删除这篇文档吗?')) location="archives_do.php?aid="+aid+"&dopost=delArc";
-  }
-</script>
-</head>
-<body>
-<div id="main">
-  <?php include(DEDEMEMBER."/templets/head.htm"); ?>
-  <div id="content" class="w960 clearfix">
-    <?php include(DEDEMEMBER."/templets/menu.php"); ?>
-    <div id="mcpmain">
-      <div id="appTab">
-        <ul>
-          <li class="thisTab"><a href="#"><span><?php echo $positionname; ?></span></a></li>
-        </ul>
-      </div>
-      <ul class="tabSub">
-        <li <?php echo ($arcrank=='')? "class='thisTab'" : "";?>><a href="content_list.php?channelid=<?php echo $channelid;?>"><span>全部</span></a></li>
-        <li <?php echo ($arcrank=='1')? "class='thisTab'" : "";?>><a href="content_list.php?channelid=<?php echo $channelid;?>&arcrank=1"><span>已审核</span></a></li>
-        <li <?php echo ($arcrank=='-1')? "class='thisTab'" : "";?>><a href="content_list.php?channelid=<?php echo $channelid;?>&arcrank=-1"><span>未审核</span></a></li>
-        <li <?php echo ($arcrank=='-2')? "class='thisTab'" : "";?>><a href="content_list.php?channelid=<?php echo $channelid;?>&arcrank=-2"><span>被退回</span></a></li>
-      </ul>
-      <div id="mainCp">
-        <!--内容消息提示 -->
-        <h3 class="meTitle">已发布<?php echo $positionname; ?><small>(曾经发布的所有<?php echo $positionname; ?>)</small></h3>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="list">
-          <thead>
-            <tr>
-              <th width="40%">文章标题</th>
-              <th width="15%">类目 </th>
-              <th width="10%">状态 </th>
-              <th width="10%">点击 </th>
-              <th width="11%">发布时间 </th>
-              <th width="25%">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-          {dede:datalist}
-            <tr>
-              <td class="tabTitle"><a href='<?php echo $cfg_phpurl; ?>/view.php?aid=<?php echo $fields['id']; ?>' target='_blank'><?php echo $fields['title']; ?><?php echo IsPicArchives($fields['litpic']); ?></a></td>
-              <td align="center"><?php echo $fields['typename']; ?></td>
-              <td align="center"><?php
-if($fields['arcrank']>=0) echo "已审核";
-else if($fields['arcrank']==-2) echo "<font color='blue'>被退回</font>";
-else echo "<font color='red'>未审核</font>";
-?></td>
-              <td align="center"><?php echo $fields['click']; ?></td>
-              <td><?php echo GetDateMk($fields['senddate']); ?></td>
-              <td align="center" class="doPost"><?php
-if($fields['arcrank']<0 || $dtime - $fields['senddate'] < $maxtime)
-{
-?>
-                <a href="javascript:editArc(<?php echo $fields['id']?>,<?php echo $fields['channel']?>);">修改</a> | <a href="javascript:delArc(<?php echo $fields['id']?>);">删除</a> |
-                <?php
-}
-else
-{
-	echo "<span class='gray'>改 | 删 | </span>";
-}
-?>  <a href="javascript:viewArc(<?php echo $fields['id']; ?>);">预览</a></td>
-            </tr>
-         {/dede:datalist}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="6"><div class="pageList">{dede:pagelist listsize=5/}</div></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-      <!--主操作区域 -->
-    </div>
-  </div>
-<?php include(DEDEMEMBER."/templets/foot.htm"); ?>  
-</div>
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php include(DEDEMEMBER."/templets/head.htm"); ?>
+		<meta name="description" content="<?php echo $cfg_description; ?>" />
+		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
+		<title>我的作文 - 会员中心 - <?php echo $cfg_webname; ?></title>
+	</head>
+	<body>
+		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
+		<div class="content">
+			<div class="layout clearfix">
+			    <div class="manage manage-article">
+                    <h2>作文管理</h2>
+                    <div class="manage-tab clearfix">
+                        <ul class="clearfix pull-left">
+                            <li><a <?php echo ($arcrank=='')?'class="cur"':'';?> href="content_list.php?channelid=<?php echo $channelid;?>">全部作文</a></li>
+                            <li><a <?php echo ($arcrank=='1')?'class="cur"':'';?> href="content_list.php?channelid=<?php echo $channelid;?>&arcrank=1">已审核</a></li>
+                            <li><a <?php echo ($arcrank=='-1')?'class="cur"':'';?> href="content_list.php?channelid=<?php echo $channelid;?>&arcrank=-1">未审核</a></li>
+                            <li><a <?php echo ($arcrank=='-2')?'class="cur"':'';?> href="content_list.php?channelid=<?php echo $channelid;?>&arcrank=-2">被退回</a></li>
+                        </ul>
+                        <span class="pull-right post-btn">
+                            <a class="button button-follow clearfix" href="article_add.php">
+                                <span class="button-left">&nbsp;</span>
+                                <span class="button-text">我要投稿</span>
+                                <span class="button-right">&nbsp;</span>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="manage-content">
+                        <table class="common-table">
+                            <tr>
+                                <th>标题</th>
+                                <th>类目</th>
+                                <th>状态</th>
+                                <th>点击</th>
+                                <th>发布时间</th>
+                                <th>操作</th>
+                            </tr>
+                            
+							{dede:datalist}
+							<tr>
+							    <td>
+							        <a target="_blank" href="<?php echo $cfg_phpurl; ?>/view.php?aid=<?php echo $fields['id']; ?>"><?php echo $fields['title']; ?></a>
+							    </td>
+							    <td>
+							        <a href="<?php echo MfTypedir($fields['typedir']); ?>"><?php echo $fields['typename']; ?></a>
+							    </td>
+							    <td class="text-center">
+									<?php
+									if($fields['arcrank']>=0) echo '<span class="success">已发布</span>';
+									else if($fields['arcrank']==-2) echo '<span class="warning">退回</span>';
+									else echo '<span class="error">未审核</span>';
+									?>
+							    </td>
+							    <td class="text-center"><?php echo $fields['click']; ?></td>
+							    <td><?php echo GetDateTimeMk($fields['senddate']); ?></td>
+							    <td class="text-center">
+							    	<?php if($fields['arcrank']<0 || $dtime - $fields['senddate'] < $maxtime){ ?>
+							    	<a href="article_edit.php?channelid=<?php echo $fields['channel']; ?>&aid=<?php echo $fields['id']; ?>">修改</a>
+							    	<a href="archives_do.php?aid=<?php echo $fields['channel']; ?>&dopost=delArc" onclick="return confirm('确定删除？');">删除</a>
+							    	<?php }else{?>
+							    	<span title="不可修改">修改</span>
+							    	<span title="不可删除">删除</span>
+							    	<?php }?>
+							    	<a target="_blank" href="<?php echo $cfg_phpurl ?>/view.php?aid=<?php echo $fields['id']; ?>">预览</a>
+							    </td>
+							</tr>            
+							{/dede:datalist}
+                            <?php if($count['num'] == 0){ ?>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="empty-content">
+                                    	<?php 
+                                    	if($arcrank=='') echo '你还没有发布任何作文，去<a href="article_add.php">给我们投稿</a>吧！';
+                                    	else if($arcrank=='1') echo '还没有已审核的作文，去<a href="content_list.php?channelid=1">全部作文</a>里看看有没有哦！';
+                                    	else if($arcrank=='-1') echo '还没有未审核的作文，去<a href="content_list.php?channelid=1">全部作文</a>里看看有没有哦！';
+                                    	else if($arcrank=='-2') echo '还没有已退回的作文，去<a href="content_list.php?channelid=1">全部作文</a>里看看有没有哦！';
+                                    	?>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </table>
+                        <div class="pager">
+                            <a href="#"><span>&lt;&lt;</span> 第一页</a>
+                            <a href="#"><span>&lt;</span> 上一页</a>
+                            <a href="#" class="cur">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">7</a>
+                            <a href="#">8</a>
+                            <a href="#">9</a>
+                            <a href="#">10</a>
+                            <a href="#">下一页 <span>&gt;</span></a>
+                            <a href="#">最后一页 <span>&gt;&gt;</span></a>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<?php include(DEDEMEMBER."/templets/footer.htm"); ?>
+	</body>
 </html>
