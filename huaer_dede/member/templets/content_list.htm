@@ -29,6 +29,14 @@
                     </div>
                     <div class="manage-content">
                         <table class="common-table">
+                        	<colgroup>
+                        		<col width="35%" />
+                        		<col width="15%" />
+                        		<col width="8%" />
+                        		<col width="7%" />
+                        		<col width="20%" />
+                        		<col width="15%" />
+                        	</colgroup>
                             <tr>
                                 <th>标题</th>
                                 <th>类目</th>
@@ -54,7 +62,7 @@
 									?>
 							    </td>
 							    <td class="text-center"><?php echo $fields['click']; ?></td>
-							    <td><?php echo GetDateTimeMk($fields['senddate']); ?></td>
+							    <td class="text-center"><?php echo GetDateTimeMk($fields['senddate']); ?></td>
 							    <td class="text-center">
 							    	<?php if($fields['arcrank']<0 || $dtime - $fields['senddate'] < $maxtime){ ?>
 							    	<a href="article_edit.php?channelid=<?php echo $fields['channel']; ?>&aid=<?php echo $fields['id']; ?>">修改</a>
