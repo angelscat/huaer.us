@@ -4,11 +4,11 @@
 /plus/feedback_huaer.php 										#回复评论 etc.
 /teplates/plus/feedback_quote_ajax_huaer.htm 					#回复评论模板
 
-huaer_dede\include\arc.listview.class.php	2013-05-01
+huaer_dede\include\arc.listview.class.php	2013-05-01 			#标题
 huaer_dede\include\typelink.class.php		2013-05-01
 
-huaer_dede\plus\digg_ajax_huaer.php			2013-05-01
-huaer_dede\plus\count_huaer.php				2013-05-02 00:26
+huaer_dede\plus\digg_ajax_huaer.php			2013-05-01 			#顶踩
+huaer_dede\plus\count_huaer.php				2013-05-02 00:26 	#访问统计
 
 
 huaer_dede\member\templets\footer.htm 							#登录注册
@@ -20,10 +20,8 @@ huaer_dede\member\templets\head.htm
 huaer_dede\member\templets\login.htm
 huaer_dede\member\templets\reg-new.htm
 
-
 huaer_dede\member\index.php					2013-05-02 14:27 	#首页
 huaer_dede\member\index_do_huaer.php		2013-05-02 17:16
-
 
 huaer_dede\member\index.php					2013-05-03 00:06 	#首页
 huaer_dede\member\templets\index.htm		2013-05-03 00:06
@@ -35,3 +33,4 @@ huaer_dede\plus\stow.php
 huaer_dede\member\content_list.php			2013-05-04 00:49	#文章管理
 huaer_dede\member\index.php
 huaer_dede\member\templets\content_list.htm
+
