@@ -93,7 +93,7 @@
 			replyForm.find('textarea').focus();
 
 			replyForm.on('submit',function(){
-				var replyMsg = replyForm.find('textarea'),
+				var replyMsg = replyForm.find('textarea[name="msg"]'),
 					validate = replyForm.find('input[name="validate"]'),
 					validateImg = replyForm.find('img'),
 					commentList = $('#commentList'),
