@@ -25,7 +25,7 @@ if($rank == 'top'){
     LEFT JOIN #@__archives arc ON arc.id=stow.aid
     LEFT JOIN #@__arctype category ON category.id=arc.typeid
     LEFT JOIN #@__member mem ON mem.mid=arc.mid
-    WHERE stow.mid='".$cfg_ml->M_ID."' and arc.arcrank > -1";
+    WHERE stow.mid='".$cfg_ml->M_ID."'";
     //$sql = "SELECT s.*,t.* FROM `#@__member_stow` AS s left join `#@__member_stowtype` AS t on t.stowname=s.type  where s.mid='".$cfg_ml->M_ID."' order by s.id desc";
     $tpl = 'mystow';
 }
