@@ -648,12 +648,12 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .post-message .code img{vertical-align:middle;}
 .read-message{padding:0 30px;}
 .read-message .msg-avatar{float:left; width:50px; *margin-right:-3px;}
-.read-message .msg-detail{margin-left:60px; zoom:1; line-height:1.6;}
+.read-message .msg-detail{margin-left:60px; zoom:1; }
 .read-message .msg-detail .msg-person a{color:#3FA7CC;}
 .read-message .msg-detail .msg-time{font-size:12px; margin-bottom:10px; color:#999;}
 .read-message .msg-detail .msg-title{border-bottom:1px dashed #CCC; padding-bottom:5px;}
 .read-message .msg-detail .msg-title span{color:#3FA7CC;}
-.read-message .msg-detail .msg-content{border-bottom:1px dashed #CCC; padding:20px 0; margin-bottom:10px;}
+.read-message .msg-detail .msg-content{border-bottom:1px dashed #CCC; padding:20px 0; margin-bottom:10px;line-height:1.8;}
 .read-message .msg-detail .msg-actions a{color:#3FA7CC; margin-right:10px;}
 
 /*friend manage*/

@@ -73,7 +73,8 @@
 									</td>
 									<td class="text-center">
 										<?php
-										if($fields['hasview']==0) echo '<span class="error">未阅读</span>';
+										if($folder == 'outbox') echo '<span class="success">已发送</span>';
+										else if($fields['hasview']==0) echo '<span class="error">未阅读</span>';
 										else echo '<span class="success">已阅读</span>';
 										?>
 									</td>
