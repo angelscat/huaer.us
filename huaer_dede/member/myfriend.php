@@ -99,6 +99,9 @@ else{
         $wsql = " F.mid='{$cfg_ml->M_ID}' AND F.ftype =  '-1' ";
         $tname = "黑名单";
     }
+
+    $count = $dsql->GetOne("SELECT COUNT(f.id) AS num FROM #@__member_friends AS f WHERE $wsql");
+
     $query = "SELECT F.*,G.groupname FROM `#@__member_group` AS G  LEFT JOIN #@__member_friends AS F ON F.groupid=G.id WHERE $wsql ORDER BY F.id DESC";
     $dlist = new DataListCP();
     $dlist->pageSize = 20;
