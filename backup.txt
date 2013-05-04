@@ -43,3 +43,10 @@ huaer_dede\member\templets\pm-main.htm
 huaer_dede\member\templets\pm-read.htm
 
 huaer_dede\member\templets\pm-read.htm		2013-05-05 02:00 	#发消息
+
+
+huaer_dede\member\myfriend.php 				2013-05-05 03:37 	#所有好友
+huaer_dede\member\templets\myfriend.htm
+
+huaer_dede\member\search.php 				2013-05-05 04:31	#查找好友
+huaer_dede\member\templets\search.htm

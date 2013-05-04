@@ -40,7 +40,7 @@
 										}?>
 										<?php
 										if(!empty($fields['place'])){
-											$places = GetEnumsTypes($uinfos['place']);
+											$places = GetEnumsTypes($fields['place']);
 											echo (isset($em_nativeplaces[$places['top']])? ',现居 '.$em_nativeplaces[$places['top']] : '未知');
 											echo '&nbsp;';
 											echo (isset($em_nativeplaces[$places['son']])? $em_nativeplaces[$places['son']] : '');

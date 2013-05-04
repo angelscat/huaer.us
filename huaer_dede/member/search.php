@@ -11,6 +11,7 @@
 require_once(dirname(__FILE__).'/config.php');
 CheckRank(0,0);
 require_once(DEDEINC.'/enums.func.php');
+require_once(DEDEDATA.'/enums/nativeplace.php');
 require_once(DEDEINC.'/datalistcp.class.php');
 $menutype = 'mydede';
 
@@ -65,7 +66,9 @@ if($addsqls_str!='') {
 
 $addsql = " WHERE mb.spacesta > -1  ".$addsqls_str;
 
-$query = "SELECT mb.*,mp.place,YEAR(CURDATE())-YEAR(mp.birthday) AS age,mp.lovemsg,mp.birthday FROM `#@__member` mb
+$count = $dsql->GetOne("SELECT COUNT(mb.mid) AS num FROM #@__member AS mb {$addsql}");
+
+$query = "SELECT mb.*,mp.place,YEAR(CURDATE())-YEAR(mp.birthday) AS age,mp.lovemsg,DATE_FORMAT(mp.birthday,'%c月%d日出生') as birthday FROM `#@__member` mb
 LEFT JOIN `#@__member_person` mp ON mp.mid = mb.mid
 {$addsql} ORDER BY mb.logintime DESC";
 $dlist = new DataListCP();

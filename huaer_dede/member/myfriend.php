@@ -18,6 +18,8 @@ if($cfg_mb_lit=='Y')
     exit();
 }
 require_once(DEDEINC."/datalistcp.class.php");
+require_once(DEDEINC.'/enums.func.php');
+require_once(DEDEDATA.'/enums/nativeplace.php');
 
 if(!isset($ftype)) $ftype = 0;
 if(!isset($dopost)) $dopost = '';
@@ -121,7 +123,7 @@ else{
 function getUserInfo($uid,$_field = 'uname')
 {
     global $dsql;
-    $row = $dsql->GetOne("SELECT M.*,YEAR(CURDATE())-YEAR(P.birthday) as age,DATE_FORMAT(P.birthday,'%e月%d日出生') as birthday,S.spacename,S.sign FROM #@__member AS M 
+    $row = $dsql->GetOne("SELECT M.*,YEAR(CURDATE())-YEAR(P.birthday) as age,DATE_FORMAT(P.birthday,'%c月%d日出生') as birthday,S.spacename,S.sign FROM #@__member AS M 
                            LEFT JOIN #@__member_person AS P ON P.mid=M.mid
                            LEFT JOIN #@__member_space AS S ON M.mid=M.mid WHERE M.mid='$uid'");
     if(isset($row[$_field]))
