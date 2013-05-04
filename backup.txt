@@ -41,3 +41,5 @@ huaer_dede\member\templets\pm-main.htm
 huaer_dede\member\pm.php					2013-05-05 01:25 	#消息阅读
 huaer_dede\member\templets\pm-main.htm
 huaer_dede\member\templets\pm-read.htm
+
+huaer_dede\member\templets\pm-read.htm		2013-05-05 02:00 	#发消息

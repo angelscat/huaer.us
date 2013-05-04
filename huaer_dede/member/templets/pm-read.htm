@@ -38,7 +38,7 @@
                         		<div class="msg-content"><?php echo text2html($row['message']); ?></div>
                         		<div class="msg-actions">
                         			<?php if($row['folder'] == 'inbox'){ ?>
-                        			<a href="pm.php?dopost=send&uid=<?php echo $uinfos['userid'] ?>">[回复]</a>
+                        			<a href="pm.php?dopost=send&uid=<?php echo $uinfos['userid']; ?>&rtitle=<?php echo urlencode('Re:'.$row['subject']); ?>">[回复]</a>
                         			<?php }?>
                         			<a href="pm.php?dopost=del&ids=<?php echo $id; ?>&folder=<?php echo $row['folder']; ?>" onclick="return confirm('确定删除？');">[删除]</a>
                         		</div>
