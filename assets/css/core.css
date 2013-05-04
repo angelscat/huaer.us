@@ -562,7 +562,7 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
          -o-box-shadow:0 1px #efeeee;
             box-shadow:0 1px #efeeee;
 }
-.manage-user-info .user-avatar{float:left;width:120px; height:120px; overflow:hidden; padding:4px; border:1px solid #D3D3D3; margin-right:-3px; position:relative;}
+.manage-user-info .user-avatar{float:left;width:120px; height:120px; overflow:hidden; padding:4px; border:1px solid #D3D3D3; *margin-right:-3px; position:relative;}
 .manage-user-info .user-avatar .edit-avatar{position:absolute; width:120px; height:16px; line-height:16px; text-align:center; bottom:4px; left:4px; background:#3FA7CC; color:#FFF; text-decoration:none;}
 .manage-user-info .user-detail{margin-left:150px;zoom:1;}
 .manage-user-info .user-detail .u-info{margin-bottom:5px; font-size:12px; color:#999;}
@@ -646,10 +646,20 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .post-message .field textarea{height:100px;}
 .post-message .code .ipt-text{width:60px;}
 .post-message .code img{vertical-align:middle;}
+.read-message{padding:0 30px;}
+.read-message .msg-avatar{float:left; width:50px; *margin-right:-3px;}
+.read-message .msg-detail{margin-left:60px; zoom:1; line-height:1.6;}
+.read-message .msg-detail .msg-person a{color:#3FA7CC;}
+.read-message .msg-detail .msg-time{font-size:12px; margin-bottom:10px; color:#999;}
+.read-message .msg-detail .msg-title{border-bottom:1px dashed #CCC; padding-bottom:5px;}
+.read-message .msg-detail .msg-title span{color:#3FA7CC;}
+.read-message .msg-detail .msg-content{border-bottom:1px dashed #CCC; padding:20px 0; margin-bottom:10px;}
+.read-message .msg-detail .msg-actions a{color:#3FA7CC; margin-right:10px;}
+
 /*friend manage*/
 .manage-friend h2{background-position:left -198px;}
 .manage-friend .friend-list li{padding:20px 120px 20px 20px; border-bottom:1px solid #EFEFEF; position:relative; overflow:hidden;zoom:1;}
-.manage-friend .friend-list li .u-avatar{float:left; width:50px; margin-right:-3px;}
+.manage-friend .friend-list li .u-avatar{float:left; width:50px; *margin-right:-3px;}
 .manage-friend .friend-list li .u-detail{margin-left:60px; zoom:1;color:#999; font-size:12px;}
 .manage-friend .friend-list li .u-actions{position:absolute; top:20px; right:20px;font-size:12px;}
 .manage-friend .friend-list li .u-detail .u-name{font-size:14px; margin-bottom:5px;}
