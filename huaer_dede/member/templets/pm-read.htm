@@ -1,94 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
-<title>消息管理 - 会员中心 - <?php echo $cfg_webname; ?></title>
-<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="templets/js/j.js"></script>
-<script type="text/javascript" src="templets/js/load.js"></script>
-<script type="text/javascript" src="templets/js/leftmenu.js"></script>
-<script type="text/javascript">
-	function folderSelAll()
-	{
-		for(i=0;i<document.form1.deleteid.length;i++)
-		{
-			if(!document.form1.deleteid[i].checked)
-			{
-				document.form1.deleteid[i].checked=true;
-			}
-		}
-	}
-	
-	//获得选中文件的文件名
-	function GetCheckfolderItem()
-	{
-		var allSel='';
-		if(document.form1.deleteid.value) return document.form1.deleteid.value;
-		for(i=0;i<document.form1.deleteid.length;i++)
-		{
-			if(document.form1.deleteid[i].checked)
-			{
-				if(allSel=='')
-				allSel=document.form1.deleteid[i].value;
-				else
-				allSel=allSel+","+document.form1.deleteid[i].value;
-			}
-		}
-		return allSel;
-	}
-	
-	function DoSubmit(myfolder)
-	{
-		var selid = GetCheckfolderItem();
-		if(selid=='') {
-			alert("你没选中任何信息！");
-			return false;
-		}
-		if(window.confirm("你确定要删除这些消息么？"))
-		{
-			location = "pm.php?dopost=del&ids="+selid+"&folder="+myfolder;
-		}
-	}
-</script>
-</head>
-<body>
-<div id="main">
-  <?php include(DEDEMEMBER."/templets/head.htm"); ?>
-  <div id="content" class="w960 clearfix">
-    <?php include(DEDEMEMBER."/templets/menu.php"); ?>
-    <div id="mcpmain">
-      <div id="appTab">
-        <ul>
-            <li><a href="pm.php?dopost=send">写新消息</a></li>
-            <li class="thisTab"><a href="pm.php?folder=inbox">收件箱</a></li>
-            <li><a href="pm.php?folder=outbox">发件箱</a></li>
-            <li><a href="pm.php?folder=track">已发出信息</a></li>
-        </ul>
-        <div class="tabOther">
-          
-        </div>
-      </div>
-      <ul class="tabSub">
-        <li <?php if(empty($state)) echo 'class="thisTab"'; ?>><a href="pm.php?folder=inbox"><span>全部</span></a></li>
-        <li <?php if($state == "1") echo 'class="thisTab"'; ?>><a href="pm.php?folder=inbox&state=1"><span>已阅读</span></a></li>
-        <li <?php if($state == "-1") echo 'class="thisTab"'; ?>><a href="pm.php?folder=inbox&state=-1"><span>未阅读</span></a></li>
-      </ul>
-      <div id="mainCp">
-        <!--内容消息提示 -->
-        <h3 class="meTitle">短消息内容</h3>
-        <div class="contentShow">
-          <p>
-            <label>标题：</label>
-            <?php echo $row['subject']; ?> [<a href="pm.php?dopost=send">回复</a>]</p>
-          <p>
-            <label>内容：</label>
-            <?php echo text2html($row['message']); ?></p>
-        </div>
-      </div>
-      <!--主操作区域 -->
-    </div>
-  </div>
- <?php include(DEDEMEMBER."/templets/foot.htm"); ?>
-</div>
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php include(DEDEMEMBER."/templets/head.htm"); ?>
+		<meta name="description" content="<?php echo $cfg_description; ?>" />
+		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
+		<title>消息 - 会员中心 - <?php echo $cfg_webname; ?></title>
+	</head>
+	<body>
+		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
+		<div class="content">
+			<div class="layout clearfix">
+			    <div class="manage manage-message">
+                    <h2>消息</h2>
+                    <div class="manage-tab clearfix">
+                        <ul class="clearfix pull-left">
+                            <li><a href="javascript:;" class="cur">查看消息</a></li>
+                            <li><a href="pm.php?folder=inbox">收件箱</a></li>
+                            <li><a href="pm.php?folder=outbox">发件箱</a></li>
+                        </ul>
+                        <span class="pull-right post-btn">
+                            <a class="button button-follow clearfix" href="pm.php?dopost=send">
+                                <span class="button-left">&nbsp;</span>
+                                <span class="button-text">写新消息</span>
+                                <span class="button-right">&nbsp;</span>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="manage-content clearfix">
+                        <div class="read-message clearfix">
+                        	<div class="msg-avatar">
+                        		<a href="index.php?uid=<?php echo $uinfos['userid'] ?>"><img src="<?php echo $uinfos['face'] ?>" width="50" height="50" /></a>
+                        	</div>
+                        	<div class="msg-detail">
+                        		<div class="msg-person"><?php echo ($row['folder'] == 'inbox' ? '来自':'发往'); ?>：<a href="index.php?uid=<?php echo $uinfos['userid'] ?>"><?php echo $uinfos['uname'] ?>(<?php echo $uinfos['userid'] ?>)</a></div>
+                        		<div class="msg-time">时间：<span><?php echo GetDateTimeMK($row['sendtime']); ?></span></div>
+                        		<div class="msg-title">标题：<span><?php echo $row['subject']; ?></span></div>
+                        		<div class="msg-content"><?php echo text2html($row['message']); ?></div>
+                        		<div class="msg-actions">
+                        			<?php if($row['folder'] == 'inbox'){ ?>
+                        			<a href="pm.php?dopost=send&uid=<?php echo $uinfos['userid'] ?>">[回复]</a>
+                        			<?php }?>
+                        			<a href="pm.php?dopost=del&ids=<?php echo $id; ?>&folder=<?php echo $row['folder']; ?>" onclick="return confirm('确定删除？');">[删除]</a>
+                        		</div>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<?php include(DEDEMEMBER."/templets/footer.htm"); ?>
+	</body>
 </html>

@@ -62,6 +62,22 @@ else if($dopost=='read')
         $friends[] = $row;
     }
     $row = $dsql->GetOne("SELECT * FROM `#@__member_pms` WHERE id='$id' AND (fromid='{$cfg_ml->M_ID}' OR toid='{$cfg_ml->M_ID}')");
+    // $sql = "SELECT pm.*,mem.userid,mem.uname,mem.face
+    // FROM #@__member_pms pm
+    // LEFT JOIN #@__member mem ON mem.mid=pm.toid
+    // WHERE pm.id='$id' AND (pm.fromid='{$cfg_ml->M_ID}' OR pm.toid='{$cfg_ml->M_ID}'"
+    // $row = $dsql->GetOne()
+    if($row['folder'] == 'inbox'){
+        $wsql = "mid='".$row['fromid']."'";
+    }else{
+        $wsql = "mid='".$row['toid']."'";
+    }
+    $uinfos = $dsql->GetOne("SELECT * FROM `#@__member` WHERE $wsql");
+    if(empty($uinfos['face']))
+    {
+        $uinfos['face']=($uinfos['sex']=='女')? 'templets/images/dfgirl.png' : 'templets/images/dfboy.png';
+    }
+
     if(!is_array($row))
     {
         ShowMsg('对不起，你指定的消息不存在或你没权限查看！','-1');
