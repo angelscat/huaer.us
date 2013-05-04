@@ -17,7 +17,7 @@
                             <li><a href="myfriend.php?ftype=0">所有好友</a></li>
                             <li><a href="search.php" class="cur">查找好友</a></li>
                             <li><a href="visit-history.php?dopost=viewme">谁看过我</a></li>
-                            <li><a href="visit-history.php?dopost=meview">我看过谁？</a></li>
+                            <li><a href="visit-history.php?dopost=meview">我看过谁</a></li>
                         </ul>
                     </div>
                     <div class="manage-content">
@@ -61,12 +61,12 @@
 						        <div class="u-contact">Email：{dede:field.email/}</div>
 						    </div>
 						    <div class="u-actions">
-						        <p class="send-msg"><a target="_blank" href="index.php?uid={dede:field.userid /}&action=guestbook">留言</a></p>
+						        <p class="send-msg"><a target="_blank" href="index.php?uid={dede:field.userid /}&action=guestbook">给他留言</a></p>
 						        <p class="remove-fri"><a target="_blank" href="index.php?action=newfriend&uid={dede:field.userid /}">加为好友</a></p>
 						    </div>
 						</li>
 						{/dede:datalist}
-						<?php if($count['num'] == 0){ ?>
+							<?php if($count['num'] == 0){ ?>
                             <li class="bd0">
                             	<div class="empty-content">
                                     没有找到你要找的人，换个名字找找看。

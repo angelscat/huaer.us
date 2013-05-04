@@ -14,6 +14,8 @@ $menutype = 'mydede';
 if(!isset($dopost)) $dopost = '';
 
 require_once(DEDEINC."/datalistcp.class.php");
+require_once(DEDEINC.'/enums.func.php');
+require_once(DEDEDATA.'/enums/nativeplace.php');
 $wsql = '';
 if($dopost=='meview')
 {
@@ -27,7 +29,14 @@ else
     $tname = "关注我的人";
     $osql="ON v.vid=m.mid ";
 }
-$query = "SELECT v.*,m.sex,face FROM `#@__member_vhistory` AS v  LEFT JOIN `#@__member` AS m $osql WHERE $wsql ORDER BY vtime DESC";
+
+$count = $dsql->GetOne("SELECT COUNT(v.id) AS num FROM #@__member_vhistory AS v WHERE $wsql");
+
+$query = "SELECT v.*,m.sex,m.face,m.uname,YEAR(CURDATE())-YEAR(mp.birthday) as age,DATE_FORMAT(mp.birthday,'%c月%d日出生') as birthday
+FROM `#@__member_vhistory` AS v  
+LEFT JOIN `#@__member` AS m $osql 
+LEFT JOIN `#@__member_person` AS mp ON mp.mid=m.mid
+WHERE $wsql ORDER BY vtime DESC";
 $dlist = new DataListCP();
 $dlist->pageSize = 20;
 $dlist->SetParameter("dopost",$dopost);
