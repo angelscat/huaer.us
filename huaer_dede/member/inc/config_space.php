@@ -120,14 +120,16 @@ function GetUserSpaceInfos()
     global $dsql,$uid,$cfg_memberurl;
     $_vars = array();
     $userid = preg_replace("#[\r\n\t \*%]#", '', $uid);
-    $query = "SELECT m.mid,m.mtype,m.userid,m.uname,m.sex,m.rank,m.email,m.scores,
+    $query = "SELECT m.mid,m.mtype,m.userid,m.uname,m.rank,m.email,m.scores,
                             m.spacesta,m.face,m.logintime,
+                            mp.sex,YEAR(CURDATE())-YEAR(mp.birthday) AS age,mp.birthday,
                             s.*,t.*,m.matt,r.membername,g.msg
                   From `#@__member` m
                   LEFT JOIN `#@__member_space` s on s.mid=m.mid
                   LEFT JOIN `#@__member_tj` t on t.mid=m.mid
                   LEFT JOIN `#@__arcrank` r on r.rank=m.rank
                   LEFT JOIN `#@__member_msg` g on g.mid=m.mid
+                  LEFT JOIN `#@__member_person` mp on mp.mid=m.mid
                   where m.userid like '$uid' ORDER BY g.dtime DESC ";
     $_vars = $dsql->GetOne($query);
     if(!is_array($_vars))

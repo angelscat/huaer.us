@@ -69,5 +69,17 @@ huaer_dede\member\templets\edit_space_info.htm 2013-05-05 18:27	#空间设置
 
 
 
-huaer_dede\member\index.php					2013-05-06 00:29 	#默认无action的首页就是原blog页，不需要首页了。
+huaer_dede\member\index.php					2013-05-06 00:29 	#默认无action的首页就是原listarticle页，不需要首页了。
 																 保留了访问统计。
+
+
+huaer_dede\member\inc\config_space.php		2013-05-06 01:46	#个人主页
+huaer_dede\member\index.php
+huaer_dede\member\space\person\footer.htm
+huaer_dede\member\space\person\header.htm
+huaer_dede\member\space\person\listarchives.htm
+huaer_dede\member\space\person\side_search.htm
+huaer_dede\member\space\person\side_visitor.htm
+huaer_dede\member\space\person\head.htm
+huaer_dede\member\space\person\side_stat.htm
+huaer_dede\member\space\person\side_uinfo.htm

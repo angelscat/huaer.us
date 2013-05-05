@@ -1,17 +1,16 @@
-<!-- //最近访客 -->
-<dl class="border mT10">
-	<dt class="caption"><strong>最近访客</strong></dt>
-	<dd class="body">
-	{dede:newvisitor row=6}
-		<div class="allList mB10">
-				<div class="img"> <a href="{dede:field.url/}" title="{dede:field.uname/}" target="_blank"><img src="{dede:field.face/}" width="50" height="50" alt="{dede:field.uname/}的头像" /></a> </div>
-				<div class="txt">
-					<h5 class="p1 mB5 blackA"><a href="{dede:field.url/}" target="_blank" title="{dede:field.uname/}">{dede:field.uname/}</a></h5>
-					<p class="p2">{dede:field.sign function="cn_substr(@me,60)" /}</p>
-					<p class="p2 clear">访问：{dede:var.logintime function="MyDate('m-d h:i',@me)" /}</p>
-				</div>
-			<div class="clearfix"></div>
-		</div>
-	{/dede:newvisitor}
-	</dd>
-</dl>
+<div class="profile-mod recent-visitors">
+    <div class="mod-hd"><h4>最近访客</h4></div>
+    <div class="mod-bd">
+        <ul>
+			{dede:newvisitor row=5}
+			<li>
+			    <div class="u-avatar"><a href="{dede:field.url/}"><img src="{dede:field.face/}" width="50" height="50" /></a></div>
+			    <div class="u-detail">
+			        <div class="u-name"><a href="{dede:field.url/}">{dede:field.uname/}</a></div>
+			        <div class="u-time">{dede:var.logintime function="MyDate('Y-m-d h:i',@me)" /}</div>
+			    </div>
+			</li>
+			{/dede:newvisitor}
+        </ul>
+    </div>
+</div><!--最近访客-->

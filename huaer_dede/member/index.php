@@ -132,7 +132,7 @@ else
     require_once(DEDEMEMBER.'/inc/config_space.php');
 
     if($action == ''){
-        $action = 'article';
+        $action = 'archives';
 
         //更新最近访客记录及站点统计记录
         $vtime = time();

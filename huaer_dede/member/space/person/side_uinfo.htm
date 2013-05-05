@@ -1,0 +1,30 @@
+<div class="user-info">
+    <div class="user-avatar">
+    	<a href="index.php?uid={dede:var.userid function="urlencode(@me)" /}">
+        	<img src="{dede:var.face/}" />
+        </a>
+    </div>
+    <div class="u-name"><a href="index.php?uid={dede:var.userid function="urlencode(@me)" /}">汪祖方</a></div>
+    <div class="u-info">
+        性别：{dede:var.sex /} 年龄：{dede:var.age /}岁
+    </div>
+    <div class="u-bir">
+        生日：{dede:var.birthday /}
+    </div>
+    <div class="u-residence">
+        现居：<span>湖北</span> <span>武汉</span> <span>武昌区</span>
+    </div>
+    <div class="u-stat">
+        作文：<strong>{dede:var.article /}</strong> 篇<br />
+        评论：<strong>{dede:var.feedback /}</strong> 条<br />
+        好友：<strong>{dede:var.friend /}</strong> 个
+    </div>
+    <div class="u-intro">
+        自述：<?php echo ($_vars[msg] == '' ? '这家伙很懒，什么都没留下。' : $_vars[msg]); ?>
+    </div>
+    <div class="u-actions">
+        <a href="index.php?action=guestbook&uid={dede:var.userid/}">给他留言</a>
+        <a href="pm.php?dopost=send&uid={dede:var.userid/}">发送消息</a>
+        <a href="index.php?action=newfriend&uid={dede:var.userid/}">加为好友</a>
+    </div>
+</div>

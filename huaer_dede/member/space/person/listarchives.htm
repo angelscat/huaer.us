@@ -1,39 +1,60 @@
-{dede:include file='header.htm'/}
-<div class="wrapper mT10">
-  <div class="west">
-  {dede:include file='side_icon.htm'/}
-	{dede:include file='side_class.htm'/}
-	{dede:include file='side_visitor.htm'/}
-	{dede:include file='side_search.htm'/}
-  </div>
-  <div class="east">
-    <dl class="border">
-      <dt class="caption"><strong>文章</strong></dt>
-      <dd class="body">
-			{dede:datalist}
-        <div class="mp10 dashed">
-          <div class="mB10">
-          <h3 class="fLeft"><a href="{dede:field.arcurl/}">{dede:field.title/}</a></h3>
-          <span class="mL5 aGray">({dede:field.pubdate function="MyDate('Y-m-d h:i',@me)"/})</span>
-          </div>
-          <p class="f14 aBlack lh22">{dede:field.description function="" /}</p>
-          <div id="artInfo"><strong class="fLeft"><a href="{dede:field.arcurl/}" target="_blank" title="点击查看全文">点击查看全文</a></strong>
-            <ul class="fRight fLeftChild overflow">
-              <li><a href="{dede:field.arcurl/}" target="_blank" title="{dede:field.title/}">浏览</a>({dede:field.click/})</li>
-              <li><a href="{dede:global.cfg_phpurl/}/feedback.php?aid={dede:field.id/}" target="_blank">评论</a>({dede:field.scores/})</li>
-              <li><a href="{dede:global.cfg_phpurl/}/feedback.php?aid={dede:field.id/}" target="_blank">好评</a>({dede:field.goodpost/})</li>
-              <li><a href="{dede:global.cfg_phpurl/}/feedback.php?aid={dede:field.id/}" target="_blank">差评</a>({dede:field.badpost/})</li>
-            </ul>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        {/dede:datalist}
-        <div class="fRight mTB10 pd10">{dede:pagelist/}</div>
-        <div class="clearfix"></div>
-      </dd>
-    </dl>
-  </div>
-</div>
-{dede:include file='footer.htm'/}
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		{dede:include file='head.htm'/}
+		<meta name="description" content="<?php echo $cfg_description; ?>" />
+		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
+		<title>{dede:var.spacename /}</title>
+	</head>
+	<body>
+		{dede:include file='header.htm'/}
+		<div class="content">
+			<div class="layout profile clearfix">
+			    <h1 class="space-name"><a href="index.php?uid={dede:var.userid_e /}">{dede:var.spacename /}</a></h1>
+			    <div class="space-desc">{dede:var.sign /}</div>
+			    <div class="main pull-right">
+			        <div class="profile-article-list">
+						{dede:datalist}
+						<div class="article-item">
+						    <h2><a href="{dede:field.arcurl/}">{dede:field.title/}</a></h2>
+						    <div class="a-meta">
+						        <a href="index.php?uid={dede:var.userid_e /}" class="u-name">{dede:var.uname /}</a> <span class="pub-info">于 {dede:field.pubdate function="MyDate('Y-m-d h:i',@me)"/} 发布在 <a href="{dede:field.typedir function="MfTypedir(@me)" /}">[{dede:field.typename /}]</a></span> <span class="view-num">{dede:field.click /} 次阅读</span>
+						    </div>
+						    <div class="a-content">
+						        {dede:field.description /}
+						    </div>
+						    <div class="a-actions">
+						        <a href="{dede:field.arcurl/}">阅读全文&raquo;</a>
+						        <a href="{dede:field.arcurl/}#comment">评论<span>({dede:field.scores/})</span></a>
+						    </div>
+						</div>
+						{/dede:datalist}			        	
+                        <div class="pager">
+                            <a href="#"><span>&lt;&lt;</span> 第一页</a>
+                            <a href="#"><span>&lt;</span> 上一页</a>
+                            <a href="#" class="cur">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">7</a>
+                            <a href="#">8</a>
+                            <a href="#">9</a>
+                            <a href="#">10</a>
+                            <a href="#">下一页 <span>&gt;</span></a>
+                            <a href="#">最后一页 <span>&gt;&gt;</span></a>
+                        </div>
+			        </div>
+			    </div>
+			    <div class="sidebar pull-left">
+			        {dede:include file='side_uinfo.htm'/}
+                    {dede:include file='side_search.htm'/}
+                    {dede:include file='side_visitor.htm'/}
+                    {dede:include file='side_stat.htm'/}
+			    </div>
+			</div>
+		</div>
+		{dede:include file='footer.htm'/}
+	</body>
 </html>

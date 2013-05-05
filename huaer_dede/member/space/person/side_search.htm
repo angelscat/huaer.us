@@ -1,16 +1,14 @@
-<!-- //begin search -->
-<dl class="border mT10">
-  <dt class="caption"><strong>文档搜索</strong></dt>
-  <dd class="body lh20 pB10">
-  	<form action="../plus/search.php" method="post" target="_blank">
-	  <input type="hidden" name="mid" value="{dede:var.userid /}" />
-	  <div class="text">
-		<label>
-		  <input class="ip" type="text" name="keyword" size="15" style="width:100px" />
-		  <input class="bt" name="submit" type="submit" value=" Go "/>
-		</label>
-	  </div>
-	  </form>
-  </dd>
-</dl>
-<!-- //end search -->	
+<div class="profile-mod search">
+    <div class="mod-hd">
+        <h4>作文搜索</h4>
+    </div>
+    <div class="mod-bd">
+    	<form action="../plus/search.php" method="post" target="_blank">
+    		<input type="hidden" name="mid" value="{dede:var.userid /}" />
+	        <div class="search-box">
+	            <input type="text" class="search-input" name="keyword" />
+	            <input type="submit" class="search-btn" name="submit" value="" />
+	        </div>
+        </form>
+    </div>
+</div><!--作文搜索-->
