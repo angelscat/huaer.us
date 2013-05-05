@@ -130,11 +130,9 @@ function space_index(){  }
 else
 {
     require_once(DEDEMEMBER.'/inc/config_space.php');
-    if($action == '')
-    {
-        include_once(DEDEINC."/channelunit.func.php");
-        $dpl = new DedeTemplate();
-        $tplfile = DEDEMEMBER."/space/{$_vars['spacestyle']}/index.htm";
+
+    if($action == ''){
+        $action = 'article';
 
         //更新最近访客记录及站点统计记录
         $vtime = time();
@@ -187,13 +185,9 @@ else
             }
             $dsql->ExecuteNoneQuery("UPDATE `#@__member_tj` SET homecount=homecount+1 WHERE mid='{$_vars['mid']}' ");
         }
-        $dpl->LoadTemplate($tplfile);
-        $dpl->display();
-        exit();
     }
-    else
-    {
-        require_once(DEDEMEMBER.'/inc/space_action.php');
-        exit();
-    }
+
+    //默认首页就是文章列表页，也没有分类列表页
+    require_once(DEDEMEMBER.'/inc/space_action.php');
+    exit();
 }
