@@ -57,7 +57,11 @@ huaer_dede\member\visit-history.php
 
 huaer_dede\member\templets\edit_baseinfo.htm 2013-05-05 14:52	#修改基本资料
 
-huaer_dede\include\customfields.func.php 	2013-05-05 17:36	#修改详细资料
+huaer_dede\include\customfields.func.php 	2013-05-05 17:36	#修改详细资料 TODO
 huaer_dede\include\membermodel.cls.php
 huaer_dede\member\templets\edit_fullinfo.htm
 huaer_dede\templets\system\custom_fields_membermodel.htm
+
+huaer_dede\member\templets\edit_face.htm	2013-05-05 18:20 	#头像设置
+
+
