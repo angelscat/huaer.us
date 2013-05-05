@@ -107,7 +107,7 @@ class membermodel
                     公开所有联系方式</div></li>';
                             } else if ($tag->GetName() == 'place' || $tag->GetName() == 'oldplace')
                             {
-                                $formtitle = ($tag->GetName() == 'place')? '目前所在地' : '家乡所在地';
+                                $formtitle = ($tag->GetName() == 'place')? '所在地' : '家乡所在地';
                                 $formstring .='<li><div class="lform">' . GetEnumsForm('nativeplace', 
                                        0,$tag->GetName()).'</div><span>'.$formtitle.'：</span></li>';
                             } else if (array_key_exists($tag->GetName(),$this->egroups))
@@ -123,40 +123,97 @@ class membermodel
                                   $formstring .= $func($tag,$admintype);
                             }
                         } else {
-                             if($tag->GetName() == 'onlynet')
-                                {
-                                    $formstring .= '<p style="display:none"><label>联系方式限制：</label>
-                    <input name="onlynet" type="radio" id="onlynet" value="2" checked="checked" />
-                    不公开所有联系方式
-                    <input name="onlynet" type="radio" id="onlynet" value="1" />
-                    不公开电话、详细地址
-                    <input name="onlynet" type="radio" id="onlynet" value="0"  />
-                    公开所有联系方式</p>';
-                                } else if ($tag->GetName() == 'place' || $tag->GetName() == 'oldplace'){
-                                    $formtitle = ($tag->GetName() == 'place')? '目前所在地' : '家乡所在地';
-                                    $formstring .='<p><label>'.$formtitle.'：</label>' . GetEnumsForm('nativeplace',$value[$tag->GetName()],$tag->GetName()).'</p>';
-                                } else if ($tag->GetName() == 'birthday'){
-                                    $formstring .='<p><label>'.$tag->GetAtt('itemname').'：</label><input type="text" class="intxt" style="width: 100px;" id="birthday" value="'.$value[$tag->GetName()].'" name="birthday"></p>';
-                                } else if (array_key_exists($tag->GetName(),$this->egroups)){
-                                    //对联动模型进行特殊处理
-                                    $formstring .='<p><label>'.$this->egroups[$tag->GetName()].'：</label> '. GetEnumsForm($tag->GetName(),$value[$tag->GetName()],$tag->GetName()).'</p>';
-                                } else if ($tag->GetAtt('type') == 'checkbox'){
-                                    //对checkbox模型进行特殊处理
-                                    $formstring .=$func($tag,htmlspecialchars($value[$tag->GetName()],ENT_QUOTES),$admintype);
-                                }
-                                  else if ($tag->GetAtt('type') == 'img')
-                                {
-                                    $fieldname = $tag->GetName();
-                                    $labelname = $tag->GetAtt('itemname');
-                                    $fvalue = htmlspecialchars($value[$tag->GetName()],ENT_QUOTES);
-                                    $imgstrng = "<p><label>{$labelname}：</label><input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='浏览...' onClick=\"SelectImage('addcontent.$fieldname','big')\" />\r\n</p>";
-                                    $formstring .=$imgstrng;
+                            if($tag->GetName() == 'onlynet'){
+                                $formstring .= '
+                                    <div class="field sex">
+                                        <div class="label">
+                                            <label>隐私设置：</label>
+                                        </div>
+                                        <div class="ipt">
+                                            <input type="radio" name="onlynet" value="2" id="onlynet2" '.($value['onlynet']=='2' ? 'checked="checked"' : '').' /><label for="onlynet2"> 不公开所有联系方式</label>&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="onlynet" value="1" id="onlynet1" '.($value['onlynet']=='1' ? 'checked="checked"' : '').' /><label for="onlynet1"> 不公开电话、详细地址</label>&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="onlynet" value="0" id="onlynet0" '.($value['onlynet']=='0' ? 'checked="checked"' : '').' /><label for="onlynet0"> 公开所有联系方式</label>
+                                        </div>
+                                        <div class="tips"></div>
+                                    </div>
+                                ';
+                            }else if($tag->GetName() == 'place' || $tag->GetName() == 'oldplace'){
+                                $formtitle = ($tag->GetName() == 'place')? '所在地' : '家乡';
+                                $formstring .='
+                                    <div class="field place">
+                                        <div class="label">
+                                            <label>'. $formtitle .'：</label>
+                                        </div>
+                                        <div class="ipt">
+                                            '. GetEnumsForm('nativeplace',$value[$tag->GetName()],$tag->GetName()) .'
+                                        </div>
+                                        <div class="tips"></div>
+                                    </div>
+                                ';
+                            }else if($tag->GetName() == 'birthday'){
+                                $formstring .= '
+                                    <div class="field bir">
+                                        <div class="label">
+                                            <label for="birthday">生日：</label>
+                                        </div>
+                                        <div class="ipt">
+                                            <input type="text" class="ipt-text" id="birthday" name="birthday" value="'. $value[$tag->GetName()] .'" />
+                                        </div>
+                                        <div class="tips"></div>
+                                    </div>
+                                ';
+                            }else if($tag->GetName() == 'sex'){
+                                $formstring .= '
+                                    <div class="field sex">
+                                        <div class="label">
+                                            <label>性别：</label>
+                                        </div>
+                                        <div class="ipt">
+                                            <input type="radio" name="sex" value="男" id="sex1" '. ($value['sex']=='男' ? 'checked="checked"' : '') .' /><label for="sex1"> 男</label>&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="sex" value="女" id="sex2" '. ($value['sex']=='女' ? 'checked="checked"' : '') .' /><label for="sex2"> 女</label>&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="sex" value="保密" id="sex3" '. ($value['sex']=='保密' ? 'checked="checked"' : '') .' /><label for="sex3"> 保密</label>
+                                        </div>
+                                        <div class="tips"></div>
+                                    </div>
+                                ';
+                            }else{
+                                $formstring .= $func($tag,htmlspecialchars($value[$tag->GetName()],ENT_QUOTES),$admintype);
+                            }
+
+                             // if($tag->GetName() == 'onlynet')
+                             //    {
+                             //        $formstring .= '<p><label>联系方式限制：</label>
+                             //                        <input name="onlynet" type="radio" id="onlynet" value="2" checked="checked" />
+                             //                        不公开所有联系方式
+                             //                        <input name="onlynet" type="radio" id="onlynet" value="1" />
+                             //                        不公开电话、详细地址
+                             //                        <input name="onlynet" type="radio" id="onlynet" value="0"  />
+                             //                        公开所有联系方式</p>';
+                             //    } else if ($tag->GetName() == 'place' || $tag->GetName() == 'oldplace'){
+                             //        $formtitle = ($tag->GetName() == 'place')? '目前所在地' : '家乡所在地';
+                             //        $formstring .='<p><label>'.$formtitle.'：</label>' . GetEnumsForm('nativeplace',$value[$tag->GetName()],$tag->GetName()).'</p>';
+                             //    } else if ($tag->GetName() == 'birthday'){
+                             //        $formstring .='<p><label>'.$tag->GetAtt('itemname').'：</label><input type="text" class="intxt" style="width: 100px;" id="birthday" value="'.$value[$tag->GetName()].'" name="birthday"></p>';
+                             //    } else if (array_key_exists($tag->GetName(),$this->egroups)){
+                             //        //对联动模型进行特殊处理
+                             //        $formstring .='<p><label>'.$this->egroups[$tag->GetName()].'：</label> '. GetEnumsForm($tag->GetName(),$value[$tag->GetName()],$tag->GetName()).'</p>';
+                             //    } else if ($tag->GetAtt('type') == 'checkbox'){
+                             //        //对checkbox模型进行特殊处理
+                             //        $formstring .=$func($tag,htmlspecialchars($value[$tag->GetName()],ENT_QUOTES),$admintype);
+                             //    }
+                             //      else if ($tag->GetAtt('type') == 'img')
+                             //    {
+                             //        $fieldname = $tag->GetName();
+                             //        $labelname = $tag->GetAtt('itemname');
+                             //        $fvalue = htmlspecialchars($value[$tag->GetName()],ENT_QUOTES);
+                             //        $imgstrng = "<p><label>{$labelname}：</label><input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='浏览...' onClick=\"SelectImage('addcontent.$fieldname','big')\" />\r\n</p>";
+                             //        $formstring .=$imgstrng;
                                     
-                                }
-                                else {
-                                  $formstring .= $func($tag,htmlspecialchars($value[$tag->GetName()],ENT_QUOTES),$admintype);
-                                  //echo $formstring;
-                              }                        
+                             //    }
+                             //    else {
+                             //      $formstring .= $func($tag,htmlspecialchars($value[$tag->GetName()],ENT_QUOTES),$admintype);
+                             //      //echo $formstring;
+                             //  }                        
                         }
                         $formfields .= $formfields == '' ? $tag->GetName().','.$tag->GetAtt('type') : ';'.$tag->GetName().','.$tag->GetAtt('type');
                     }

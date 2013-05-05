@@ -173,7 +173,7 @@ function GetFormItem($ctag, $admintype='admin')
     else
     {
         $dfvalue = ($ctag->GetAtt('default')!='' ? $ctag->GetAtt('default') : '');
-        $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:250px'  class='intxt' value='$dfvalue' />\r\n";
+        $innertext = "<input type='text' name='$fieldname' id='$fieldname'  class='ipt-text' value='$dfvalue' />\r\n";
     }
     $formitem = str_replace("~name~",$ctag->GetAtt('itemname'),$formitem);
     $formitem = str_replace("~form~",$innertext,$formitem);
@@ -558,7 +558,7 @@ function GetFormItemValue($ctag, $fvalue, $admintype='admin', $fieldname='')
     }
     else
     {
-        $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:250px'  class='intxt' value='$fvalue' />\r\n";
+        $innertext = "<input type='text' name='$fieldname' id='$fieldname' class='ipt-text' value='$fvalue' />\r\n";
     }
     $formitem = str_replace('~name~',$ctag->GetAtt('itemname'),$formitem);
     $formitem = str_replace('~form~',$innertext,$formitem);
