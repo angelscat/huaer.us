@@ -53,3 +53,6 @@ huaer_dede\member\templets\search.htm
 
 huaer_dede\member\templets\visit-history.htm 2013-05-05 05:05 	#访问记录
 huaer_dede\member\visit-history.php
+
+
+huaer_dede\member\templets\edit_baseinfo.htm 2013-05-05 14:52	#修改基本资料
