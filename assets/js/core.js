@@ -14,15 +14,17 @@ jQuery.fn.makeSelector = function(){
 			handle = selectorContainer.find('.handle'),
 			values = selectorContainer.find('.values'),
 			options = el.find('option'),
-			data = '';
+			data = '',
+			current;
 		options.each(function(i,v){
 			var option = $(v);
-			data += '<li data-value="'+ option.val() +'">'+ option.text() +'</li>';
+			data += '<li data-value="'+ option.val() +'"' + (option.is(':selected') ? 'class="hover"' : '') +' >'+ option.text() +'</li>';
 		})
 		values.append(data);
 		selectorContainer.width(el.width());
 		el.after(selectorContainer).hide();
 		value.text(el.find('option:selected').text());
+		current = values.find('li.hover');
 
 		selectorContainer.on('click','.trigger',function(){
 			if(values.is(':hidden')){
@@ -46,9 +48,12 @@ jQuery.fn.makeSelector = function(){
 			el.trigger('change');
 			values.hide();
 			selectorContainer.css('z-index','');
+			current.removeClass('hover');
+			current = li;
 		}).on('mouseenter','li',function(){
 			$(this).addClass('hover');
 		}).on('mouseleave','li',function(){
+			if($(this).is(current)) return;
 			$(this).removeClass('hover');
 		})
 
