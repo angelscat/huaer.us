@@ -11,6 +11,13 @@
         <meta name="description" content="">
         <meta name="robots" content="index,follow">
         <link href="assets/css/core.css" rel="stylesheet" media="screen">
+        <script type="text/javascript" src="assets/js/libs/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="assets/js/core.js"></script>
+        <script type="text/javascript">
+            jQuery(function(){
+                $('select').makeSelector();
+            });
+        </script>
 	</head>
 	<body>
 		<div class="header-wrap">
@@ -108,7 +115,7 @@
 					<textarea class="ipt-text" style="width:360px; height:80px;"></textarea>
 				</p>
 				
-				<select style="display:none;">
+				<select style="display:none;" style="width:200px;">
                     <option value="1">小学1年级</option>
                     <option value="2">小学2年级</option>
                     <option value="3">小学3年级</option>
@@ -116,7 +123,7 @@
                     <option value="5">小学5年级</option>
                     <option value="6">小学6年级</option>
 				</select>
-				<div class="selector">
+				<div class="selector" style="display:none;">
 				    <a href="javascript:;"><span class="value">小学1年级</span><span class="handle"></span></a>
 				    <ul class="values custom-scroll-bar">
 				        <li data-value="1">小学1年级</li>
