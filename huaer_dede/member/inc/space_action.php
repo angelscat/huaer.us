@@ -185,9 +185,12 @@ else if($action=='guestbook')
         $mtype = 0;
     }
     include_once(DEDEINC.'/datalistcp.class.php');
-    $query = "SELECT mg.*,mb.face,mb.userid,mb.sex From `#@__member_guestbook` mg 
+    $query = "SELECT mg.*,mb.face,mb.userid,mb.sex,mb.uname as name From `#@__member_guestbook` mg 
     left join `#@__member` mb on mb.userid=mg.gid 
     where mg.mid='{$_vars['mid']}' order by mg.aid desc";
+
+    $count = $dsql->GetOne("SELECT COUNT(mg.aid) AS num FROM #@__member_guestbook AS mg WHERE mg.mid='{$_vars['mid']}'");
+
     $dlist = new DataListCP();
     $dlist->pageSize = 10;
     $dlist->SetParameter("uid",$_vars['userid']);
@@ -268,14 +271,14 @@ else if($action=='guestbooksave')
     $title = cn_substrR(HtmlReplace($title), 255);
     if($cfg_ml->M_UserName != '' && $cfg_ml->M_ID != $uidnum)
     {
-        $gid = $cfg_ml->M_UserName;
+        $gid = $cfg_ml->M_LoginID;
     }
     else
     {
         $gid = '';
     }
     $inquery = "INSERT INTO `#@__member_guestbook`(mid,gid,title,msg,uname,ip,dtime)
-   VALUES ('$uidnum','$gid','$title','$msg','$uname','".GetIP()."',".time()."); ";
+   VALUES ('$uidnum','$gid','$title','$msg','".$cfg_ml->M_LoginID."','".GetIP()."',".time()."); ";
     $dsql->ExecuteNoneQuery($inquery);
     ShowMsg('成功提交你的留言！', "index.php?uid={$uid}&action=guestbook");
     exit();

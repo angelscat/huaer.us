@@ -343,7 +343,7 @@ else if($fmdo=='login')
         {
             // 清除会员缓存
             $cfg_ml->DelCache($cfg_ml->M_ID);
-            if(empty($gourl) || preg_match("#action|_do#i", $gourl))
+            if(empty($gourl) || preg_match("#_do#i", $gourl))
             {
                 ShowMsg("成功登录，5秒钟后转向系统主页...","index.php",0,2000);
             }

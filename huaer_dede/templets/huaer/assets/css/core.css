@@ -471,6 +471,7 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .profile .space-desc{margin-bottom:40px; color:#979797;}
 .profile .sidebar{border:1px solid #e7e5e6; border-top:2px solid #3FA7CC; background:#FFF; -webkit-box-shadow:2px 2px 10px #e7e5e6; -moz-box-shadow:2px 2px 10px #e7e5e6;box-shadow:2px 2px 10px #e7e5e6;}
 .user-info{padding:20px; line-height:1.8; font-size:13px; color:#666;}
+.user-info .u-name{color:#999;}
 .user-info .u-name a{color:#3FA7CC; font-size:16px;}
 .user-info .u-stat strong{color:#3FA7CC;}
 .user-info .u-intro{padding:10px 0; margin:10px 0; border-top:1px dashed #CCC;border-bottom:1px dashed #CCC;}
@@ -513,9 +514,11 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .guestbook .g-list{border-top:1px solid #EFEFEF;}
 .guestbook .g-list .g-item{padding:20px 0; border-bottom:1px dotted #CCC; overflow:hidden; zoom:1}
 .guestbook .g-list .g-item .g-avatar{float:left; width:60px; *margin-right:-3px;}
-.guestbook .g-list .g-item .g-detail{margin-left:60px; zoom:1;}
+.guestbook .g-list .g-item .g-detail{margin-left:60px; zoom:1; position:relative;}
 .guestbook .g-list .g-item .g-detail .g-meta{margin-bottom:10px; color:#999;}
 .guestbook .g-list .g-item .g-detail .g-meta a{color:#3FA7CC;}
+.guestbook .g-list .g-item .g-detail .g-actions{position:absolute; top:0; right:10px;}
+.guestbook .g-list .g-item .g-detail .g-actions a{color:#3FA7CC;}
 .guestbook .g-list .g-item .g-detail .g-content{line-height:1.6;}
 .guestbook .g-list .pager{margin-top:20px; text-align:right;}
 .guestbook .g-list .no-words{padding:30px; text-align:center;}
