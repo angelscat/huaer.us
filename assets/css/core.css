@@ -549,6 +549,8 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
             border-radius: 6px;
 }
 .manage h2{height:30px; line-height:28px; padding-left:30px; background:url(../img/manage-icons-24.png) no-repeat; font-weight:normal; font-size:18px; margin-bottom:20px;}
+.manage .back{float:right;}
+.manage .back a{color:#3FA7CC;}
 .manage .manage-tab{border-bottom:2px solid #e7e7e7; margin-bottom:30px;}
 .manage .manage-tab ul{padding:0 70px;}
 .manage .manage-tab ul li{float:left; height:44px; line-height:44px; margin-right:20px;}
