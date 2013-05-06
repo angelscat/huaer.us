@@ -613,12 +613,12 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .settings .manage-content .field .label{width:100px; text-align:right;}
 .settings .manage-content .field .ipt .ipt-text{width:360px;}
 .settings .manage-content .field .ipt textarea.ipt-text{height:100px; resize:vertical;}
-.settings .manage-content .field .ipt .selector{width:368px;}
+.settings .manage-content .field .ipt select{width:368px;}
 .settings .manage-content .sex .ipt{padding:10px 0;}
 .settings .manage-content .code .ipt .ipt-text{width:60px;}
 .settings .manage-content .code img{vertical-align:middle;}
 .settings .manage-content .bir .ipt .ipt-text{width:120px;}
-.settings .manage-content .place .ipt .selector{width:120px;}
+/*.settings .manage-content .place .ipt select{width:120px;}*/
 
 /*article manage*/
 .manage-article h2{background-position:  left -38px;}

@@ -5,6 +5,11 @@
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>修改详细资料 - 会员中心 - <?php echo $cfg_webname; ?></title>
+		<script type="text/javascript">
+			jQuery(function(){
+				$('select').makeSelector();
+			})
+		</script>
 	</head>
 	<body>
 		<?php include(DEDEMEMBER."/templets/header.htm"); ?>

@@ -89,12 +89,12 @@ ul,ol{list-style:none;}
 .selector a{color:#454545!important;text-decoration:none;display:inline-block; *display:inline; zoom:1; width:100%;border:1px solid #CCC; border-bottom:1px solid #e2e2e2;border-right:1px solid #e2e2e2;background:#FBFBFB; position:absolute; top:0; left:0;}
 .selector a:hover{color:#454545;border:1px solid #ACACAC;border-right-color:#CECECE;border-bottom-color:#CECECE;outline:none; text-decoration:none;}
 .selector a span{cursor:pointer;}
-.selector a .value{display:inline-block; height:20px; line-height:20px; padding:8px 45px 8px 8px; font-size:14px;}
+.selector a .value{display:inline-block; height:20px; line-height:20px; *line-height:24px;_line-height:22px; margin:8px 0; padding:0 45px 0 8px; font-size:14px;overflow:hidden;}
 .selector a .handle{display:block; position:absolute; height:36px; width:36px; border-left:1px solid #E1E3E6; top:0; right:0; background:url(../img/arrow-down-big.gif) no-repeat center center;}
 .selector a:hover .handle{background-image:url(../img/arrow-down-big-hover.gif);}
-.selector ul{width:100%; position:absolute; top:38px; border:1px solid #E1E3E6; border-top:0; background:#FFF; overflow:auto; display:none;}
-.selector ul li{height:32px; line-height:32px; cursor:default; padding:0 8px;}
-.selector ul li:hover{background:#f3f3f3;}
+.selector ul{width:100%; position:absolute; top:38px; border:1px solid #E1E3E6; border-top:0; background:#FFF; overflow:auto; display:none; border-top:1px solid #3FA7CC;}
+.selector ul li{height:32px; line-height:32px; cursor:default; padding:0 8px; overflow:hidden;}
+.selector ul li.hover{background:#f3f3f3;}
 
 /*ipt file*/
 .ipt-file{position:relative; display:inline-block; vertical-align: middle; cursor:pointer; *display:inline; zoom:1; height:38px; *height:40px; overflow:hidden;}
@@ -613,12 +613,12 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .settings .manage-content .field .label{width:100px; text-align:right;}
 .settings .manage-content .field .ipt .ipt-text{width:360px;}
 .settings .manage-content .field .ipt textarea.ipt-text{height:100px; resize:vertical;}
-.settings .manage-content .field .ipt .selector{width:368px;}
+.settings .manage-content .field .ipt select{width:368px;}
 .settings .manage-content .sex .ipt{padding:10px 0;}
 .settings .manage-content .code .ipt .ipt-text{width:60px;}
 .settings .manage-content .code img{vertical-align:middle;}
 .settings .manage-content .bir .ipt .ipt-text{width:120px;}
-.settings .manage-content .place .ipt .selector{width:120px;}
+/*.settings .manage-content .place .ipt select{width:120px;}*/
 
 /*article manage*/
 .manage-article h2{background-position:  left -38px;}
