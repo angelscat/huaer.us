@@ -72,3 +72,37 @@ jQuery.fn.makeSelector = function(){
 	})
 	return selectorContainers;
 }
+
+jQuery.fn.makeFileSelector = function(){
+	var selectorContainers = [];
+	this.each(function(i,v){
+		var el = $(v);
+		if(!el.is('input:file')) return; //只针对select元素
+
+		var selectorContainer = $('<div class="ipt-file"></div>');
+		el.after(selectorContainer);
+		selectorContainer.append(el.attr({
+			'class':'cover',
+			'hidefocus':'true',
+			'size':'0'
+		}));
+		var fileInfo = '<div class="file-info"> \
+	                        <input type="text" class="ipt-text" readonly="readonly" /> \
+	                        <a class="button button-cancel clearfix" href="###"> \
+	                            <span class="button-left hide">&nbsp;</span> \
+	                            <span class="button-text">浏览文件</span> \
+	                            <span class="button-right hide">&nbsp;</span> \
+	                        </a> \
+	                    </div>';
+	    fileInfo = $(fileInfo);
+	    selectorContainer.append(fileInfo);
+	    var value = fileInfo.find('input');
+
+	    el.on('change',function(){
+	    	value.val(el.val());
+	    })
+
+		selectorContainers.push(selectorContainer);
+	})
+	return selectorContainers;
+}

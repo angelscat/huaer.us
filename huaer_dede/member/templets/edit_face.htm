@@ -5,6 +5,11 @@
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>头像设置 - 会员中心 - <?php echo $cfg_webname; ?></title>
+		<script type="text/javascript">
+			jQuery(function(){
+				$('input:file').makeFileSelector();
+			})
+		</script>
 	</head>
 	<body>
 		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
@@ -36,7 +41,7 @@
 	                            	<?php if(empty($face)){ ?>
 	                            	<img src="<?php echo ($fields['sex']=='女'? 'templets/images/dfgirl.png':'templets/images/dfboy.png'); ?>" />
 	                            	<?php }else{ ?>
-	                            	<img src="<?php echo $face; ?>" width="220" />
+	                            	<img src="<?php echo $face; ?>?" width="220" />
 	                            	<a href="edit_face.php?dopost=delold&oldface=<?php echo urlencode($face); ?>" onclick="return confirm('确定要删除现在的头像吗？');">删除旧头像</a>
 	                            	<? } ?>
 	                            </div>
@@ -47,17 +52,7 @@
 	                                <label>选择文件：</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <div class="ipt-file">
-	                                    <input type="file" class="cover" hidefocus="true" size="0" name="face" />
-	                                    <div class="file-info">
-	                                        <input type="text" class="ipt-text" readonly="readonly" />
-	                                        <a class="button button-cancel clearfix" href="###">
-	                                            <span class="button-left hide">&nbsp;</span>
-	                                            <span class="button-text">浏览文件</span>
-	                                            <span class="button-right hide">&nbsp;</span>
-	                                        </a>
-	                                    </div>
-	                                </div>
+	                                <input type="file" name="face" />
 	                            </div>
 	                            <div class="tips">为了保证最好的显示效果，请选择超过220*220的正方形头像</div>
 	                        </div>

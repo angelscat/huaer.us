@@ -16,6 +16,7 @@
         <script type="text/javascript">
             jQuery(function(){
                 $('select').makeSelector();
+                $('input:file').makeFileSelector();
             });
         </script>
 	</head>
@@ -62,6 +63,10 @@
                         <option value="5">测试测试5</option>
                         <option value="6">测试测试6</option>
                     </select>
+                </div>
+
+                <div>
+                    <input type="file" name="test" />
                 </div>
 			</div>
 		</div>
