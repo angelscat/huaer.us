@@ -177,66 +177,122 @@ $arrs2 = array(0x20,0x3c,0x61,0x20,0x68,0x72,0x65,0x66,0x3d,0x68,0x74,0x74,0x70,
  */
 function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
 {
-    if(empty($GLOBALS['cfg_plus_dir'])) $GLOBALS['cfg_plus_dir'] = '..';
-
-    $htmlhead  = "<html>\r\n<head>\r\n<title>DedeCMS提示信息</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />\r\n";
-    $htmlhead .= "<base target='_self'/>\r\n<style>div{line-height:160%;}</style></head>\r\n<body leftmargin='0' topmargin='0' bgcolor='#FFFFFF'>".(isset($GLOBALS['ucsynlogin']) ? $GLOBALS['ucsynlogin'] : '')."\r\n<center>\r\n<script>\r\n";
-    $htmlfoot  = "</script>\r\n</center>\r\n</body>\r\n</html>\r\n";
+    $htmlbegin = '<!DOCTYPE html>
+                <html>
+                    <head>
+                        <title>网站提示 - '.$GLOBALS['cfg_webname'].'</title>
+                        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                        <link href="'.$GLOBALS['cfg_templets_skin'].'/assets/css/core.css" rel="stylesheet" media="screen">
+                    </head>
+                    <body>
+                        <div class="hint-mod">
+                            <div class="mod-hd">
+                                <strong>'.$GLOBALS['cfg_webname'].'提示</strong>
+                            </div>
+                            <div class="mod-bd">';
+    $htmlend = '</div>
+                        </div>
+                    </body>
+                </html>';
 
     $litime = ($limittime==0 ? 1000 : $limittime);
     $func = '';
-
-    if($gourl=='-1')
-    {
+    if($gourl=='-1'){
         if($limittime==0) $litime = 5000;
         $gourl = "javascript:history.go(-1);";
     }
-
-    if($gourl=='' || $onlymsg==1)
-    {
+    if($gourl=='' || $onlymsg==1){
         $msg = "<script>alert(\"".str_replace("\"","“",$msg)."\");</script>";
-    }
-    else
-    {
+    }else{
         //当网址为:close::objname 时, 关闭父框架的id=objname元素
-        if(preg_match('/close::/',$gourl))
-        {
+        $func .= "<script>";
+        if(preg_match('/close::/',$gourl)){
             $tgobj = trim(preg_replace('/close::/', '', $gourl));
             $gourl = 'javascript:;';
             $func .= "window.parent.document.getElementById('{$tgobj}').style.display='none';\r\n";
         }
-        
-        $func .= "      var pgo=0;
-      function JumpUrl(){
-        if(pgo==0){ location='$gourl'; pgo=1; }
-      }\r\n";
-        $rmsg = $func;
-        $rmsg .= "document.write(\"<br /><div style='width:450px;padding:0px;border:1px solid #DADADA;'>";
-        $rmsg .= "<div style='padding:6px;font-size:12px;border-bottom:1px solid #DADADA;background:#DBEEBD url({$GLOBALS['cfg_plus_dir']}/img/wbg.gif)';'><b>DedeCMS 提示信息！</b></div>\");\r\n";
-        $rmsg .= "document.write(\"<div style='height:130px;font-size:10pt;background:#ffffff'><br />\");\r\n";
-        $rmsg .= "document.write(\"".str_replace("\"","“",$msg)."\");\r\n";
-        $rmsg .= "document.write(\"";
-        
-        if($onlymsg==0)
-        {
-            if( $gourl != 'javascript:;' && $gourl != '')
-            {
+        $func .= "
+            var pgo=0;
+            function JumpUrl(){
+                if(pgo==0){ location='$gourl'; pgo=1; }
+            }\r\n";
+
+        $rmsg = str_replace("\"","“",$msg);
+
+        if($onlymsg==0){
+            if( $gourl != 'javascript:;' && $gourl != ''){
                 $rmsg .= "<br /><a href='{$gourl}'>如果你的浏览器没反应，请点击这里...</a>";
-                $rmsg .= "<br/></div>\");\r\n";
-                $rmsg .= "setTimeout('JumpUrl()',$litime);";
-            }
-            else
-            {
-                $rmsg .= "<br/></div>\");\r\n";
+                $func .= "setTimeout('JumpUrl()',$litime);";
             }
         }
-        else
-        {
-            $rmsg .= "<br/><br/></div>\");\r\n";
-        }
-        $msg  = $htmlhead.$rmsg.$htmlfoot;
+        $func .= "</script>";
+
+        $msg  = $htmlbegin.$rmsg.$func.$htmlend;
     }
+
     echo $msg;
+
+    // if(empty($GLOBALS['cfg_plus_dir'])) $GLOBALS['cfg_plus_dir'] = '..';
+
+    // $htmlhead  = "<html>\r\n<head>\r\n<title>DedeCMS提示信息</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />\r\n";
+    // $htmlhead .= "<base target='_self'/>\r\n<style>div{line-height:160%;}</style></head>\r\n<body leftmargin='0' topmargin='0' bgcolor='#FFFFFF'>".(isset($GLOBALS['ucsynlogin']) ? $GLOBALS['ucsynlogin'] : '')."\r\n<center>\r\n<script>\r\n";
+    // $htmlfoot  = "</script>\r\n</center>\r\n</body>\r\n</html>\r\n";
+
+    // $litime = ($limittime==0 ? 1000 : $limittime);
+    // $func = '';
+
+    // if($gourl=='-1')
+    // {
+    //     if($limittime==0) $litime = 5000;
+    //     $gourl = "javascript:history.go(-1);";
+    // }
+
+    // if($gourl=='' || $onlymsg==1)
+    // {
+    //     $msg = "<script>alert(\"".str_replace("\"","“",$msg)."\");</script>";
+    // }
+    // else
+    // {
+    //     //当网址为:close::objname 时, 关闭父框架的id=objname元素
+    //     if(preg_match('/close::/',$gourl))
+    //     {
+    //         $tgobj = trim(preg_replace('/close::/', '', $gourl));
+    //         $gourl = 'javascript:;';
+    //         $func .= "window.parent.document.getElementById('{$tgobj}').style.display='none';\r\n";
+    //     }
+        
+    //     $func .= "      var pgo=0;
+    //   function JumpUrl(){
+    //     if(pgo==0){ location='$gourl'; pgo=1; }
+    //   }\r\n";
+    //     $rmsg = $func;
+    //     $rmsg .= "document.write(\"<br /><div style='width:450px;padding:0px;border:1px solid #DADADA;'>";
+    //     $rmsg .= "<div style='padding:6px;font-size:12px;border-bottom:1px solid #DADADA;background:#DBEEBD url({$GLOBALS['cfg_plus_dir']}/img/wbg.gif)';'><b>DedeCMS 提示信息！</b></div>\");\r\n";
+    //     $rmsg .= "document.write(\"<div style='height:130px;font-size:10pt;background:#ffffff'><br />\");\r\n";
+    //     $rmsg .= "document.write(\"".str_replace("\"","“",$msg)."\");\r\n";
+    //     $rmsg .= "document.write(\"";
+        
+    //     if($onlymsg==0)
+    //     {
+    //         if( $gourl != 'javascript:;' && $gourl != '')
+    //         {
+    //             $rmsg .= "<br /><a href='{$gourl}'>如果你的浏览器没反应，请点击这里...</a>";
+    //             $rmsg .= "<br/></div>\");\r\n";
+    //             $rmsg .= "setTimeout('JumpUrl()',$litime);";
+    //         }
+    //         else
+    //         {
+    //             $rmsg .= "<br/></div>\");\r\n";
+    //         }
+    //     }
+    //     else
+    //     {
+    //         $rmsg .= "<br/><br/></div>\");\r\n";
+    //     }
+    //     $msg  = $htmlhead.$rmsg.$htmlfoot;
+    // }
+    // echo $msg;
 }
 
 /**
