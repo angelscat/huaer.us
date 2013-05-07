@@ -456,8 +456,10 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .add-article .add-article-main h2{border-bottom:1px solid #E1E3E6;padding:20px; font-size:24px; background:#fcfcfc;}
 .add-article .add-article-main .add-article-body{padding:20px 18px;}
 .add-article .add-article-main .ipt-text{width:674px;}
+.add-article .add-article-main .code .ipt-text{width:60px;}
+.add-article .add-article-main .code img{vertical-align: middle;}
 .add-article .add-article-main textarea{height:400px; resize:vertical;}
-.add-article .add-article-actions a.button-save{margin-right:10px;_display:inline; zoom:1;}
+.add-article .add-article-actions a.button-save{margin-left:10px;_display:inline; zoom:1;}
 .add-article .add-article-sub .ipt-text{width:230px;}
 .add-article .add-article-sub .ipt-select{width:240px;}
 .add-article .add-article-sub .selector{width:238px;}
