@@ -87,3 +87,7 @@ huaer_dede\member\space\person\side_uinfo.htm
 
 huaer_dede\member\inc\space_action.php 		2013-05-06 23:55 	#留言板，擦，是有多少bug。
 huaer_dede\member\space\person\guestbook.htm
+
+
+huaer_dede\member\templets\article_add.htm 	2013-05-07 23:55	#投稿 修改。
+huaer_dede\member\templets\article_edit.htm
