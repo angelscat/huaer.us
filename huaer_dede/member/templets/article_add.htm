@@ -5,6 +5,12 @@
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>投稿 - <?php echo $cfg_webname; ?></title>
+		<script type="text/javascript">
+			jQuery(function(){
+				$('select').makeSelector();
+				$('input:file').makeFileSelector();
+			})
+		</script>
 	</head>
 	<body>
 		<?php include(DEDEMEMBER."/templets/header.htm"); ?>

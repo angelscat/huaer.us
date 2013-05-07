@@ -21,7 +21,7 @@ jQuery.fn.makeSelector = function(){
 			data += '<li data-value="'+ option.val() +'"' + (option.is(':selected') ? 'class="hover"' : '') +' >'+ option.text() +'</li>';
 		})
 		values.append(data);
-		selectorContainer.width(el.width());
+		//selectorContainer.width(el.width());
 		el.after(selectorContainer).hide();
 		value.text(el.find('option:selected').text());
 		current = values.find('li.hover');
