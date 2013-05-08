@@ -125,7 +125,7 @@ class membermodel
                         } else {
                             if($tag->GetName() == 'onlynet'){
                                 $formstring .= '
-                                    <div class="field sex">
+                                    <div class="field sex hide">
                                         <div class="label">
                                             <label>隐私设置：</label>
                                         </div>
