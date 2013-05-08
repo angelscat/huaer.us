@@ -380,8 +380,10 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .mod-article-content .article-info span{margin-right:5px;}
 .mod-article-content .article-tags a{color:#3FA7CC; margin-right:5px;}
 .mod-article-content .article-ads{text-align:center; margin-bottom:10px;}
-.mod-article-content .article-content{line-height:1.8;}
-.mod-article-content .article-content p{margin-bottom:10px; text-indent:2em;}
+.mod-article-content .article-content{line-height:1.6; padding:0 30px;text-shadow:0 1px 0 #fff,1px 0 0 #fff,0 -1px 0 #fff,-1px 0 0 #fff,0 2px 0 #fff,2px 0 0 #fff,0 -2px 0 #fff,-2px 0 0 #fff;}.mod-article-content .article-content p{margin-bottom:15px;}
+.mod-article-content .article-content ul,
+.mod-article-content .article-content ol{list-style-position:inside;}
+.mod-article-content .article-content a{color:#3FA7CC;}
 .mod-article-content .article-actions{padding:40px 0; text-align:center;}
 .mod-article-content .article-actions .like,
 .mod-article-content .article-actions .collect{display:inline-block; vertical-align:middle; margin:0 5px; height:28px;line-height:28px; text-align:left;background:url(../img/widget_buttons_skyBlue.png) no-repeat; text-decoration:none;  *display:inline; zoom:1;}

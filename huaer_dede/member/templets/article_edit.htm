@@ -4,11 +4,16 @@
 		<?php include(DEDEMEMBER."/templets/head.htm"); ?>
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
+        <script type="text/javascript" src="<?php echo $cfg_cmsurl; ?>/include/ueditor/editor_config_article.js"></script>
+        <script type="text/javascript" src="<?php echo $cfg_cmsurl; ?>/include/ueditor/editor_all_min.js"></script>
 		<title>投稿 - <?php echo $cfg_webname; ?></title>
 		<script type="text/javascript">
 			jQuery(function(){
 				$('select').makeSelector();
 				$('input:file').makeFileSelector();
+				window.UEDITOR_CONFIG.autoClearinitialContent = false;
+				window.UEDITOR_CONFIG.focus = true;
+                var ue = UE.getEditor('editor');
 			})
 		</script>
 	</head>
@@ -42,7 +47,7 @@
                                         <span class="required">*</span><label>正文</label><span class="sub-text">(增强个人写作能力，请勿抄袭)</span>
                                     </div>
                                     <div class="ipt">
-                                        <textarea class="ipt-text" name="body"><?php echo $addRow['body'];?></textarea>
+                                    	<script  id="editor" type="text/plain" name="body"><?php echo $addRow['body'];?></script>
                                     </div>
                                 </div>
                                 <div class="add-article-actions clearfix">
