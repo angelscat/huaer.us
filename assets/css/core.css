@@ -278,10 +278,11 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 
 /*page*/
 .pager {letter-spacing:-4px; font-size:0;}
-.pager a{display:inline-block; margin:0 3px; font-size:12px; letter-spacing: 0;padding:3px 8px; background:#F5F5F5;}
-.pager a:hover{background:#3FA7CC; color:#FFF; text-decoration:none;}
-.pager a.cur{background:#3FA7CC; color:#FFF; font-weight:bold;}
-.pager a span{font-family:'宋体';font-size:80%;}
+.pager li{display:inline-block; margin:0 3px; font-size:12px; letter-spacing: 0;}
+.pager li.thisclass{background:#3FA7CC; color:#FFF; font-weight:bold; padding:3px 8px;}
+.pager li a{display:block;padding:3px 8px; background:#F5F5F5;}
+.pager li a:hover{background:#3FA7CC; color:#FFF; text-decoration:none;}
+.pager li span{font-family:'宋体';font-size:80%;}
 
 /*hint-mod*/
 .hint-mod{border:1px solid #E1E3E6; background:#FFF; width:450px; height:160px;margin:30px auto 0; -moz-box-shadow:0 1px 2px #E1E3E6;-webkit-box-shadow:0 1px 2px #E1E3E6;box-shadow:0 1px 2px #E1E3E6;}

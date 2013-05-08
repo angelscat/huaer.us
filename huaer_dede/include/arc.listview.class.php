@@ -958,7 +958,7 @@ class ListView
         if($totalpage<=1 && $this->TotalResult>0)
         {
 
-            return "<li><span class=\"pageinfo\">共 <strong>1</strong>页<strong>".$this->TotalResult."</strong>条记录</span></li>\r\n";
+            return "<li><span class=\"pageinfo\">共<strong>1</strong>页<strong>".$this->TotalResult."</strong>条记录</span></li>\r\n";
         }
         if($this->TotalResult == 0)
         {
@@ -977,7 +977,7 @@ class ListView
         }
         else
         {
-            $indexpage="<li>首页</li>\r\n";
+            $indexpage="";
         }
 
         //下一页,未页的链接
@@ -988,7 +988,7 @@ class ListView
         }
         else
         {
-            $endpage="<li>末页</li>\r\n";
+            $endpage="";
         }
 
         //option链接
