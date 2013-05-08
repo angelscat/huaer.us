@@ -34,7 +34,11 @@
 			            <div class="mod-bd">
 			                <ul>
 								{dede:list pagesize='30'}
-								<li><a href="[field:arcurl/]" class="title">[field:title/]</a><span class="date">[field:pubdate function="GetDateTimeMK(@me)"/]</span></li>
+								<li>
+									<a href="[field:arcurl/]" class="title">[field:title/]</a>
+									<span class="date">[field:pubdate function="GetDateTimeMK(@me)"/]</span>
+								</li>
+								[field:global name=autoindex runphp="yes"](@me % 5 == 0 && @me !=30)?@me="<li class=\"sep\"></li>":@me="";[/field:global]
 								{/dede:list}
 			                </ul>
 			                <div class="pager">
