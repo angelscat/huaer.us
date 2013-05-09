@@ -6,8 +6,42 @@
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>修改详细资料 - 会员中心 - <?php echo $cfg_webname; ?></title>
 		<script type="text/javascript">
+			// jQuery(function(){
+			// 	$('select').makeSelector();
+			// })
+		</script>
+		<script type="text/javascript" language="javascript">
+			<?php echo GetEnumsJs('nativeplace'); ?>
+
 			jQuery(function(){
-				$('select').makeSelector();
+				if(!$('.place-choose')[0]) return;
+
+				$('.place-choose').each(function(){
+					var placeChoose = $(this),
+						province = placeChoose.find('.province'),
+						city = placeChoose.find('.city'),
+						id = placeChoose.attr('data-id'),
+						citySelector;
+
+					province.on('change',function(){
+						var options = '',
+							pcode = province.val() * 1;
+						for(var i = 1; i < 100; i++){
+							if(!em_nativeplaces[pcode + i]) break;
+							options += '<option value="'+ (pcode+i) +'" '+ (pcode + i == id ? 'selected="selected"' : '') +'>'+ em_nativeplaces[pcode + i] +'</option>';
+						}
+						if(options === ''){
+							options = '<option value="'+ pcode +'" selected="selected">'+ em_nativeplaces[pcode] +'</option>'
+						}
+						city.html(options);
+						citySelector && citySelector[0].remove();
+						citySelector = $(city).makeSelector();
+					});
+
+					province.find('option[value="'+ (parseInt(id / 500) * 500) +'"]').attr('selected',true);
+					province.trigger('change');
+					$(province).makeSelector();
+				})
 			})
 		</script>
 	</head>

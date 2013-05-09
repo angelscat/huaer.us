@@ -91,3 +91,7 @@ huaer_dede\member\space\person\guestbook.htm
 
 huaer_dede\member\templets\article_add.htm 	2013-05-07 23:55	#投稿 修改。
 huaer_dede\member\templets\article_edit.htm
+
+
+huaer_dede\include\membermodel.cls.php		2013-05-09 11:50	#省市联动。
+huaer_dede\member\templets\edit_fullinfo.htm

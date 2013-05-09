@@ -139,13 +139,19 @@ class membermodel
                                 ';
                             }else if($tag->GetName() == 'place' || $tag->GetName() == 'oldplace'){
                                 $formtitle = ($tag->GetName() == 'place')? '所在地' : '家乡';
+                                $topDatas = getTopData('nativeplace');
+                                $topDataStr = '<select class="province">';
+                                foreach ($topDatas as $k => $v) {
+                                  $topDataStr .= '<option value="'.$k.'">'.$v.'</option>';
+                                }
+                                $topDataStr .='</select><select class="city" name="'. $tag->GetName() .'"></select>';
                                 $formstring .='
-                                    <div class="field place">
+                                    <div class="field place place-choose" data-id="'. $value[$tag->GetName()] .'">
                                         <div class="label">
                                             <label>'. $formtitle .'：</label>
                                         </div>
                                         <div class="ipt">
-                                            '. GetEnumsForm('nativeplace',$value[$tag->GetName()],$tag->GetName()) .'
+                                            '. $topDataStr .'
                                         </div>
                                         <div class="tips"></div>
                                     </div>
