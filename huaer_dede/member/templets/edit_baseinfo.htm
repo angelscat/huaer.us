@@ -5,6 +5,186 @@
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>修改基本资料 - 会员中心 - <?php echo $cfg_webname; ?></title>
+		<script type="text/javascript">
+			jQuery(function(){
+				var editForm = $('#editForm'),
+					username = $('#username'),
+					oldUsername = username.val(),
+					oldPwd = $('#oldPwd'),
+					newPwd = $('#newPwd'),
+					newPwdC = $('#newPwdC'),
+					email = $('#email'),
+					vdcode = $('#vdcode'),
+					vdcodeImg = $('#vdcodeImg'),
+					smtBtn = $('#smtBtn'),
+					flag = true;
+				var zhReg = /[^\x00-\xff]/g,
+					mailReg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})$/,
+					nameReg = /^[\u4E00-\u9FA5a-zA-Z0-9_]+$/;
+
+				editForm.on('submit',function(){
+					flag = true;
+					editForm.find('input').trigger('blur');
+					return flag;
+				})
+
+				$('#vdcodeImg,#vdcodeChange').on('click',function(){
+					var src = vdcodeImg.attr('src').split('?')[0];
+					vdcodeImg.attr('src',src + '?_r=' + Math.random());
+				})
+
+				smtBtn.on('click',function(){
+					editForm.submit();
+					return false;
+				})
+
+				$('#username,#email').on('change',function(){
+					$(this).attr('hasChecked',0);
+				})
+				editForm.find('input').each(function(){
+					var _this = $(this);
+
+					_this.on('blur',function(){
+						var type = _this.attr('id'),
+							val = $.trim(_this.val());
+						switch(type){
+							case 'username' :
+								if(val === ''){
+									showError(_this,'请输入笔名');
+								}else if(val.replace(zhReg,'**').length < 4 || val.replace(zhReg,'**').length > 20){
+									showError(_this,'长度不符合要求');
+								}else if(val === oldUsername){
+									showSucc(_this);
+								}else{
+									if(_this.attr('hasChecked') === '0'){
+										flag = false;
+										$.post('index_do_huaer.php',{
+											dopost:'checkuser',
+											fmdo:'user',
+											cktype:0,
+											uid:val
+										},function(r){
+											r = r.split('|');
+											var code = r[0],
+												msg = r[1];
+											if(code === '200'){
+												showSucc(_this);
+												_this.attr('hasChecked',1);
+											}else{
+												showError(_this,msg);
+											}
+										})
+									}else{
+										showSucc(_this);
+									}
+								}
+								break;
+							case 'oldPwd' :
+								if(val === ''){
+									showError(_this,'请输入旧密码');
+								}else if(val.length < 6 || val.length > 16){
+									showError(_this,'旧密码错误');
+								}
+								break;
+							case 'newPwd' :
+								var newPwdCVal = $.trim(newPwdC.val());
+								if(val === '' && newPwdCVal === ''){
+									showSucc(_this);
+									showSucc(newPwdC);
+									break;
+								}
+
+								if(val === ''){
+									showError(_this,'请输入密码');
+								}else if(val.length < 6 || val.length > 16){
+									showError(_this,'请输入6-16位密码');
+								}else{
+									showSucc(_this);
+									if(newPwdCVal !== val){
+										showError(newPwdC,'两次密码不一致');
+									}else{
+										showSucc(newPwdC);
+									}
+								}
+								break;
+							case 'newPwdC' :
+								var newPwdVal = $.trim(newPwd.val());
+								if(val === '' && newPwdVal === ''){
+									showSucc(_this);
+									break;
+								}
+
+								if(val === ''){
+									showError(_this,'请确认密码');
+								}else if(val !== newPwdVal){
+									showError(_this,'两次密码不一致');
+								}else{
+									showSucc(_this);
+								}
+								break;
+							case 'vdcode' :
+								if(val === ''){
+									showError(_this,'请输入验证码');
+								}else{
+									showSucc(_this);
+								}
+								break;
+							// case 'email' :
+							// 	if(val === ''){
+							// 		showError(_this,'请输入邮箱');
+							// 	}else if(!mailReg.test(val)){
+							// 		showError(_this,'请输入正确的邮箱地址');
+							// 	}else{
+							// 		if(_this.attr('hasChecked') === '0'){
+							// 			flag = false;
+							// 			$.post('index_do_huaer.php',{
+							// 				dopost:'checkmail',
+							// 				fmdo:'user',
+							// 				email:val
+							// 			},function(r){
+							// 				r = r.split('|');
+							// 				var code = r[0],
+							// 					msg = r[1];
+							// 				if(code === '200'){
+							// 					showSucc(_this);
+							// 					_this.attr('hasChecked',1);
+							// 				}else{
+							// 					showError(_this,msg);
+							// 				}
+							// 			})
+							// 		}else{
+							// 			showSucc(_this);
+							// 		}
+							// 	}
+							// 	break;
+						}
+					}).on('focus',function(){
+						showTip(_this);
+					})
+				})
+
+				function showTip(o){
+					var tips = o.parent().next();
+					tips.find('.error,.succ').remove();
+					tips.find('.tip').show();
+				}
+
+				function showError(o,msg){
+					flag = false;
+					var tips = o.parent().next();
+					tips.find('.tip').hide();
+					tips.find('.error,.succ').remove();
+					tips.append('<span class="error">'+ msg +'</span>');
+				}
+
+				function showSucc(o){
+					var tips = o.parent().next();
+					tips.find('.tip').hide();
+					tips.find('.error,.succ').remove();
+					tips.append('<i class="succ"></i>');
+				}
+			});
+		</script>
 	</head>
 	<body>
 		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
@@ -24,52 +204,52 @@
 			            </ul>
 			        </div>
 			        <div class="manage-content basic-info">
-			        	<form action="edit_baseinfo.php" method="post" name="editForm">
+			        	<form action="edit_baseinfo.php" method="post" name="editForm" id="editForm">
 			        		<input type="hidden" name="dopost" value="save" />
 				            <div class="field">
 				                <div class="label">
 				                    <label>用户名：</label>
 				                </div>
 				                <div class="ipt">
-				                    <input type="text" value="<?php echo $cfg_ml->M_LoginID; ?>" class="ipt-text ipt-text-disabled" readonly="readonly" />
+				                    <input type="text" id="userid" value="<?php echo $cfg_ml->M_LoginID; ?>" class="ipt-text ipt-text-disabled" readonly="readonly" />
 				                </div>
-				                <div class="tips">用户名不可修改</div>
+				                <div class="tips"><span class="tip">用户名不可修改</span></div>
 				            </div>
 	                        <div class="field">
 	                            <div class="label">
 	                                <label>笔名：</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <input type="text" class="ipt-text" name="uname" value="<?php echo $row['uname']; ?>" />
+	                                <input type="text" id="username" class="ipt-text" name="uname" value="<?php echo $row['uname']; ?>" />
 	                            </div>
-	                            <div class="tips">4-20个字符，可以是真实姓名或个性昵称等</div>
+	                            <div class="tips"><span class="tip">4-20个字符，可以是真实姓名或个性昵称等</span></div>
 	                        </div>
 	                        <div class="field">
 	                            <div class="label">
 	                                <span class="required">*</span><label>原登录密码：</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <input type="password" class="ipt-text" name="oldpwd" />
+	                                <input type="password" id="oldPwd" class="ipt-text" name="oldpwd" />
 	                            </div>
-	                            <div class="tips">修改资料必须填写正确的登录密码</div>
+	                            <div class="tips"><span class="tip">修改资料必须填写正确的登录密码</span></div>
 	                        </div>
 	                        <div class="field">
 	                            <div class="label">
 	                                <label>新密码：</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <input type="password" class="ipt-text" name="userpwd" />
+	                                <input type="password" id="newPwd" class="ipt-text" name="userpwd" />
 	                            </div>
-	                            <div class="tips">不修改密码请保留此项为空</div>
+	                            <div class="tips"><span class="tip">不修改密码请保留此项为空</span></div>
 	                        </div>
 	                        <div class="field">
 	                            <div class="label">
 	                                <label>确认新密码：</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <input type="password" class="ipt-text" name="userpwdok" />
+	                                <input type="password" id="newPwdC" class="ipt-text" name="userpwdok" />
 	                            </div>
-	                            <div class="tips">不修改密码请保留此项为空</div>
+	                            <div class="tips"><span class="tip">不修改密码请保留此项为空</span></div>
 	                        </div>
 	                        <div class="field hide">
 	                        	<input type="hidden" name="safequestion" value="0" />
@@ -138,9 +318,9 @@
 	                                <label>电子邮件：</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <input type="text" class="ipt-text" name="email" value="<?php echo $row['email']; ?>" />
+	                                <input type="text" id="email" readonly="readonly" class="ipt-text" name="email" value="<?php echo $row['email']; ?>" />
 	                            </div>
-	                            <div class="tips">每个邮箱只能注册一个帐号</div>
+	                            <div class="tips"><span class="tip">每个邮箱只能注册一个帐号，暂不支持修改</span></div>
 	                        </div>
 	                        <div class="field sex hide">
 	                            <div class="label">
@@ -148,9 +328,11 @@
 	                            </div>
 	                            <div class="ipt">
 	                            	<input type="hidden" name="sex" value="保密" />
+	                            	<!-- 
 	                                <input type="radio" name="sex" id="sex1" /><label for="sex1">男</label>&nbsp;&nbsp;&nbsp;
 	                                <input type="radio" name="sex" id="sex2" /><label for="sex2">女</label>&nbsp;&nbsp;&nbsp;
 	                                <input type="radio" name="sex" id="sex3" /><label for="sex3">保密</label>
+	                                -->
 	                            </div>
 	                            <div class="tips"></div>
 	                        </div>
@@ -159,7 +341,7 @@
 	                                <label>验证码：</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <input type="text" class="ipt-text" name="vdcode" /> <img src="<?php echo $cfg_cmsurl; ?>/include/vdimgck.php?" /> <a href="#">看不清楚？换一张</a>
+	                                <input type="text" id="vdcode" class="ipt-text" name="vdcode" /> <img src="<?php echo $cfg_cmsurl; ?>/include/vdimgck.php?" id="vdcodeImg" /> <a href="javascript:;" id="vdcodeChange">看不清楚？换一张</a>
 	                            </div>
 	                            <div class="tips"></div>
 	                        </div>
@@ -168,7 +350,7 @@
 	                                <label>&nbsp;</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <a class="button button-save clearfix" href="###">
+	                                <a class="button button-save clearfix" id="smtBtn" href="javascript:;">
 	                                	<input type="submit" />
 	                                    <span class="button-left">&nbsp;</span>
 	                                    <span class="button-text">保存</span>

@@ -28,6 +28,11 @@
 					return flag;
 				})
 
+				$('#verifyCodeImg,#changeVerifyCode').on('click',function(){
+					var src = verifyCodeImg.attr('src').split('?')[0];
+					verifyCodeImg.attr('src',src + '?_r=' + Math.random());
+				})
+
 				smtBtn.on('click',function(){
 					regForm.submit();
 					return false;
