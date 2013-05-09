@@ -163,7 +163,7 @@ class membermodel
                                             <label for="birthday">生日：</label>
                                         </div>
                                         <div class="ipt">
-                                            <input type="text" class="ipt-text" id="birthday" name="birthday" value="'. $value[$tag->GetName()] .'" />
+                                            <input type="text" class="ipt-text" id="birthday" name="birthday" value="'. $value[$tag->GetName()] .'" onClick="WdatePicker()" />
                                         </div>
                                         <div class="tips"></div>
                                     </div>
