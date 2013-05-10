@@ -17,6 +17,8 @@ $pms = $dsql->GetOne("SELECT COUNT(*) AS nums FROM #@__member_pms WHERE toid='{$
 ?>
 
 
+<li><a href="<?php echo $cfg_memberurl; ?>/">会员中心</a></li>
+<li class="sep"><span> </span></li>
 <li><a href="<?php echo $cfg_memberurl; ?>/pm.php">
 	消息
 	<?php 

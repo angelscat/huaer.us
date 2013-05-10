@@ -215,7 +215,7 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .header .main-menu li a:hover{background:#4eb2d4; text-decoration:none;}
 .header .sub-menu{letter-spacing: -4px; font-size:0;}
 .header .sub-menu li{display:inline-block;height:50px; line-height:50px; font-size:12px; letter-spacing:0; vertical-align: middle;_display:inline;zoom:1; position:relative;}
-.header .sub-menu li a{padding:0 15px; color:#c0eeff;}
+.header .sub-menu li a{padding:0 10px; color:#c0eeff;}
 .header .sub-menu li a:hover{color:#e2f7ff; text-decoration:none;}
 .header .sub-menu li.sep span{display:block; height:12px; line-height:12px; font-size:0; width:0;overflow:hidden; margin-top:19px; border-right:1px solid #52b8da;}
 .header .sub-menu li .unread-message-num{font-size:0; letter-spacing: -4px; height:14px;line-height:13px;  overflow:hidden; position:absolute; top:5px; right:0;}
