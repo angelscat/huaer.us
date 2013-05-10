@@ -405,7 +405,7 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .article-comment .comment-form .comment-body{margin-bottom:10px;}
 .article-comment .comment-form .comment-body textarea{height:80px; width:668px; resize:vertical; overflow:auto;}
 .article-comment .comment-form .comment-code .ipt-text{width:60px;}
-.article-comment .comment-form .comment-code img{vertical-align: middle;}
+.article-comment .comment-form .comment-code img{vertical-align: middle; cursor: pointer;}
 .article-comment .comment-form .comment-smt{text-align:right;}
 .article-comment .reply-form{padding-top:10px; margin-top:10px; margin-left:60px; border-top:1px solid #efefef;}
 .article-comment .reply-form .comment-title{margin-bottom:10px;}
@@ -448,7 +448,7 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .account-form .field .label{width:120px; text-align:right;}
 .account-form .field .ipt-text{width:200px;}
 .account-form .verify-code .ipt-text{width:100px;}
-.account-form .verify-code img{vertical-align:middle;}
+.account-form .verify-code img{vertical-align:middle; cursor: pointer;}
 .account-form .agreement{margin:-10px 0 0 0;}
 
 /*add-article*/
@@ -460,7 +460,7 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .add-article .add-article-main .add-article-body{padding:20px 18px;}
 .add-article .add-article-main .ipt-text{width:674px;}
 .add-article .add-article-main .code .ipt-text{width:60px;}
-.add-article .add-article-main .code img{vertical-align: middle;}
+.add-article .add-article-main .code img{vertical-align: middle; cursor:pointer;}
 .add-article .add-article-main textarea{height:400px; resize:vertical;}
 .add-article .add-article-actions a.button-save{margin-left:10px;_display:inline; zoom:1;}
 .add-article .add-article-sub .ipt-text{width:230px;}
@@ -513,7 +513,7 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .guestbook .g-form .f-body{margin-bottom:10px;}
 .guestbook .g-form .f-body textarea{width:668px; height:100px;}
 .guestbook .g-form .f-code .ipt-text{width:60px; vertical-align:middle;}
-.guestbook .g-form .f-code label,.guestbook .g-form .f-code img{vertical-align:middle;}
+.guestbook .g-form .f-code label,.guestbook .g-form .f-code img{vertical-align:middle;cursor: pointer;}
 .guestbook .g-form .not-login{padding:15px; background:#F9F9F9; text-align:center;}
 .guestbook .g-form .not-login a{color:#3FA7CC;}
 .guestbook .g-list{border-top:1px solid #EFEFEF;}
@@ -626,7 +626,7 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .settings .manage-content .field .ipt .selector{width:180px; margin-right:8px;}
 .settings .manage-content .sex .ipt{padding:10px 0;}
 .settings .manage-content .code .ipt .ipt-text{width:60px;}
-.settings .manage-content .code img{vertical-align:middle;}
+.settings .manage-content .code img{vertical-align:middle;cursor:pointer;}
 .settings .manage-content .bir .ipt .ipt-text{width:120px;}
 /*.settings .manage-content .place .ipt select{width:120px;}*/
 
@@ -660,7 +660,7 @@ a.button input{position:absolute; left:-9999em; top:-9999em;}
 .post-message .field .ipt-text{width:360px;}
 .post-message .field textarea{height:100px;}
 .post-message .code .ipt-text{width:60px;}
-.post-message .code img{vertical-align:middle;}
+.post-message .code img{vertical-align:middle; cursor:pointer;}
 .read-message{padding:0 30px;}
 .read-message .msg-avatar{float:left; width:50px; *margin-right:-3px;}
 .read-message .msg-detail{margin-left:60px; zoom:1; }

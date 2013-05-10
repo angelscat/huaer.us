@@ -5,6 +5,36 @@
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>空间设置 - 会员中心 - <?php echo $cfg_webname; ?></title>
+		<script type="text/javascript">
+			jQuery(function(){
+				var editForm = $('form'),
+					spacename = $('#spacename'),
+					sign = $('#sign'),
+					zhReg = /[^\x00-\xff]/g;
+				editForm.on('submit',function(){
+					var spacenameVal = $.trim(spacename.val()),
+						signVal = $.trim(sign.val());
+					if(spacenameVal == ''){
+						alert('空间名称不能为空！');
+						spacename.focus();
+						return false;
+					}else if(spacenameVal.replace(zhReg,'**').length > 50){
+						alert('空间名称不能超过25个中文字符');
+						spacename.focus();
+						return false;
+					}else if(signVal.replace(zhReg,'**').length > 100){
+						alert('空间描述不能超过50个中文字符');
+						sign.focus();
+						return false;
+					}
+				})
+				sign.on('keyup',function(e){
+					if(e.ctrlKey && e.keyCode === 13){
+						editForm.submit();
+					}
+				})
+			})
+		</script>
 	</head>
 	<body>
 		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
@@ -32,18 +62,18 @@
 	                                <label>空间名称：</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <input type="text" class="ipt-text" name="spacename" value="<?php echo $spacename; ?>" />
+	                                <input type="text" id="spacename" class="ipt-text" name="spacename" value="<?php echo $spacename; ?>" />
 	                            </div>
-	                            <div class="tips"></div>
+	                            <div class="tips"><span class="tip">25个中文字符以内</span></div>
 	                        </div>
 	                        <div class="field field-textarea desc">
 	                            <div class="label">
 	                                <label>空间描述：</label>
 	                            </div>
 	                            <div class="ipt">
-	                                <textarea class="ipt-text" name="sign"><?php echo $sign; ?></textarea>
+	                                <textarea id="sign" class="ipt-text" name="sign"><?php echo $sign; ?></textarea>
 	                            </div>
-	                            <div class="tips">50个中文字符以内</div>
+	                            <div class="tips"><span class="tip">50个中文字符以内</span></div>
 	                        </div>
 	                        <div class="field actions">
 	                            <div class="label">
