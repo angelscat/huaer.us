@@ -132,7 +132,11 @@
 			var replyBody = $('#replyForm' + fid),
 				replyForm = replyBody.find('form'),
 				cancelReply = replyForm.find('.cancel-reply'),
-				smtBtn = replyForm.find('.button');
+				smtBtn = replyForm.find('.button'),
+				replyMsg = replyForm.find('textarea[name="msg"]'),
+				validate = replyForm.find('input[name="validate"]'),
+				validateImg = replyForm.find('img'),
+				commentList = $('#commentList');
 
 			smtBtn.on('click',function(){
 				replyForm.submit();
@@ -145,14 +149,16 @@
 			})
 
 			replyForm.prepend('<input type="hidden" name="aid" value="'+ aid +'" />');
-			replyForm.find('textarea').focus();
+			replyMsg.focus();
+
+			replyMsg.on('keyup',function(e){
+				if(e.ctrlKey && e.keyCode === 13){
+					replyForm.submit();
+				}
+			});
 
 			replyForm.on('submit',function(){
-				var replyMsg = replyForm.find('textarea[name="msg"]'),
-					validate = replyForm.find('input[name="validate"]'),
-					validateImg = replyForm.find('img'),
-					commentList = $('#commentList'),
-					msg = $.trim(replyMsg.val());
+				var msg = $.trim(replyMsg.val());
 				if(msg === ''){
 					alert('回复不能为空！');
 					replyMsg.focus();
