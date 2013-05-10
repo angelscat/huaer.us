@@ -6,13 +6,14 @@
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
         <script type="text/javascript" src="<?php echo $cfg_cmsurl; ?>/include/ueditor/editor_config_article.js"></script>
         <script type="text/javascript" src="<?php echo $cfg_cmsurl; ?>/include/ueditor/editor_all_min.js"></script>
+        <script type="text/javascript" src="<?php echo $cfg_templets_skin; ?>/assets/js/article.js"></script>
 		<title>投稿 - <?php echo $cfg_webname; ?></title>
 		<script type="text/javascript">
 			jQuery(function(){
 				$('select').makeSelector();
 				$('input:file').makeFileSelector();
-
                 var ue = UE.getEditor('editor');
+                window.editorPoint = ue;
 			})
 		</script>
 	</head>
@@ -20,7 +21,7 @@
 		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
 		<div class="content">
 			<div class="layout clearfix">
-			    <div class="add-article clearfix">
+			    <div class="add-article clearfix" id="addArticle">
 			        <form name="addcontent" action="article_add.php" method="post" enctype="multipart/form-data">
 			        	<input type="hidden" name="dopost" value="save" />
 			        	<input type="hidden" name="channelid" value="<?php echo $channelid; ?>" />
@@ -34,7 +35,7 @@
                                         <span class="required">*</span><label>题目</label>
                                     </div>
                                     <div class="ipt">
-                                        <input type="text" class="ipt-text" name="title" placeholder="请输入题目"/>
+                                        <input type="text" id="title" class="ipt-text" name="title" placeholder="请输入题目"/>
                                     </div>
                                 </div>
                                 <div class="field field-vertical">
@@ -46,13 +47,12 @@
                                     </div>
                                 </div>
                                 <div class="add-article-actions clearfix">
-                                    <a class="button button-save clearfix pull-right" href="javascript:;">
-                                    	<input type="submit" />
+                                    <a class="button button-save clearfix pull-right" href="javascript:;" id="smtBtn">
                                         <span class="button-left">&nbsp;</span>
                                         <span class="button-text">投稿</span>
                                         <span class="button-right">&nbsp;</span>
                                     </a>
-                                    <a class="button button-cancel clearfix pull-right" href="javascript:;">
+                                    <a class="button button-cancel clearfix pull-right" href="/" id="cancelBtn">
                                         <span class="button-left">&nbsp;</span>
                                         <span class="button-text">取消</span>
                                         <span class="button-right">&nbsp;</span>
@@ -65,9 +65,9 @@
 	                                    	<label>验证码：</label>
                                     	</div>
                                     	<div class="ipt">
-	                                    	<input type="text" class="ipt-text" name="vdcode" />
-	                                    	<img src="../include/vdimgck.php" />
-	                                    	<a href="#">看不清楚？换一张</a>
+	                                    	<input type="text" class="ipt-text" name="vdcode" id="vdcode" />
+	                                    	<img src="../include/vdimgck.php" id="vdcodeImg" />
+	                                    	<a href="javascript:;" id="vdcodeChange">看不清楚？换一张</a>
                                     	</div>
                                     	<div class="tips"></div>
                                     </div>
@@ -78,10 +78,10 @@
 			            <div class="add-article-sub pull-right">
                             <div class="field field-vertical">
                                 <div class="label">
-                                    <label>作者</label>
+                                    <span class="required">*</span><label>作者</label>
                                 </div>
                                 <div class="ipt">
-                                    <input type="text" class="ipt-text" name="writer" value="<?php echo $cfg_ml->M_UserName?>" />
+                                    <input type="text" id="writer" class="ipt-text" name="writer" value="<?php echo $cfg_ml->M_UserName?>" />
                                 </div>
                             </div>
                             <div class="field field-vertical">
@@ -91,7 +91,7 @@
                                 <div class="ipt">
                                     <?php
 										$typeOptions = GetOptionList(0,$channelid);
-										echo "<select name='typeid' size='1'>\r\n";
+										echo "<select id='channel' name='typeid' size='1'>\r\n";
 										echo "<option value='0' selected>请选择栏目...</option>\r\n";
 										echo $typeOptions;
 										echo "</select>";
