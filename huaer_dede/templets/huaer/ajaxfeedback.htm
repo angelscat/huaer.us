@@ -4,10 +4,65 @@
 		$.get('{dede:global.cfg_cmsurl/}/member/ajax_feedback_huaer.php?_r='+Math.random(),function(r){
 			if(r !== ''){
 				commentMain.html(r);
-				
+
 				var feedbackFm = $('#feedbackFm'),
+					commentMsg = feedbackFm.find('#commentMsg'),
+					validate = feedbackFm.find('#validate'),
+					validateImg = feedbackFm.find('#validateImg'),
+					commentList = $('#commentList'),
 					smtBtn = $('#smtBtn');
+				feedbackFm.on('submit',function(){
+					var msg = $.trim(commentMsg.val()); 
+						
+					if(msg === ''){
+						alert('评论不能为空！');
+						commentMsg.focus();
+						return false;
+					}
 					
+					if(validate[0] && $.trim(validate.val()) === ''){
+						alert('请填写验证码！');
+						validate.focus();
+						return false;
+					}
+					
+					if(msg.length > 500){
+						alert('评论太长了，请填写500字以内的评论！');
+						return false;
+					}
+						
+					$.post('{dede:global.cfg_phpurl/}/feedback_ajax_huaer.php',feedbackFm.serialize(),function(r){
+						var r = r.split('|');
+						var code = $.trim(r[0]);
+						r.shift();
+						
+						if(code !== '200'){ //各种异常，弹出提示
+							alert(r.join(''));
+						}else{ 
+							commentList.prepend(r.join(''));
+							commentMsg.val('');
+							validate.val('');
+							validateImg.trigger('click');
+							setTimeout(function(){
+								commentList.find('.new-comment').removeClass('new-comment');
+							},2 * 1000)
+						}
+						
+						if(code === '1'){ //验证码错误
+							validateImg.trigger('click');
+							validate.val('').focus();
+						}
+					})
+					
+					return false;
+				})
+				
+				commentMsg.on('keyup',function(e){
+					if(e.ctrlKey && e.keyCode === 13){
+						feedbackFm.submit();
+					}
+				});
+				
 				smtBtn.on('click',function(){
 					feedbackFm.submit();
 					return false;
@@ -140,59 +195,6 @@
 			})
 		}
 	}
-	
-	jQuery(function(){
-		var feedbackFm = $('#feedbackFm');
-		feedbackFm.on('submit',function(){
-			var commentMsg = feedbackFm.find('#commentMsg'),
-				validate = feedbackFm.find('#validate'),
-				validateImg = feedbackFm.find('#validateImg'),
-				commentList = $('#commentList'),
-				msg = $.trim(commentMsg.val()); 
-				
-			if(msg === ''){
-				alert('评论不能为空！');
-				commentMsg.focus();
-				return false;
-			}
-			
-			if(validate[0] && $.trim(validate.val()) === ''){
-				alert('请填写验证码！');
-				validate.focus();
-				return false;
-			}
-			
-			if(msg.length > 500){
-				alert('评论太长了，请填写500字以内的评论！');
-				return false;
-			}
-				
-			$.post('{dede:global.cfg_phpurl/}/feedback_ajax_huaer.php',feedbackFm.serialize(),function(r){
-				var r = r.split('|');
-				var code = $.trim(r[0]);
-				r.shift();
-				
-				if(code !== '200'){ //各种异常，弹出提示
-					alert(r.join(''));
-				}else{ 
-					commentList.prepend(r.join(''));
-					commentMsg.val('');
-					validate.val('');
-					validateImg.trigger('click');
-					setTimeout(function(){
-						commentList.find('.new-comment').removeClass('new-comment');
-					},2 * 1000)
-				}
-				
-				if(code === '1'){ //验证码错误
-					validateImg.trigger('click');
-					validate.val('').focus();
-				}
-			})
-			
-			return false;
-		})
-	})
 	
 	jQuery(function(){ //获取评论列表
 		loadComments(1);
