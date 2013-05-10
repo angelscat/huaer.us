@@ -49,6 +49,10 @@ if($dopost=='save')
         exit();
     }
     $spacename = cn_substrR(HtmlReplace($spacename, 2), 50);
+    if($spacename == ''){
+        ShowMsg('空间名称不能为空','edit_space_info.php');
+        exit();
+    }
     $sign = cn_substrR(HtmlReplace($sign), 100);
     $spacenews = HtmlReplace($spacenews, -1);
     $query = "UPDATE `#@__member_space` SET `pagesize` = '$pagesize',`spacename`='$spacename' , spacelogo='$spacelogo', `sign` = '$sign' ,`spacenews`='$spacenews' WHERE mid='{$cfg_ml->M_ID}' ";
