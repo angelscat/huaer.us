@@ -16,7 +16,8 @@
         <script type="text/javascript">
             jQuery(function(){
                 $('select').makeSelector();
-                $('input:file').makeFileSelector();
+                //$('input:file').makeFileSelector();
+                $('input:text').placeholder();
             });
         </script>
 	</head>
@@ -67,6 +68,10 @@
 
                 <div>
                     <input type="file" name="test" />
+                </div>
+                <div>
+                    <input type="text" class="ipt-text" placeholder="1111" />
+                    <input type="text" class="ipt-text" placeholder="" />
                 </div>
 			</div>
 		</div>

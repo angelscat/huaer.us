@@ -106,3 +106,32 @@ jQuery.fn.makeFileSelector = function(){
 	})
 	return selectorContainers;
 }
+
+jQuery.fn.placeholder = function(){
+	var isPlaceholderSupport = "placeholder" in document.createElement("input");
+	//如果支持placeholder，那什么都不做;
+	if(isPlaceholderSupport) return;
+	this.each(function(i,v){
+		var el = $(v),
+			plv = el.attr('placeholder');
+		alert(el)
+		//如果不是input,或者是input但placeholder为空，那什么都不做;
+		alert(el.is['input:text'])
+		if(!el.is['input:text'] || (el.is['input:text'] && plv === '')) return; 
+		if(el.val() === ''){
+			el.css('color','#A9A9A9');
+			el.val(plv);
+		}
+		el.on('focus',function(){
+			if(el.val() === plv){
+				el.val('');
+				el.css('color','#333');
+			}
+		}).on('blur',function(){
+			if(el.val() === ''){
+				el.val(plv);
+				el.css('color','#A9A9A9');
+			}
+		})
+	})
+}
