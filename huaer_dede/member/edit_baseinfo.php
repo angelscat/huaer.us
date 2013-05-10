@@ -110,7 +110,7 @@ if($dopost=='save')
         exit();    
     }
     
-    $query1 = "UPDATE `#@__member` SET pwd='$pwd',sex='$sex'{$addupquery} where mid='".$cfg_ml->M_ID."' ";
+    $query1 = "UPDATE `#@__member` SET pwd='$pwd'{$addupquery} where mid='".$cfg_ml->M_ID."' ";
     $dsql->ExecuteNoneQuery($query1);
 
     //如果是管理员，修改其后台密码

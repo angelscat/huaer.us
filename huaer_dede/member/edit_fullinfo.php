@@ -97,12 +97,15 @@ if($dopost=='save'){
                     }
                     if($fieldinfo[0]=="birthday") ${$fieldinfo[0]}=GetDateMk(${$fieldinfo[0]});
                     $inadd_f .= ','.$fieldinfo[0]." ='".${$fieldinfo[0]}."'";
+                    if($fieldinfo[0]=="sex") $sex = ${$fieldinfo[0]};
                 }
             }
 
         }
         $inadd_f=preg_replace('/,/','',$inadd_f,1);
         $query = "UPDATE `{$membermodel->table}`set {$inadd_f} WHERE mid='{$cfg_ml->M_ID}'";
+        $query2 = "UPDATE `#@__member` set sex = '{$sex}' WHERE mid='{$cfg_ml->M_ID}'";
+        $dsql->ExecuteNoneQuery($query2);
         // 清除缓存
         $cfg_ml->DelCache($cfg_ml->M_ID);
         
