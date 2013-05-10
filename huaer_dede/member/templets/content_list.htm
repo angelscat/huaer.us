@@ -71,8 +71,8 @@
 							    	<a href="article_edit.php?channelid=<?php echo $fields['channel']; ?>&aid=<?php echo $fields['id']; ?>">修改</a>
 							    	<a href="archives_do.php?aid=<?php echo $fields['channel']; ?>&dopost=delArc" onclick="return confirm('确定删除？');">删除</a>
 							    	<?php }else{?>
-							    	<span title="不可修改">修改</span>
-							    	<span title="不可删除">删除</span>
+							    	<span title="不可修改" class="ignore">修改</span>
+							    	<span title="不可删除" class="ignore">删除</span>
 							    	<?php }?>
 							    	<a target="_blank" href="<?php echo $cfg_phpurl ?>/view.php?aid=<?php echo $fields['id']; ?>">预览</a>
 							    </td>

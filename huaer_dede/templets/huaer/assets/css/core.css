@@ -55,6 +55,7 @@ ul,ol{list-style:none;}
 .error{color:#F00;}
 .warning{color:#c09853;}
 .success{color:#468847;}
+.ignore{color:#999;}
 .loading{display:inline-block; height:16px; width:16px; background:url(../img/loading.gif) no-repeat; vertical-align:middle; *display:inline; zoom:1;}
 .succ{display:inline-block; height:16px; width:16px; background:url(../img/success.gif) no-repeat center center; vertical-align:middle; *display:inline; zoom:1;}
 
