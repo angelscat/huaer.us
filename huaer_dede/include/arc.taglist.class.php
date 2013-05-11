@@ -71,7 +71,7 @@ class TagList
             if(!is_array($this->TagInfos))
             {
                 $fullsearch = $GLOBALS['cfg_phpurl']."/search.php?keyword=".$this->Tag."&searchtype=titlekeyword";
-                $msg = "系统无此标签，可能已经移除！<br /><br />你还可以尝试通过搜索程序去搜索这个关键字：<a href='$fullsearch'>前往搜索&gt;&gt;</a>";
+                $msg = "系统无此标签，可能已经移除！<br />你还可以尝试通过搜索程序去搜索这个关键字：<a href='$fullsearch'>前往搜索&gt;&gt;</a>";
                 ShowMsg($msg,"-1");
                 exit();
             }
@@ -447,13 +447,13 @@ class TagList
         $totalpage = $this->TotalPage;
         if($totalpage <= 1 && $this->TotalResult > 0)
         {
-            return "<span class=\"pageinfo\">共1页/".$this->TotalResult."条</span>";
+            return "<li>共 1 页/".$this->TotalResult."条</li>";
         }
         if($this->TotalResult == 0)
         {
-            return "<span class=\"pageinfo\">共0页/".$this->TotalResult."条</span>";
+            return "<li>共 0 页/".$this->TotalResult."条</li>";
         }
-        $maininfo = "<span class=\"pageinfo\">共{$totalpage}页/".$this->TotalResult."条</span>\r\n";
+        $maininfo = "<li>共 {$totalpage} 页/".$this->TotalResult."条</li>\r\n";
         $purl = $this->GetCurUrl();
         $purl .= "?/".urlencode($this->Tag);
 
@@ -465,7 +465,7 @@ class TagList
         }
         else
         {
-            $indexpage="<li><a>首页</a></li>\r\n";
+            $indexpage="";
         }
         if($this->PageNo!=$totalpage && $totalpage>1)
         {
@@ -474,7 +474,7 @@ class TagList
         }
         else
         {
-            $endpage="<li><a>末页</a></li>\r\n";
+            $endpage="";
         }
 
         //获得数字链接
@@ -501,7 +501,7 @@ class TagList
         {
             if($j == $this->PageNo)
             {
-                $listdd.= "<li class=\"thisclass\"><a>$j</a></li>\r\n";
+                $listdd.= "<li class=\"thisclass\">$j</li>\r\n";
             }
             else
             {
