@@ -29,9 +29,19 @@
 						    </div>
 						</div>
 						{/dede:datalist}
+						<?php if($count['num'] == 0){ ?>
+						<div class="article-item">
+                            <div class="empty-content" style="background:none;">
+                                这个家伙很懒，还没有发表过作文哦！<br /><br />
+                                <a href="/">去看看更多精彩作文吧</a><br /><br /><br />
+                                <img src="<?php echo $cfg_templets_skin; ?>/assets/img/img_empty_visitor.png" />
+                            </div>
+                        </div>
+						<?php }else{ ?>
                         <ol class="pager">
                             {dede:pagelist listsize=5 listitem="index,end,pre,next,pageno" /}
                         </ol>
+						<?php } ?>
 			        </div>
 			    </div>
 			    <div class="sidebar pull-left">

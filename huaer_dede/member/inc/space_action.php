@@ -103,6 +103,7 @@ else if($action=='archives')
                  LEFT JOIN `#@__arctype` tp ON arc.typeid=tp.id
                  LEFT JOIN `#@__mtypes` mt ON mt.mtypeid=arc.mtype
                  WHERE arc.mid='{$_vars['mid']}' $addqSql ORDER BY arc.id DESC";
+        $count = $dsql->GetOne("SELECT COUNT(arc.id) AS num FROM #@__archives AS arc WHERE arc.mid='{$_vars['mid']}' $addqSql");
     }
     else
     {
