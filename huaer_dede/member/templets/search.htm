@@ -77,9 +77,11 @@
                             </li>
                             <?php } ?>
                         </ul>
+                        <?php if($count['num'] != 0){ ?>
                         <ol class="pager">
                             {dede:pagelist listsize=5 listitem="index,end,pre,next,pageno" /}
                         </ol>
+                        <?php } ?>
                     </div>
                 </div>
 			</div>
