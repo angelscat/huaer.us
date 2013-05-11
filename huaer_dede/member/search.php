@@ -72,7 +72,7 @@ $query = "SELECT mb.*,mp.place,YEAR(CURDATE())-YEAR(mp.birthday) AS age,mp.lovem
 LEFT JOIN `#@__member_person` mp ON mp.mid = mb.mid
 {$addsql} ORDER BY mb.logintime DESC";
 $dlist = new DataListCP();
-$dlist->pageSize = 8;
+$dlist->pageSize = 10;
 $dlist->SetParameter('keyword',$keyword);
 $dlist->SetParameter('province',$province);
 $dlist->SetParameter('city',$city);
