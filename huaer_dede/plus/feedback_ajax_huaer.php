@@ -373,7 +373,7 @@ function GetPageList($pagesize, $totalcount)
     }
     if($curpage + 1 <= $totalpage){
         echo '<li><a href="#commentList" onclick="loadComments('. ($curpage + 1) .')">下一页 <span>&gt;</span></a></li>';
-        echo '<li><a href="#commentList" onclick="loadComments('. $totalpage .')">最后一页 <span>&gt;</span></a></li>';
+        echo '<li><a href="#commentList" onclick="loadComments('. $totalpage .')">最后一页 <span>&gt;&gt;</span></a></li>';
     }
     echo '</div>';
 }
