@@ -17,7 +17,7 @@ jQuery(function(){
 	})
 
 	cancelBtn.on('click',function(){
-		return confirm('你确定要取消吗？\r\n取消后编辑的内容都会丢失，请先做好备份。')
+		return confirm('你确定要取消吗？\r\n取消后编辑或修改的内容都会丢失，请先做好备份。')
 	})
 
 	articleForm.on('submit',function(){
