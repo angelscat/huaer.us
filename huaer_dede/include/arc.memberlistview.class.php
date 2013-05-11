@@ -135,13 +135,13 @@ class MemberListview
         $this->totalPage = ceil($this->totalResult/$this->pageSize);
         if($this->totalResult==0)
         {
-            //$this->isQuery = true;
-            //$this->dsql->Execute('mbdl',$this->sourceSql);
-            //$this->totalResult = $this->dsql->GetTotalRow('mbdl');
-            $countQuery = preg_replace("/select[ \r\n\t](.*)[ \r\n\t]from/i","Select count(*) as dd From",$this->sourceSql);
-            $row = $this->dsql->GetOne($countQuery);
-            $row['dd'] = empty($row['dd']) ? 0 : $row['dd'];
-            $this->totalResult = $row['dd'];
+            $this->isQuery = true;
+            $this->dsql->Execute('mbdl',$this->sourceSql);
+            $this->totalResult = $this->dsql->GetTotalRow('mbdl');
+            // $countQuery = preg_replace("/select[ \r\n\t](.*)[ \r\n\t]from/i","Select count(*) as dd From",$this->sourceSql);
+            // $row = $this->dsql->GetOne($countQuery);
+            // $row['dd'] = empty($row['dd']) ? 0 : $row['dd'];
+            // $this->totalResult = $row['dd'];
             $this->sourceSql .= " limit 0,".$this->pageSize;
         }
         else
@@ -300,13 +300,13 @@ class MemberListview
         //无结果或只有一页的情况
         if($totalpage<=1 && $this->totalResult > 0)
         {
-            return "{$lang_total} 1 {$lang_page}/".$this->totalResult.$lang_record_number;
+            return "<li>{$lang_total} 1 {$lang_page}/".$this->totalResult.$lang_record_number."</li>";
         }
         if($this->totalResult == 0)
         {
-            return "{$lang_total} 0 {$lang_page}/".$this->totalResult.$lang_record_number;
+            return "<li>{$lang_total} 0 {$lang_page}/".$this->totalResult.$lang_record_number."</li>";
         }
-        $infos = "<span>{$lang_total} {$totalpage} {$lang_page}/{$this->totalResult}{$lang_record_number}</span> ";
+        $infos = "<li>{$lang_total} {$totalpage} {$lang_page}/{$this->totalResult}{$lang_record_number}</li> ";
         if($this->totalResult!=0)
         {
             $this->getValues['totalresult'] = $this->totalResult;
@@ -325,21 +325,21 @@ class MemberListview
         //获得上一页和下一页的链接
         if($this->pageNO!=1)
         {
-            $prepage.="<a href='".$purl."pageno=$prepagenum'>$lang_pre_page</a> \r\n";
-            $indexpage="<a href='".$purl."pageno=1'>$lang_index_page</a> \r\n";
+            $prepage.="<li><a href='".$purl."pageno=$prepagenum'>$lang_pre_page</a></li> \r\n";
+            $indexpage="<li><a href='".$purl."pageno=1'>$lang_index_page</a></li> \r\n";
         }
         else
         {
-            $indexpage="$lang_index_page \r\n";
+            $indexpage="";
         }
         if($this->pageNO!=$totalpage&&$totalpage>1)
         {
-            $nextpage.="<a href='".$purl."pageno=$nextpagenum'>$lang_next_page</a> \r\n";
-            $endpage="<a href='".$purl."pageno=$totalpage'>$lang_end_page</a> \r\n";
+            $nextpage.="<li><a href='".$purl."pageno=$nextpagenum'>$lang_next_page</a></li> \r\n";
+            $endpage="<li><a href='".$purl."pageno=$totalpage'>$lang_end_page</a></li> \r\n";
         }
         else
         {
-            $endpage=" $lang_end_page \r\n";
+            $endpage="";
         }
 
         //获得数字链接
@@ -363,14 +363,14 @@ class MemberListview
         {
             if($j==$this->pageNO)
             {
-                $listdd.= "<strong>$j</strong> \r\n";
+                $listdd.= "<li class=\"thisclass\">$j</li> \r\n";
             }
             else
             {
-                $listdd.="<a href='".$purl."pageno=$j'>".$j."</a> \r\n";
+                $listdd.="<li><a href='".$purl."pageno=$j'>".$j."</a></li> \r\n";
             }
         }
-        $plist = "<div class=\"pagelistbox\">\r\n";
+        $plist = "";
 
         //info,index,end,pre,next,pageno,form
         if(preg_match("/info/i",$atts['listitem']))
@@ -407,7 +407,7 @@ class MemberListview
             }
             $plist .= "</form>\r\n";
         }
-        $plist .= "</div>\r\n";
+        $plist .= "";
         return $plist;
     }
 
