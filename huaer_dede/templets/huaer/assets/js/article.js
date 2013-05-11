@@ -11,6 +11,8 @@ jQuery(function(){
 		smtBtn = $('#smtBtn'),
 		cancelBtn = $('#cancelBtn');
 
+	vdcodeImg.vdcodeChange();
+
 	smtBtn.on('click',function(){
 		editorPoint.sync();  
 		articleForm.submit();
