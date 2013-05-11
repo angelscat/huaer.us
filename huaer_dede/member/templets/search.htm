@@ -25,50 +25,50 @@
                     </div>
                     <div class="manage-content">
                         <div class="friend-search">
-                        	<form action="search.php" method="get" name="searchForm">
+                        	<form action="search.php" method="get" name="searchForm" id="searchForm">
 	                            <div class="ipt-search">
-	                                <input type="text" class="ipt-text" name="keyword" placeholder="请输入名字查找" />
-	                                <a href="###" class="button button-search">&nbsp;</a>
+	                                <input type="text" class="ipt-text" name="keyword" placeholder="请输入名字查找" id="keyword" value="<?php echo $keyword ?>" />
+	                                <a href="javascript:;" class="button button-search" id="smtBtn" onclick="$('#searchForm').submit(); return false;">&nbsp;</a>
 	                            </div>
                         	</form>
                         </div>
                         <ul class="friend-list">
-						{dede:datalist}
-						<?php 
-							if(empty($fields['face'])) $fields['face']=($fields['sex']=='女')? 'templets/images/dfgirl.png' : 'templets/images/dfboy.png';
-						?>
-						<li>
-						    <div class="u-avatar">
-						        <a target="_blank" href="index.php?uid=<?php echo $fields['userid']; ?>"><img src="<?php echo $fields['face']; ?>" width="50" /></a>
-						    </div>
-						    <div class="u-detail">
-						        <div class="u-name"><a target="_blank" href="index.php?uid=<?php echo $fields['userid']; ?>"><?php echo $fields['uname']; ?></a></div>
-						        <div class="u-info">
-						        	资料：
-						        	<?php echo $fields['sex']; ?>
-						        	<?php 
-						          	if(!$fields['age']=="")
-						            {
-						          		echo ",".$fields['age']."岁";
-						                echo ",".$fields['birthday'];
-									}?>
-									<?php
-									if(!empty($fields['place'])){
-										$places = GetEnumsTypes($fields['place']);
-										echo (isset($em_nativeplaces[$places['top']])? ',现居 '.$em_nativeplaces[$places['top']] : '未知');
-										echo '&nbsp;';
-										echo (isset($em_nativeplaces[$places['son']])? $em_nativeplaces[$places['son']] : '');
-									}
-									?>
-						        </div>
-						        <div class="u-contact">Email：{dede:field.email/}</div>
-						    </div>
-						    <div class="u-actions">
-						        <p class="send-msg"><a target="_blank" href="index.php?uid={dede:field.userid /}&action=guestbook">给他留言</a></p>
-						        <p class="remove-fri"><a target="_blank" href="index.php?action=newfriend&uid={dede:field.userid /}">加为好友</a></p>
-						    </div>
-						</li>
-						{/dede:datalist}
+							{dede:datalist}
+							<?php 
+								if(empty($fields['face'])) $fields['face']=($fields['sex']=='女')? 'templets/images/dfgirl.png' : 'templets/images/dfboy.png';
+							?>
+							<li>
+							    <div class="u-avatar">
+							        <a target="_blank" href="index.php?uid=<?php echo $fields['userid']; ?>"><img src="<?php echo $fields['face']; ?>" width="50" /></a>
+							    </div>
+							    <div class="u-detail">
+							        <div class="u-name"><a target="_blank" href="index.php?uid=<?php echo $fields['userid']; ?>"><?php echo $fields['uname']; ?></a> (<?php echo $fields['userid'] ?>)</div>
+							        <div class="u-info">
+							        	资料：
+							        	<?php echo $fields['sex']; ?>
+							        	<?php 
+							          	if(!$fields['age']=="")
+							            {
+							          		echo ",".$fields['age']."岁";
+							                echo ",".$fields['birthday'];
+										}?>
+										<?php
+										if(!empty($fields['place'])){
+											$places = GetEnumsTypes($fields['place']);
+											echo (isset($em_nativeplaces[$places['top']])? ',现居 '.$em_nativeplaces[$places['top']] : '未知');
+											echo '&nbsp;';
+											echo (isset($em_nativeplaces[$places['son']])? $em_nativeplaces[$places['son']] : '');
+										}
+										?>
+							        </div>
+							        <div class="u-contact">Email：{dede:field.email/}</div>
+							    </div>
+							    <div class="u-actions">
+							        <p class="send-msg"><a target="_blank" href="index.php?uid={dede:field.userid /}&action=guestbook">给他留言</a></p>
+							        <p class="remove-fri"><a target="_blank" href="index.php?action=newfriend&uid={dede:field.userid /}">加为好友</a></p>
+							    </div>
+							</li>
+							{/dede:datalist}
 							<?php if($count['num'] == 0){ ?>
                             <li class="bd0">
                             	<div class="empty-content">
@@ -77,22 +77,9 @@
                             </li>
                             <?php } ?>
                         </ul>
-                        <div class="pager">
-                            <a href="#"><span>&lt;&lt;</span> 第一页</a>
-                            <a href="#"><span>&lt;</span> 上一页</a>
-                            <a href="#" class="cur">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#">6</a>
-                            <a href="#">7</a>
-                            <a href="#">8</a>
-                            <a href="#">9</a>
-                            <a href="#">10</a>
-                            <a href="#">下一页 <span>&gt;</span></a>
-                            <a href="#">最后一页 <span>&gt;&gt;</span></a>
-                        </div>
+                        <ol class="pager">
+                            {dede:pagelist listsize=5 listitem="index,end,pre,next,pageno" /}
+                        </ol>
                     </div>
                 </div>
 			</div>

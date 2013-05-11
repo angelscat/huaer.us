@@ -5,6 +5,41 @@
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>消息 - 会员中心 - <?php echo $cfg_webname; ?></title>
+		<script type="text/javascript">
+			jQuery(function(){
+				var pmForm = $('#pmForm'),
+					checkAll = pmForm.find('th input:checkbox'),
+					smtBtn = $('#smtBtn');
+
+				smtBtn.on('click',function(){
+					pmForm.submit();
+				})
+
+				checkAll.on('click',function(){
+					pmForm.find('td input:checkbox').attr('checked',!!checkAll.attr('checked'));
+				})
+
+				pmForm.on('submit',function(){
+					var checked = pmForm.find('td input:checked'),
+						ids = [];
+					if(checked.length === 0){
+						alert('请选择要删除的消息');
+						return false;
+					}
+
+					if(!pmForm.find('input[name="ids"]')[0]){
+						pmForm.prepend('<input type="hidden" name="ids" />');
+					}
+					checked.each(function(){
+						ids.push($(this).val());
+					})
+					pmForm.find('input[name="ids"]').val(ids);
+
+					return confirm('确定要删除选中的消息吗？');
+				})
+
+			})
+		</script>
 	</head>
 	<body>
 		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
@@ -39,6 +74,7 @@
                     <div class="manage-content clearfix">
         				<form action="pm.php" method="post" name="pmForm" id="pmForm">
         					<input type='hidden' name='dopost' value='del' />
+        					<input type='hidden' name='folder' value='<?php echo $folder;?>' />
 	                        <table class="common-table">
 	                        	<colgroup>
 	                        		<col width="5%" />
@@ -98,25 +134,13 @@
 	                        </table>
 	                        <?php if($count['num'] != 0){ ?>
 	                    	<div class="actions pull-left">
-								<a class="button-small button-yes-small" href="###"><span>删除</span></a>
+	                    		<input type="submit" class="offset-hide" />
+								<a class="button-small button-yes-small" href="javascript:;" id="smtBtn"><span>删除</span></a>
 	                    	</div>
 	                        <?php } ?>
-	                        <div class="pager pull-right">
-	                            <a href="#"><span>&lt;&lt;</span> 第一页</a>
-	                            <a href="#"><span>&lt;</span> 上一页</a>
-	                            <a href="#" class="cur">1</a>
-	                            <a href="#">2</a>
-	                            <a href="#">3</a>
-	                            <a href="#">4</a>
-	                            <a href="#">5</a>
-	                            <a href="#">6</a>
-	                            <a href="#">7</a>
-	                            <a href="#">8</a>
-	                            <a href="#">9</a>
-	                            <a href="#">10</a>
-	                            <a href="#">下一页 <span>&gt;</span></a>
-	                            <a href="#">最后一页 <span>&gt;&gt;</span></a>
-	                        </div>
+	                        <ol class="pager pull-right">
+	                            {dede:pagelist listsize=5 listitem="index,end,pre,next,pageno" /}
+	                        </ol>
                         </form>
                     </div>
                 </div>

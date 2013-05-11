@@ -5,6 +5,118 @@
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>写新消息 - 会员中心 - <?php echo $cfg_webname; ?></title>
+		<script type="text/javascript">
+			jQuery(function(){
+				var msgForm = $('#msgForm'),
+					sendto = $('#sendto'),
+					subject = $('#subject'),
+					message = $('#message'),
+					vdcode = $('#vdcode'),
+					vdcodeImg = $('#vdcodeImg'),
+					smtBtn = $('#smtBtn'),
+					flag = true;
+				vdcodeImg.vdcodeChange();
+				
+				smtBtn.on('click',function(){
+					msgForm.submit();
+				})
+
+				msgForm.on('submit',function(){
+					flag = true;
+					msgForm.find('input,textarea').trigger('blur');
+					return flag;
+				})
+
+				sendto.on('change',function(){
+					$(this).attr('hasChecked',0);
+				})
+
+				msgForm.find('input,textarea').each(function(){
+					var _this = $(this);
+					_this.on('blur',function(){
+						var type = _this.attr('id'),
+							val = $.trim(_this.val());
+						switch(type){
+							case 'sendto':
+								if(val === ''){
+									showError(_this,'请输入收件人')
+								}else{
+									if(_this.attr('hasChecked') === '0'){
+										flag = false;
+										$.post('index_do_huaer.php',{
+											dopost:'checkuser',
+											fmdo:'user',
+											cktype:1,
+											uid:val
+										},function(r){
+											r = r.split('|');
+											var code = r[0],
+												msg = r[1];
+											if(code !== '200'){
+												showSucc(_this);
+												_this.attr('hasChecked',1);
+											}else{
+												showError(_this,'该用户不存在');
+											}
+										})
+									}else{
+										showSucc(_this);
+									}
+								}
+								break;
+							case 'subject':
+								if(val === ''){
+									showError(_this,'请输入消息标题');
+								}else if(val.replace(/[^\x00-\xff]/g,'**').length > 60){
+									showError(_this,'超过字数限制');
+								}else{
+									showSucc(_this);
+								}
+								break;
+							case 'message':
+								if(val === ''){
+									showError(_this,'请输入消息内容');
+								}else if(val.replace(/[^\x00-\xff]/g,'**').length > 1000){
+									showError(_this,'超过字数限制');
+								}else{
+									showSucc(_this);
+								}
+								break;
+							case 'vdcode':
+								if(val === ''){
+									showError(_this,'请输入验证码');
+								}else{
+									showSucc(_this);
+								}
+								break;
+						}
+					}).on('focus',function(){
+						showTip(_this);
+					});
+				})
+
+				function showTip(o){
+					var tips = o.parent().next();
+					tips.find('.error,.succ').remove();
+					tips.find('.tip').show();
+				}
+
+				function showError(o,msg){
+					flag = false;
+					var tips = o.parent().next();
+					tips.find('.tip').hide();
+					tips.find('.error,.succ').remove();
+					tips.append('<span class="error">'+ msg +'</span>');
+				}
+
+				function showSucc(o){
+					var tips = o.parent().next();
+					tips.find('.tip').hide();
+					tips.find('.error,.succ').remove();
+					tips.append('<i class="succ"></i>');
+				}
+			})
+		</script>
 	</head>
 	<body>
 		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
@@ -31,17 +143,17 @@
                     </div>
                     <div class="manage-content clearfix">
                         <div class="post-message">
-                        	<form action="pm.php" method="post" name="msgForm">
+                        	<form action="pm.php" method="post" name="msgForm" id="msgForm">
                         		<input type='hidden' name='dopost' value='savesend' />
 	                        	<div class="field">
 	                        		<div class="label">
 	                        			<label>发送给：</label>
 	                        		</div>
 	                        		<div class="ipt">
-	                        			<input type="text" class="ipt-text" name="msgtoid" value="<?php if(!empty($uid)) echo $uid; ?>" />
+	                        			<input type="text" class="ipt-text" name="msgtoid" value="<?php if(!empty($uid)) echo $uid; ?>" id="sendto" tabindex="1" />
 	                        		</div>
 	                        		<div class="tips">
-	                        			请填写用户的登录id(网址uid=后面跟的id)
+	                        			<span class="tip">请填写用户的登录id(网址uid=后面跟的id)</span>
 	                        		</div>
 	                        	</div>
 	                        	<div class="field">
@@ -49,10 +161,10 @@
 	                        			<label>标题：</label>
 	                        		</div>
 	                        		<div class="ipt">
-	                        			<input type="text" class="ipt-text" name="subject" value="<?php if(!empty($rtitle)) echo $rtitle; ?>" />
+	                        			<input type="text" class="ipt-text" name="subject" value="<?php if(!empty($rtitle)) echo $rtitle; ?>" id="subject" tabindex="2" />
 	                        		</div>
 	                        		<div class="tips">
-	                        			60个字符以内
+	                        			<span class="tip">60个字符以内，一个中文算两个字符</span>
 	                        		</div>
 	                        	</div>
 	                        	<div class="field field-textarea">
@@ -60,10 +172,10 @@
 	                        			<label>内容：</label>
 	                        		</div>
 	                        		<div class="ipt">
-	                        			<textarea class="ipt-text" name="message"></textarea>
+	                        			<textarea class="ipt-text" name="message" id="message" tabindex="3"></textarea>
 	                        		</div>
 	                        		<div class="tips">
-	                        			1000个字符以内
+	                        			<span class="tip">1000个字符以内，一个中文算两个字符</span>
 	                        		</div>
 	                        	</div>
 								<?php if(preg_match("/5/",$safe_gdopen)){ ?>
@@ -72,9 +184,9 @@
 										<label>验证码：</label>
 									</div>
 									<div class="ipt">
-										<input type="text" class="ipt-text" name="vdcode" />
-										<img src="<?php echo $cfg_cmsurl; ?>/include/vdimgck.php" />
-										<a href="#">看不清楚？换一张</a>
+										<input type="text" class="ipt-text" name="vdcode" id="vdcode" tabindex="4" />
+										<img src="<?php echo $cfg_cmsurl; ?>/include/vdimgck.php" id="vdcodeImg" />
+										<a href="javascript:;">看不清楚？换一张</a>
 									</div>
 									<div class="tips">
 									</div>
@@ -84,8 +196,8 @@
 	                        	<div class="field post-actions">
 	                        		<div class="label"></div>
 	                        		<div class="ipt">
-										<a class="button button-save clearfix" href="javascript:;">
-											<input type="submit" />
+	                        			<input type="submit" class="offset-hide" />
+										<a class="button button-save clearfix" href="javascript:;" id="smtBtn" tabindex="5">
 											<span class="button-left">&nbsp;</span>
 											<span class="button-text">发送</span>
 											<span class="button-right">&nbsp;</span>
