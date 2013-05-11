@@ -349,14 +349,14 @@ function GetPageList($pagesize, $totalcount)
         echo '';
         return ;
     }
-    echo '<div class="pager">';
+    echo '<ol class="pager">';
     $listsize = 5;
     $total_list = $listsize * 2 + 1;
     $totalpage = $allpage;
     $listdd = '';
     if($curpage - 1 > 0){
-        echo '<a href="#commentList" onclick="loadComments(1)"><span>&lt;&lt;</span> 第一页</a>';
-        echo '<a href="#commentList" onclick="loadComments('. ($curpage - 1) .')"><span>&lt;</span> 上一页</a>';
+        echo '<li><a href="#commentList" onclick="loadComments(1)"><span>&lt;&lt;</span> 第一页</a></li>';
+        echo '<li><a href="#commentList" onclick="loadComments('. ($curpage - 1) .')"><span>&lt;</span> 上一页</a></li>';
     }
     if($curpage >= $total_list){
         $j = $curpage - $listsize;
@@ -369,11 +369,11 @@ function GetPageList($pagesize, $totalcount)
         if($total_list > $totalpage) $total_list = $totalpage;
     }
     for ($j; $j <= $total_list; $j++) { 
-        echo ($j == $curpage ? '<a href="javascript:;" class="cur" onclick="return false;">'. $j .'</a>' : '<a href="#commentList" onclick="loadComments('. $j .')">'. $j .'</a>');
+        echo ($j == $curpage ? '<li class="thisclass">'. $j .'</li>' : '<li><a href="#commentList" onclick="loadComments('. $j .')">'. $j .'</a></li>');
     }
     if($curpage + 1 <= $totalpage){
-        echo '<a href="#commentList" onclick="loadComments('. ($curpage + 1) .')">下一页 <span>&gt;</span></a>';
-        echo '<a href="#commentList" onclick="loadComments('. $totalpage .')">最后一页 <span>&gt;</span></a>';
+        echo '<li><a href="#commentList" onclick="loadComments('. ($curpage + 1) .')">下一页 <span>&gt;</span></a></li>';
+        echo '<li><a href="#commentList" onclick="loadComments('. $totalpage .')">最后一页 <span>&gt;</span></a></li>';
     }
     echo '</div>';
 }
