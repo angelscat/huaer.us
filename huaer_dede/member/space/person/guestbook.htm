@@ -5,6 +5,41 @@
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>留言板 - {dede:var.spacename /}</title>
+		<script type="text/javascript">
+			jQuery(function(){
+				$('#vdcodeImg').vdcodeChange();
+
+				var gbForm = $('#gbForm'),
+					msg = $('#msg'),
+					vdcode = $('#vdcode'),
+					smtBtn = $('#smtBtn');
+				smtBtn.on('click',function(){
+					gbForm.submit();
+				})
+				gbForm.on('submit',function(){
+					var msgVal = $.trim(msg.val()),
+						vdcodeVal = $.trim(vdcode.val());
+					if(msgVal === ''){
+						alert('请填写留言内容');
+						msg.focus();
+						return false;
+					}else if(msgVal.replace(/[^\x00-\xff]/g,'**').length > 1000){
+						alert('留言不能超过500个中文字符');
+						msg.focus();
+						return false;
+					}else if(vdcodeVal === ''){
+						alert('请填写验证码');
+						vdcode.focus();
+						return false;
+					}
+				})
+				msg.on('keyup',function(e){
+					if(e.ctrlKey && e.keyCode === 13){
+						gbForm.submit();
+					}
+				})
+			})
+		</script>
 	</head>
 	<body>
         {dede:include file='header.htm'/}
@@ -21,21 +56,23 @@
 			                <div class="mod-bd">
 			                	<?php if(isset($cfg_ml->M_LoginID) && $cfg_ml->M_LoginID!=''){ ?>
 			                	<div class="g-form clearfix">
-			                        <form action="index.php" name="gbform" method="post">
+			                        <form action="index.php" name="gbform" method="post" id="gbForm">
 			                        	<input type="hidden" name="action" value="guestbooksave" />
 										<input type="hidden" name="uidnum" value="{dede:var.mid/}" />
 										<input type="hidden" name="uid" value="{dede:var.userid/}" />
 										<input type="hidden" name="uname" value="<?php echo $cfg_ml->M_LoginID; ?>" />
 										<input type="hidden" name="title" value="" />
 			                            <div class="f-body">
-			                                <textarea class="ipt-text" name="msg"></textarea>
+			                                <textarea class="ipt-text" name="msg" id="msg" tabindex="1"></textarea>
 			                            </div>
 			                            <div class="f-code pull-left">
-			                                <label>验证码：</label><input type="text" class="ipt-text" name="vdcode" /> <img src="../include/vdimgck.php" />
+			                                <label for="vdcode">验证码：</label><input type="text" class="ipt-text" name="vdcode" id="vdcode" tabindex="2" />
+			                                <img src="../include/vdimgck.php?" id="vdcodeImg" />
+			                                <a href="javascript:;" id="vdcodeChange" tabindex="4">看不清楚？换一张</a>
 			                            </div>
 			                            <div class="f-actions pull-right">
-                                            <a class="button button-save button-cmt clearfix" href="###">
-                                            	<input type="submit" />
+                                            <input type="submit" class="offset-hide" />
+                                            <a class="button button-save button-cmt clearfix" href="javascript:;" id="smtBtn" tabindex="3">
                                                 <span class="button-left">&nbsp;</span>
                                                 <span class="button-text">提交</span>
                                                 <span class="button-right">&nbsp;</span>
@@ -76,7 +113,7 @@
 									        </div>
 									        <?php if($_vars['userid']==$cfg_ml->M_LoginID){ ?>
 									    	<div class="g-actions">
-										    	<a href="index.php?action=guestbookdel&aid={dede:field.aid /}&uid={dede:var.userid /}&mid={dede:field.mid /}">删除</a>
+										    	<a href="index.php?action=guestbookdel&aid={dede:field.aid /}&uid={dede:var.userid /}&mid={dede:field.mid /}" onclick="return confirm('确定要删除这条留言吗？')">删除</a>
 										    </div>
 									        <?php } ?>
 									        <div class="g-content">

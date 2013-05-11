@@ -106,3 +106,22 @@ jQuery.fn.makeFileSelector = function(){
 	})
 	return selectorContainers;
 }
+
+jQuery.fn.vdcodeChange = function(){
+	this.each(function(i,v){
+		var el = $(v);
+		if(!el.is('img')) return; //只针对图片
+		var src = el.attr('src').split('?')[0],
+			a = el.next(); //跟在后面的链接
+
+		el.on('click',function(){
+			el.attr('src',src + '?_r=' + Math.random());
+		})
+		if(a[0]){
+			a.on('click',function(){
+				el.attr('src',src + '?_r=' + Math.random());
+				return false;
+			})
+		}
+	})
+}
