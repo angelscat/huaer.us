@@ -20,7 +20,7 @@
 		</div><!-- /place -->
 		<div class="listbox">
 			<ul class="e2">
-{dede:list orderby='sortrank' pagesize='10'}
+				{dede:list orderby='sortrank' pagesize='10'}
 				<li>
       				[field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<a href='{@me['arcurl']}' class='preview'><img src='{@me['litpic']}'/></a>"); [/field:array]
 					<a href="[field:arcurl/]" class="title">[field:title/]</a>
@@ -33,12 +33,12 @@
 						[field:description/]...
 					</p>
 				</li>
-{/dede:list}
+				{/dede:list}
 			</ul>
 		</div><!-- /listbox -->
 		<div class="dede_pages">
 			<ul class="pagelist">
-             {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}
+             {dede:pagelist listitem="index,end,pre,next,pageno" listsize="5"/}
 			</ul>
 		</div><!-- /pages -->
 	</div><!-- /pleft -->
