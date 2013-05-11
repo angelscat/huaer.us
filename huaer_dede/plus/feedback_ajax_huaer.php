@@ -245,7 +245,7 @@ else if($dopost=='send')
             <span class="comment-actions pull-right">
                 <span id="fbGood<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbGood',<?php echo $id; ?>)">支持</a><em>[0]</em></span>
                 <span id="fbBad<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbBad',<?php echo $id; ?>)">反对</a><em>[0]</em></span>
-                <a href="#comment<?php echo $id; ?>" onclick="replyComment(<?php echo $aid; ?>,<?php echo $id; ?>,'quote')">回复</a>
+                <a href="#comment<?php echo $id; ?>" onclick="replyComment(<?php echo $aid; ?>,<?php echo $id; ?>,'quote');$.scrollTo(0,'#comment<?php echo $id; ?>');return false;">回复</a>
             </span>
         </div>
         <div class="comment-content">
@@ -319,7 +319,7 @@ function GetList($page=1)
             <span class="comment-actions pull-right">
                 <span id="fbGood<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbGood',<?php echo $id; ?>)">支持</a><em>[<?php echo $good; ?>]</em></span>
                 <span id="fbBad<?php echo $id; ?>"><a href="javascript:;" onclick="postCommentAttitude('fbBad',<?php echo $id; ?>)">反对</a><em>[<?php echo $bad; ?>]</em></span>
-                <a href="#comment<?php echo $id; ?>" onclick="replyComment(<?php echo $aid; ?>,<?php echo $id; ?>,'quote')">回复</a>
+                <a href="#comment<?php echo $id; ?>" onclick="replyComment(<?php echo $aid; ?>,<?php echo $id; ?>,'quote');$.scrollTo(0,'#comment<?php echo $id; ?>');return false;">回复</a>
             </span>
         </div>
         <div class="comment-content">
@@ -355,8 +355,8 @@ function GetPageList($pagesize, $totalcount)
     $totalpage = $allpage;
     $listdd = '';
     if($curpage - 1 > 0){
-        echo '<li><a href="#commentList" onclick="loadComments(1)"><span>&lt;&lt;</span> 第一页</a></li>';
-        echo '<li><a href="#commentList" onclick="loadComments('. ($curpage - 1) .')"><span>&lt;</span> 上一页</a></li>';
+        echo '<li><a href="#commentList" onclick="loadComments(1);$.scrollTo(0,\'#commentList\');return false;"><span>&lt;&lt;</span> 第一页</a></li>';
+        echo '<li><a href="#commentList" onclick="loadComments('. ($curpage - 1) .');$.scrollTo(0,\'#commentList\');return false;"><span>&lt;</span> 上一页</a></li>';
     }
     if($curpage >= $total_list){
         $j = $curpage - $listsize;
@@ -369,11 +369,11 @@ function GetPageList($pagesize, $totalcount)
         if($total_list > $totalpage) $total_list = $totalpage;
     }
     for ($j; $j <= $total_list; $j++) { 
-        echo ($j == $curpage ? '<li class="thisclass">'. $j .'</li>' : '<li><a href="#commentList" onclick="loadComments('. $j .')">'. $j .'</a></li>');
+        echo ($j == $curpage ? '<li class="thisclass">'. $j .'</li>' : '<li><a href="#commentList" onclick="loadComments('. $j .');$.scrollTo(0,\'#commentList\');return false;">'. $j .'</a></li>');
     }
     if($curpage + 1 <= $totalpage){
-        echo '<li><a href="#commentList" onclick="loadComments('. ($curpage + 1) .')">下一页 <span>&gt;</span></a></li>';
-        echo '<li><a href="#commentList" onclick="loadComments('. $totalpage .')">最后一页 <span>&gt;&gt;</span></a></li>';
+        echo '<li><a href="#commentList" onclick="loadComments('. ($curpage + 1) .');$.scrollTo(0,\'#commentList\');return false;">下一页 <span>&gt;</span></a></li>';
+        echo '<li><a href="#commentList" onclick="loadComments('. $totalpage .');$.scrollTo(0,\'#commentList\');return false;">最后一页 <span>&gt;&gt;</span></a></li>';
     }
     echo '</div>';
 }
