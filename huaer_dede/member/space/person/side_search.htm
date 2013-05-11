@@ -3,7 +3,7 @@
         <h4>作文搜索</h4>
     </div>
     <div class="mod-bd">
-    	<form action="../plus/search.php" method="post" target="_blank">
+    	<form action="../plus/search.php" method="post" target="_blank" id="searchForm">
     		<input type="hidden" name="mid" value="{dede:var.userid /}" />
 	        <div class="search-box">
 	            <input type="text" class="search-input" name="keyword" />
@@ -11,4 +11,17 @@
 	        </div>
         </form>
     </div>
+    <script type="text/javascript">
+        jQuery(function(){
+            var searchForm = $('#searchForm'),
+                keyword = searchForm.find('input:text');
+            searchForm.on('submit',function(){
+                var val = $.trim(keyword.val());
+                if(val.replace(/[^\x00-\xff]/g,'**').length < 2){
+                    alert('关键词不能少于两个字符');
+                    return false;
+                }
+            })
+        });
+    </script>
 </div><!--作文搜索-->
