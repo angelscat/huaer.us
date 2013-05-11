@@ -122,7 +122,7 @@ class Caicai extends DataListCP
             }
             else
             {
-                $arr['lastpost'] = "<a href='../plus/feedback.php?aid={$arr['id']}'>说几句&gt;&gt;</a>";
+                $arr['lastpost'] = "<a href='{$arr['arcurl']}#comment'>说几句&raquo;</a>";
             }
             $rsArray[$i]  =  $arr;
             if($i >= $this->pageSize)

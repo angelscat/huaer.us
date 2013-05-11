@@ -104,3 +104,6 @@ huaer_dede\include\arc.memberlistview.class.php	2013-05-11 17:38 #空间主页�
 huaer_dede\include\arc.taglist.class.php	2013-05-12 02:03 	#这个也是坑。
 
 huaer_dede\include\arc.searchview.class.php	2013-05-12 02:14 	#这个更坑，全是table
+
+huaer_dede\include\arc.caicai.class.php		2013-05-12 02:43	#踩踩。  有问题貌似
+huaer_dede\member\templets\caicai.htm
