@@ -387,7 +387,7 @@ else if($fmdo=='moodmsg')
           {
               $content = utf82gb(nl2br($content));
           } 
-          $content = cn_substrR(HtmlReplace($content,1),360);
+          $content = cn_substrR(HtmlReplace($content,1),320);
           //对表情进行解析
           $content = addslashes(preg_replace("/\[face:(\d{1,2})\]/is","<img src='".$cfg_memberurl."/templets/images/smiley/\\1.gif' style='cursor: pointer; position: relative;'>",$content));
           

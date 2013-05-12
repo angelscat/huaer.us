@@ -21,7 +21,7 @@
                     intro = introDisplay.find('span'),
                     edit = introDisplay.find('a'),
                     introEdit = $('#introEdit'),
-                    ipt = introEdit.find('input'),
+                    ipt = introEdit.find('textarea'),
                     save = introEdit.find('.save'),
                     cancel = introEdit.find('.cancel');
                 introDisplay.on('click','a',function(){
@@ -36,6 +36,11 @@
                 // })
                 introEdit.on('click','.save',function(){
                     var val = $.trim(ipt.val());
+                    var val = $.trim(ipt.val());
+                    if(val.replace(/[^\x00-\xff]/g,'**').length > 240){
+                        alert('不能超过120个中文字符');
+                        return ;
+                    }
                     $.post('index_do.php',{
                         fmdo:'moodmsg',
                         dopost:'sendmsg',
@@ -58,8 +63,8 @@
                 }).on('click','.cancel',function(){
                     introEdit.hide();
                     introDisplay.show();
-                }).on('keyup','input',function(e){
-                    if(e.keyCode === 13){
+                }).on('keyup','textarea',function(e){
+                    if(e.ctrlKey && e.keyCode === 13){
                         save.trigger('click');
                     }
                 })
@@ -96,7 +101,7 @@
                                 <span><?php echo $moodmsg['msg'];?></span> <a href="javascript:;"><?php echo ($moodmsg['msg'] == '' ? '添加自我介绍' : '编辑');?></a>
                             </div>
                             <div class="u-intro-edit" id="introEdit" style="display:none;">
-                                <input type="text" class="ipt-text ipt-text-small" value="<?php echo $moodmsg['msg'];?>" />
+                                <textarea class="ipt-text"></textarea>
                                 <a class="button-small button-save-small save" href="###"><span>保存</span></a>
                                 <a class="button-small button-cancel-small cancel" href="###"><span>取消</span></a>
                             </div>
