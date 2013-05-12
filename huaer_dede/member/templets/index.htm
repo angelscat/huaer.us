@@ -5,15 +5,75 @@
 		<meta name="description" content="<?php echo $cfg_description; ?>" />
 		<meta name="keywords" content="<?php echo $cfg_keywords; ?>" />
 		<title>会员中心 - <?php echo $cfg_webname; ?></title>
+        <script type="text/javascript">
+            jQuery(function(){ //头像
+                var userAvatar = $('#userAvatar');
+                userAvatar.on('mouseenter',function(){
+                    $(this).find('a').css('opacity',0.85).show();
+                }).on('mouseleave',function(){
+                    $(this).find('a').hide();
+                })
+            });
+
+            jQuery(function(){ //自我介绍
+                var userIntro = $("#userIntro"),
+                    introDisplay = $('#introDisplay'),
+                    intro = introDisplay.find('span'),
+                    edit = introDisplay.find('a'),
+                    introEdit = $('#introEdit'),
+                    ipt = introEdit.find('input'),
+                    save = introEdit.find('.save'),
+                    cancel = introEdit.find('.cancel');
+                introDisplay.on('click','a',function(){
+                    introDisplay.hide();
+                    introEdit.show();
+                    ipt.val(intro.text()).focus();
+                })
+                // .on('dblclick','span',function(){
+                //     introDisplay.hide();
+                //     introEdit.show();
+                //     ipt.val(intro.text()).focus();
+                // })
+                introEdit.on('click','.save',function(){
+                    var val = $.trim(ipt.val());
+                    $.post('index_do.php',{
+                        fmdo:'moodmsg',
+                        dopost:'sendmsg',
+                        content:val
+                    },function(r){
+                        if(r.type="success"){
+                            introEdit.hide();
+                            introDisplay.show();
+                            intro.text(r.data);
+                            if(r.data !== ''){
+                                edit.text('编辑');
+                            }else{
+                                edit.text('添加自我介绍');
+                            }
+                        }else{
+                            alert(r.data);
+                            ipt.focus();
+                        }
+                    },'json')
+                }).on('click','.cancel',function(){
+                    introEdit.hide();
+                    introDisplay.show();
+                }).on('keyup','input',function(e){
+                    if(e.keyCode === 13){
+                        save.trigger('click');
+                    }
+                })
+            });
+        </script>
 	</head>
 	<body>
 		<?php include(DEDEMEMBER."/templets/header.htm"); ?>
 		<div class="content">
             <div class="layout">
                 <div class="manage-user-info clearfix">
-                    <div class="user-avatar">
+                    <div class="user-avatar" id="userAvatar">
                         <img src="<?php echo $cfg_ml->fields['face']; ?>" width="120" height="120" />
-                        <a href="edit_face.php" class="edit-avatar">修改头像</a>
+                        <a href="edit_face.php" class="edit-avatar" style="display:none;">修改头像</a>
                     </div>
                     <div class="user-detail">
                         <div class="u-info">
@@ -31,14 +91,14 @@
 		  						</span>
                             </span>
                         </div>
-                        <div class="u-intro">
-                            <div class="u-intro-display">
+                        <div class="u-intro" id="userIntro">
+                            <div class="u-intro-display" id="introDisplay">
                                 <span><?php echo $moodmsg['msg'];?></span> <a href="javascript:;"><?php echo ($moodmsg['msg'] == '' ? '添加自我介绍' : '编辑');?></a>
                             </div>
-                            <div class="u-intro-edit hide">
+                            <div class="u-intro-edit" id="introEdit" style="display:none;">
                                 <input type="text" class="ipt-text ipt-text-small" value="<?php echo $moodmsg['msg'];?>" />
-                                <a class="button-small button-save-small" href="###"><span>保存</span></a>
-                                <a class="button-small button-cancel-small" href="###"><span>取消</span></a>
+                                <a class="button-small button-save-small save" href="###"><span>保存</span></a>
+                                <a class="button-small button-cancel-small cancel" href="###"><span>取消</span></a>
                             </div>
                         </div>
                         <div class="u-stat">
@@ -151,10 +211,12 @@
                             <h4>搜索用户</h4>
                         </div>
                         <div class="mod-bd">
-                            <div class="search-box">
-                                <input type="text" class="search-input" />
-                                <input type="submit" class="search-btn" value="" />
-                            </div>
+                            <form action="search.php" method="get">
+                                <div class="search-box">
+                                    <input type="text" class="search-input" name="keyword" />
+                                    <input type="submit" class="search-btn" />
+                                </div>
+                            </form>
                         </div>
                     </div>
 			        <div class="profile-mod ulist-mod friends">

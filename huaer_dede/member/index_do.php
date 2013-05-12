@@ -378,8 +378,8 @@ else if($fmdo=='moodmsg')
     //用户登录
     if($dopost=="sendmsg")
     {
-        if(!empty($content))
-        {
+        // if(!empty($content))
+        // {
         $ip = GetIP();
         $dtime = time();
           $ischeck = ($cfg_mb_msgischeck == 'Y')? 0 : 1;
@@ -398,7 +398,7 @@ else if($fmdo=='moodmsg')
             {
                 $output['type'] = 'error';
                 $output['data'] = '更新失败,请重试.';
-                exit();
+                exit(json_encode($output));
             }
             $output['type'] = 'success';
             if($cfg_soft_lang == 'gb2312')
@@ -407,7 +407,7 @@ else if($fmdo=='moodmsg')
             } 
             $output['data'] = stripslashes($content);
             exit(json_encode($output));
-        }
+        // }
     }
 }
 else
