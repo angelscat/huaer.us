@@ -20,7 +20,7 @@ helper('cache');
  * @param     string  $ckhas  检查是否存在
  * @return    string
  */
-function CheckUserID($uid, $msgtitle='用户名', $ckhas=TRUE)
+function CheckUserID($uid, $msgtitle='用户名',$cktype=1, $ckhas=TRUE)
 {
     global $cfg_mb_notallow,$cfg_mb_idmin,$cfg_md_idurl,$cfg_soft_lang,$dsql;
     if($cfg_mb_notallow != '')
@@ -67,8 +67,12 @@ function CheckUserID($uid, $msgtitle='用户名', $ckhas=TRUE)
         }
     }
     if($ckhas)
-    {
-        $row = $dsql->GetOne("SELECT * FROM `#@__member` WHERE userid LIKE '$uid' ");
+    {   
+        if($cktype==1){
+            $row = $dsql->GetOne("SELECT * FROM `#@__member` WHERE userid LIKE '$uid' ");
+        }else if($cktype==0){
+            $row = $dsql->GetOne("SELECT * FROM `#@__member` WHERE uname LIKE '$uid' ");
+        }
         if(is_array($row)) return $msgtitle."已经存在！";
     }
     return 'ok';

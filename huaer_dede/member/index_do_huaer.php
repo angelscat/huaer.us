@@ -122,11 +122,11 @@ else if($fmdo=='user')
             #/aip}}            
             $msgtitle='用户名';
         }
-        if($cktype!=0 || $cfg_mb_wnameone=='N') {
-            $msg = CheckUserID($uid, $msgtitle);
+        if($cktype==1) {
+            $msg = CheckUserID($uid, $msgtitle,$cktype);
         }
-        else {
-            $msg = CheckUserID($uid, $msgtitle, false);
+        else{
+            $msg = CheckUserID($uid, $msgtitle, $cktype,($cfg_mb_wnameone=='N'?true:false));
         }
         if($msg=='ok')
         {
