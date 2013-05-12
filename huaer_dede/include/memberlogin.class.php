@@ -20,7 +20,7 @@ helper('cache');
  * @param     string  $ckhas  检查是否存在
  * @return    string
  */
-function CheckUserID($uid, $msgtitle='用户名',$cktype=1, $ckhas=TRUE)
+function CheckUserID($uid, $msgtitle='用户名', $ckhas=TRUE,$cktype=1)
 {
     global $cfg_mb_notallow,$cfg_mb_idmin,$cfg_md_idurl,$cfg_soft_lang,$dsql;
     if($cfg_mb_notallow != '')

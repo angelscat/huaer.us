@@ -123,10 +123,10 @@ else if($fmdo=='user')
             $msgtitle='用户名';
         }
         if($cktype==1) {
-            $msg = CheckUserID($uid, $msgtitle,$cktype);
+            $msg = CheckUserID($uid, $msgtitle,true,$cktype);
         }
         else{
-            $msg = CheckUserID($uid, $msgtitle, $cktype,($cfg_mb_wnameone=='N'?true:false));
+            $msg = CheckUserID($uid, $msgtitle, ($cfg_mb_wnameone=='N'?true:false),$cktype);
         }
         if($msg=='ok')
         {
