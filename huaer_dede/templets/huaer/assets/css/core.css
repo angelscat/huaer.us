@@ -88,15 +88,34 @@ ul,ol{list-style:none;}
 
 /*selector*/
 .selector{display:inline-block; position:relative; height:38px; width:120px; vertical-align: middle; *display:inline; zoom:1}
-.selector a{color:#454545!important;text-decoration:none;display:inline-block; *display:inline; zoom:1; width:100%;border:1px solid #CCC; border-bottom:1px solid #e2e2e2;border-right:1px solid #e2e2e2;background:#FBFBFB; position:absolute; top:0; left:0;}
-.selector a:hover{color:#454545;border:1px solid #ACACAC;border-right-color:#CECECE;border-bottom-color:#CECECE;outline:none; text-decoration:none;}
-.selector a span{cursor:pointer;}
-.selector a .value{display:inline-block; height:20px; line-height:20px; *line-height:24px;_line-height:22px; margin:8px 0; padding:0 45px 0 8px; font-size:14px;overflow:hidden;}
-.selector a .handle{display:block; position:absolute; height:36px; width:36px; border-left:1px solid #E1E3E6; top:0; right:0; background:url(../img/arrow-down-big.gif) no-repeat center center;}
-.selector a:hover .handle{background-image:url(../img/arrow-down-big-hover.gif);}
-.selector ul{width:100%; position:absolute; top:38px; border:1px solid #E1E3E6; border-top:0; background:#FFF; overflow:auto; display:none; border-top:1px solid #3FA7CC;}
-.selector ul li{height:32px; line-height:32px; cursor:default; padding:0 8px; overflow:hidden;}
-.selector ul li.hover{background:#f3f3f3;}
+.selector .trigger{color:#454545!important;text-decoration:none;display:inline-block; *display:inline; zoom:1; width:100%;border:1px solid #CCC; border-bottom:1px solid #e2e2e2;border-right:1px solid #e2e2e2;background:#FBFBFB; position:absolute; top:0; left:0;}
+.selector .trigger:hover{color:#454545;border:1px solid #ACACAC;border-right-color:#CECECE;border-bottom-color:#CECECE;outline:none; text-decoration:none;}
+.selector .trigger span{cursor:pointer;}
+.selector .trigger .value{display:inline-block; height:20px; line-height:20px; *line-height:24px;_line-height:22px; margin:8px 0; padding:0 45px 0 8px; font-size:14px;overflow:hidden;}
+.selector .trigger .handle{display:block; position:absolute; height:36px; width:36px; border-left:1px solid #E1E3E6; top:0; right:0; background:url(../img/arrow-down-big.gif) no-repeat center center;}
+.selector .trigger:hover .handle{background-image:url(../img/arrow-down-big-hover.gif);}
+.selector .values{width:100%; position:absolute; top:38px; border:1px solid #E1E3E6; border-top:0; background:#FFF; overflow:auto; display:none; border-top:1px solid #3FA7CC;}
+.selector .values li{height:32px; line-height:32px; cursor:default; padding:0 8px; overflow:hidden;}
+.selector .values li.hover{background:#f3f3f3;}
+
+.catalog-dialog{position:absolute;}
+.catalog-dialog .catalogs{width:500px;padding:10px; border:1px solid #e2e2e2; background:#FBFBFB;position:relative; z-index:2;}
+.catalog-dialog .catalogs dt{color:#999; margin-bottom:10px;}
+.catalog-dialog .catalogs dd{padding:5px; border:1px solid #E2E2E2; margin-bottom:10px;}
+.catalog-dialog .catalogs dd ul{letter-spacing:-4px; font-size:0; }
+.catalog-dialog .catalogs dd ul.school,
+.catalog-dialog .catalogs dd ul.grade{height:20px; overflow:hidden;}
+.catalog-dialog .catalogs dd ul.type{height:100px; overflow:auto;}
+.catalog-dialog .catalogs dd ul li{display:inline-block; vertical-align:middle; letter-spacing:0; font-size:12px; *display:inline; zoom:1; margin-right:5px; margin-bottom:5px;}
+.catalog-dialog .catalogs dd ul li a{color:#3FA7CC; padding:0 5px; height:20px; line-height:20px; display:inline-block;}
+.catalog-dialog .catalogs dd ul li a:hover,
+.catalog-dialog .catalogs dd ul li a.cur{color:#FFF; background:#3FA7CC; text-decoration:none;
+    -webkit-border-radius:3px;
+       -moz-border-radius:3px;
+        -ms-border-radius:3px;
+         -o-border-radius:3px;
+            border-radius:3px;
+}
 
 /*ipt file*/
 .ipt-file{position:relative; display:inline-block; vertical-align: middle; cursor:pointer; *display:inline; zoom:1; height:38px; *height:40px; overflow:hidden;}
