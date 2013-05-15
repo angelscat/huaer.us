@@ -53,6 +53,8 @@ function WriteEnumsCache($egroup='')
         fclose($fp);
         if(empty($issign)) WriteEnumsJs($egroup);
     }
+
+    WriteCatalogDataJs();
     return '成功更新所有枚举缓存！';
 }
 
@@ -198,4 +200,106 @@ function GetEnumsValue($egroup, $evalue=0)
     else {
         return "保密";
     }
+}
+
+
+function WriteCatalogDataJs(){
+    $jsfile = DEDEDATA.'/js/catalogdata.js';
+    $fp = fopen($jsfile, 'w');
+    fwrite($fp, GetCatalogDataJs());
+    fclose($fp);
+}
+function GetCatalogDataJs(){
+
+    global $OptionArrayList, $channels, $dsql, $cfg_admin_channel, $admin_catalogs;
+
+    $OptionArrayList = '';
+    $channeltype = 1;
+
+    //是否限定用户管理的栏目
+    if( $cfg_admin_channel=='array' )
+    { 
+        if(count($admin_catalogs)==0)
+        {
+            $query = "SELECT id,typename,ispart,channeltype FROM `#@__arctype` WHERE 1=2 ";
+        }
+        else
+        {
+            $admin_catalog = join(',', $admin_catalogs);
+            $dsql->SetQuery("SELECT reid FROM `#@__arctype` WHERE id IN($admin_catalog) GROUP BY reid ");
+            $dsql->Execute();
+            $topidstr = '';
+            while($row = $dsql->GetObject())
+            {
+                if($row->reid==0) continue;
+                $topidstr .= ($topidstr=='' ? $row->reid : ','.$row->reid);
+            }
+            $admin_catalog .= ','.$topidstr;
+            $admin_catalogs = explode(',', $admin_catalog);
+            $admin_catalogs = array_unique($admin_catalogs);
+            $admin_catalog = join(',', $admin_catalogs);
+            $admin_catalog = preg_replace("#,$#", '', $admin_catalog);
+            $query = "SELECT id,typename,ispart,channeltype FROM `#@__arctype` WHERE id IN($admin_catalog) AND reid=0 AND ispart<>2 ";
+        }
+    }
+    else
+    {
+        $query = "SELECT id,typename,ispart,channeltype FROM `#@__arctype` WHERE ispart<>2 AND reid=0 ORDER BY sortrank ASC ";
+    }
+
+    $dsql->SetQuery($query);
+    $dsql->Execute();
+
+    while($row=$dsql->GetObject())
+    {
+        // $sonCats = '';
+        $sonCats = LogicGetOptionArray($row->id, '─', $channeltype, $dsql, $sonCats);
+        if($sonCats != '')
+        {
+            if($row->ispart==1) $OptionArrayList .= "{id:". $row->id .",name:\"". $row->typename ."\",type:1,children:[".$sonCats."]},";//<option value='".$row->id."' class='option1'>".$row->typename."(封面频道)</option>
+            else if($row->ispart==2) $OptionArrayList .= '';
+            else if( empty($channeltype) && $row->ispart != 0 ) $OptionArrayList .= "{id:". $row->id .",name:\"".$row->typename."(".$channels[$row->channeltype]."\",type:2,children:[".$sonCats."]},";//<option value='".$row->id."' class='option2'>".$row->typename."(".$channels[$row->channeltype].")</option>
+            else $OptionArrayList .= "{id:". $row->id .",name:\"". $row->typename ."\",type:1,children:[".$sonCats."]},";//<option value='".$row->id."' class='option3'>".$row->typename."</option>
+            //$OptionArrayList .= $sonCats;
+        }
+        else
+        {
+            if($row->ispart==0 && (!empty($channeltype) && $row->channeltype == $channeltype) )
+            {
+                $OptionArrayList .= "{id:". $row->id .",name:\"". $row->typename ."\",type:3},";//<option value='".$row->id."' class='option3'>".$row->typename."</option>
+            } else if($row->ispart==0 && empty($channeltype) )
+            { 
+                // 专题
+                $OptionArrayList .= "{id:". $row->id .",name:\"". $row->typename ."\",type:3},";//<option value='".$row->id."' class='option3'>".$row->typename."</option>
+            }
+        }
+    }
+    $OptionArrayList = substr_replace($OptionArrayList,'',-1);
+    return 'var catalogdata = ['.$OptionArrayList.']';
+}
+
+function LogicGetOptionArray($id,$step,$channeltype,&$dsql)
+{
+    global $OptionArrayList, $channels, $cfg_admin_channel, $admin_catalogs;
+    $dsql->SetQuery("Select id,typename,ispart,channeltype From `#@__arctype` where reid='".$id."' And ispart<>2 order by sortrank asc");
+    $dsql->Execute($id);
+    $son = '';
+    while($row=$dsql->GetObject($id))
+    {   
+        $sonCats = LogicGetOptionArray($row->id,$step.'─',$channeltype,$dsql);
+        if($cfg_admin_channel != 'all' && !in_array($row->id, $admin_catalogs))
+        {
+            continue;
+        }
+        if($row->channeltype==$channeltype && $row->ispart==1)
+        {
+            $son .= "{id:". $row->id .",name:\"". $row->typename ."\",type:1,children:[".$sonCats."]},";//<option value='".$row->id."' class='option1'>$step".$row->typename."</option>
+        }
+        else if( ($row->channeltype==$channeltype && $row->ispart==0) || empty($channeltype) )
+        {
+            $son .= "{id:". $row->id .",name:\"". $row->typename ."\",type:3,children:[".$sonCats."]},";//<option value='".$row->id."' class='option3'>$step".$row->typename."</option>
+        }
+        
+    }
+    return substr_replace($son,'',-1);
 }
