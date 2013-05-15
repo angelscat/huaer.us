@@ -221,7 +221,7 @@ function GetCatalogDataJs(){
     { 
         if(count($admin_catalogs)==0)
         {
-            $query = "SELECT id,typename,ispart,channeltype FROM `#@__arctype` WHERE 1=2 ";
+            $query = "SELECT id,typename,ispart,issend,channeltype FROM `#@__arctype` WHERE 1=2 ";
         }
         else
         {
@@ -239,12 +239,12 @@ function GetCatalogDataJs(){
             $admin_catalogs = array_unique($admin_catalogs);
             $admin_catalog = join(',', $admin_catalogs);
             $admin_catalog = preg_replace("#,$#", '', $admin_catalog);
-            $query = "SELECT id,typename,ispart,channeltype FROM `#@__arctype` WHERE id IN($admin_catalog) AND reid=0 AND ispart<>2 ";
+            $query = "SELECT id,typename,ispart,issend,channeltype FROM `#@__arctype` WHERE id IN($admin_catalog) AND reid=0 AND ispart<>2 ";
         }
     }
     else
     {
-        $query = "SELECT id,typename,ispart,channeltype FROM `#@__arctype` WHERE ispart<>2 AND reid=0 ORDER BY sortrank ASC ";
+        $query = "SELECT id,typename,ispart,issend,channeltype FROM `#@__arctype` WHERE ispart<>2 AND reid=0 ORDER BY sortrank ASC ";
     }
 
     $dsql->SetQuery($query);
@@ -253,6 +253,7 @@ function GetCatalogDataJs(){
     while($row=$dsql->GetObject())
     {
         // $sonCats = '';
+        if($row->issend == 0) continue;
         $sonCats = LogicGetOptionArray($row->id, '─', $channeltype, $dsql, $sonCats);
         if($sonCats != '')
         {
@@ -281,11 +282,12 @@ function GetCatalogDataJs(){
 function LogicGetOptionArray($id,$step,$channeltype,&$dsql)
 {
     global $OptionArrayList, $channels, $cfg_admin_channel, $admin_catalogs;
-    $dsql->SetQuery("Select id,typename,ispart,channeltype From `#@__arctype` where reid='".$id."' And ispart<>2 order by sortrank asc");
+    $dsql->SetQuery("Select id,typename,ispart,issend,channeltype From `#@__arctype` where reid='".$id."' And ispart<>2 order by sortrank asc");
     $dsql->Execute($id);
     $son = '';
     while($row=$dsql->GetObject($id))
     {   
+        if($row->issend == 0) continue;
         $sonCats = LogicGetOptionArray($row->id,$step.'─',$channeltype,$dsql);
         if($cfg_admin_channel != 'all' && !in_array($row->id, $admin_catalogs))
         {
