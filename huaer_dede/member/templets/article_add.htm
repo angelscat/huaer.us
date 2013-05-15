@@ -8,12 +8,36 @@
         <script type="text/javascript" src="<?php echo $cfg_cmsurl; ?>/include/ueditor/editor_all_min.js"></script>
         <script type="text/javascript" src="<?php echo $cfg_templets_skin; ?>/assets/js/article.js"></script>
 		<title>投稿 - <?php echo $cfg_webname; ?></title>
+        <script type="text/javascript" src="<?php echo $cfg_cmsurl; ?>/data/js/catalogdata.js"></script>
 		<script type="text/javascript">
 			jQuery(function(){
-				$('select').makeSelector();
+				//$('select').makeSelector();
 				$('input:file').makeFileSelector();
                 var ue = UE.getEditor('editor');
                 window.editorPoint = ue;
+
+                var selector = $('#catalogSelector'),
+                    offset = selector.offset(),
+                    width = selector.width() + 2;
+
+                var catalogSelector;
+                selector.on('click',function(e){
+                    if(catalogSelector){
+                         catalogSelector.show(offset.left + width - catalogSelector.el.width(), offset.top);
+                    }else{
+                        catalogSelector = new CatalogSelector({
+                            left:-9999,
+                            top:-9999,
+                            callback:function(school,grade,type){
+                                selector.find('.value').text((school ? school.name : '') + (grade ? '>' + grade.name : '') + (type ? '>' + type.name : ''));
+                                selector.find('input').val((type && type.id) || (grade && grade.id) || (school && school.id));
+                            }
+                        })
+                        catalogSelector.show(offset.left + width - catalogSelector.el.width(), offset.top)
+                    }
+                    e.stopPropagation();
+                })
+
 			})
 		</script>
 	</head>
@@ -90,13 +114,13 @@
                                     <span class="required">*</span><label>作文分类</label><span class="sub-text">(不能选带颜色的分类)</span>
                                 </div>
                                 <div class="ipt">
-                                    <?php
-										$typeOptions = GetOptionList(0,$channelid);
-										echo "<select id='channel' name='typeid' size='1'>\r\n";
-										echo "<option value='0' selected>请选择栏目...</option>\r\n";
-										echo $typeOptions;
-										echo "</select>";
-									?>
+                                    <div class="selector catalog-selector" id="catalogSelector">
+                                        <input type="hidden" name="typeid" />
+                                        <a href="javascript:;" hidefocus="true" class="trigger">
+                                            <span class="value">请选择作文分类</span>
+                                            <span class="handle"></span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="field field-vertical hide">

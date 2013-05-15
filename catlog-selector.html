@@ -14,136 +14,137 @@
         <script type="text/javascript" src="assets/js/libs/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="assets/js/core.js"></script>
         <script type="text/javascript">
-            var data = [{
-                id:1,
-                name:'小学生作文',
-                grades:[{
-                    id:11,
-                    name:'小学一年级',
-                    types:[{
-                        id:111,
-                        name:'写景'
-                    },{
-                        id:112,
-                        name:'叙事'
-                    },{
-                        id:113,
-                        name:'写人'
-                    }]
-                },{
-                    id:12,
-                    name:'小学二年级',
-                    types:[{
-                        id:121,
-                        name:'写景'
-                    },{
-                        id:122,
-                        name:'状物'
-                    },{
-                        id:123,
-                        name:'叙事'
-                    }]
-                },{
-                    id:13,
-                    name:'小学三年级',
-                    types:[{
-                        id:131,
-                        name:'叙事'
-                    },{
-                        id:132,
-                        name:'抒情'
-                    },{
-                        id:133,
-                        name:'状物'
-                    }]
-                }]
-            },{
-                id:2,
-                name:'初中生作文',
-                grades:[{
-                    id:21,
-                    name:'初中一年级',
-                    types:[{
-                        id:211,
-                        name:'写景'
-                    },{
-                        id:212,
-                        name:'状物'
-                    },{
-                        id:213,
-                        name:'写人'
-                    }]
-                },{
-                    id:22,
-                    name:'初中二年级',
-                    types:[{
-                        id:221,
-                        name:'叙事'
-                    },{
-                        id:222,
-                        name:'抒情'
-                    },{
-                        id:223,
-                        name:'写人'
-                    }]
-                },{
-                    id:23,
-                    name:'初中三年级',
-                    types:[{
-                        id:231,
-                        name:'状物'
-                    },{
-                        id:232,
-                        name:'叙事'
-                    },{
-                        id:233,
-                        name:'写人'
-                    }]
-                }]
-            },{
-                id:3,
-                name:'高中生作文',
-                grades:[{
-                    id:31,
-                    name:'高中一年级',
-                    types:[{
-                        id:311,
-                        name:'写景'
-                    },{
-                        id:312,
-                        name:'状物'
-                    },{
-                        id:313,
-                        name:'叙事'
-                    }]
-                },{
-                    id:32,
-                    name:'高中二年级',
-                    types:[{
-                        id:321,
-                        name:'写景'
-                    },{
-                        id:322,
-                        name:'抒情'
-                    },{
-                        id:323,
-                        name:'写人'
-                    }]
-                },{
-                    id:33,
-                    name:'高中三年级',
-                    types:[{
-                        id:331,
-                        name:'叙事'
-                    },{
-                        id:332,
-                        name:'抒情'
-                    },{
-                        id:333,
-                        name:'状物'
-                    }]
-                }]
-            }]
+            var catalogdata = [{id:1,name:"小学生作文",type:1,children:[{id:4,name:"小学一年级",type:1,children:[]},{id:5,name:"小学二年级",type:1,children:[]},{id:6,name:"小学三年级",type:1,children:[]},{id:7,name:"小学四年级",type:1,children:[]},{id:8,name:"小学五年级",type:1,children:[]},{id:9,name:"小学六年级",type:1,children:[]}]}]
+            // var data = [{
+            //     id:1,
+            //     name:'小学生作文',
+            //     grades:[{
+            //         id:11,
+            //         name:'小学一年级',
+            //         types:[{
+            //             id:111,
+            //             name:'写景'
+            //         },{
+            //             id:112,
+            //             name:'叙事'
+            //         },{
+            //             id:113,
+            //             name:'写人'
+            //         }]
+            //     },{
+            //         id:12,
+            //         name:'小学二年级',
+            //         types:[{
+            //             id:121,
+            //             name:'写景'
+            //         },{
+            //             id:122,
+            //             name:'状物'
+            //         },{
+            //             id:123,
+            //             name:'叙事'
+            //         }]
+            //     },{
+            //         id:13,
+            //         name:'小学三年级',
+            //         types:[{
+            //             id:131,
+            //             name:'叙事'
+            //         },{
+            //             id:132,
+            //             name:'抒情'
+            //         },{
+            //             id:133,
+            //             name:'状物'
+            //         }]
+            //     }]
+            // },{
+            //     id:2,
+            //     name:'初中生作文',
+            //     grades:[{
+            //         id:21,
+            //         name:'初中一年级',
+            //         types:[{
+            //             id:211,
+            //             name:'写景'
+            //         },{
+            //             id:212,
+            //             name:'状物'
+            //         },{
+            //             id:213,
+            //             name:'写人'
+            //         }]
+            //     },{
+            //         id:22,
+            //         name:'初中二年级',
+            //         types:[{
+            //             id:221,
+            //             name:'叙事'
+            //         },{
+            //             id:222,
+            //             name:'抒情'
+            //         },{
+            //             id:223,
+            //             name:'写人'
+            //         }]
+            //     },{
+            //         id:23,
+            //         name:'初中三年级',
+            //         types:[{
+            //             id:231,
+            //             name:'状物'
+            //         },{
+            //             id:232,
+            //             name:'叙事'
+            //         },{
+            //             id:233,
+            //             name:'写人'
+            //         }]
+            //     }]
+            // },{
+            //     id:3,
+            //     name:'高中生作文',
+            //     grades:[{
+            //         id:31,
+            //         name:'高中一年级',
+            //         types:[{
+            //             id:311,
+            //             name:'写景'
+            //         },{
+            //             id:312,
+            //             name:'状物'
+            //         },{
+            //             id:313,
+            //             name:'叙事'
+            //         }]
+            //     },{
+            //         id:32,
+            //         name:'高中二年级',
+            //         types:[{
+            //             id:321,
+            //             name:'写景'
+            //         },{
+            //             id:322,
+            //             name:'抒情'
+            //         },{
+            //             id:323,
+            //             name:'写人'
+            //         }]
+            //     },{
+            //         id:33,
+            //         name:'高中三年级',
+            //         types:[{
+            //             id:331,
+            //             name:'叙事'
+            //         },{
+            //             id:332,
+            //             name:'抒情'
+            //         },{
+            //             id:333,
+            //             name:'状物'
+            //         }]
+            //     }]
+            // }]
 
             // var data = {};
             // data['1'] = {belong:0,name:'小学生作文'};
@@ -204,10 +205,10 @@
                             </dl> \
                         </div>',
                 init:function(){
-                    this.catalogData = data;
+                    this.catalogData = catalogdata;
                     this.currentSchool = this.catalogData[0];
-                    this.currentGrade = this.currentSchool.grades[0];
-                    this.currentType = this.currentGrade.types[0];
+                    this.currentGrade = this.currentSchool.children[0];
+                    this.currentType = this.currentGrade.children[0];
                     this._initDom();
                     this.updateSchool();
                     this._initEvent();
@@ -239,7 +240,7 @@
                     this.updateGrade();
                 },
                 updateGrade:function(){
-                    var grades = this.currentSchool.grades,
+                    var grades = this.currentSchool.children,
                         lst = '';
                     for(var i = 0, len = grades.length; i < len; i++){
                         lst += '<li><a data-index="'+ i +'" data-id="'+ grades[i].id +'" href="javascript:;"'+ (i === 0 ? 'class="cur"' : '') +'>'+ grades[i].name +'</a></li>';
@@ -249,7 +250,7 @@
                     this.updateType();
                 },
                 updateType:function(){
-                    var types = this.currentGrade.types,
+                    var types = this.currentGrade.children,
                         lst = '';
                     for(var i = 0, len = types.length; i < len; i++){
                         lst += '<li><a data-index="'+ i +'" data-id="'+ types[i].id +'" href="javascript:;">'+ types[i].name +'</a></li>';
@@ -275,7 +276,7 @@
                         if(target.hasClass('cur')) return;
                         _this.catalogGrade.find('a.cur').removeClass('cur');
                         target.addClass('cur');
-                        _this.currentGrade = _this.currentSchool.grades[index];
+                        _this.currentGrade = _this.currentSchool.children[index];
                         _this.updateType();
                     });
                     this.catalogType.on('click','a',function(){
@@ -284,7 +285,7 @@
                             id = target.attr('data-id') * 1;
                         _this.catalogType.find('a.cur').removeClass('cur');
                         target.addClass('cur');
-                        _this.currentType = _this.currentGrade.types[index];
+                        _this.currentType = _this.currentGrade.children[index];
 
                         _this.hide();
 
