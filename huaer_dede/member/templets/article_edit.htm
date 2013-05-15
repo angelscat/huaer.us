@@ -10,12 +10,34 @@
 		<title>投稿 - <?php echo $cfg_webname; ?></title>
 		<script type="text/javascript">
 			jQuery(function(){
-				$('select').makeSelector();
+				// $('select').makeSelector();
 				$('input:file').makeFileSelector();
 				window.UEDITOR_CONFIG.autoClearinitialContent = false;
 				window.UEDITOR_CONFIG.focus = true;
                 var ue = UE.getEditor('editor');
                 window.editorPoint = ue;
+
+                var selector = $('#catalogSelector'),
+                    offset = selector.offset(),
+                    width = selector.width() + 2;
+
+                var catalogSelector;
+                selector.on('click',function(e){
+                    if(catalogSelector){
+                         catalogSelector.show(offset.left + width - catalogSelector.el.width(), offset.top);
+                    }else{
+                        catalogSelector = new CatalogSelector({
+                            left:-9999,
+                            top:-9999,
+                            callback:function(school,grade,type){
+                                selector.find('.value').text((school ? school.name : '') + (grade ? '>' + grade.name : '') + (type ? '>' + type.name : ''));
+                                selector.find('input').val((type && type.id) || (grade && grade.id) || (school && school.id));
+                            }
+                        })
+                        catalogSelector.show(offset.left + width - catalogSelector.el.width(), offset.top)
+                    }
+                    e.stopPropagation();
+                })
 			})
 		</script>
 	</head>
@@ -96,12 +118,13 @@
                                     <span class="required">*</span><label>作文分类</label><span class="sub-text">(不能选带颜色的分类)</span>
                                 </div>
                                 <div class="ipt">
-                                    <?php
-						    			$typeOptions = GetOptionList($row["typeid"],$row["channel"]);
-						   			    echo "<select id='channel' name='typeid' size='1'>\r\n";
-						    			echo $typeOptions;
-						    			echo "</select>";
-									?>
+                                    <div class="selector catalog-selector" id="catalogSelector">
+                                        <input type="hidden" name="typeid" value="<?php echo $row["typeid"]; ?>" />
+                                        <a href="javascript:;" hidefocus="true" class="trigger">
+                                            <span class="value">不修改不用选择</span>
+                                            <span class="handle"></span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="field field-vertical hide">
