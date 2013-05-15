@@ -111,3 +111,6 @@ huaer_dede\member\templets\caicai.htm
 
 huaer_dede\include\memberlogin.class.php 	2013-05-12 21:30 	#笔名根本就没有检测的方法。。擦。
 huaer_dede\member\index_do_huaer.php
+
+
+huaer_dede\include\enums.func.php			2013-05-15 17:39 	#新增了一个输出分类js的函数，输出的js可以用来做分类选择器
