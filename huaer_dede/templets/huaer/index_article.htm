@@ -1,74 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-		{dede:include filename="head.htm" /}
+	<head>
+ 		{dede:include filename="head.htm" /}
 		<meta name="keywords" content="{dede:field.keywords/}" />
 		<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
         <title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
-    </head>
+	</head>
 	<body>
 		{dede:include filename="header.htm" /}
 		<div class="content">
 			<div class="layout clearfix">
 				<div class="main pull-left">
-				    <div class="pull-left">
-    					<div class="slide-show">
-    						<div class="slide-main">
-    						    <ul>
-    						        <li>
-    						            <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_1.jpg" /></a>
-                                        </p>
-                                        <p class="title">
-                                            <a href="#">测试测试标题</a>
-                                        </p>
-    						        </li>
-                                    <li>
-                                        <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_2.jpg" /></a>
-                                        </p>
-                                        <p class="title">
-                                            <a href="#">测试测试标题</a>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_3.jpg" /></a>
-                                        </p>
-                                        <p class="title">
-                                            <a href="#">测试测试标题</a>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_4.jpg" /></a>
-                                        </p>
-                                        <p class="title">
-                                            <a href="#">测试测试标题</a>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_5.jpg" /></a>
-                                        </p>
-                                        <p class="title">
-                                            <a href="#">测试测试标题</a>
-                                        </p>
-                                    </li>
-    						    </ul>
-    						</div>
-    						<div class="slide-pages">
-    							    <a href="#">1</a>
-    							    <a href="#" class="cur">2</a>
-    							    <a href="#">3</a>
-    							    <a href="#">4</a>
-    							    <a href="#">5</a>
-    							</div>
-    					</div>
+				    <div class="mod-side assort pull-left">
+                        <div class="sort-type">
+                            <div class="mod-hd">
+                                <strong>按体裁查作文</strong>
+                            </div>
+                            <div class="mod-bd">
+                                <a href="#">写人</a>
+                                <a href="#">叙事</a>
+                                <a href="#">写景</a>
+                                <a href="#">状物</a>
+                                <a href="#">想象</a>
+                                <a href="#">书信</a>
+                                <a href="#">日记</a>
+                                <a href="#">读后感</a>
+                                <a href="#">演讲稿</a>
+                                <a href="#">童话寓言</a>
+                                <a href="#">看图作文</a>
+                            </div>
+                        </div>
+                        <div class="sort-type">
+                            <div class="mod-hd">
+                                <strong>按字数查作文</strong>
+                            </div>
+                            <div class="mod-bd">
+                                <a href="#">50字</a>
+                                <a href="#">100字</a>
+                                <a href="#">150字</a>
+                                <a href="#">200字</a>
+                                <a href="#">250字</a>
+                                <a href="#">300字</a>
+                                <a href="#">350字</a>
+                                <a href="#">400字</a>
+                                <a href="#">450字</a>
+                                <a href="#">500字</a>
+                                <a href="#">550字</a>
+                                <a href="#">600字</a>
+                            </div>
+                        </div>
 				    </div>
 					<div class="mod-main commend pull-right">
 						<div class="mod-hd">
-							<strong>小学生热门作文</strong>
+							<strong>小学一年级推荐作文</strong>
 						</div>
 						<div class="mod-bd">
 						    <div class="commend-list">
@@ -118,665 +102,297 @@
                             </div>
                         </div>
                         
-						<div class="mod-hd">
-							<strong>热点话题</strong>
-						</div>
-						<div class="mod-bd">
-							<dl>
-								<dt>热点:</dt>
-								<dd>
-									<a href="#">春天</a>
-									<a href="#">理想</a>
-									<a href="#">运动会</a>
-									<a href="#">春游</a>
-								</dd>
-							</dl>
-							<dl>
-								<dt>节日:</dt>
-								<dd>
-									<a href="#">清明节</a>
-									<a href="#">父亲节</a>
-									<a href="#">劳动节</a>
-									<a href="#">母亲节</a>
-								</dd>
-							</dl>
-							<dl>
-								<dt>热点:</dt>
-								<dd>
-									<a href="#">春天</a>
-									<a href="#">理想</a>
-									<a href="#">运动会</a>
-									<a href="#">春游</a>
-								</dd>
-							</dl>
-							<dl>
-								<dt>节日:</dt>
-								<dd>
-									<a href="#">清明节</a>
-									<a href="#">父亲节</a>
-									<a href="#">劳动节</a>
-									<a href="#">母亲节</a>
-								</dd>
-							</dl>
-							<dl>
-								<dt>热点:</dt>
-								<dd>
-									<a href="#">春天</a>
-									<a href="#">理想</a>
-									<a href="#">运动会</a>
-									<a href="#">春游</a>
-								</dd>
-							</dl>
-						</div>
-					</div>
+                        <div class="mod-hd">
+                            <strong>热点话题</strong>
+                        </div>
+                        <div class="mod-bd">
+                            <dl>
+                                <dt>热点:</dt>
+                                <dd>
+                                    <a href="#">春天</a>
+                                    <a href="#">理想</a>
+                                    <a href="#">运动会</a>
+                                    <a href="#">春游</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>节日:</dt>
+                                <dd>
+                                    <a href="#">清明节</a>
+                                    <a href="#">父亲节</a>
+                                    <a href="#">劳动节</a>
+                                    <a href="#">母亲节</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>热点:</dt>
+                                <dd>
+                                    <a href="#">春天</a>
+                                    <a href="#">理想</a>
+                                    <a href="#">运动会</a>
+                                    <a href="#">春游</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>节日:</dt>
+                                <dd>
+                                    <a href="#">清明节</a>
+                                    <a href="#">父亲节</a>
+                                    <a href="#">劳动节</a>
+                                    <a href="#">母亲节</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>热点:</dt>
+                                <dd>
+                                    <a href="#">春天</a>
+                                    <a href="#">理想</a>
+                                    <a href="#">运动会</a>
+                                    <a href="#">春游</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
 				</div>
 			</div>
 			
 			<div class="layout">
-			    <img src="assets/img/temp_1000x145_2.jpg" />
+			    <img src="assets/img/temp_1000x95.jpg" />
 			</div>
 			
 			<div class="layout clearfix">
-			    <div class="mod-main big-catlog xiaoxue">
-			        <div class="mod-hd">
-                        <a href="#" class="entrance pull-left">小学一年级作文</a>
-                        <span class="more pull-right"><a href="#">更多&raquo;</a></span>
-                        <span class="types pull-right">
-                        	<a href="#">写人</a>
-                        	<a href="#">叙事</a>
-                        	<a href="#">写景</a>
-                        	<a href="#">状物</a>
-                        	<a href="#">想象</a>
-                        	<a href="#">书信</a>
-                        	<a href="#">日记</a>
-                        	<a href="#">读后感</a>
-                        	<a href="#">演讲稿</a>
-                        	<a href="#">童话寓言</a>
-                        	<a href="#">看图作文</a>
-                        </span>
-			        </div>
-			        <div class="mod-bd clearfix">
-			            <div class="main pull-left">
-    			            <div class="hot-list pull-left">
-    			                <h4>小学一年级作文排行榜</h4>
-    			                <ul>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作作文</a></li>
-	                                <li><a href="#">排行榜的作文排的作文</a></li>
-	                                <li><a href="#">排行榜行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文榜的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-    			                </ul>
-    			            </div>
-    			            <div class="article-list pull-right">
-    			                <h4><a href="#">最新小学一年级作文</a></h4>
-    			                <ul>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-    			                </ul>
-    			            </div>
+			    <div class="main catlog-article-list clearfix pull-left">
+			        <div class="mod-main small-catlog pull-left">
+			            <div class="mod-hd">
+			                <a href="#" class="entrance">写人作文</a>
 			            </div>
-			            <div class="sidebar pull-right">
-    			            <div class="original-list">
-    			                <h4>小学一年级原创推荐</h4>
-    			                <ul>
-                                    <li><a href="#">原创推荐作文原荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作推荐作文</a></li>
-                                    <li><a href="#">原创推荐推荐作文</a></li>
-                                    <li><a href="#">原创推荐作文荐作文</a></li>
-                                    <li><a href="#">原创推荐作作文</a></li>
-                                    <li><a href="#">原创推推荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作文原创推荐作文</a></li>
-                                    <li><a href="#">原创推荐荐作文</a></li>
-    			                </ul>
-    			            </div>
+			            <div class="mod-bd">
+			                <ul>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作作文</a></li>
+                                <li><a href="#">排行榜的作文排的作文</a></li>
+                                <li><a href="#">排行榜行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文榜的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+			                </ul>
 			            </div>
 			        </div>
+                    <div class="mod-main small-catlog pull-left">
+                        <div class="mod-hd">
+                            <a href="#" class="entrance">写人作文</a>
+                        </div>
+                        <div class="mod-bd">
+                            <ul>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作作文</a></li>
+                                <li><a href="#">排行榜的作文排的作文</a></li>
+                                <li><a href="#">排行榜行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文榜的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mod-main small-catlog pull-left">
+                        <div class="mod-hd">
+                            <a href="#" class="entrance">写人作文</a>
+                        </div>
+                        <div class="mod-bd">
+                            <ul>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作作文</a></li>
+                                <li><a href="#">排行榜的作文排的作文</a></li>
+                                <li><a href="#">排行榜行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文榜的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mod-main small-catlog pull-left">
+                        <div class="mod-hd">
+                            <a href="#" class="entrance">写人作文</a>
+                        </div>
+                        <div class="mod-bd">
+                            <ul>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作作文</a></li>
+                                <li><a href="#">排行榜的作文排的作文</a></li>
+                                <li><a href="#">排行榜行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文榜的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mod-main small-catlog pull-left">
+                        <div class="mod-hd">
+                            <a href="#" class="entrance">写人作文</a>
+                        </div>
+                        <div class="mod-bd">
+                            <ul>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作作文</a></li>
+                                <li><a href="#">排行榜的作文排的作文</a></li>
+                                <li><a href="#">排行榜行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文榜的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mod-main small-catlog pull-left">
+                        <div class="mod-hd">
+                            <a href="#" class="entrance">写人作文</a>
+                        </div>
+                        <div class="mod-bd">
+                            <ul>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作作文</a></li>
+                                <li><a href="#">排行榜的作文排的作文</a></li>
+                                <li><a href="#">排行榜行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文榜的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mod-main small-catlog pull-left">
+                        <div class="mod-hd">
+                            <a href="#" class="entrance">写人作文</a>
+                        </div>
+                        <div class="mod-bd">
+                            <ul>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作作文</a></li>
+                                <li><a href="#">排行榜的作文排的作文</a></li>
+                                <li><a href="#">排行榜行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文榜的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mod-main small-catlog pull-left">
+                        <div class="mod-hd">
+                            <a href="#" class="entrance">写人作文</a>
+                        </div>
+                        <div class="mod-bd">
+                            <ul>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作作文</a></li>
+                                <li><a href="#">排行榜的作文排的作文</a></li>
+                                <li><a href="#">排行榜行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文榜的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mod-main small-catlog pull-left">
+                        <div class="mod-hd">
+                            <a href="#" class="entrance">写人作文</a>
+                        </div>
+                        <div class="mod-bd">
+                            <ul>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文</a></li>
+                                <li><a href="#">排行排行榜的作文</a></li>
+                                <li><a href="#">排行榜的作作文</a></li>
+                                <li><a href="#">排行榜的作文排的作文</a></li>
+                                <li><a href="#">排行榜行榜的作文</a></li>
+                                <li><a href="#">排行榜的作文榜的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                                <li><a href="#">排行榜的的作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
 			    </div>
-			</div>
-			<div class="layout">
-			    <img src="assets/img/temp_1000x145_2.jpg" />
-			</div>
-			
-			<div class="layout clearfix">
-			    <div class="mod-main big-catlog xiaoxue">
-			        <div class="mod-hd">
-                        <a href="#" class="entrance pull-left">小学一年级作文</a>
-                        <span class="more pull-right"><a href="#">更多&raquo;</a></span>
-                        <span class="types pull-right">
-                        	<a href="#">写人</a>
-                        	<a href="#">叙事</a>
-                        	<a href="#">写景</a>
-                        	<a href="#">状物</a>
-                        	<a href="#">想象</a>
-                        	<a href="#">书信</a>
-                        	<a href="#">日记</a>
-                        	<a href="#">读后感</a>
-                        	<a href="#">演讲稿</a>
-                        	<a href="#">童话寓言</a>
-                        	<a href="#">看图作文</a>
-                        </span>
-			        </div>
-			        <div class="mod-bd clearfix">
-			            <div class="main pull-left">
-    			            <div class="hot-list pull-left">
-    			                <h4>小学一年级作文排行榜</h4>
-    			                <ul>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作作文</a></li>
-	                                <li><a href="#">排行榜的作文排的作文</a></li>
-	                                <li><a href="#">排行榜行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文榜的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-    			                </ul>
-    			            </div>
-    			            <div class="article-list pull-right">
-    			                <h4><a href="#">最新小学一年级作文</a></h4>
-    			                <ul>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			            <div class="sidebar pull-right">
-    			            <div class="original-list">
-    			                <h4>小学一年级原创推荐</h4>
-    			                <ul>
-                                    <li><a href="#">原创推荐作文原荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作推荐作文</a></li>
-                                    <li><a href="#">原创推荐推荐作文</a></li>
-                                    <li><a href="#">原创推荐作文荐作文</a></li>
-                                    <li><a href="#">原创推荐作作文</a></li>
-                                    <li><a href="#">原创推推荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作文原创推荐作文</a></li>
-                                    <li><a href="#">原创推荐荐作文</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			        </div>
+			    <div class="sidebar catlog-side pull-right">
+                    <div class="mod-side">
+                        <div class="mod-hd">
+                            <strong class="entrance pull-left">小学一年级作文排行榜</strong>
+                        </div>
+                        <div class="mod-bd">
+                            <ul class="mod-side-list">
+                                <li><a href="#">推荐的荐的作文</a></li>
+                                <li><a href="#">推荐的作文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文推作文</a></li>
+                                <li><a href="#">推荐的作文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文推荐作文</a></li>
+                                <li><a href="#">推荐的作文荐的文</a></li>
+                                <li><a href="#">推荐的作文推荐的文</a></li>
+                                <li><a href="#">推荐的作文推作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mod-side">
+                        <div class="mod-hd">
+                            <strong class="entrance pull-left">写作素材</strong>
+                        </div>
+                        <div class="mod-bd">
+                            <ul class="mod-side-list">
+                                <li><a href="#">推荐的荐的作文</a></li>
+                                <li><a href="#">推荐的作文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文推作文</a></li>
+                                <li><a href="#">推荐的作文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文推荐作文</a></li>
+                                <li><a href="#">推荐的作文荐的文</a></li>
+                                <li><a href="#">推荐的作文推荐的文</a></li>
+                                <li><a href="#">推荐的作文推作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mod-side">
+                        <div class="mod-hd">
+                            <strong class="entrance pull-left">写作指导</strong>
+                        </div>
+                        <div class="mod-bd">
+                            <ul class="mod-side-list">
+                                <li><a href="#">推荐的荐的作文</a></li>
+                                <li><a href="#">推荐的作文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文推作文</a></li>
+                                <li><a href="#">推荐的作文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文推荐的作文</a></li>
+                                <li><a href="#">推荐的作文推荐作文</a></li>
+                                <li><a href="#">推荐的作文荐的文</a></li>
+                                <li><a href="#">推荐的作文推荐的文</a></li>
+                                <li><a href="#">推荐的作文推作文</a></li>
+                            </ul>
+                        </div>
+                    </div>
 			    </div>
-			</div>
-			
-			<div class="layout">
-			    <img src="assets/img/temp_1000x145_2.jpg" />
-			</div>
-			
-			<div class="layout clearfix">
-			    <div class="mod-main big-catlog xiaoxue">
-			        <div class="mod-hd">
-                        <a href="#" class="entrance pull-left">小学一年级作文</a>
-                        <span class="more pull-right"><a href="#">更多&raquo;</a></span>
-                        <span class="types pull-right">
-                        	<a href="#">写人</a>
-                        	<a href="#">叙事</a>
-                        	<a href="#">写景</a>
-                        	<a href="#">状物</a>
-                        	<a href="#">想象</a>
-                        	<a href="#">书信</a>
-                        	<a href="#">日记</a>
-                        	<a href="#">读后感</a>
-                        	<a href="#">演讲稿</a>
-                        	<a href="#">童话寓言</a>
-                        	<a href="#">看图作文</a>
-                        </span>
-			        </div>
-			        <div class="mod-bd clearfix">
-			            <div class="main pull-left">
-    			            <div class="hot-list pull-left">
-    			                <h4>小学一年级作文排行榜</h4>
-    			                <ul>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作作文</a></li>
-	                                <li><a href="#">排行榜的作文排的作文</a></li>
-	                                <li><a href="#">排行榜行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文榜的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-    			                </ul>
-    			            </div>
-    			            <div class="article-list pull-right">
-    			                <h4><a href="#">最新小学一年级作文</a></h4>
-    			                <ul>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			            <div class="sidebar pull-right">
-    			            <div class="original-list">
-    			                <h4>小学一年级原创推荐</h4>
-    			                <ul>
-                                    <li><a href="#">原创推荐作文原荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作推荐作文</a></li>
-                                    <li><a href="#">原创推荐推荐作文</a></li>
-                                    <li><a href="#">原创推荐作文荐作文</a></li>
-                                    <li><a href="#">原创推荐作作文</a></li>
-                                    <li><a href="#">原创推推荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作文原创推荐作文</a></li>
-                                    <li><a href="#">原创推荐荐作文</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-			<div class="layout">
-			    <img src="assets/img/temp_1000x145_2.jpg" />
-			</div>
-			
-			<div class="layout clearfix">
-			    <div class="mod-main big-catlog xiaoxue">
-			        <div class="mod-hd">
-                        <a href="#" class="entrance pull-left">小学一年级作文</a>
-                        <span class="more pull-right"><a href="#">更多&raquo;</a></span>
-                        <span class="types pull-right">
-                        	<a href="#">写人</a>
-                        	<a href="#">叙事</a>
-                        	<a href="#">写景</a>
-                        	<a href="#">状物</a>
-                        	<a href="#">想象</a>
-                        	<a href="#">书信</a>
-                        	<a href="#">日记</a>
-                        	<a href="#">读后感</a>
-                        	<a href="#">演讲稿</a>
-                        	<a href="#">童话寓言</a>
-                        	<a href="#">看图作文</a>
-                        </span>
-			        </div>
-			        <div class="mod-bd clearfix">
-			            <div class="main pull-left">
-    			            <div class="hot-list pull-left">
-    			                <h4>小学一年级作文排行榜</h4>
-    			                <ul>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作作文</a></li>
-	                                <li><a href="#">排行榜的作文排的作文</a></li>
-	                                <li><a href="#">排行榜行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文榜的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-    			                </ul>
-    			            </div>
-    			            <div class="article-list pull-right">
-    			                <h4><a href="#">最新小学一年级作文</a></h4>
-    			                <ul>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			            <div class="sidebar pull-right">
-    			            <div class="original-list">
-    			                <h4>小学一年级原创推荐</h4>
-    			                <ul>
-                                    <li><a href="#">原创推荐作文原荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作推荐作文</a></li>
-                                    <li><a href="#">原创推荐推荐作文</a></li>
-                                    <li><a href="#">原创推荐作文荐作文</a></li>
-                                    <li><a href="#">原创推荐作作文</a></li>
-                                    <li><a href="#">原创推推荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作文原创推荐作文</a></li>
-                                    <li><a href="#">原创推荐荐作文</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-			<div class="layout">
-			    <img src="assets/img/temp_1000x145_2.jpg" />
-			</div>
-			
-			<div class="layout clearfix">
-			    <div class="mod-main big-catlog xiaoxue">
-			        <div class="mod-hd">
-                        <a href="#" class="entrance pull-left">小学一年级作文</a>
-                        <span class="more pull-right"><a href="#">更多&raquo;</a></span>
-                        <span class="types pull-right">
-                        	<a href="#">写人</a>
-                        	<a href="#">叙事</a>
-                        	<a href="#">写景</a>
-                        	<a href="#">状物</a>
-                        	<a href="#">想象</a>
-                        	<a href="#">书信</a>
-                        	<a href="#">日记</a>
-                        	<a href="#">读后感</a>
-                        	<a href="#">演讲稿</a>
-                        	<a href="#">童话寓言</a>
-                        	<a href="#">看图作文</a>
-                        </span>
-			        </div>
-			        <div class="mod-bd clearfix">
-			            <div class="main pull-left">
-    			            <div class="hot-list pull-left">
-    			                <h4>小学一年级作文排行榜</h4>
-    			                <ul>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作作文</a></li>
-	                                <li><a href="#">排行榜的作文排的作文</a></li>
-	                                <li><a href="#">排行榜行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文榜的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-    			                </ul>
-    			            </div>
-    			            <div class="article-list pull-right">
-    			                <h4><a href="#">最新小学一年级作文</a></h4>
-    			                <ul>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			            <div class="sidebar pull-right">
-    			            <div class="original-list">
-    			                <h4>小学一年级原创推荐</h4>
-    			                <ul>
-                                    <li><a href="#">原创推荐作文原荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作推荐作文</a></li>
-                                    <li><a href="#">原创推荐推荐作文</a></li>
-                                    <li><a href="#">原创推荐作文荐作文</a></li>
-                                    <li><a href="#">原创推荐作作文</a></li>
-                                    <li><a href="#">原创推推荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作文原创推荐作文</a></li>
-                                    <li><a href="#">原创推荐荐作文</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-			<div class="layout">
-			    <img src="assets/img/temp_1000x145_2.jpg" />
-			</div>
-			
-			<div class="layout clearfix">
-			    <div class="mod-main big-catlog xiaoxue">
-			        <div class="mod-hd">
-                        <a href="#" class="entrance pull-left">小学一年级作文</a>
-                        <span class="more pull-right"><a href="#">更多&raquo;</a></span>
-                        <span class="types pull-right">
-                        	<a href="#">写人</a>
-                        	<a href="#">叙事</a>
-                        	<a href="#">写景</a>
-                        	<a href="#">状物</a>
-                        	<a href="#">想象</a>
-                        	<a href="#">书信</a>
-                        	<a href="#">日记</a>
-                        	<a href="#">读后感</a>
-                        	<a href="#">演讲稿</a>
-                        	<a href="#">童话寓言</a>
-                        	<a href="#">看图作文</a>
-                        </span>
-			        </div>
-			        <div class="mod-bd clearfix">
-			            <div class="main pull-left">
-    			            <div class="hot-list pull-left">
-    			                <h4>小学一年级作文排行榜</h4>
-    			                <ul>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文</a></li>
-	                                <li><a href="#">排行排行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作作文</a></li>
-	                                <li><a href="#">排行榜的作文排的作文</a></li>
-	                                <li><a href="#">排行榜行榜的作文</a></li>
-	                                <li><a href="#">排行榜的作文榜的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-	                                <li><a href="#">排行榜的的作文</a></li>
-    			                </ul>
-    			            </div>
-    			            <div class="article-list pull-right">
-    			                <h4><a href="#">最新小学一年级作文</a></h4>
-    			                <ul>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题标题标标题</a></li>
-                                    <li><span>[<a href="#" class="belong">写景作文</a>]</span> <a href="#" class="title">标题标题</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			            <div class="sidebar pull-right">
-    			            <div class="original-list">
-    			                <h4>小学一年级原创推荐</h4>
-    			                <ul>
-                                    <li><a href="#">原创推荐作文原荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作推荐作文</a></li>
-                                    <li><a href="#">原创推荐推荐作文</a></li>
-                                    <li><a href="#">原创推荐作文荐作文</a></li>
-                                    <li><a href="#">原创推荐作作文</a></li>
-                                    <li><a href="#">原创推推荐作文</a></li>
-                                    <li><a href="#">原创推荐作荐作文</a></li>
-                                    <li><a href="#">原创推荐作文原创推荐作文</a></li>
-                                    <li><a href="#">原创推荐荐作文</a></li>
-    			                </ul>
-    			            </div>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-			
-			<div class="layout">
-			    <img src="assets/img/temp_1000x145_2.jpg" />
-			</div>
-			
-			<div class="layout clearfix">
-				<div class="mod-main mod-main-wide mod-sucai">
-					<div class="mod-hd">
-                        <a href="#" class="entrance pull-left">小学生写作素材</a>
-						<span class="more pull-right"><a href="#">更多&raquo;</a></span>
-						<span class="types pull-right">
-							<a href="#">名人故事</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-							<a href="#">名人故事</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-							<a href="#">名人故事</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-						</span>
-					</div>
-					<div class="mod-bd">
-						<ul class="mod-main-list">
-							<li><a href="#" class="title">标标题标题标题标题标题</a><a href="#" class="belong">哲理故事</a></li>
-							<li><a href="#" class="title">标题标题标题标题</a><a href="#" class="belong">名人故事</a></li>
-							<li><a href="#" class="title">标题标题题标题标题</a><a href="#" class="belong">历史典故</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题</a><a href="#" class="belong">小学一年级</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="mod-main mod-main-wide mod-tutor">
-					<div class="mod-hd">
-                        <a href="#" class="entrance pull-left">小学生写作素材</a>
-						<span class="more pull-right"><a href="#">更多&raquo;</a></span>
-						<span class="types pull-right">
-							<a href="#">写作方法</a>
-							<a href="#">写作基础</a>
-							<a href="#">文学常识</a>
-							<a href="#">经验交流</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-							<a href="#">名人故事</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-						</span>
-					</div>
-					<div class="mod-bd">
-						<ul class="mod-main-list">
-							<li><a href="#" class="title">标标题标题标题标题标题</a><a href="#" class="belong">哲理故事</a></li>
-							<li><a href="#" class="title">标题标题标题标题</a><a href="#" class="belong">名人故事</a></li>
-							<li><a href="#" class="title">标题标题题标题标题</a><a href="#" class="belong">历史典故</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题</a><a href="#" class="belong">小学一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题</a><a href="#" class="belong">小学一年级</a></li>
-						</ul>
-					</div>
-				</div>
 			</div>
 			
             <div class="layout">
