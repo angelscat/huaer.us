@@ -17,14 +17,12 @@
 			
 			<div class="layout clearfix">
 			    <div class="main clearfix pull-left">
-			        <div class="mod-main skill">
+			        <div class="mod-main skill {dede:field.content function="@me!=''?'':'hide'" /}">
 			            <div class="mod-hd">
-			                <strong>写景作文写作技巧</strong>
+			                <strong>{dede:field name='typename'/}作文写作技巧</strong>
 			            </div>
 			            <div class="mod-bd">
-			                <p>写景作文是记叙文的一种，通常指以写景为主的文章，写景作文是通过运用描写、叙述、抒情等表达方式，来表现作者对某些景物的赞美以及自身情感，是小学阶段主要学习的作文类别之一。</p>
-			                <p>要写好以写景为主的记叙文，首先要选择好叙述的起点，是开门见山地直接开始描写景物呢，还是先对描写对象的来历、背景进行介绍等等，要根据描写对象和表达需要的不同，确定好叙述与描写的出发点，然后按一定的顺序进行表达。</p>
-			                <p><a href="#" style="color:#3FA7CC;">查看详细内容 &raquo;</a></p>
+			                {dede:field.content function="@me!=''?@me:'暂无'" /}
 			            </div>
 			        </div>
 			        <div class="mod-main mod-article-list" id="alist">
@@ -54,24 +52,19 @@
                             <strong>按体裁查作文</strong>
                         </div>
                         <div class="mod-bd">
-                            <a href="#">写人</a>
-                            <a href="#">叙事</a>
-                            <a href="#">写景</a>
-                            <a href="#">状物</a>
-                            <a href="#">想象</a>
-                            <a href="#">书信</a>
-                            <a href="#">日记</a>
-                            <a href="#">读后感</a>
-                            <a href="#">演讲稿</a>
-                            <a href="#">童话寓言</a>
-                            <a href="#">看图作文</a>
+                            {dede:channel type='son' currentstyle="<a href='~typelink~' class='cur'>~typename~</a>"}
+                            <a href='[field:typeurl/]'>[field:typename/]</a>
+                            {/dede:channel}
                         </div>
                     </div>
 			        <div class="mod-side search hot-topic">
                         <div class="mod-bd">
                             <div class="search-box">
-                                <input type="text" class="search-input" placeholder="输入关键词：如春天、清明" />
-                                <input type="submit" class="search-btn" value="" />
+                                <form action="/plus/search.php" method="get">
+                                    <input type="hidden" name="searchtype" value="titlekeyword" />
+                                    <input type="text" class="search-input" placeholder="输入关键词：如春天、清明" name="q" />
+                                    <input type="submit" class="search-btn" value="" />
+                                </form>
                             </div>
                         </div>
                         
@@ -132,16 +125,9 @@
                         </div>
                         <div class="mod-bd">
                             <ul class="mod-side-list">
-                                <li><a href="#">推荐的荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐作文</a></li>
-                                <li><a href="#">推荐的作文荐的文</a></li>
-                                <li><a href="#">推荐的作文推荐的文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
+                                {dede:arclist row=10 orderby=click}
+                                <li><a href="[field:arcurl/]">[field:title/]</a></li>
+                                {/dede:arclist}
                             </ul>
                         </div>
                     </div>
