@@ -17,17 +17,9 @@
                                 <strong>按体裁查作文</strong>
                             </div>
                             <div class="mod-bd">
-                                <a href="#">写人</a>
-                                <a href="#">叙事</a>
-                                <a href="#">写景</a>
-                                <a href="#">状物</a>
-                                <a href="#">想象</a>
-                                <a href="#">书信</a>
-                                <a href="#">日记</a>
-                                <a href="#">读后感</a>
-                                <a href="#">演讲稿</a>
-                                <a href="#">童话寓言</a>
-                                <a href="#">看图作文</a>
+                            {dede:channel type='son' currentstyle="<a href='~typelink~' class='cur'>~typename~</a>"}
+                            <a href='[field:typeurl/]'>[field:typename/]</a>
+                            {/dede:channel}
                             </div>
                         </div>
                         <div class="sort-type">
@@ -52,7 +44,7 @@
 				    </div>
 					<div class="mod-main commend pull-right">
 						<div class="mod-hd">
-							<strong>小学一年级推荐作文</strong>
+							<strong>{dede:field.typename /}推荐作文</strong>
 						</div>
 						<div class="mod-bd">
 						    <div class="commend-list">
@@ -97,8 +89,11 @@
 					<div class="mod-side search hot-topic">
                         <div class="mod-bd">
                             <div class="search-box">
-                                <input type="text" class="search-input" placeholder="输入关键词：如春天、清明" />
-                                <input type="submit" class="search-btn" value="" />
+                                <form action="/plus/search.php" method="get">
+                                    <input type="hidden" name="searchtype" value="titlekeyword" />
+                                    <input type="text" class="search-input" placeholder="输入关键词：如春天、清明" name="q" />
+                                    <input type="submit" class="search-btn" value="" />
+                                </form>
                             </div>
                         </div>
                         
@@ -162,236 +157,20 @@
 			
 			<div class="layout clearfix">
 			    <div class="main catlog-article-list clearfix pull-left">
-			        <div class="mod-main small-catlog pull-left">
-			            <div class="mod-hd">
-			                <a href="#" class="entrance">写人作文</a>
-			            </div>
-			            <div class="mod-bd">
-			                <ul>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作作文</a></li>
-                                <li><a href="#">排行榜的作文排的作文</a></li>
-                                <li><a href="#">排行榜行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文榜的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-			                </ul>
-			            </div>
-			        </div>
+                    {dede:channelartlist}
                     <div class="mod-main small-catlog pull-left">
                         <div class="mod-hd">
-                            <a href="#" class="entrance">写人作文</a>
+                            <a href="{dede:field name='typeurl'/}" class="entrance">{dede:field name='typename'/}</a>
                         </div>
                         <div class="mod-bd">
                             <ul>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作作文</a></li>
-                                <li><a href="#">排行榜的作文排的作文</a></li>
-                                <li><a href="#">排行榜行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文榜的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
+                                {dede:arclist titlelen='60' row='10'}
+                                <li><a href="[field:arcurl /]" title="[field:title /]">[field:title function="(strlen('@me') > 30 ? cn_substr('@me',30).'…' : '@me')" /]</a></li>
+                                {/dede:arclist}
                             </ul>
                         </div>
                     </div>
-                    <div class="mod-main small-catlog pull-left">
-                        <div class="mod-hd">
-                            <a href="#" class="entrance">写人作文</a>
-                        </div>
-                        <div class="mod-bd">
-                            <ul>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作作文</a></li>
-                                <li><a href="#">排行榜的作文排的作文</a></li>
-                                <li><a href="#">排行榜行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文榜的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mod-main small-catlog pull-left">
-                        <div class="mod-hd">
-                            <a href="#" class="entrance">写人作文</a>
-                        </div>
-                        <div class="mod-bd">
-                            <ul>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作作文</a></li>
-                                <li><a href="#">排行榜的作文排的作文</a></li>
-                                <li><a href="#">排行榜行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文榜的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mod-main small-catlog pull-left">
-                        <div class="mod-hd">
-                            <a href="#" class="entrance">写人作文</a>
-                        </div>
-                        <div class="mod-bd">
-                            <ul>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作作文</a></li>
-                                <li><a href="#">排行榜的作文排的作文</a></li>
-                                <li><a href="#">排行榜行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文榜的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mod-main small-catlog pull-left">
-                        <div class="mod-hd">
-                            <a href="#" class="entrance">写人作文</a>
-                        </div>
-                        <div class="mod-bd">
-                            <ul>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作作文</a></li>
-                                <li><a href="#">排行榜的作文排的作文</a></li>
-                                <li><a href="#">排行榜行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文榜的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mod-main small-catlog pull-left">
-                        <div class="mod-hd">
-                            <a href="#" class="entrance">写人作文</a>
-                        </div>
-                        <div class="mod-bd">
-                            <ul>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作作文</a></li>
-                                <li><a href="#">排行榜的作文排的作文</a></li>
-                                <li><a href="#">排行榜行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文榜的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mod-main small-catlog pull-left">
-                        <div class="mod-hd">
-                            <a href="#" class="entrance">写人作文</a>
-                        </div>
-                        <div class="mod-bd">
-                            <ul>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作作文</a></li>
-                                <li><a href="#">排行榜的作文排的作文</a></li>
-                                <li><a href="#">排行榜行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文榜的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mod-main small-catlog pull-left">
-                        <div class="mod-hd">
-                            <a href="#" class="entrance">写人作文</a>
-                        </div>
-                        <div class="mod-bd">
-                            <ul>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文</a></li>
-                                <li><a href="#">排行排行榜的作文</a></li>
-                                <li><a href="#">排行榜的作作文</a></li>
-                                <li><a href="#">排行榜的作文排的作文</a></li>
-                                <li><a href="#">排行榜行榜的作文</a></li>
-                                <li><a href="#">排行榜的作文榜的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                                <li><a href="#">排行榜的的作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
-			    </div>
-			    <div class="sidebar catlog-side pull-right">
-                    <div class="mod-side">
-                        <div class="mod-hd">
-                            <strong class="entrance pull-left">小学一年级作文排行榜</strong>
-                        </div>
-                        <div class="mod-bd">
-                            <ul class="mod-side-list">
-                                <li><a href="#">推荐的荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐作文</a></li>
-                                <li><a href="#">推荐的作文荐的文</a></li>
-                                <li><a href="#">推荐的作文推荐的文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mod-side">
-                        <div class="mod-hd">
-                            <strong class="entrance pull-left">写作素材</strong>
-                        </div>
-                        <div class="mod-bd">
-                            <ul class="mod-side-list">
-                                <li><a href="#">推荐的荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐作文</a></li>
-                                <li><a href="#">推荐的作文荐的文</a></li>
-                                <li><a href="#">推荐的作文推荐的文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mod-side">
-                        <div class="mod-hd">
-                            <strong class="entrance pull-left">写作指导</strong>
-                        </div>
-                        <div class="mod-bd">
-                            <ul class="mod-side-list">
-                                <li><a href="#">推荐的荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐作文</a></li>
-                                <li><a href="#">推荐的作文荐的文</a></li>
-                                <li><a href="#">推荐的作文推荐的文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    {/dede:channelartlist}
 			    </div>
 			</div>
 			
