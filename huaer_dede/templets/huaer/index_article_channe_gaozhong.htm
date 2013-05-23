@@ -113,8 +113,11 @@
 					<div class="mod-side search hot-topic">
                         <div class="mod-bd">
                             <div class="search-box">
-                                <input type="text" class="search-input" placeholder="输入关键词：如春天、清明" />
-                                <input type="submit" class="search-btn" value="" />
+                                <form action="/plus/search.php" method="get">
+                                    <input type="hidden" name="searchtype" value="titlekeyword" />
+                                    <input type="text" class="search-input" placeholder="输入关键词：如春天、清明" name="q" />
+                                    <input type="submit" class="search-btn" value="" />
+                                </form>
                             </div>
                         </div>
                         
@@ -320,113 +323,43 @@
 			</div>
 			
 			<div class="layout clearfix">
-				<div class="mod-main mod-main-wide mod-sucai">
-					<div class="mod-hd">
-                        <a href="#" class="entrance pull-left">高中生写作素材</a>
-						<span class="more pull-right"><a href="#">更多&raquo;</a></span>
-						<span class="types pull-right">
-							<a href="#">名人故事</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-							<a href="#">名人故事</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-							<a href="#">名人故事</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-						</span>
-					</div>
-					<div class="mod-bd">
-						<ul class="mod-main-list">
-							<li><a href="#" class="title">标标题标题标题标题标题</a><a href="#" class="belong">哲理故事</a></li>
-							<li><a href="#" class="title">标题标题标题标题</a><a href="#" class="belong">名人故事</a></li>
-							<li><a href="#" class="title">标题标题题标题标题</a><a href="#" class="belong">历史典故</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题</a><a href="#" class="belong">高中一年级</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="mod-main mod-main-wide mod-tutor">
-					<div class="mod-hd">
-                        <a href="#" class="entrance pull-left">高中生写作素材</a>
-						<span class="more pull-right"><a href="#">更多&raquo;</a></span>
-						<span class="types pull-right">
-							<a href="#">写作方法</a>
-							<a href="#">写作基础</a>
-							<a href="#">文学常识</a>
-							<a href="#">经验交流</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-							<a href="#">名人故事</a>
-							<a href="#">哲理故事</a>
-							<a href="#">历史典故</a>
-						</span>
-					</div>
-					<div class="mod-bd">
-						<ul class="mod-main-list">
-							<li><a href="#" class="title">标标题标题标题标题标题</a><a href="#" class="belong">哲理故事</a></li>
-							<li><a href="#" class="title">标题标题标题标题</a><a href="#" class="belong">名人故事</a></li>
-							<li><a href="#" class="title">标题标题题标题标题</a><a href="#" class="belong">历史典故</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标题标题标题</a><a href="#" class="belong">高中一年级</a></li>
-							<li><a href="#" class="title">标题标题标题标标题</a><a href="#" class="belong">高中一年级</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			
-            <div class="layout">
-				<div class="mod-main sites">
-					<div class="mod-hd">
-					    <a href="#" class="entrance pull-left">友情链接</a>
-						<span class="more pull-right"><a href="#">申请合作</a> <a href="#">查看更多&raquo;</a></span>
-					</div>
-					<div class="mod-bd">
-						<ul>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		
+                <div class="mod-main mod-main-wide mod-sucai">
+                    <div class="mod-hd">
+                        <a href="{dede:global.cfg_cmsurl/}/sucai" class="entrance pull-left">高中生写作素材</a>
+                        <span class="more pull-right"><a href="{dede:global.cfg_cmsurl/}/sucai">更多&raquo;</a></span>
+                        <span class="types pull-right">
+                            {dede:channel type='son' row="10" typeid="19"}
+                            <a href='[field:typeurl/]'>[field:typename/]</a>
+                            {/dede:channel}
+                        </span>
+                    </div>
+                    <div class="mod-bd">
+                        <ul class="mod-main-list">
+                            {dede:arclist row="21" orderby="near" typeid="19"}
+                            <li><a href="[field:arcurl/]" class="title" title="[field:title /]">[field:title function="(strlen('@me') > 30 ? cn_substr('@me',30).'…' : '@me')" /]</a><a href="[field:typeurl/]" class="belong">[field:typename/]</a></li>
+                            {/dede:arclist}
+                        </ul>
+                    </div>
+                </div>
+                <div class="mod-main mod-main-wide mod-tutor">
+                    <div class="mod-hd">
+                        <a href="{dede:global.cfg_cmsurl/}/zhidao" class="entrance pull-left">高中生写作指导</a>
+                        <span class="more pull-right"><a href="{dede:global.cfg_cmsurl/}/zhidao">更多&raquo;</a></span>
+                        <span class="types pull-right">
+                            {dede:channel type='son' row="10" typeid="20"}
+                            <a href='[field:typeurl/]'>[field:typename/]</a>
+                            {/dede:channel}
+                        </span>
+                    </div>
+                    <div class="mod-bd">
+                        <ul class="mod-main-list">
+                            {dede:arclist row="21" orderby="near" typeid="20"}
+                            <li><a href="[field:arcurl/]" class="title" title="[field:title /]">[field:title function="(strlen('@me') > 30 ? cn_substr('@me',30).'…' : '@me')" /]</a><a href="[field:typeurl/]" class="belong">[field:typename/]</a></li>
+                            {/dede:arclist}
+                        </ul>
+                    </div>
+                </div>
+            </div>
 		</div>
 		{dede:include filename="footer.htm" /}
 	</body>
