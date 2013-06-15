@@ -231,16 +231,9 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                         </div>
                         <div class="mod-bd">
                             <ul class="mod-side-list">
-                                <li><a href="#">推荐的荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐作文</a></li>
-                                <li><a href="#">推荐的作文荐的文</a></li>
-                                <li><a href="#">推荐的作文推荐的文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
+                                {dede:arclist row="10" orderby="pubdate" typeid="19" titlelen="60"}
+                                <li><a href="[field:arcurl/]" title="[field:title /]">[field:title function="(strlen('@me') > 36 ? cn_substr('@me',36).'…' : '@me')" /]</a></li>
+                                {/dede:arclist}
                             </ul>
                         </div>
                     </div>
@@ -250,16 +243,9 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                         </div>
                         <div class="mod-bd">
                             <ul class="mod-side-list">
-                                <li><a href="#">推荐的荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐作文</a></li>
-                                <li><a href="#">推荐的作文荐的文</a></li>
-                                <li><a href="#">推荐的作文推荐的文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
+                                {dede:arclist row="10" orderby="pubdate" typeid="20" titlelen="60"}
+                                <li><a href="[field:arcurl/]" title="[field:title /]">[field:title function="(strlen('@me') > 36 ? cn_substr('@me',36).'…' : '@me')" /]</a></li>
+                                {/dede:arclist}
                             </ul>
                         </div>
                     </div>
