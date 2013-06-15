@@ -154,8 +154,11 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 			        <div class="mod-side search hot-topic">
                         <div class="mod-bd">
                             <div class="search-box">
-                                <input type="text" class="search-input" placeholder="输入关键词：如春天、清明" />
-                                <input type="submit" class="search-btn" value="" />
+                                <form action="/plus/search.php" method="get">
+                                    <input type="hidden" name="searchtype" value="titlekeyword" />
+                                    <input type="text" class="search-input" placeholder="输入关键词：如春天、清明" name="q" />
+                                    <input type="submit" class="search-btn" value="" />
+                                </form>
                             </div>
                         </div>
                         
@@ -212,20 +215,13 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                     </div>
                     <div class="mod-side">
                         <div class="mod-hd">
-                            <strong class="entrance pull-left">小学一年级写景作文排行榜</strong>
+                            <strong class="entrance pull-left">{dede:field name='typename'/}作文排行榜</strong>
                         </div>
                         <div class="mod-bd">
                             <ul class="mod-side-list">
-                                <li><a href="#">推荐的荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐的作文</a></li>
-                                <li><a href="#">推荐的作文推荐作文</a></li>
-                                <li><a href="#">推荐的作文荐的文</a></li>
-                                <li><a href="#">推荐的作文推荐的文</a></li>
-                                <li><a href="#">推荐的作文推作文</a></li>
+                                {dede:arclist row="10" orderby="click" titlelen="60"}
+                                <li><a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 36 ? cn_substr('@me',36).'…' : '@me')" /]</a></li>
+                                {/dede:arclist}
                             </ul>
                         </div>
                     </div>
