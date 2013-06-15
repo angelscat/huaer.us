@@ -23,7 +23,7 @@ else
 		echo '<div class="comment-code pull-left">
 			<label for="validate">验证码：</label>
 			<input type="text" class="ipt-text" name="validate" id="validate" />
-			<img id="validateImg" src="'.$cfg_cmspath.'/include/vdimgck.php" onclick="this.src=\''.$cfg_cmspath.'/include/vdimgck.php\'+\'?_r=\'+Math.random()" />
+			<img id="validateImg" src="'.$cfg_cmspath.'/include/vdimgck.php?" onclick="this.src=\''.$cfg_cmspath.'/include/vdimgck.php\'+\'?_r=\'+Math.random()" />
 		</div>';
 	}
 	
