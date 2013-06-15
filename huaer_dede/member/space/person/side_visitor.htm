@@ -7,7 +7,7 @@
 			    <div class="u-avatar"><a href="{dede:field.url/}"><img src="{dede:field.face/}" width="50" height="50" /></a></div>
 			    <div class="u-detail">
 			        <div class="u-name"><a href="{dede:field.url/}">{dede:field.uname/}</a></div>
-			        <div class="u-time">{dede:var.logintime function="MyDate('Y-m-d h:i',@me)" /}</div>
+			        <div class="u-time">{dede:field.vtime function="MyDate('Y-m-d H:i',@me)" /}</div>
 			    </div>
 			</li>
 			{/dede:newvisitor}
