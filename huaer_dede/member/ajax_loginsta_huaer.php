@@ -23,7 +23,7 @@ $pms = $dsql->GetOne("SELECT COUNT(*) AS nums FROM #@__member_pms WHERE toid='{$
 	消息
 	<?php 
 		if($pms['nums'] > 0){
-			echo '<span class="unread-message-num hide"><span class="left-border"></span><span class="num">'. $pms['nums'] .'</span><span class="right-border"></span></span>'; 
+			echo '<span class="unread-message-num"><span class="left-border"></span><span class="num">'. $pms['nums'] .'</span><span class="right-border"></span></span>'; 
 		} 
 	?>
 	</a>

@@ -41,7 +41,7 @@
 	                            	<?php if(empty($face)){ ?>
 	                            	<img src="<?php echo ($fields['sex']=='女'? 'templets/images/dfgirl.png':'templets/images/dfboy.png'); ?>" />
 	                            	<?php }else{ ?>
-	                            	<img src="<?php echo $face; ?>?" width="220" />
+	                            	<img src="<?php echo $face; ?>?_t=<?php echo rand();?>" width="220" />
 	                            	<a href="edit_face.php?dopost=delold&oldface=<?php echo urlencode($face); ?>" onclick="return confirm('确定要删除现在的头像吗？');">删除旧头像</a>
 	                            	<? } ?>
 	                            </div>
