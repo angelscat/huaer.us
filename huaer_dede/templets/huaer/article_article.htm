@@ -114,16 +114,9 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                             <div class="article-related">
                                 <h4>相关作文推荐</h4>
                                 <ul>
-                                    <li><a href="#">小燕子在天空中飞翔</a></li>
-                                    <li><a href="#">小燕子在天空中自由自在的飞翔</a></li>
-                                    <li><a href="#">小燕子在天空中自飞翔</a></li>
-                                    <li><a href="#">小燕子在天自在的飞翔</a></li>
-                                    <li><a href="#">小燕子在天空飞翔</a></li>
-                                    <li><a href="#">小燕子在天空中在的飞翔</a></li>
-                                    <li><a href="#">小燕子在天空中自的飞翔</a></li>
-                                    <li><a href="#">在天空中自由自在的飞翔</a></li>
-                                    <li><a href="#">小燕子在天空中自由自在的飞翔</a></li>
-                                    <li><a href="#">小燕子在天空中的飞翔</a></li>
+                                    {dede:likearticle row='10' titlelen='60'}
+                                    <li><a href='[field:arcurl/]'>[field:title/]</a></li>
+                                    {/dede:likearticle}
                                 </ul>
                             </div>
                             {dede:include file='ajaxfeedback.htm' /}
@@ -153,17 +146,9 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                             <strong>按体裁查作文</strong>
                         </div>
                         <div class="mod-bd">
-                            <a href="#">写人</a>
-                            <a href="#">叙事</a>
-                            <a href="#">写景</a>
-                            <a href="#">状物</a>
-                            <a href="#">想象</a>
-                            <a href="#">书信</a>
-                            <a href="#">日记</a>
-                            <a href="#">读后感</a>
-                            <a href="#">演讲稿</a>
-                            <a href="#">童话寓言</a>
-                            <a href="#">看图作文</a>
+                            {dede:channel type='self' row="20"}
+                            <a href='[field:typeurl/]'>[field:typename/]</a>
+                            {/dede:channel}
                         </div>
                     </div>
 			        <div class="mod-side search hot-topic">
