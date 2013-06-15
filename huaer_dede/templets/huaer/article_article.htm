@@ -75,8 +75,8 @@
                                     <a href='[field:link/]'>[field:tag /]</a>
                                     {/dede:tag}
                                 </span>
-                                <span class="article-from">来源:{dede:field.source/}</span>
-                                <span class="article-author">作者:{dede:field.writer/}</span>
+                                <span class="article-from">来源:{dede:field.source function="@me==''?'花儿作文网':@me" /}</span>
+                                <span class="article-author">作者:{dede:field.writer function="@me==''?'佚名':@me" /}</span>
                                 <span class="article-date">{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/} </span>
                                 <span class="article-view-time"><em id="viewTimes"><i class="loading"></i></em>次阅读</span>
                             </div>
@@ -131,21 +131,23 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 			        </div>
 			    </div>
 			    <div class="sidebar catlog-side pull-right">
+                    {dede:memberinfos}
 			        <div class="user-info">
                         <div class="user-avatar">
-                            <img src="assets/img/avatar_220x220.jpg" />
+                            <img src="[field:face/]" />
                         </div>
-                        <div class="u-name"><a href="#">汪祖方</a></div>
+                        <div class="u-name"><a href="[field:spaceurl /]">[field:uname /]</a></div>
                         <div class="u-info">
-                            性别：男 年龄：27岁
+                            性别：[field:sex/] 年龄：[field:age/]岁
                         </div>
                         <div class="u-bir">
-                            生日：2013-04-20
+                            生日：[field:birthday/]
                         </div>
                         <div class="u-residence">
-                            现居：<span>湖北</span> <span>武汉</span> <span>武昌区</span>
+                            现居：[field:place/]
                         </div>
                     </div>
+                    {/dede:memberinfos}
                     <div class="mod-side assort-side">
                         <div class="mod-hd">
                             <strong>按体裁查作文</strong>

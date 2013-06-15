@@ -386,7 +386,7 @@ a.button-search-small{height:26px; width:26px;}
 .small-catlog{width:228px; margin-right:15px; margin-bottom:15px; float:left;}
 .small-catlog ul li{height:26px; line-height:26px; padding-left:15px; background:url(../img/arrow-left.png) no-repeat left center;}
 .catlog-side .mod-side{margin-bottom:-1px; zoom:1; position:relative;}
-.catlog-side .user-info{border:1px solid #E1E3E6; margin-bottom:-1px;}
+.catlog-side .user-info{border:1px solid #E1E3E6; margin-bottom:-1px; background: #FFF;}
 
 .mod-article-list ul li{height:26px; line-height:26px;}
 .mod-article-list ul li.sep{height:0px; line-height:0; overflow:hidden; font-size:0; border-bottom:1px dashed #CCC; margin:15px 0;}

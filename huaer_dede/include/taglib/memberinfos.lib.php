@@ -26,6 +26,9 @@ if(!defined('DEDEINC'))
 </attributes> 
 >>dede>>*/
  
+require_once(DEDEINC.'/enums.func.php');
+require_once(DEDEDATA.'/enums/nativeplace.php');
+
 function lib_memberinfos(&$ctag,&$refObj)
 {
     global $dsql,$sqlCt;
@@ -47,8 +50,9 @@ function lib_memberinfos(&$ctag,&$refObj)
     $innerText = trim($ctag->GetInnerText());
     if(empty($innerText)) $innerText = GetSysTemplets('memberinfos.htm');
 
-    $sql = "SELECT mb.*,ms.spacename,ms.sign,ar.membername as rankname FROM `#@__member` mb
+    $sql = "SELECT mb.*,mp.birthday,mp.place,YEAR(CURDATE())-YEAR(mp.birthday) AS age,ms.spacename,ms.sign,ar.membername as rankname FROM `#@__member` mb
         LEFT JOIN `#@__member_space` ms ON ms.mid = mb.mid 
+        LEFT JOIN `#@__member_person` mp ON mp.mid = mb.mid
         LEFT JOIN `#@__arcrank` ar ON ar.rank = mb.rank
         WHERE mb.mid='{$mid}' LIMIT 0,1 ";
 
@@ -58,7 +62,15 @@ function lib_memberinfos(&$ctag,&$refObj)
 
     $dsql->Execute('mb',$sql);
     while($row = $dsql->GetArray('mb'))
-    {
+    {   
+        if(!empty($row['place'])){
+            $places = GetEnumsTypes($row['place']);
+            $row['place']  = (isset($em_nativeplaces[$places['top']])? $em_nativeplaces[$places['top']] : '未知');
+            $row['place'] .= '&nbsp;';
+            $row['place'] .= (isset($em_nativeplaces[$places['son']])? $em_nativeplaces[$places['son']] : '');
+        }else{
+            $row['place'] = '未知';
+        }
         if($row['matt']==10) return '';
         $row['spaceurl'] = $GLOBALS['cfg_basehost'].'/member/index.php?uid='.$row['userid'];
         if(empty($row['face'])) {

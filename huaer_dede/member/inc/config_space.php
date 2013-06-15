@@ -10,6 +10,9 @@
  */
 if(!defined('DEDEMEMBER')) exit('dedecms');
 
+require_once(DEDEINC.'/enums.func.php');
+require_once(DEDEDATA.'/enums/nativeplace.php');
+
 //检查是否开放会员功能
 if($cfg_mb_open=='N')
 {
@@ -122,7 +125,7 @@ function GetUserSpaceInfos()
     $userid = preg_replace("#[\r\n\t \*%]#", '', $uid);
     $query = "SELECT m.mid,m.mtype,m.userid,m.uname,m.rank,m.email,m.scores,
                             m.spacesta,m.face,m.logintime,
-                            mp.sex,YEAR(CURDATE())-YEAR(mp.birthday) AS age,mp.birthday,
+                            mp.sex,YEAR(CURDATE())-YEAR(mp.birthday) AS age,mp.birthday,mp.place,
                             s.*,t.*,m.matt,r.membername,g.msg
                   From `#@__member` m
                   LEFT JOIN `#@__member_space` s on s.mid=m.mid

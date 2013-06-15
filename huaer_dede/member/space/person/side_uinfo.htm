@@ -12,7 +12,14 @@
         生日：{dede:var.birthday /}
     </div>
     <div class="u-residence">
-        现居：<span>湖北</span> <span>武汉</span> <span>武昌区</span>
+        <?php
+        if(!empty($_vars['place'])){
+            $places = GetEnumsTypes($_vars['place']);
+            echo (isset($em_nativeplaces[$places['top']])? '现居：'.$em_nativeplaces[$places['top']] : '未知');
+            echo '&nbsp;';
+            echo (isset($em_nativeplaces[$places['son']])? $em_nativeplaces[$places['son']] : '');
+        }
+        ?>
     </div>
     <div class="u-stat">
         作文：<strong>{dede:var.article /}</strong> 篇<br />
