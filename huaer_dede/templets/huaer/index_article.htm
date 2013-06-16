@@ -14,6 +14,16 @@
 				    <div class="mod-side assort pull-left">
                         <div class="sort-type">
                             <div class="mod-hd">
+                                <strong>按年级查作文</strong>
+                            </div>
+                            <div class="mod-bd">
+                            {dede:channel type='self'}
+                            <a href='[field:typeurl/]'>[field:typename/]</a>
+                            {/dede:channel}
+                            </div>
+                        </div>
+                        <div class="sort-type">
+                            <div class="mod-hd">
                                 <strong>按体裁查作文</strong>
                             </div>
                             <div class="mod-bd">
@@ -22,12 +32,12 @@
                             {/dede:channel}
                             </div>
                         </div>
-                        <div class="sort-type">
+                        <div class="sort-type hide">
                             <div class="mod-hd">
                                 <strong>按字数查作文</strong>
                             </div>
                             <div class="mod-bd">
-                                <a href="#">50字</a>
+                                <!-- <a href="#">50字</a>
                                 <a href="#">100字</a>
                                 <a href="#">150字</a>
                                 <a href="#">200字</a>
@@ -38,7 +48,7 @@
                                 <a href="#">450字</a>
                                 <a href="#">500字</a>
                                 <a href="#">550字</a>
-                                <a href="#">600字</a>
+                                <a href="#">600字</a> -->
                             </div>
                         </div>
 				    </div>
@@ -151,8 +161,8 @@
 				</div>
 			</div>
 			
-			<div class="layout">
-			    <img src="assets/img/temp_1000x95.jpg" />
+			<div class="layout mb10">
+			    <img src="{dede:global.cfg_templets_skin /}/assets/img/temp_1000x95.jpg" />
 			</div>
 			
 			<div class="layout clearfix">
