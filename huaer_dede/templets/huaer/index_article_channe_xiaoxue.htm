@@ -12,98 +12,155 @@
 			<div class="layout clearfix">
 				<div class="main pull-left">
 				    <div class="pull-left">
-    					<div class="slide-show">
-    						<div class="slide-main">
-    						    <ul>
-    						        <li>
-    						            <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_1.jpg" /></a>
-                                        </p>
-                                        <p class="title">
-                                            <a href="#">测试测试标题</a>
-                                        </p>
-    						        </li>
-                                    <li>
+                        <div class="slide-show" id="slideShow">
+                            <div class="slide-main">
+                                <ul>
+                                    <li style="z-index: 2">
                                         <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_2.jpg" /></a>
+                                            <a href="#"><img src="{dede:global.cfg_templets_skin /}/assets/img/s_300x250_1.jpg" /></a>
                                         </p>
                                         <p class="title">
-                                            <a href="#">测试测试标题</a>
+                                            <a href="#">测试测试试标题试标题111</a>
                                         </p>
                                     </li>
-                                    <li>
+                                    <li style="z-index: 1">
                                         <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_3.jpg" /></a>
+                                            <a href="#"><img src="{dede:global.cfg_templets_skin /}/assets/img/s_300x250_2.jpg" /></a>
                                         </p>
                                         <p class="title">
-                                            <a href="#">测试测试标题</a>
+                                            <a href="#">测试测试标题试标题222222</a>
                                         </p>
                                     </li>
-                                    <li>
+                                    <li style="z-index: 1">
                                         <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_4.jpg" /></a>
+                                            <a href="#"><img src="{dede:global.cfg_templets_skin /}/assets/img/s_300x250_3.jpg" /></a>
                                         </p>
                                         <p class="title">
-                                            <a href="#">测试测试标题</a>
+                                            <a href="#">测试测试试标题试标题3333</a>
                                         </p>
                                     </li>
-                                    <li>
+                                    <li style="z-index: 1">
                                         <p class="pic">
-                                            <a href="#"><img src="assets/img/s_300x250_5.jpg" /></a>
+                                            <a href="#"><img src="{dede:global.cfg_templets_skin /}/assets/img/s_300x250_4.jpg" /></a>
                                         </p>
                                         <p class="title">
-                                            <a href="#">测试测试标题</a>
+                                            <a href="#">测试测试试标题试标题44444</a>
                                         </p>
                                     </li>
-    						    </ul>
-    						</div>
-    						<div class="slide-pages">
-    							    <a href="#">1</a>
-    							    <a href="#" class="cur">2</a>
-    							    <a href="#">3</a>
-    							    <a href="#">4</a>
-    							    <a href="#">5</a>
-    							</div>
-    					</div>
-				    </div>
+                                    <li style="z-index: 1">
+                                        <p class="pic">
+                                            <a href="#"><img src="{dede:global.cfg_templets_skin /}/assets/img/s_300x250_5.jpg" /></a>
+                                        </p>
+                                        <p class="title">
+                                            <a href="#">测试测试试标题试标题5555</a>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="slide-pages">
+                                    <a href="#" class="cur">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                </div>
+                        </div>
+                        <script type="text/javascript">
+                            jQuery(function(){
+                                var slideShow = $('#slideShow'),
+                                    ul = slideShow.find('ul'),
+                                    li = ul.find('li'),
+                                    len = li.length,
+                                    page = slideShow.find('.slide-pages'),
+                                    a = page.find('a');
+                                var index = 0,
+                                    current = li.eq(0),
+                                    time = 5 * 1000,
+                                    animating = false,
+                                    st;
+
+                                a.each(function(i,v){
+                                    $(this).on('click',function(){
+                                        if($(this).hasClass('cur')) return;
+                                        if(animating) return;
+                                        clearTimeout(st);
+                                        index = i;
+                                        slide();
+                                    })
+                                })
+
+                                function slide(){
+                                    animating = true;
+                                    page.find('a.cur').removeClass('cur');
+                                    a.eq(index).addClass('cur');
+                                    //console.log(index);
+                                    li.eq(index).css('z-index',2);
+                                    current.css('z-index',3).animate({
+                                        opacity:0
+                                    },function(){
+                                        current.css({
+                                            'z-index':1,
+                                            'opacity':1
+                                        });
+                                        animating =false;
+                                        current = li.eq(index);
+                                        index ++;
+                                        if(index >= len) index = 0;
+                                        st = setTimeout(function(){
+                                            slide();
+                                        },time)
+                                    })
+                                }
+
+                                st = setTimeout(function(){
+                                    index ++ ;
+                                    slide();
+                                },time)
+                            });
+                        </script>
+                    </div>
 					<div class="mod-main commend pull-right">
 						<div class="mod-hd">
 							<strong>小学生热门作文</strong>
 						</div>
 						<div class="mod-bd">
 						    <div class="commend-list">
-						        <p class="commend-main">
-						            <a href="#">[测试推测试推荐荐]</a>
-						            <a href="#">[测试推荐测试荐]</a>
-						        </p>
-						        <p class="commend-sub">
-						            <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐荐</a>
-						        </p>
-                                <p class="commend-sub">
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测荐测试荐</a>
+                                <p class="commend-main">
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="0,2"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]]</a>
+                                    {/dede:arclist}
                                 </p>
                                 <p class="commend-sub">
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐测试荐测试荐</a>
-                                    <a href="#">推荐测荐测试荐</a>
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="2,2"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
                                 </p>
-						    </div>
+                                <p class="commend-sub">
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="4,3"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
+                                </p>
+                                <p class="commend-sub">
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="7,3"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
+                                </p>
+                            </div>
                             <div class="commend-list bd0">
                                 <p class="commend-main">
-                                    <a href="#">[测试推测试推荐荐]</a>
-                                    <a href="#">[测试推荐测试荐]</a>
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="10,2"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]]</a>
+                                    {/dede:arclist}
                                 </p>
                                 <p class="commend-sub">
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐荐</a>
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="12,2"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
                                 </p>
                                 <p class="commend-sub">
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测荐测试荐</a>
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="14,3"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
                                 </p>
                             </div>
 						</div>

@@ -58,38 +58,42 @@
 						</div>
 						<div class="mod-bd">
 						    <div class="commend-list">
-						        <p class="commend-main">
-						            <a href="#">[测试推测试推荐荐]</a>
-						            <a href="#">[测试推荐测试荐]</a>
-						        </p>
-						        <p class="commend-sub">
-						            <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐荐</a>
-						        </p>
-                                <p class="commend-sub">
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测荐测试荐</a>
+                                <p class="commend-main">
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="0,2"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]]</a>
+                                    {/dede:arclist}
                                 </p>
                                 <p class="commend-sub">
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐测试荐测试荐</a>
-                                    <a href="#">推荐测荐测试荐</a>
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="2,2"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
                                 </p>
-						    </div>
+                                <p class="commend-sub">
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="4,3"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
+                                </p>
+                                <p class="commend-sub">
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="7,3"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
+                                </p>
+                            </div>
                             <div class="commend-list bd0">
                                 <p class="commend-main">
-                                    <a href="#">[测试推测试推荐荐]</a>
-                                    <a href="#">[测试推荐测试荐]</a>
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="10,2"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]]</a>
+                                    {/dede:arclist}
                                 </p>
                                 <p class="commend-sub">
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐荐</a>
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="12,2"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
                                 </p>
                                 <p class="commend-sub">
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测试荐</a>
-                                    <a href="#">推荐测荐测试荐</a>
+                                    {dede:arclist row="10" orderby="click" flag="c" titlelen="60" limit="14,3"}
+                                    <a href="[field:arcurl/]" title="[field:title/]">[field:title function="(strlen('@me') > 20 ? cn_substr('@me',20).'…' : '@me')" /]</a>
+                                    {/dede:arclist}
                                 </p>
                             </div>
 						</div>
@@ -182,31 +186,21 @@
                     </div>
                     {/dede:channelartlist}
 			    </div>
+                <div class="sidebar catlog-side pull-right">
+                    <div class="mod-side">
+                        <div class="mod-hd">
+                            <strong class="entrance pull-left">{dede:field.typename /}作文排行榜</strong>
+                        </div>
+                        <div class="mod-bd">
+                            <ul class="mod-side-list">
+                                {dede:arclist row="10" orderby="click"}
+                                <li><a href="[field:arcurl/]">[field:title/]</a></li>
+                                {/dede:arclist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 			</div>
-			
-            <div class="layout">
-				<div class="mod-main sites">
-					<div class="mod-hd">
-					    <a href="#" class="entrance pull-left">友情链接</a>
-						<span class="more pull-right"><a href="#">申请合作</a> <a href="#">查看更多&raquo;</a></span>
-					</div>
-					<div class="mod-bd">
-						<ul>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-							<li><a href="#">友情链接</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		
 		</div>
 		{dede:include filename="footer.htm" /}
 	</body>
