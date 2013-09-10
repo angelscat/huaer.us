@@ -15,6 +15,7 @@
 					smtBtn = $('#smtBtn');
 				smtBtn.on('click',function(){
 					gbForm.submit();
+					return false;
 				})
 				gbForm.on('submit',function(){
 					var msgVal = $.trim(msg.val()),
