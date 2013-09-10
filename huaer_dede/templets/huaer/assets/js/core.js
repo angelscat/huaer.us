@@ -237,7 +237,7 @@ jQuery.fn.vdcodeChange = function(){
 	                id = target.attr('data-id') * 1,
 	                type = target.attr('data-type') * 1;
 				if(type === 3 && _this.callback){
-					console.log(_this.currentSchool, _this.currentGrade, _this.currentType)
+					// console.log(_this.currentSchool, _this.currentGrade, _this.currentType)
 					_this.callback(_this.currentSchool, _this.currentGrade, _this.currentType)
 					_this.hide();
 				}

@@ -16,6 +16,7 @@ jQuery(function(){
 	smtBtn.on('click',function(){
 		editorPoint.sync();  
 		articleForm.submit();
+		return false;
 	})
 
 	cancelBtn.on('click',function(){
