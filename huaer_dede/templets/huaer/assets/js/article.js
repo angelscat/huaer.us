@@ -38,11 +38,12 @@ jQuery(function(){
 		}else if($.trim(channel.val()) === '0'){
 			alert('请选择一个分类');
 			return false;
-		}else if($.trim(vdcode.val()) === ''){
-			alert('请填写验证码');
-			vdcode.focus();
-			return false;
 		}
+		// else if($.trim(vdcode.val()) === ''){
+		// 	alert('请填写验证码');
+		// 	vdcode.focus();
+		// 	return false;
+		// }
 
 
 	})
