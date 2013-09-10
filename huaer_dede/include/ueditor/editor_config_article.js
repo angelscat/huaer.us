@@ -210,7 +210,7 @@
         //,minFrameHeight:220  //编辑器拖动时最小高度,默认220
         //autoFloatEnabled
         //是否保持toolbar的位置不动,默认true
-        //,autoFloatEnabled:true
+        ,autoFloatEnabled:false
         //浮动时工具栏距离浏览器顶部的高度，用于某些具有固定头部的页面
         //,topOffset:30
         //indentValue
