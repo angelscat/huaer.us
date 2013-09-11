@@ -26,7 +26,6 @@ if(!defined('DEDEINC'))
 </attributes> 
 >>dede>>*/
  
-require_once(DEDEINC.'/enums.func.php');
 require_once(DEDEDATA.'/enums/nativeplace.php');
 
 function lib_memberinfos(&$ctag,&$refObj)
@@ -83,4 +82,19 @@ function lib_memberinfos(&$ctag,&$refObj)
         $revalue .= $ctp->GetResult();
     }
     return $revalue;
+}
+
+
+function GetEnumsTypes($v)
+{
+    $rearr['top'] = $rearr['son'] = 0;
+    if($v==0) return $rearr;
+    if($v%500==0) {
+        $rearr['top'] = $v;
+    }
+    else {
+        $rearr['son'] = $v;
+        $rearr['top'] = $v - ($v%500);
+    }
+    return $rearr;
 }
