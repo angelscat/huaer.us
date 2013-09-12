@@ -193,9 +193,9 @@ a.button-save-small:hover{background-position: -273px 0;}
 a.button-cancel-small{background-position:0 0; }
 a.button-cancel-small:hover{background-position: -200px 0;}
 a.button-yes-small{background-position:-83px -26px; color:#FFF;}
-a.button-yes-small:hover{background-position: -273px -26px;}
+a.button-yes-small:hover{background-position: -273px -26px; color: #FFF; text-decoration: none;}
 a.button-no-small{background-position:0 -26px; color:#333;}
-a.button-no-small:hover{background-position: -200px -26px;}
+a.button-no-small:hover{background-position: -200px -26px; color: #333; text-decoration: none;}
 a.button-search{display:inline-block; height:36px; width:36px; border:1px solid #E2E2E2; background:#F8F8F8 url(../img/search-btn.png) no-repeat center center;}
 a.button-search:hover{border:1px solid #CECECE; background-color:#F5F5F5;}
 a.button-search-small{height:26px; width:26px;}
@@ -266,6 +266,7 @@ a.button-search-small{height:26px; width:26px;}
 .footer{padding:20px 0; text-align:center; line-height:1.6; margin-top:30px;}
 .footer .links span{color:#ccc;}
 .footer .declare{font-size:12px; color:#999;}
+.tj{position: absolute; left: -9999em; top: -9999em;}
 
 /*mod*/
 .mod-main{border:1px solid #E1E3E6; background:#FFF;margin-bottom:10px;-moz-box-shadow:0 1px 2px #E1E3E6;-webkit-box-shadow:0 1px 2px #E1E3E6;box-shadow:0 1px 2px #E1E3E6;}
