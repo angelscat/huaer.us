@@ -251,7 +251,7 @@ if($step == 1)
                 $mailbody .= "欢迎注册成为[{$cfg_webname}]的会员。\r\n";
                 $mailbody .= "要通过注册，还必须进行最后一步操作，请点击或复制下面链接到地址栏访问这地址：\r\n\r\n";
                 $mailbody .= "{$url}\r\n\r\n";
-                $mailbody .= "Power by http://$cfg_cmspath {$cfg_webname}！\r\n";
+                $mailbody .= "Power by http://huaer.us {$cfg_webname}！\r\n";
           
                 $headers = "From: ".$cfg_adminemail."\r\nReply-To: ".$cfg_adminemail;
                 if($cfg_sendmail_bysmtp == 'Y' && !empty($cfg_smtp_server))
