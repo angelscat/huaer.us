@@ -14,6 +14,7 @@ jQuery(function(){
 	vdcodeImg.vdcodeChange();
 
 	smtBtn.on('click',function(){
+		if(smtBtn.hasClass('button-locked')) return;
 		editorPoint.sync();  
 		articleForm.submit();
 		return false;
@@ -40,6 +41,8 @@ jQuery(function(){
 			alert('请选择一个分类');
 			return false;
 		}
+		smtBtn.addClass('button-locked');
+		smtBtn.find('.button-text').text('正在提交...')
 		// else if($.trim(vdcode.val()) === ''){
 		// 	alert('请填写验证码');
 		// 	vdcode.focus();
