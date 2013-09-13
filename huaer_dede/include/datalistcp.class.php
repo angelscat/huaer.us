@@ -291,7 +291,7 @@ class DataListCP
             $listdd .= $j==$this->pageNO ? "<li class='thisclass'>$j</li>\n" : "<li><a href='".$purl."pageno=$j'>".$j."</a></li>\n";
         }
 
-        $plist = "<div class=\"pagelistbox\">\n";
+        $plist = "";
 
         //info,index,end,pre,next,pageno,form
         if(preg_match("#info#i",$atts['listitem']))
@@ -328,7 +328,7 @@ class DataListCP
             }
             $plist .= "</form>\n";
         }
-        $plist .= "</div>\n";
+        $plist .= "";
         return $plist;
     }
 
